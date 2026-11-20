@@ -1,0 +1,7 @@
+{
+  "suite": "C:\\Users\\charl\\anaconda3\\AgenticAI\\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\\experiments\\controlled\\cbis_repeated_v1",
+  "total_seeds": 5,
+  "fully_matched_seeds": 4,
+  "n_valid_pairs": 66,
+  "interpretation": "Within-seed bootstrap intervals are conditional on selected models and split; overlapping holdouts across seeds imply cross-seed summaries are descriptive, not confirmatory independent-replicate CIs. All holdout uses must stay out of model selection."
+}

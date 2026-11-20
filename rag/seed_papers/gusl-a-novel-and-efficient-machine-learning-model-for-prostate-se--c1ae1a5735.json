@@ -1,0 +1,20 @@
+{
+  "title": "GUSL: A Novel and Efficient Machine Learning Model for Prostate Segmentation on MRI",
+  "abstract": "Prostate and zonal segmentation is a crucial step for clinical diagnosis of prostate cancer (PCa). Computer-aided diagnosis tools for prostate segmentation are based on the deep learning (DL) paradigm. However, deep neural networks are perceived as \"black-box\" solutions by physicians, thus making them less practical for deployment in the clinical setting. In this paper, we introduce a feed-forward machine learning model, named Green U-shaped Learning (GUSL), suitable for medical image segmentation without backpropagation. GUSL introduces a multi-layer regression scheme for coarse-to-fine segmentation. Its feature extraction is based on a linear model, which enables seamless interpretability during feature extraction. Also, GUSL introduces a mechanism for attention on the prostate boundaries, which is an error-prone region, by employing regression to refine the predictions through residue correction. In addition, a two-step pipeline approach is used to mitigate the class imbalance, an issue inherent in medical imaging problems. After conducting experiments on two publicly available datasets and one private dataset, in both prostate gland and zonal segmentation tasks, GUSL achieves state-of-the-art performance among other DL-based models. Notably, GUSL features a very energy-efficient pipeline, since it has a model size several times smaller and less complexity than the rest of the solutions. In all datasets, GUSL achieved a Dice Similarity Coefficient (DSC) performance greater than $0.9$ for gland segmentation. Considering also its lightweight model size and transparency in feature extraction, it offers a competitive and practical package for medical imaging applications.",
+  "year": "2025",
+  "doi": "",
+  "url": "http://arxiv.org/abs/2506.23688v1",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/2506.23688v1",
+  "paper_key": "p_c1ae1a57350dee3ba366d587",
+  "aliases": [
+    "arxiv:2506.23688",
+    "title:guslanovelandefficientmachinelearningmodelforprostatesegmentationonmri"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_45fafa7930d33409.json"
+  ],
+  "evidence": []
+}

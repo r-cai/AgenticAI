@@ -1,0 +1,241 @@
+[
+  {
+    "candidate_id": "iter02_c1",
+    "iteration": 2,
+    "config": {
+      "rationale": "Test a soft voting ensemble with Gradient Boosting and Logistic Regression using moderate regularization (C=0.5) to balance bias and variance, avoiding the expensive RFE step from previous attempts.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "gb_reg",
+            "transforms": [],
+            "model": {
+              "name": "gradient_boosting",
+              "hyperparameters": {
+                "n_estimators": 100,
+                "learning_rate": 0.1,
+                "max_depth": 4,
+                "subsample": 0.8,
+                "min_samples_split": 2
+              }
+            }
+          },
+          {
+            "name": "lr_reg",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 0.5,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [],
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ]
+    },
+    "model_name": "composition:voting",
+    "mean_cv_score": 0.7042,
+    "std_cv_score": 0.019,
+    "fold_scores": [
+      0.7179,
+      0.7051,
+      0.6831,
+      0.6834,
+      0.7182,
+      0.7012,
+      0.7121,
+      0.7316,
+      0.7096,
+      0.708,
+      0.7233,
+      0.6974,
+      0.6558,
+      0.6919,
+      0.724
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.3799,
+    "cv_wall_time_seconds": 6.39,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0926,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter02_c2",
+    "iteration": 2,
+    "config": {
+      "rationale": "Use HistGradientBoosting with L2 regularization and early stopping, which is often more robust for small tabular datasets than standard Gradient Boosting.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": {
+        "name": "hist_gradient_boosting",
+        "hyperparameters": {
+          "max_iter": 100,
+          "learning_rate": 0.1,
+          "max_depth": 5,
+          "max_leaf_nodes": 31,
+          "l2_regularization": 0.1,
+          "early_stopping": true
+        }
+      },
+      "composition": null,
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "hist_gradient_boosting",
+    "mean_cv_score": 0.7155,
+    "std_cv_score": 0.0263,
+    "fold_scores": [
+      0.7719,
+      0.7052,
+      0.7108,
+      0.6932,
+      0.7078,
+      0.7162,
+      0.7103,
+      0.7373,
+      0.6962,
+      0.7446,
+      0.7524,
+      0.6993,
+      0.6717,
+      0.684,
+      0.7316
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.106,
+    "cv_wall_time_seconds": 2.0127,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0473,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter02_c3",
+    "iteration": 2,
+    "config": {
+      "rationale": "Diversify the voting ensemble by including Gradient Boosting and Extra Trees to capture non-linear interactions differently than the previous Random Forest + Logistic Regression pair, while maintaining standard preprocessing.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "gb_diverse",
+            "transforms": [],
+            "model": {
+              "name": "gradient_boosting",
+              "hyperparameters": {
+                "n_estimators": 100,
+                "learning_rate": 0.05,
+                "max_depth": 4,
+                "subsample": 0.8,
+                "min_samples_split": 2
+              }
+            }
+          },
+          {
+            "name": "et_diverse",
+            "transforms": [],
+            "model": {
+              "name": "extra_trees",
+              "hyperparameters": {
+                "n_estimators": 150,
+                "max_depth": 8,
+                "min_samples_split": 2,
+                "min_samples_leaf": 1,
+                "max_features": "sqrt"
+              }
+            }
+          },
+          {
+            "name": "lr_diverse",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 0.5,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "composition:voting",
+    "mean_cv_score": 0.7151,
+    "std_cv_score": 0.0132,
+    "fold_scores": [
+      0.7125,
+      0.7204,
+      0.722,
+      0.6846,
+      0.7093,
+      0.7167,
+      0.7344,
+      0.7396,
+      0.7015,
+      0.7066,
+      0.7287,
+      0.7217,
+      0.7083,
+      0.7076,
+      0.7126
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.6431,
+    "cv_wall_time_seconds": 11.3013,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0619,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  }
+]

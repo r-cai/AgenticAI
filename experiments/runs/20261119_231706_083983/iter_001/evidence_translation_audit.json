@@ -1,0 +1,70 @@
+[
+  {
+    "evidence_id": "ev_5294c787c1645c",
+    "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+    "status": "accepted",
+    "reason": null,
+    "matched_operations": [
+      "voting"
+    ],
+    "extraction_warnings": [],
+    "implemented_operation": "voting",
+    "implementation_choices": [
+      "median imputation is an engineering choice, not attributed to source",
+      "base learners are experiment design choices, not claimed paper settings"
+    ],
+    "candidate_fingerprint": "7e9e6747ce97d1d3d2f26c71b8f1d98b1ca5088d8667b01cf818fa98d898a3d9"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "evidence-linked candidate must be an actual Level-2 composition",
+    "fingerprint": "2a98d50a7e513a9b414aa8195724a8712a94a5ecc4061e1fbe655a72fa820640"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "pipeline_preflight_failed:ValueError:Unsupported rfe parameters: ['n_iter']",
+    "fingerprint": "5636c18297b0bb23bbe69cef0a34ffa458a950f32c051879a6e672018f9df154"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "pipeline_preflight_failed:ValueError:Unsupported rfe parameters: ['verbose']",
+    "fingerprint": "4a1927394e79aa413f30dc31f6bc55210e5e4dbfcba2931fec442934d0352434"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "source_does_not_support_used_operations:ev_67cadb757a26d2;source_does_not_support_used_operations:ev_892146c13f0a85",
+    "fingerprint": "da6dc0435bf7043b75abc72403bd510c3d5903f24176e7e49038e2fc7051d1e2"
+  },
+  {
+    "origin": "llm",
+    "status": "deferred",
+    "reason": "architecture_kind_diversity",
+    "kind": "voting",
+    "fingerprint": "6fff76d6c140434e86e080415b4318f6319df4568e3a6d2dc9aa6dda5c5a0bd8"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "source_does_not_support_used_operations:ev_67cadb757a26d2",
+    "fingerprint": "771e3da29ca650886d44ed90dfccd489786f7e4862dc7cb2312fb1beceea3e13"
+  },
+  {
+    "origin": "llm",
+    "status": "accepted",
+    "reason": "diversity_fallback",
+    "fingerprint": "6fff76d6c140434e86e080415b4318f6319df4568e3a6d2dc9aa6dda5c5a0bd8",
+    "kind": "voting"
+  },
+  {
+    "origin": "batch_budget",
+    "status": "summary",
+    "requested": 3,
+    "proposed_valid": 3,
+    "unfilled": 0,
+    "llm_calls": 5
+  }
+]

@@ -1,0 +1,42 @@
+[config] Loaded C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\controlled\cbis_repeated_v1\configs\82\B_rag_context_only.yaml
+Run 20261119_232216_868081
+[output] reports will be saved to C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\runs\20261119_232216_868081
+[data] optional excluded columns not present; skipped: ['id']
+Baseline (random_forest): CV 0.6972
+[rag] reusing frozen research/evidence corpus from C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\controlled\cbis_repeated_v1\frozen_corpus
+Research context: 25 item(s)
+Grounded method records: 12; eligible/diverse: 4
+
+=== Iteration 1 ===
+[generator] attempt=1 prompt_tokens=7956 output_tokens=1376
+[generator] attempt=1 prompt_tokens=8065 output_tokens=898
+[generator] attempt=1 prompt_tokens=8129 output_tokens=1415
+[generator] attempt=1 prompt_tokens=8190 output_tokens=1218
+[generator] attempt=1 prompt_tokens=8240 output_tokens=1227
+  iter01_c1 composition:voting: CV 0.7256 (+/- 0.0214, gap 0.0570)
+  iter01_c2 composition:voting: CV 0.7189 (+/- 0.0255, gap 0.0667)
+  iter01_c3 composition:pipeline: CV 0.7036 (+/- 0.0289, gap 0.0889)
+
+=== Iteration 2 ===
+[generator] attempt=1 prompt_tokens=8978 output_tokens=1199
+[generator] attempt=1 prompt_tokens=9148 output_tokens=1601
+  iter02_c1 composition:voting: CV 0.7213 (+/- 0.0238, gap 0.0293)
+  iter02_c2 logistic_regression: CV 0.7154 (+/- 0.0191, gap 0.0297)
+  iter02_c3 composition:voting: CV 0.7230 (+/- 0.0216, gap 0.0411)
+[controlled] completed 6 successfully evaluated candidates
+
+Selected iter01_c1 (composition:voting), CV 0.7256
+PDF report: experiments\runs\20261119_232216_868081\level2_experiment_report.pdf
+[report] Named latest: C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\reports\final_report_data-cbis-ddsm_B.json
+[report] Run archive:  C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\reports\final_report_data-cbis-ddsm_B_20261119_232216_868081.json
+
+============================================================
+Best: iter01_c1 (composition:voting)
+  CV f1_macro: 0.7256 +/- 0.0214
+  Baseline CV:    0.6972
+  Holdout:        0.6897 (CV-holdout gap +0.0359)
+Stopped: target_evaluated_candidates_reached after 2 iteration(s)
+Full report: experiments/runs/20261119_232216_868081/final_report.json
+Named report: experiments\reports\final_report_data-cbis-ddsm_B.json
+Archived copy: experiments\reports\final_report_data-cbis-ddsm_B_20261119_232216_868081.json
+PDF report:  experiments\runs\20261119_232216_868081\level2_experiment_report.pdf

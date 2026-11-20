@@ -1,0 +1,20 @@
+{
+  "title": "One-dimensional convolutional neural network model for breast cancer subtypes classification and biochemical content evaluation using micro-FTIR hyperspectral images",
+  "abstract": "Breast cancer treatment still remains a challenge, where molecular subtypes classification plays a crucial role in selecting appropriate and specific therapy. The four subtypes are Luminal A (LA), Luminal B (LB), HER2 subtype, and Triple-Negative Breast Cancer (TNBC). Immunohistochemistry is the gold-standard evaluation, although interobserver variations are reported and molecular signatures identification is time-consuming. Fourier transform infrared micro-spectroscopy with machine learning approaches have been used to evaluate cancer samples, presenting biochemical-related explainability. However, this explainability is harder when using deep learning. This study created a 1D deep learning tool for breast cancer subtype evaluation and biochemical contribution. Sixty hyperspectral images were acquired from a human breast cancer microarray. K-Means clustering was applied to select tissue and paraffin spectra. CaReNet-V1, a novel 1D convolutional neural network, was developed to classify breast cancer (CA) and adjacent tissue (AT), and molecular subtypes. A 1D adaptation of Grad-CAM was applied to assess the biochemical impact to the classifications. CaReNet-V1 effectively classified CA and AT (test accuracy of 0.89), as well as HER2 and TNBC subtypes (0.83 and 0.86), with greater difficulty for LA and LB (0.74 and 0.68). The model enabled the evaluation of the most contributing wavenumbers to the predictions, providing a direct relationship with the biochemical content. Therefore, CaReNet-V1 and hyperspectral images is a potential approach for breast cancer biopsies assessment, providing additional information to the pathology report. Biochemical content impact feature may be used for other studies, such as treatment efficacy evaluation and development new diagnostics and therapeutic methods.",
+  "year": "2023",
+  "doi": "",
+  "url": "http://arxiv.org/abs/2310.15094v1",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/2310.15094v1",
+  "paper_key": "p_c7710e04ff5de767dfdf88df",
+  "aliases": [
+    "arxiv:2310.15094",
+    "title:onedimensionalconvolutionalneuralnetworkmodelforbreastcancersubtypesclassificationandbiochemicalcontentevaluationusingmicroftirhyperspectralimages"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_2664bc65ed6f77c7.json"
+  ],
+  "evidence": []
+}

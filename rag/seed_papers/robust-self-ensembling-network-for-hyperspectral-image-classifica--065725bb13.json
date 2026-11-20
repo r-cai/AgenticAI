@@ -1,0 +1,20 @@
+{
+  "title": "Robust Self-Ensembling Network for Hyperspectral Image Classification",
+  "abstract": "Recent research has shown the great potential of deep learning algorithms in the hyperspectral image (HSI) classification task. Nevertheless, training these models usually requires a large amount of labeled data. Since the collection of pixel-level annotations for HSI is laborious and time-consuming, developing algorithms that can yield good performance in the small sample size situation is of great significance. In this study, we propose a robust self-ensembling network (RSEN) to address this problem. The proposed RSEN consists of two subnetworks including a base network and an ensemble network. With the constraint of both the supervised loss from the labeled data and the unsupervised loss from the unlabeled data, the base network and the ensemble network can learn from each other, achieving the self-ensembling mechanism. To the best of our knowledge, the proposed method is the first attempt to introduce the self-ensembling technique into the HSI classification task, which provides a different view on how to utilize the unlabeled data in HSI to assist the network training. We further propose a novel consistency filter to increase the robustness of self-ensembling learning. Extensive experiments on three benchmark HSI datasets demonstrate that the proposed algorithm can yield competitive performance compared with the state-of-the-art methods. Code is available online (\\url{https://github.com/YonghaoXu/RSEN}).",
+  "year": "2021",
+  "doi": "",
+  "url": "http://arxiv.org/abs/2104.03765v2",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/2104.03765v2",
+  "paper_key": "p_065725bb1319faca52e42731",
+  "aliases": [
+    "arxiv:2104.03765",
+    "title:robustselfensemblingnetworkforhyperspectralimageclassification"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_27a0cc576890c91f.json"
+  ],
+  "evidence": []
+}

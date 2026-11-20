@@ -1,0 +1,59 @@
+[
+  {
+    "candidate_id": "iter03_c1",
+    "iteration": 3,
+    "config": {
+      "rationale": "Test the hypothesis that a single HistGradientBoosting model with aggressive pruning and L2 regularization outperforms ensembles on this specific dataset, potentially avoiding ensemble instability.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "robust",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": {
+        "name": "hist_gradient_boosting",
+        "hyperparameters": {
+          "max_iter": 200,
+          "learning_rate": 0.05,
+          "max_depth": 3,
+          "max_leaf_nodes": 15,
+          "l2_regularization": 0.1,
+          "early_stopping": true
+        }
+      },
+      "composition": null,
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "hist_gradient_boosting",
+    "mean_cv_score": 0.9429,
+    "std_cv_score": 0.023,
+    "fold_scores": [
+      0.9416,
+      0.9402,
+      0.953,
+      0.9287,
+      0.9393,
+      0.9277,
+      0.9765,
+      0.8908,
+      0.9536,
+      0.9641,
+      0.965,
+      0.9762,
+      0.9173,
+      0.9518,
+      0.9183
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.1202,
+    "cv_wall_time_seconds": 2.132,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0508,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  }
+]

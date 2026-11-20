@@ -1,0 +1,10 @@
+[
+  {
+    "origin": "batch_budget",
+    "status": "summary",
+    "requested": 3,
+    "proposed_valid": 3,
+    "unfilled": 0,
+    "llm_calls": 1
+  }
+]

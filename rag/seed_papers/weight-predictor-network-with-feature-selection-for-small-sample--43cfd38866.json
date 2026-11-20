@@ -1,0 +1,115 @@
+{
+  "title": "Weight Predictor Network with Feature Selection for Small Sample Tabular Biomedical Data",
+  "abstract": "Tabular biomedical data is often high-dimensional but with a very small number of samples. Although recent work showed that well-regularised simple neural networks could outperform more sophisticated architectures on tabular data, they are still prone to overfitting on tiny datasets with many potentially irrelevant features. To combat these issues, we propose Weight Predictor Network with Feature Selection (WPFS) for learning neural networks from high-dimensional and small sample data by reducing the number of learnable parameters and simultaneously performing feature selection. In addition to the classification network, WPFS uses two small auxiliary networks that together output the weights of the first layer of the classification model. We evaluate on nine real-world biomedical datasets and demonstrate that WPFS outperforms other standard as well as more recent methods typically applied to tabular data. Furthermore, we investigate the proposed feature selection mechanism and show that it improves performance while providing useful insights into the learning task.",
+  "year": "2022",
+  "doi": "",
+  "url": "http://arxiv.org/abs/2211.15616v1",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/2211.15616v1",
+  "paper_key": "p_43cfd388667da713f5beaaab",
+  "aliases": [
+    "arxiv:2211.15616",
+    "title:weightpredictornetworkwithfeatureselectionforsmallsampletabularbiomedicaldata"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_e9932aad7326512c.json",
+    "/mnt/data/final_report(2).json",
+    "/mnt/data/final_report(3).json",
+    "/mnt/data/final_report(4).json",
+    "/mnt/data/final_report(5).json",
+    "/mnt/data/final_report_B.json",
+    "/mnt/data/final_report_C.json",
+    "/mnt/data/final_report_D.json"
+  ],
+  "evidence": [
+    {
+      "evidence_id": "ev_2d570e2b74da47",
+      "record": {
+        "evidence_id": "ev_2d570e2b74da47",
+        "paper_title": "Weight Predictor Network with Feature Selection for Small Sample Tabular Biomedical Data",
+        "paper_url": "http://arxiv.org/abs/2211.15616v1",
+        "paper_doi": null,
+        "paper_year": "2022",
+        "method": "Weight Predictor Network with Feature Selection (WPFS)",
+        "source_excerpt": "In addition to the classification network, WPFS uses two small auxiliary networks that together output the weights of the first layer of the classification model.",
+        "modeling_hypothesis": "WPFS reduces the number of learnable parameters and performs feature selection to improve performance on small sample tabular biomedical data.",
+        "suggested_operations": [],
+        "limitations": "",
+        "extraction_method": "llm_verified_excerpt",
+        "source_grounded": true
+      },
+      "verified": true,
+      "verification_reason": "excerpt_matches_stored_abstract",
+      "first_seen": "2026-11-20T00:32:32+00:00",
+      "provenance": [
+        "/mnt/data/final_report(2).json",
+        "/mnt/data/final_report(3).json",
+        "/mnt/data/final_report(4).json",
+        "/mnt/data/final_report(5).json",
+        "/mnt/data/final_report_B.json",
+        "/mnt/data/final_report_C.json",
+        "/mnt/data/final_report_D.json"
+      ]
+    },
+    {
+      "evidence_id": "ev_42f418e7dab419",
+      "record": {
+        "evidence_id": "ev_42f418e7dab419",
+        "paper_title": "Weight Predictor Network with Feature Selection for Small Sample Tabular Biomedical Data",
+        "paper_url": "http://arxiv.org/abs/2211.15616v1",
+        "paper_doi": null,
+        "paper_year": "2022",
+        "method": "Weight Predictor Network with Feature Selection (WPFS)",
+        "source_excerpt": "We evaluate on nine real-world biomedical datasets and demonstrate that WPFS outperforms other standard as well as more recent methods typically applied to tabular data.",
+        "modeling_hypothesis": "WPFS achieves better performance than standard and recent methods on tabular biomedical data with small sample sizes.",
+        "suggested_operations": [],
+        "limitations": "",
+        "extraction_method": "llm_verified_excerpt",
+        "source_grounded": true
+      },
+      "verified": true,
+      "verification_reason": "excerpt_matches_stored_abstract",
+      "first_seen": "2026-11-20T00:32:32+00:00",
+      "provenance": [
+        "/mnt/data/final_report(2).json",
+        "/mnt/data/final_report(3).json",
+        "/mnt/data/final_report(4).json",
+        "/mnt/data/final_report(5).json",
+        "/mnt/data/final_report_B.json",
+        "/mnt/data/final_report_C.json",
+        "/mnt/data/final_report_D.json"
+      ]
+    },
+    {
+      "evidence_id": "ev_892146c13f0a85",
+      "record": {
+        "evidence_id": "ev_892146c13f0a85",
+        "paper_title": "Weight Predictor Network with Feature Selection for Small Sample Tabular Biomedical Data",
+        "paper_url": "http://arxiv.org/abs/2211.15616v1",
+        "paper_doi": null,
+        "paper_year": "2022",
+        "method": "Weight Predictor Network with Feature Selection (WPFS)",
+        "source_excerpt": "Furthermore, we investigate the proposed feature selection mechanism and show that it improves performance while providing useful insights into the learning task.",
+        "modeling_hypothesis": "The feature selection mechanism in WPFS enhances model performance and offers insights into the learning task.",
+        "suggested_operations": [],
+        "limitations": "",
+        "extraction_method": "llm_verified_excerpt",
+        "source_grounded": true
+      },
+      "verified": true,
+      "verification_reason": "excerpt_matches_stored_abstract",
+      "first_seen": "2026-11-20T00:32:32+00:00",
+      "provenance": [
+        "/mnt/data/final_report(2).json",
+        "/mnt/data/final_report(3).json",
+        "/mnt/data/final_report(4).json",
+        "/mnt/data/final_report(5).json",
+        "/mnt/data/final_report_B.json",
+        "/mnt/data/final_report_C.json",
+        "/mnt/data/final_report_D.json"
+      ]
+    }
+  ]
+}

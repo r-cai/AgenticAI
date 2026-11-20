@@ -1,0 +1,20 @@
+{
+  "title": "Scalable and Robust Tensor Ring Decomposition for Large-scale Data",
+  "abstract": "Tensor ring (TR) decomposition has recently received increased attention due to its superior expressive performance for high-order tensors. However, the applicability of traditional TR decomposition algorithms to real-world applications is hindered by prevalent large data sizes, missing entries, and corruption with outliers. In this work, we propose a scalable and robust TR decomposition algorithm capable of handling large-scale tensor data with missing entries and gross corruptions. We first develop a novel auto-weighted steepest descent method that can adaptively fill the missing entries and identify the outliers during the decomposition process. Further, taking advantage of the tensor ring model, we develop a novel fast Gram matrix computation (FGMC) approach and a randomized subtensor sketching (RStS) strategy which yield significant reduction in storage and computational complexity. Experimental results demonstrate that the proposed method outperforms existing TR decomposition methods in the presence of outliers, and runs significantly faster than existing robust tensor completion algorithms.",
+  "year": "2023",
+  "doi": "",
+  "url": "http://arxiv.org/abs/2305.09044v1",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/2305.09044v1",
+  "paper_key": "p_0e1078856d8909564c940d54",
+  "aliases": [
+    "arxiv:2305.09044",
+    "title:scalableandrobusttensorringdecompositionforlargescaledata"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_2c43c5fd735aa0ab.json"
+  ],
+  "evidence": []
+}

@@ -1,0 +1,185 @@
+[
+  {
+    "candidate_id": "iter02_c1",
+    "iteration": 2,
+    "config": {
+      "rationale": "Test HistGradientBoosting with balanced class weights in a soft voting ensemble to leverage its efficiency on tabular data and better handle class balance.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 1.0,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "hgb",
+            "transforms": [],
+            "model": {
+              "name": "hist_gradient_boosting",
+              "hyperparameters": {
+                "max_iter": 150,
+                "learning_rate": 0.05,
+                "max_depth": 6,
+                "max_leaf_nodes": 31,
+                "l2_regularization": 0.0,
+                "early_stopping": false
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [],
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ]
+    },
+    "model_name": "composition:voting",
+    "mean_cv_score": 0.7264,
+    "std_cv_score": 0.038,
+    "fold_scores": [
+      0.7305,
+      0.6984,
+      0.7369,
+      0.7635,
+      0.6873,
+      0.716,
+      0.78,
+      0.74,
+      0.711,
+      0.6678,
+      0.7908,
+      0.6912,
+      0.7271,
+      0.7813,
+      0.6747
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.2302,
+    "cv_wall_time_seconds": 4.1444,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0475,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter02_c2",
+    "iteration": 2,
+    "config": {
+      "rationale": "Refine the voting ensemble by increasing regularization strength (lower C) in the Logistic Regression branch to test if stronger penalization complements the Random Forest and Gradient Boosting models better than the previous C=1.0 setting, addressing potential bias-variance trade-offs.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "rf_strict",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 200,
+                "max_depth": 5,
+                "min_samples_split": 2,
+                "min_samples_leaf": 4,
+                "max_features": "sqrt"
+              }
+            }
+          },
+          {
+            "name": "lr_strong_reg",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 0.1,
+                "solver": "lbfgs"
+              }
+            }
+          },
+          {
+            "name": "gb_strict",
+            "transforms": [],
+            "model": {
+              "name": "gradient_boosting",
+              "hyperparameters": {
+                "n_estimators": 100,
+                "learning_rate": 0.05,
+                "max_depth": 3,
+                "subsample": 0.8,
+                "min_samples_split": 2
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [],
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ]
+    },
+    "model_name": "composition:voting",
+    "mean_cv_score": 0.7313,
+    "std_cv_score": 0.0339,
+    "fold_scores": [
+      0.744,
+      0.7053,
+      0.7603,
+      0.745,
+      0.6997,
+      0.735,
+      0.7823,
+      0.7446,
+      0.711,
+      0.6679,
+      0.7925,
+      0.7027,
+      0.7342,
+      0.7568,
+      0.688
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.608,
+    "cv_wall_time_seconds": 10.6802,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0287,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  }
+]

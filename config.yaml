@@ -1,0 +1,41 @@
+seed: 42
+test_size: 0.2
+data:
+  exclude_columns:
+  - id
+  missing_exclusions: ignore
+cv:
+  folds: 5
+  repeats: 3
+  scoring: f1_macro
+  n_jobs: 1
+loop:
+  max_iterations: 3
+  candidates_per_iteration: 3
+  patience: 2
+  min_delta: 0.002
+  max_failures: 2
+  max_batch_rounds: 3
+agents:
+  generator:
+    model: qwen3.5:4b
+    temperature: 0.2
+  critic:
+    enabled: false
+    model: qwen3:4b
+    temperature: 0.2
+    think: false
+rag:
+  enabled: true
+  top_k: 5
+  timeout_sec: 60
+  planner_model: qwen3:4b
+evidence:
+  enabled: true
+  mode: llm
+  model: qwen3:4b
+  max_papers: 5
+evidence_composition:
+  enabled: true
+  reserve_slots: 1
+  allow_keyword: false

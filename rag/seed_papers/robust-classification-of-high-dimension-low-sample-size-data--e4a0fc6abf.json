@@ -1,0 +1,20 @@
+{
+  "title": "Robust Classification of High Dimension Low Sample Size Data",
+  "abstract": "The robustification of pattern recognition techniques has been the subject of intense research in recent years. Despite the multiplicity of papers on the subject, very few articles have deeply explored the topic of robust classification in the high dimension low sample size context. In this work, we explore and compare the predictive performances of robust classification techniques with a special concentration on robust discriminant analysis and robust PCA applied to a wide variety of large $p$ small $n$ data sets. We also explore the performance of random forest by way of comparing and contrasting the differences single model methods and ensemble methods in this context. Our work reveals that Random Forest, although not inherently designed to be robust to outliers, substantially outperforms the existing techniques specifically designed to achieve robustness. Indeed, random forest emerges as the best predictively on both real life and simulated data.",
+  "year": "2015",
+  "doi": "",
+  "url": "http://arxiv.org/abs/1501.00592v1",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/1501.00592v1",
+  "paper_key": "p_e4a0fc6abf182afee0ce0d10",
+  "aliases": [
+    "arxiv:1501.00592",
+    "title:robustclassificationofhighdimensionlowsamplesizedata"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_27a0cc576890c91f.json"
+  ],
+  "evidence": []
+}

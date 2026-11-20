@@ -1,0 +1,44 @@
+[config] Loaded C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\controlled\wdbc_repeated_v1\configs\52\A_no_rag.yaml
+Run 20261119_222114_347783
+[output] reports will be saved to C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\runs\20261119_222114_347783
+[data] optional excluded columns not present; skipped: ['id']
+Baseline (random_forest): CV 0.9511
+Research context: 0 item(s)
+Grounded method records: 0; eligible/diverse: 0
+
+=== Iteration 1 ===
+[generator] attempt=1 prompt_tokens=5892 output_tokens=714
+[generator] attempt=1 prompt_tokens=6125 output_tokens=761
+[generator] attempt=1 prompt_tokens=6185 output_tokens=868
+[generator] attempt=1 prompt_tokens=6243 output_tokens=786
+[generator] rejected candidate[0]: ValueError: Candidate references non-retrieved evidence: ['Wolfe2009:LogisticRegression is robust for high-dimensional data with many features relative to samples.']
+[generator] rejected candidate[1]: ValueError: Candidate references non-retrieved evidence: ['Chen2016:Gradient Boosting often outperforms Random Forest when tuned with lower learning rates to reduce overfitting.']
+[generator] rejected candidate[2]: ValueError: Candidate references non-retrieved evidence: ['Lundberg2016:Extra Trees provides a robust baseline for tabular data with consistent performance across datasets.']
+[generator] attempt=2 prompt_tokens=6414 output_tokens=887
+[generator] attempt=1 prompt_tokens=6302 output_tokens=667
+  iter01_c1 logistic_regression: CV 0.9702 (+/- 0.0160, gap 0.0111)
+  iter01_c2 extra_trees: CV 0.9339 (+/- 0.0246, gap 0.0132)
+  iter01_c3 gradient_boosting: CV 0.9512 (+/- 0.0170, gap 0.0488)
+
+=== Iteration 2 ===
+[generator] attempt=1 prompt_tokens=6542 output_tokens=1037
+  iter02_c1 random_forest: CV 0.9535 (+/- 0.0186, gap 0.0465)
+  iter02_c2 logistic_regression: CV 0.9609 (+/- 0.0141, gap 0.0231)
+  iter02_c3 composition:stacking: CV 0.9694 (+/- 0.0170, gap 0.0133)
+[controlled] completed 6 successfully evaluated candidates
+
+Selected iter01_c1 (logistic_regression), CV 0.9702
+PDF report: experiments\runs\20261119_222114_347783\level2_experiment_report.pdf
+[report] Named latest: C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\reports\final_report_data-3_A.json
+[report] Run archive:  C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\reports\final_report_data-3_A_20261119_222114_347783.json
+
+============================================================
+Best: iter01_c1 (logistic_regression)
+  CV f1_macro: 0.9702 +/- 0.0160
+  Baseline CV:    0.9511
+  Holdout:        0.9906 (CV-holdout gap -0.0204)
+Stopped: target_evaluated_candidates_reached after 2 iteration(s)
+Full report: experiments/runs/20261119_222114_347783/final_report.json
+Named report: experiments\reports\final_report_data-3_A.json
+Archived copy: experiments\reports\final_report_data-3_A_20261119_222114_347783.json
+PDF report:  experiments\runs\20261119_222114_347783\level2_experiment_report.pdf

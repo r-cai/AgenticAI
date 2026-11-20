@@ -1,0 +1,137 @@
+{
+  "source_archives": [
+    {
+      "archive": "AgenticResearchPipeline.zip",
+      "cache_batches": 12,
+      "paper_records_from_caches": 78,
+      "included_saved_run_research_or_evidence_files": 0
+    },
+    {
+      "archive": "AgenticResearchPipeline_EvidenceToExperiment_Level2.zip",
+      "cache_batches": 0,
+      "paper_records_from_caches": 0,
+      "included_saved_run_research_or_evidence_files": 0
+    },
+    {
+      "archive": "AgenticResearchPipeline_Level2_BudgetDiversity_CBIS_Fix.zip",
+      "cache_batches": 0,
+      "paper_records_from_caches": 0,
+      "included_saved_run_research_or_evidence_files": 0
+    },
+    {
+      "archive": "AgenticResearchPipeline_Level2_D_EmptyEvidence_Recovery_Fix.zip",
+      "cache_batches": 0,
+      "paper_records_from_caches": 0,
+      "included_saved_run_research_or_evidence_files": 0
+    },
+    {
+      "archive": "AgenticResearchPipeline_Level2_D_Guided_Design_Fix.zip",
+      "cache_batches": 0,
+      "paper_records_from_caches": 0,
+      "included_saved_run_research_or_evidence_files": 0
+    },
+    {
+      "archive": "AgenticResearchPipeline_Level2_ExperimentD.zip",
+      "cache_batches": 0,
+      "paper_records_from_caches": 0,
+      "included_saved_run_research_or_evidence_files": 0
+    },
+    {
+      "archive": "AgenticResearchPipeline_Level2_Generator_Fix.zip",
+      "cache_batches": 0,
+      "paper_records_from_caches": 0,
+      "included_saved_run_research_or_evidence_files": 0
+    },
+    {
+      "archive": "AgenticResearchPipeline_Level2_NamedReports_ABCD.zip",
+      "cache_batches": 0,
+      "paper_records_from_caches": 0,
+      "included_saved_run_research_or_evidence_files": 0
+    },
+    {
+      "archive": "Ruoxin_Level2.zip",
+      "cache_batches": 0,
+      "paper_records_from_caches": 0,
+      "included_saved_run_research_or_evidence_files": 0
+    }
+  ],
+  "source_reports": [
+    {
+      "report": "final_report(1).json",
+      "run_id": "20261119_140143_541577",
+      "evidence_records": 0,
+      "dataset": ".\\data\\data-2.csv"
+    },
+    {
+      "report": "final_report(2).json",
+      "run_id": "20261119_153006_757756",
+      "evidence_records": 11,
+      "dataset": "data/data-2.csv"
+    },
+    {
+      "report": "final_report(3).json",
+      "run_id": "20261119_154054_744841",
+      "evidence_records": 11,
+      "dataset": "data/data-2.csv"
+    },
+    {
+      "report": "final_report(4).json",
+      "run_id": "20261119_155243_067405",
+      "evidence_records": 12,
+      "dataset": "data/data-2.csv"
+    },
+    {
+      "report": "final_report(5).json",
+      "run_id": "20261119_164006_390307",
+      "evidence_records": 19,
+      "dataset": "data/data-2.csv"
+    },
+    {
+      "report": "final_report.json",
+      "run_id": "20261119_132602_394531",
+      "evidence_records": 15,
+      "dataset": ".\\data\\data-2.csv"
+    },
+    {
+      "report": "final_report_A.json",
+      "run_id": "20261119_174626_939554",
+      "evidence_records": 0,
+      "dataset": "data/data-2.csv"
+    },
+    {
+      "report": "final_report_B.json",
+      "run_id": "20261119_164958_320134",
+      "evidence_records": 19,
+      "dataset": "data/data-2.csv"
+    },
+    {
+      "report": "final_report_C.json",
+      "run_id": "20261119_174104_039524",
+      "evidence_records": 19,
+      "dataset": "data/data-2.csv"
+    },
+    {
+      "report": "final_report_D.json",
+      "run_id": "20261119_164006_390307",
+      "evidence_records": 19,
+      "dataset": "data/data-2.csv"
+    }
+  ],
+  "restored_counts": {
+    "papers_total": 85,
+    "papers_with_abstracts": 78,
+    "evidence_total": 32,
+    "evidence_excerpt_matched": 21,
+    "evidence_unverified": 11,
+    "provenance_links": 140
+  },
+  "scope_note": "Sources available to this ChatGPT session; run restore_literature --scan on Windows to import additional local historical runs.",
+  "verification_note": "excerpt_matches_stored_abstract only, not scientific proof of method applicability or efficacy",
+  "json_storage": {
+    "paper_file_count": 85,
+    "folder_under_agenticai": "RAG_Knowledge_Base/papers",
+    "format": "one human-readable UTF-8 JSON per paper",
+    "checks": "source/identifier structural metadata checks, plus exact excerpt matching and downstream method applicability validation",
+    "sqlite_usage": "rebuildable search/deduplication index"
+  }
+}

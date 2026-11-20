@@ -1,0 +1,220 @@
+{
+  "reasoning": "LLM-selected and validated evidence-guided composition choices",
+  "candidates": [
+    {
+      "rationale": "Test complementary linear and nonlinear decision boundaries using soft voting to leverage the dataset's near-balanced nature.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "none",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "branch_1",
+            "transforms": [
+              {
+                "op": "standard_scaler",
+                "params": {}
+              }
+            ],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 1.0,
+                "max_iter": 1500
+              }
+            }
+          },
+          {
+            "name": "branch_2",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 150,
+                "max_depth": 8,
+                "min_samples_leaf": 2
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "ev_5294c787c1645c"
+      ],
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ]
+    },
+    {
+      "rationale": "Apply Recursive Feature Elimination to reduce dimensionality from 49 features, aiming to improve generalization before final prediction.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "none",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "pipeline",
+        "transforms": [
+          {
+            "op": "standard_scaler",
+            "params": {}
+          },
+          {
+            "op": "rfe",
+            "params": {
+              "estimator": "logistic_regression",
+              "n_features_to_select": 10
+            }
+          }
+        ],
+        "branches": [],
+        "model": {
+          "name": "gradient_boosting",
+          "hyperparameters": {
+            "n_estimators": 150,
+            "max_depth": 5,
+            "learning_rate": 0.1
+          }
+        },
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "ev_67cadb757a26d2"
+      ],
+      "evidence_ids": [
+        "ev_67cadb757a26d2"
+      ]
+    },
+    {
+      "rationale": "Select the top 15 features based on Extra Trees importance scores to focus on the most discriminative signals in the micro-array data.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "none",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "pipeline",
+        "transforms": [
+          {
+            "op": "standard_scaler",
+            "params": {}
+          },
+          {
+            "op": "select_k_best",
+            "params": {
+              "k": 10
+            }
+          }
+        ],
+        "branches": [],
+        "model": {
+          "name": "extra_trees",
+          "hyperparameters": {
+            "n_estimators": 150,
+            "max_depth": 8,
+            "min_samples_leaf": 2
+          }
+        },
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "ev_892146c13f0a85"
+      ],
+      "evidence_ids": [
+        "ev_892146c13f0a85"
+      ]
+    }
+  ],
+  "candidate_origins": {
+    "47e13e67f0746131c022ef4131a74bf06e90914e34e00945625fac007e0616f8": "llm_evidence_design",
+    "3835f727b933e07421337e88c4cc2931bd15b60bba13fa9f30e8eacdf0db667e": "llm_evidence_design",
+    "0cbc030dcd69d405fdeaad6c41d262fcbd62c78c773b06f81cbd76d8b1f52ae9": "llm_evidence_design"
+  },
+  "candidate_evidence_mapping": {
+    "47e13e67f0746131c022ef4131a74bf06e90914e34e00945625fac007e0616f8": {
+      "method": "llm_evidence_grounded",
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ],
+      "trace": [
+        {
+          "evidence_id": "ev_5294c787c1645c",
+          "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+          "source_excerpt": "Majority Voting Classifier",
+          "supported_operations": [
+            "voting"
+          ],
+          "matched_executable_operations": [
+            "voting"
+          ],
+          "extraction_warnings": [],
+          "claim_scope": "operations_only_not_hyperparameters_or_whole_architecture"
+        }
+      ],
+      "implementation_choices": "Uncited architecture details and hyperparameters are LLM-proposed hypotheses, not proven settings from the cited papers"
+    },
+    "3835f727b933e07421337e88c4cc2931bd15b60bba13fa9f30e8eacdf0db667e": {
+      "method": "llm_evidence_grounded",
+      "evidence_ids": [
+        "ev_67cadb757a26d2"
+      ],
+      "trace": [
+        {
+          "evidence_id": "ev_67cadb757a26d2",
+          "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+          "source_excerpt": "Recursive Feature Elimination (RFE)",
+          "supported_operations": [
+            "rfe"
+          ],
+          "matched_executable_operations": [
+            "rfe"
+          ],
+          "extraction_warnings": [],
+          "claim_scope": "operations_only_not_hyperparameters_or_whole_architecture"
+        }
+      ],
+      "implementation_choices": "Uncited architecture details and hyperparameters are LLM-proposed hypotheses, not proven settings from the cited papers"
+    },
+    "0cbc030dcd69d405fdeaad6c41d262fcbd62c78c773b06f81cbd76d8b1f52ae9": {
+      "method": "llm_evidence_grounded",
+      "evidence_ids": [
+        "ev_892146c13f0a85"
+      ],
+      "trace": [
+        {
+          "evidence_id": "ev_892146c13f0a85",
+          "paper_title": "Weight Predictor Network with Feature Selection for Small Sample Tabular Biomedical Data",
+          "source_excerpt": "Furthermore, we investigate the proposed feature selection mechanism and show that it improves performance while providing useful insights into the learning task.",
+          "supported_operations": [
+            "select_k_best"
+          ],
+          "matched_executable_operations": [
+            "select_k_best"
+          ],
+          "extraction_warnings": [],
+          "claim_scope": "operations_only_not_hyperparameters_or_whole_architecture"
+        }
+      ],
+      "implementation_choices": "Uncited architecture details and hyperparameters are LLM-proposed hypotheses, not proven settings from the cited papers"
+    }
+  },
+  "generator_error": null
+}

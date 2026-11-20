@@ -1,0 +1,91 @@
+{
+  "title": "Developing a Machine Learning-Based Clinical Decision Support Tool for Uterine Tumor Imaging",
+  "abstract": "Uterine leiomyosarcoma (LMS) is a rare but aggressive malignancy. On imaging, it is difficult to differentiate LMS from, for example, degenerated leiomyoma (LM), a prevalent but benign condition. We curated a data set of 115 axial T2-weighted MRI images from 110 patients (mean [range] age=45 [17-81] years) with UTs that included five different tumor types. These data were randomly split stratifying on tumor volume into training (n=85) and test sets (n=30). An independent second reader (reader 2) provided manual segmentations for all test set images. To automate segmentation, we applied nnU-Net and explored the effect of training set size on performance by randomly generating subsets with 25, 45, 65 and 85 training set images. We evaluated the ability of radiomic features to distinguish between types of UT individually and when combined through feature selection and machine learning. Using the entire training set the mean [95% CI] fibroid DSC was measured as 0.87 [0.59-1.00] and the agreement between the two readers was 0.89 [0.77-1.0] on the test set. When classifying degenerated LM from LMS we achieve a test set F1-score of 0.80. Classifying UTs based on radiomic features we identify classifiers achieving F1-scores of 0.53 [0.45, 0.61] and 0.80 [0.80, 0.80] on the test set for the benign versus malignant, and degenerated LM versus LMS tasks. We show that it is possible to develop an automated method for 3D segmentation of the uterus and UT that is close to human-level performance with fewer than 150 annotated images. For distinguishing UT types, while we train models that merit further investigation with additional data, reliable automatic differentiation of UTs remains a challenge.",
+  "year": "2023",
+  "doi": "",
+  "url": "http://arxiv.org/abs/2308.10372v1",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/2308.10372v1",
+  "paper_key": "p_c12d5ca2e7a9f2a9e7c8c177",
+  "aliases": [
+    "arxiv:2308.10372",
+    "title:developingamachinelearningbasedclinicaldecisionsupporttoolforuterinetumorimaging"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_b0beb0c1b6bad18a.json",
+    "/mnt/data/final_report.json"
+  ],
+  "evidence": [
+    {
+      "evidence_id": "ev_540bb5b380aef1",
+      "record": {
+        "evidence_id": "ev_540bb5b380aef1",
+        "paper_title": "Developing a Machine Learning-Based Clinical Decision Support Tool for Uterine Tumor Imaging",
+        "paper_url": "http://arxiv.org/abs/2308.10372v1",
+        "paper_doi": null,
+        "paper_year": "2023",
+        "method": "nnU-Net",
+        "source_excerpt": "We applied nnU-Net and explored the effect of training set size on performance by randomly generating subsets with 25, 45, 65 and 85 training set images.",
+        "modeling_hypothesis": "nnU-Net can achieve near-human-level performance for 3D segmentation of the uterus and uterine tumors with fewer than 150 annotated images.",
+        "suggested_operations": [],
+        "limitations": "",
+        "extraction_method": "llm_verified_excerpt",
+        "source_grounded": true
+      },
+      "verified": true,
+      "verification_reason": "excerpt_matches_stored_abstract",
+      "first_seen": "2026-11-20T00:32:32+00:00",
+      "provenance": [
+        "/mnt/data/final_report.json"
+      ]
+    },
+    {
+      "evidence_id": "ev_24905bb7d707bc",
+      "record": {
+        "evidence_id": "ev_24905bb7d707bc",
+        "paper_title": "Developing a Machine Learning-Based Clinical Decision Support Tool for Uterine Tumor Imaging",
+        "paper_url": "http://arxiv.org/abs/2308.10372v1",
+        "paper_doi": null,
+        "paper_year": "2023",
+        "method": "radiomic features",
+        "source_excerpt": "We evaluated the ability of radiomic features to distinguish between types of UT individually and when combined through feature selection and machine learning.",
+        "modeling_hypothesis": "Radiomic features can distinguish between benign and malignant uterine tumors with an F1-score of 0.53 [0.45, 0.61] and between degenerated leiomyoma and leiomyosarcoma with an F1-score of 0.80 [0.80, 0.80].",
+        "suggested_operations": [],
+        "limitations": "",
+        "extraction_method": "llm_verified_excerpt",
+        "source_grounded": true
+      },
+      "verified": true,
+      "verification_reason": "excerpt_matches_stored_abstract",
+      "first_seen": "2026-11-20T00:32:32+00:00",
+      "provenance": [
+        "/mnt/data/final_report.json"
+      ]
+    },
+    {
+      "evidence_id": "ev_071d9e0c79d051",
+      "record": {
+        "evidence_id": "ev_071d9e0c79d051",
+        "paper_title": "Developing a Machine Learning-Based Clinical Decision Support Tool for Uterine Tumor Imaging",
+        "paper_url": "http://arxiv.org/abs/2308.10372v1",
+        "paper_doi": null,
+        "paper_year": "2023",
+        "method": "machine learning classifiers",
+        "source_excerpt": "Classifying UTs based on radiomic features we identify classifiers achieving F1-scores of 0.53 [0.45, 0.61] and 0.80 [0.80, 0.80] on the test set for the benign versus malignant, and degenerated LM versus LMS tasks.",
+        "modeling_hypothesis": "Machine learning classifiers using radiomic features can achieve F1-scores of 0.53 [0.45, 0.61] for benign versus malignant classification and 0.80 [0.80, 0.80] for degenerated leiomyoma versus leiomyosarcoma classification.",
+        "suggested_operations": [],
+        "limitations": "",
+        "extraction_method": "llm_verified_excerpt",
+        "source_grounded": true
+      },
+      "verified": true,
+      "verification_reason": "excerpt_matches_stored_abstract",
+      "first_seen": "2026-11-20T00:32:32+00:00",
+      "provenance": [
+        "/mnt/data/final_report.json"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+[
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "evidence-linked candidate must be an actual Level-2 composition",
+    "fingerprint": "d8bef69b18bd3234e76c794375ce4c1b10a22b04e25f032ff5ce812614b37f21"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "evidence-linked candidate must be an actual Level-2 composition",
+    "fingerprint": "7cdb59a63b1c65669842fbf83ff932d6643d70b02f7922c0e52e590201c7093a"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "source_does_not_support_used_operations:ev_892146c13f0a85",
+    "fingerprint": "15cef286d2bedd9eba12e1f5a8a02099bd5d7eeefb09a9269e8a28f9a8a90443"
+  },
+  {
+    "origin": "batch_budget",
+    "status": "summary",
+    "requested": 3,
+    "proposed_valid": 3,
+    "unfilled": 0,
+    "llm_calls": 3
+  }
+]

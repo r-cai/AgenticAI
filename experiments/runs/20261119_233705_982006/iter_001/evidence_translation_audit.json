@@ -1,0 +1,65 @@
+[
+  {
+    "evidence_id": "ev_5294c787c1645c",
+    "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+    "status": "accepted",
+    "reason": null,
+    "matched_operations": [
+      "voting"
+    ],
+    "extraction_warnings": [],
+    "implemented_operation": "voting",
+    "implementation_choices": [
+      "median imputation is an engineering choice, not attributed to source",
+      "base learners are experiment design choices, not claimed paper settings"
+    ],
+    "candidate_fingerprint": "7e9e6747ce97d1d3d2f26c71b8f1d98b1ca5088d8667b01cf818fa98d898a3d9"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "generator_schema_validation",
+    "batch_round": 1,
+    "attempt": 1,
+    "candidate_index": 0,
+    "error": "ValidationError: 1 validation error for Candidate\ncomposition\n  Value error, pipeline needs model, no branches/final_estimator [type=value_error, input_value={'kind': 'pipeline', 'tra...ms': [], 'branches': []}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/value_error"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "generator_schema_validation",
+    "batch_round": 1,
+    "attempt": 1,
+    "candidate_index": 1,
+    "error": "ValidationError: 1 validation error for Candidate\ncomposition\n  Value error, pipeline needs model, no branches/final_estimator [type=value_error, input_value={'kind': 'pipeline', 'tra...alse}}], 'branches': []}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/value_error"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "pipeline_preflight_failed:ValueError:Unsupported rfe parameters: ['verbose']",
+    "fingerprint": "631030a927408ee1f2e049965332ef09c0ded71a451d309960a44eef65e8f160"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "source_does_not_support_used_operations:ev_892146c13f0a85",
+    "fingerprint": "7f8e2538d2d5b5615c568cd8a4326b523cadb9ae649c56a187d5ea618835d8d4"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "generator_schema_validation",
+    "batch_round": 3,
+    "attempt": 1,
+    "candidate_index": 0,
+    "error": "ValidationError: 1 validation error for Candidate\ncomposition\n  Value error, ensembles require 2-3 model branches [type=value_error, input_value={'kind': 'stacking', 'tra...', 'passthrough': False}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/value_error"
+  },
+  {
+    "origin": "batch_budget",
+    "status": "summary",
+    "requested": 3,
+    "proposed_valid": 3,
+    "unfilled": 0,
+    "llm_calls": 3
+  }
+]

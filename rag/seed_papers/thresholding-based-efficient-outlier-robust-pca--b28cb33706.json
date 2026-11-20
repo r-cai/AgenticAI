@@ -1,0 +1,20 @@
+{
+  "title": "Thresholding based Efficient Outlier Robust PCA",
+  "abstract": "We consider the problem of outlier robust PCA (OR-PCA) where the goal is to recover principal directions despite the presence of outlier data points. That is, given a data matrix $M^*$, where $(1-α)$ fraction of the points are noisy samples from a low-dimensional subspace while $α$ fraction of the points can be arbitrary outliers, the goal is to recover the subspace accurately. Existing results for \\OR-PCA have serious drawbacks: while some results are quite weak in the presence of noise, other results have runtime quadratic in dimension, rendering them impractical for large scale applications. In this work, we provide a novel thresholding based iterative algorithm with per-iteration complexity at most linear in the data size. Moreover, the fraction of outliers, $α$, that our method can handle is tight up to constants while providing nearly optimal computational complexity for a general noise setting. For the special case where the inliers are obtained from a low-dimensional subspace with additive Gaussian noise, we show that a modification of our thresholding based method leads to significant improvement in recovery error (of the subspace) even in the presence of a large fraction of outliers.",
+  "year": "2017",
+  "doi": "",
+  "url": "http://arxiv.org/abs/1702.05571v1",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/1702.05571v1",
+  "paper_key": "p_b28cb33706c7d762db78c941",
+  "aliases": [
+    "arxiv:1702.05571",
+    "title:thresholdingbasedefficientoutlierrobustpca"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_2c43c5fd735aa0ab.json"
+  ],
+  "evidence": []
+}

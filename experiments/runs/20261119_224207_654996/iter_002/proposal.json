@@ -1,0 +1,76 @@
+{
+  "reasoning": "LLM-selected and validated evidence-guided composition choices LLM-selected and validated evidence-guided composition choices LLM-selected and validated evidence-guided composition choices LLM-selected and validated evidence-guided composition choices LLM-selected and validated evidence-guided composition choices",
+  "candidates": [
+    {
+      "rationale": "Utilize the feature selection mechanism described in small sample biomedical data studies to identify top-k features for Extra Trees, enhancing interpretability and generalization.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "none",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "pipeline",
+        "transforms": [
+          {
+            "op": "standard_scaler",
+            "params": {}
+          },
+          {
+            "op": "select_k_best",
+            "params": {
+              "k": 10
+            }
+          }
+        ],
+        "branches": [],
+        "model": {
+          "name": "extra_trees",
+          "hyperparameters": {
+            "n_estimators": 150,
+            "max_depth": 8,
+            "min_samples_leaf": 2
+          }
+        },
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "ev_892146c13f0a85"
+      ],
+      "evidence_ids": [
+        "ev_892146c13f0a85"
+      ]
+    }
+  ],
+  "candidate_origins": {
+    "0cbc030dcd69d405fdeaad6c41d262fcbd62c78c773b06f81cbd76d8b1f52ae9": "llm_evidence_design"
+  },
+  "candidate_evidence_mapping": {
+    "0cbc030dcd69d405fdeaad6c41d262fcbd62c78c773b06f81cbd76d8b1f52ae9": {
+      "method": "llm_evidence_grounded",
+      "evidence_ids": [
+        "ev_892146c13f0a85"
+      ],
+      "trace": [
+        {
+          "evidence_id": "ev_892146c13f0a85",
+          "paper_title": "Weight Predictor Network with Feature Selection for Small Sample Tabular Biomedical Data",
+          "source_excerpt": "Furthermore, we investigate the proposed feature selection mechanism and show that it improves performance while providing useful insights into the learning task.",
+          "supported_operations": [
+            "select_k_best"
+          ],
+          "matched_executable_operations": [
+            "select_k_best"
+          ],
+          "extraction_warnings": [],
+          "claim_scope": "operations_only_not_hyperparameters_or_whole_architecture"
+        }
+      ],
+      "implementation_choices": "Uncited architecture details and hyperparameters are LLM-proposed hypotheses, not proven settings from the cited papers"
+    }
+  },
+  "generator_error": null
+}

@@ -1,0 +1,198 @@
+[
+  {
+    "candidate_id": "iter02_c1",
+    "iteration": 2,
+    "config": {
+      "rationale": "Select the top k features based on feature selection mechanisms to improve performance in small sample biomedical data classification.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "none",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "pipeline",
+        "transforms": [
+          {
+            "op": "standard_scaler",
+            "params": {}
+          },
+          {
+            "op": "select_k_best",
+            "params": {
+              "k": 10
+            }
+          }
+        ],
+        "branches": [],
+        "model": {
+          "name": "svc",
+          "hyperparameters": {
+            "kernel": "rbf",
+            "C": 1.0,
+            "probability": false
+          }
+        },
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "ev_892146c13f0a85"
+      ],
+      "evidence_ids": [
+        "ev_892146c13f0a85"
+      ]
+    },
+    "model_name": "composition:pipeline",
+    "mean_cv_score": 0.6813,
+    "std_cv_score": 0.0269,
+    "fold_scores": [
+      0.6807,
+      0.6675,
+      0.6787,
+      0.7167,
+      0.6787,
+      0.6798,
+      0.7064,
+      0.711,
+      0.6701,
+      0.6414,
+      0.7174,
+      0.6391,
+      0.6679,
+      0.7204,
+      0.6441
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.0289,
+    "cv_wall_time_seconds": 1.6145,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0212,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm_evidence_design",
+    "evidence_mapping": {
+      "method": "llm_evidence_grounded",
+      "evidence_ids": [
+        "ev_892146c13f0a85"
+      ],
+      "trace": [
+        {
+          "evidence_id": "ev_892146c13f0a85",
+          "paper_title": "Weight Predictor Network with Feature Selection for Small Sample Tabular Biomedical Data",
+          "source_excerpt": "Furthermore, we investigate the proposed feature selection mechanism and show that it improves performance while providing useful insights into the learning task.",
+          "supported_operations": [
+            "select_k_best"
+          ],
+          "matched_executable_operations": [
+            "select_k_best"
+          ],
+          "extraction_warnings": [],
+          "claim_scope": "operations_only_not_hyperparameters_or_whole_architecture"
+        }
+      ],
+      "implementation_choices": "Uncited architecture details and hyperparameters are LLM-proposed hypotheses, not proven settings from the cited papers"
+    },
+    "error": null
+  },
+  {
+    "candidate_id": "iter02_c2",
+    "iteration": 2,
+    "config": {
+      "rationale": "Select top-k features using gradient boosting to reduce dimensionality from 49 to a smaller subset, leveraging the feature selection mechanism's ability to provide learning task insights.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "none",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "pipeline",
+        "transforms": [
+          {
+            "op": "standard_scaler",
+            "params": {}
+          },
+          {
+            "op": "select_k_best",
+            "params": {
+              "k": 10
+            }
+          }
+        ],
+        "branches": [],
+        "model": {
+          "name": "gradient_boosting",
+          "hyperparameters": {
+            "n_estimators": 150,
+            "max_depth": 5,
+            "learning_rate": 0.1
+          }
+        },
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "ev_892146c13f0a85"
+      ],
+      "evidence_ids": [
+        "ev_892146c13f0a85"
+      ]
+    },
+    "model_name": "composition:pipeline",
+    "mean_cv_score": 0.6821,
+    "std_cv_score": 0.0324,
+    "fold_scores": [
+      0.6831,
+      0.6359,
+      0.6847,
+      0.7213,
+      0.6823,
+      0.7054,
+      0.7238,
+      0.7056,
+      0.658,
+      0.6414,
+      0.722,
+      0.6485,
+      0.6703,
+      0.7194,
+      0.63
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.2532,
+    "cv_wall_time_seconds": 4.1073,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0233,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm_evidence_design",
+    "evidence_mapping": {
+      "method": "llm_evidence_grounded",
+      "evidence_ids": [
+        "ev_892146c13f0a85"
+      ],
+      "trace": [
+        {
+          "evidence_id": "ev_892146c13f0a85",
+          "paper_title": "Weight Predictor Network with Feature Selection for Small Sample Tabular Biomedical Data",
+          "source_excerpt": "Furthermore, we investigate the proposed feature selection mechanism and show that it improves performance while providing useful insights into the learning task.",
+          "supported_operations": [
+            "select_k_best"
+          ],
+          "matched_executable_operations": [
+            "select_k_best"
+          ],
+          "extraction_warnings": [],
+          "claim_scope": "operations_only_not_hyperparameters_or_whole_architecture"
+        }
+      ],
+      "implementation_choices": "Uncited architecture details and hyperparameters are LLM-proposed hypotheses, not proven settings from the cited papers"
+    },
+    "error": null
+  }
+]

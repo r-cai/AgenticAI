@@ -1,0 +1,20 @@
+{
+  "title": "Application of Transfer Learning and Ensemble Learning in Image-level Classification for Breast Histopathology",
+  "abstract": "Background: Breast cancer has the highest prevalence in women globally. The classification and diagnosis of breast cancer and its histopathological images have always been a hot spot of clinical concern. In Computer-Aided Diagnosis (CAD), traditional classification models mostly use a single network to extract features, which has significant limitations. On the other hand, many networks are trained and optimized on patient-level datasets, ignoring the application of lower-level data labels. Method: This paper proposes a deep ensemble model based on image-level labels for the binary classification of benign and malignant lesions of breast histopathological images. First, the BreaKHis dataset is randomly divided into a training, validation and test set. Then, data augmentation techniques are used to balance the number of benign and malignant samples. Thirdly, considering the performance of transfer learning and the complementarity between each network, VGG16, Xception, ResNet50, DenseNet201 are selected as the base classifiers. Result: In the ensemble network model with accuracy as the weight, the image-level binary classification achieves an accuracy of $98.90\\%$. In order to verify the capabilities of our method, the latest Transformer and Multilayer Perception (MLP) models have been experimentally compared on the same dataset. Our model wins with a $5\\%-20\\%$ advantage, emphasizing the ensemble model's far-reaching significance in classification tasks. Conclusion: This research focuses on improving the model's classification performance with an ensemble algorithm. Transfer learning plays an essential role in small datasets, improving training speed and accuracy. Our model has outperformed many existing approaches in accuracy, providing a method for the field of auxiliary medical diagnosis.",
+  "year": "2022",
+  "doi": "",
+  "url": "http://arxiv.org/abs/2204.08311v2",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/2204.08311v2",
+  "paper_key": "p_a25caf7c8e0e4445dbb69656",
+  "aliases": [
+    "arxiv:2204.08311",
+    "title:applicationoftransferlearningandensemblelearninginimagelevelclassificationforbreasthistopathology"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_27a0cc576890c91f.json"
+  ],
+  "evidence": []
+}

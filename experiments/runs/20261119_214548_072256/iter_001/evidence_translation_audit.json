@@ -1,0 +1,89 @@
+[
+  {
+    "evidence_id": "ev_5294c787c1645c",
+    "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+    "status": "accepted",
+    "reason": null,
+    "matched_operations": [
+      "voting"
+    ],
+    "extraction_warnings": [],
+    "implemented_operation": "voting",
+    "implementation_choices": [
+      "median imputation is an engineering choice, not attributed to source",
+      "base learners are experiment design choices, not claimed paper settings"
+    ],
+    "candidate_fingerprint": "7e9e6747ce97d1d3d2f26c71b8f1d98b1ca5088d8667b01cf818fa98d898a3d9"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "pipeline_preflight_failed:ValueError:Unsupported rfe parameters: ['verbose']",
+    "fingerprint": "d973340ef92832026ba77838c4ea875cc6849128017bd2f7bd3ff18959e7bd79"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "pipeline_preflight_failed:ValueError:Unsupported rfe parameters: ['verbose']",
+    "fingerprint": "b7f33e6a5bee5f08de304875b3e00c8dc08f2c91e882fd66045036cd94756dfd"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "evidence-linked candidate must be an actual Level-2 composition",
+    "fingerprint": "ad02f3f43c7dbc2df15ef427da6e1981e9f07a8b7f4d8d6f6ef3e0d924130fa8"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "source_does_not_support_used_operations:ev_67cadb757a26d2",
+    "fingerprint": "8417f4e676446bcfeccf631fc27ac90e9514b454a655c610cb010b8e5ae74a70"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "generator_schema_validation",
+    "batch_round": 3,
+    "attempt": 1,
+    "candidate_index": 1,
+    "error": "ValidationError: 1 validation error for Candidate\ncomposition\n  Value error, pipeline needs model, no branches/final_estimator [type=value_error, input_value={'kind': 'pipeline', 'tra...'final_estimator': None}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/value_error"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "source_does_not_support_used_operations:ev_67cadb757a26d2",
+    "fingerprint": "015d4fac96006e7d9135e5c09147bcce887e147d85f55095be87259ee6a09365"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "generator_schema_validation",
+    "batch_round": 4,
+    "attempt": 1,
+    "candidate_index": 0,
+    "error": "ValidationError: 1 validation error for Candidate\ncomposition\n  Value error, pipeline needs model, no branches/final_estimator [type=value_error, input_value={'kind': 'pipeline', 'tra... True}}], 'model': None}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/value_error"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "pipeline_preflight_failed:ValueError:Unsupported rfe parameters: ['verbose']",
+    "fingerprint": "b22a70ad55abb188f3f682a36556142ecbabf7c6ee3127800c16b588b41088a1"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "generator_schema_validation",
+    "batch_round": 5,
+    "attempt": 1,
+    "candidate_index": 0,
+    "error": "ValidationError: 1 validation error for Candidate\ncomposition\n  Value error, pipeline needs model, no branches/final_estimator [type=value_error, input_value={'kind': 'pipeline', 'tra...False}}], 'model': None}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/value_error"
+  },
+  {
+    "origin": "batch_budget",
+    "status": "summary",
+    "requested": 3,
+    "proposed_valid": 3,
+    "unfilled": 0,
+    "llm_calls": 5
+  }
+]

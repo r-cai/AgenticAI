@@ -1,0 +1,167 @@
+[
+  {
+    "candidate_id": "iter01_c1",
+    "iteration": 1,
+    "config": {
+      "rationale": "Test stronger regularization and class balancing for Logistic Regression to address the train-CV gap observed in the baseline RF model.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": {
+        "name": "logistic_regression",
+        "hyperparameters": {
+          "C": 0.5,
+          "solver": "lbfgs",
+          "max_iter": 1000,
+          "class_weight": "balanced"
+        }
+      },
+      "composition": null,
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "logistic_regression",
+    "mean_cv_score": 0.9741,
+    "std_cv_score": 0.0145,
+    "fold_scores": [
+      0.9768,
+      0.9762,
+      0.9525,
+      0.9762,
+      0.9768,
+      0.9654,
+      0.9882,
+      0.9654,
+      0.9518,
+      1.0,
+      0.9765,
+      0.9765,
+      1.0,
+      0.9762,
+      0.953
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.0181,
+    "cv_wall_time_seconds": 0.5157,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0091,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter01_c2",
+    "iteration": 1,
+    "config": {
+      "rationale": "Evaluate SVM with standard scaling and balanced weights. SVMs are sensitive to feature scales, making standardization critical for the RBF kernel performance, unlike the baseline which used no scaling.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": {
+        "name": "svc",
+        "hyperparameters": {
+          "C": 1.0,
+          "kernel": "rbf",
+          "gamma": "scale",
+          "class_weight": "balanced"
+        }
+      },
+      "composition": null,
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "svc",
+    "mean_cv_score": 0.9665,
+    "std_cv_score": 0.0134,
+    "fold_scores": [
+      0.9883,
+      0.953,
+      0.9646,
+      0.9536,
+      0.9768,
+      0.9883,
+      0.9536,
+      0.9654,
+      0.9525,
+      0.9882,
+      0.953,
+      0.965,
+      0.9765,
+      0.9646,
+      0.9536
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.0091,
+    "cv_wall_time_seconds": 0.3891,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0169,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter01_c3",
+    "iteration": 1,
+    "config": {
+      "rationale": "Test Logistic Regression with standard scaling and balanced class weights to improve generalization on imbalanced data compared to the baseline Random Forest.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": {
+        "name": "logistic_regression",
+        "hyperparameters": {
+          "C": 1.0,
+          "solver": "lbfgs",
+          "max_iter": 1000,
+          "class_weight": "balanced"
+        }
+      },
+      "composition": null,
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "logistic_regression",
+    "mean_cv_score": 0.9717,
+    "std_cv_score": 0.0156,
+    "fold_scores": [
+      0.9654,
+      0.9646,
+      0.9402,
+      0.9762,
+      0.9768,
+      0.9768,
+      0.9646,
+      0.9654,
+      0.9518,
+      0.9883,
+      0.9882,
+      0.9765,
+      1.0,
+      0.9882,
+      0.953
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.0142,
+    "cv_wall_time_seconds": 0.4023,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.014,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  }
+]

@@ -1,0 +1,194 @@
+{
+  "reasoning": "The baseline Random Forest (cv=0.6969) suffered from significant overfitting (train_cv_gap=0.1775). Iterative attempts with voting ensembles showed marginal gains but did not address the root cause of high variance or feature redundancy. The critic feedback is null, so we rely on the dataset profile: 49 features with a mix of low-variance binary indicators and moderate-variance counts. Evidence 'ev_67cadb757a26d2' supports using Recursive Feature Elimination (RFE) to reduce dimensionality before modeling, which is critical for small sample sizes (n=1252) relative to feature count. We propose two distinct paths: 1) A single Random Forest with aggressive regularization (high min_samples_leaf) and RFE preprocessing to combat overfitting. 2) A Soft Voting ensemble combining Logistic Regression and Gradient Boosting, where both branches utilize RFE to ensure consistent feature selection, leveraging evidence 'ev_5294c787c1645c' for the voting strategy. The baseline Random Forest (cv=0.697) and the previous voting ensemble (cv=0.708 with LR+GB) showed moderate performance but high train-CV gaps indicate overfitting or suboptimal regularization. The critic feedback is null, so we rely on literature evidence. Evidence 'ev_5294c787c1645c' supports voting ensembles for robustness. Evidence 'ev_67cadb757a26d2' suggests Recursive Feature Elimination (RFE) to handle the 49 features and reduce overfitting on small samples. Evidence 'ev_892146c13f0a85' supports feature selection mechanisms for small sample tabular data. We propose: 1) A single model with RFE to test if feature reduction improves generalization over the baseline RF without ensemble overhead. 2) An RFE-enhanced voting ensemble (LR+RF) to combine the robustness of ensembles with the dimensionality reduction benefit. 3) A Gradient Boosting model with a tuned learning rate and depth, as GB often outperforms RF on tabular data if tuned correctly, potentially paired with RFE. The previous iteration (iter01_c1) used a hard-voting ensemble with Logistic Regression and Random Forest, achieving 0.7071 CV score. The critic feedback indicates a validation error for pipeline structures in the schema context, so we will focus on valid Voting and Stacking architectures as per the retry instruction. To improve upon the baseline (0.6969) and the previous best voting ensemble (0.7071), we hypothesize that: 1) Soft voting is more robust to model disagreement than hard voting for this dataset size; 2) Adding a Gradient Boosting classifier provides complementary non-linear decision boundaries compared to linear/logistic models; 3) Using feature selection (RFE) within the preprocessing pipeline can reduce dimensionality and noise, addressing the high-dimensional nature of the data mentioned in the research context. The baseline Random Forest (cv=0.6969) and the previous voting ensemble (cv=0.7059-0.7088) show moderate performance with a small train/CV gap, suggesting some overfitting or suboptimal feature utilization. The literature on 'Weight Predictor Network with Feature Selection' suggests that for small sample tabular data, reducing learnable parameters via feature selection improves generalization. The previous voting ensemble used standard scaling but omitted specific feature selection steps like RFE which was cited in the microarray paper as effective for high-dimensional data. To improve diversity and address potential overfitting, we propose: 1) A single model with aggressive regularization (lower C) to test if simpler decision boundaries generalize better than the complex ensemble. 2) A voting ensemble incorporating a Recursive Feature Elimination pipeline branch to explicitly test the literature-backed feature selection hypothesis before modeling. The baseline Random Forest achieved a CV mean of 0.6969 with a high train/test gap (0.1775), indicating overfitting or suboptimal regularization. The previous voting ensemble (iter01_c2) using Logistic Regression and Gradient Boosting yielded 0.7059, which is an improvement but still leaves room for optimization. To address the small sample size (n=1252) and high dimensionality (n=49), we should incorporate feature selection to reduce noise. Evidence from 'ATwo-Stage Ensemble Feature Selection...' supports using Recursive Feature Elimination (RFE) combined with ensemble voting. We will design a pipeline that applies RFE before feeding data into an ensemble of complementary models (Logistic Regression and Extra Trees). This addresses the overfitting seen in the baseline by reducing feature count, while maintaining the ensemble structure proven effective in previous iterations.",
+  "candidates": [
+    {
+      "rationale": "Test source-grounded rfe as a registered Level-2 pipeline; examine CV benefit.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "none",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "pipeline",
+        "transforms": [
+          {
+            "op": "standard_scaler",
+            "params": {}
+          },
+          {
+            "op": "rfe",
+            "params": {
+              "n_features_to_select": 12,
+              "step": 1
+            }
+          }
+        ],
+        "branches": [],
+        "model": {
+          "name": "logistic_regression",
+          "hyperparameters": {
+            "max_iter": 1500,
+            "class_weight": "balanced"
+          }
+        },
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments"
+      ],
+      "evidence_ids": [
+        "ev_67cadb757a26d2"
+      ]
+    },
+    {
+      "rationale": "Improve ensemble robustness by switching from hard to soft voting and adding a Gradient Boosting branch to capture non-linear interactions better than Random Forest or Logistic Regression.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 1.0,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "rf",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 200,
+                "max_depth": 10,
+                "min_samples_split": 2,
+                "min_samples_leaf": 1,
+                "max_features": "sqrt",
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "gb",
+            "transforms": [],
+            "model": {
+              "name": "gradient_boosting",
+              "hyperparameters": {
+                "n_estimators": 100,
+                "learning_rate": 0.1,
+                "max_depth": 3,
+                "subsample": 0.8,
+                "min_samples_split": 2
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [],
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ]
+    },
+    {
+      "rationale": "Apply Recursive Feature Elimination (RFE) to reduce dimensionality and mitigate overfitting before feeding data into an ensemble of Logistic Regression and Extra Trees, supported by evidence for RFE usage in high-dimensional tabular data.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [
+          {
+            "op": "rfe",
+            "params": {
+              "estimator": "logistic_regression",
+              "n_features_to_select": 10
+            }
+          }
+        ],
+        "branches": [
+          {
+            "name": "lr_rfe",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 1.0,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "et_rfe",
+            "transforms": [],
+            "model": {
+              "name": "extra_trees",
+              "hyperparameters": {
+                "n_estimators": 200,
+                "max_depth": 10,
+                "min_samples_split": 2,
+                "min_samples_leaf": 1,
+                "max_features": "sqrt",
+                "class_weight": "balanced"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "http://arxiv.org/abs/2507.04251v1"
+      ],
+      "evidence_ids": [
+        "ev_67cadb757a26d2",
+        "ev_5294c787c1645c"
+      ]
+    }
+  ],
+  "candidate_origins": {
+    "c76aeaab1da09b5c92083fefedd203082838c9db9e273b15340682682502dd0e": "evidence_compiler",
+    "ebf4cde4a748cf299376cc18c6b3f79068f2b8f1a139d8a8d2b8ec714e2cb936": "llm",
+    "5967939a5c1515c5274059d336fa56e512da98685fc9067e4a3488d069260d42": "llm"
+  },
+  "candidate_evidence_mapping": {
+    "c76aeaab1da09b5c92083fefedd203082838c9db9e273b15340682682502dd0e": {
+      "evidence_id": "ev_67cadb757a26d2",
+      "implemented_operation": "rfe",
+      "implementation_choices": [
+        "median imputation is an engineering choice, not attributed to source",
+        "RFE uses logistic regression as selector; subset size is exploratory",
+        "classifier logistic_regression is chosen for test; paper may not specify it"
+      ]
+    }
+  },
+  "generator_error": null
+}

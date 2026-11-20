@@ -1,0 +1,20 @@
+{
+  "title": "Optical Transient Object Classification in Wide Field Small Aperture Telescopes with Neural Networks",
+  "abstract": "Wide field small aperture telescopes are working horses for fast sky surveying. Transient discovery is one of their main tasks. Classification of candidate transient images between real sources and artifacts with high accuracy is an important step for transient discovery. In this paper, we propose two transient classification methods based on neural networks. The first method uses the convolutional neural network without pooling layers to classify transient images with low sampling rate. The second method assumes transient images as one dimensional signals and is based on recurrent neural networks with long short term memory and leaky ReLu activation function in each detection layer. Testing with real observation data, we find that although these two methods can both achieve more than 94% classification accuracy, they have different classification properties for different targets. Based on this result, we propose to use the ensemble learning method to further increase the classification accuracy to more than 97%.",
+  "year": "2019",
+  "doi": "",
+  "url": "http://arxiv.org/abs/1904.12987v1",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/1904.12987v1",
+  "paper_key": "p_53674e4eb0a244d4581343dd",
+  "aliases": [
+    "arxiv:1904.12987",
+    "title:opticaltransientobjectclassificationinwidefieldsmallaperturetelescopeswithneuralnetworks"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_27a0cc576890c91f.json"
+  ],
+  "evidence": []
+}

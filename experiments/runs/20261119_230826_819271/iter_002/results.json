@@ -1,0 +1,197 @@
+[
+  {
+    "candidate_id": "iter02_c1",
+    "iteration": 2,
+    "config": {
+      "rationale": "Test stronger regularization for Logistic Regression to prevent overfitting and reduce the train-CV gap observed in iter01_c1.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": {
+        "name": "logistic_regression",
+        "hyperparameters": {
+          "C": 0.1,
+          "solver": "lbfgs",
+          "max_iter": 1000,
+          "class_weight": "balanced"
+        }
+      },
+      "composition": null,
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "logistic_regression",
+    "mean_cv_score": 0.9772,
+    "std_cv_score": 0.0119,
+    "fold_scores": [
+      0.9768,
+      0.9762,
+      0.9646,
+      0.9762,
+      0.9883,
+      0.9768,
+      0.9882,
+      0.9654,
+      0.9518,
+      1.0,
+      0.9765,
+      0.9882,
+      0.9883,
+      0.9762,
+      0.9646
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.016,
+    "cv_wall_time_seconds": 0.489,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0024,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter02_c2",
+    "iteration": 2,
+    "config": {
+      "rationale": "Combine Logistic Regression and Random Forest via soft voting to smooth decision boundaries and potentially improve generalization.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 1.0,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "rf",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 200,
+                "max_depth": 10,
+                "min_samples_split": 2,
+                "min_samples_leaf": 1,
+                "max_features": "sqrt",
+                "class_weight": "balanced"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "composition:voting",
+    "mean_cv_score": 0.9755,
+    "std_cv_score": 0.0166,
+    "fold_scores": [
+      1.0,
+      0.9518,
+      0.9525,
+      0.9765,
+      0.9883,
+      0.9768,
+      0.9641,
+      0.9768,
+      0.9518,
+      1.0,
+      0.9882,
+      0.9765,
+      0.9883,
+      0.9882,
+      0.953
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.3037,
+    "cv_wall_time_seconds": 5.3914,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.018,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter02_c3",
+    "iteration": 2,
+    "config": {
+      "rationale": "Evaluate Gradient Boosting with tuned hyperparameters and standard scaling, as it is a strong competitor for tabular data but was not explicitly tested in the history.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": {
+        "name": "gradient_boosting",
+        "hyperparameters": {
+          "n_estimators": 150,
+          "learning_rate": 0.05,
+          "max_depth": 4,
+          "subsample": 0.8,
+          "min_samples_split": 2
+        }
+      },
+      "composition": null,
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "gradient_boosting",
+    "mean_cv_score": 0.9544,
+    "std_cv_score": 0.0233,
+    "fold_scores": [
+      0.9883,
+      0.9162,
+      0.9061,
+      0.9423,
+      0.9765,
+      0.9536,
+      0.9277,
+      0.9883,
+      0.9518,
+      0.9646,
+      0.953,
+      0.953,
+      0.9768,
+      0.9646,
+      0.9525
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.704,
+    "cv_wall_time_seconds": 10.7906,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0456,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  }
+]

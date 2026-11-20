@@ -1,0 +1,28 @@
+[
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "source_does_not_support_used_operations:ev_67cadb757a26d2",
+    "fingerprint": "dde3f0086e122fdb0c11e34787a95b8d1ae79e7df3edf73eb4fceb873d81e115"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "pipeline_preflight_failed:ValueError:Unsupported rfe parameters: ['cv']",
+    "fingerprint": "3709bd210c7b49ff12ffca225a1edc928506586a802b30a14262404d1c7f5704"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "source_does_not_support_used_operations:ev_892146c13f0a85",
+    "fingerprint": "8830eaf74479130f7c076b78909acd50528fa7a218f210e8293ab9c1c331efeb"
+  },
+  {
+    "origin": "batch_budget",
+    "status": "summary",
+    "requested": 3,
+    "proposed_valid": 3,
+    "unfilled": 0,
+    "llm_calls": 2
+  }
+]

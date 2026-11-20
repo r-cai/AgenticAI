@@ -1,0 +1,20 @@
+{
+  "title": "Adnexal Mass Segmentation with Ultrasound Data Synthesis",
+  "abstract": "Ovarian cancer is the most lethal gynaecological malignancy. The disease is most commonly asymptomatic at its early stages and its diagnosis relies on expert evaluation of transvaginal ultrasound images. Ultrasound is the first-line imaging modality for characterising adnexal masses, it requires significant expertise and its analysis is subjective and labour-intensive, therefore open to error. Hence, automating processes to facilitate and standardise the evaluation of scans is desired in clinical practice. Using supervised learning, we have demonstrated that segmentation of adnexal masses is possible, however, prevalence and label imbalance restricts the performance on under-represented classes. To mitigate this we apply a novel pathology-specific data synthesiser. We create synthetic medical images with their corresponding ground truth segmentations by using Poisson image editing to integrate less common masses into other samples. Our approach achieves the best performance across all classes, including an improvement of up to 8% when compared with nnU-Net baseline approaches.",
+  "year": "2022",
+  "doi": "",
+  "url": "http://arxiv.org/abs/2209.12305v1",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/2209.12305v1",
+  "paper_key": "p_1ee78bcbd67ea60a2d7d1185",
+  "aliases": [
+    "arxiv:2209.12305",
+    "title:adnexalmasssegmentationwithultrasounddatasynthesis"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_45fafa7930d33409.json"
+  ],
+  "evidence": []
+}

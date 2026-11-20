@@ -1,0 +1,86 @@
+[
+  {
+    "candidate_id": "iter03_c1",
+    "iteration": 3,
+    "config": {
+      "rationale": "Test source-grounded select_k_best as a registered Level-2 pipeline; examine CV benefit.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "none",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "pipeline",
+        "transforms": [
+          {
+            "op": "standard_scaler",
+            "params": {}
+          },
+          {
+            "op": "select_k_best",
+            "params": {
+              "k": 15
+            }
+          }
+        ],
+        "branches": [],
+        "model": {
+          "name": "logistic_regression",
+          "hyperparameters": {
+            "max_iter": 1500,
+            "class_weight": "balanced"
+          }
+        },
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "Weight Predictor Network with Feature Selection for Small Sample Tabular Biomedical Data"
+      ],
+      "evidence_ids": [
+        "ev_892146c13f0a85"
+      ]
+    },
+    "model_name": "composition:pipeline",
+    "mean_cv_score": 0.6893,
+    "std_cv_score": 0.0258,
+    "fold_scores": [
+      0.7229,
+      0.6949,
+      0.688,
+      0.6439,
+      0.6906,
+      0.6771,
+      0.6562,
+      0.6761,
+      0.6944,
+      0.7073,
+      0.6899,
+      0.6991,
+      0.645,
+      0.7342,
+      0.7196
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.0228,
+    "cv_wall_time_seconds": 0.6379,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.018,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "evidence_compiler",
+    "evidence_mapping": {
+      "evidence_id": "ev_892146c13f0a85",
+      "implemented_operation": "select_k_best",
+      "implementation_choices": [
+        "median imputation is an engineering choice, not attributed to source",
+        "SelectKBest is an implementation of generic feature selection, not necessarily paper's selector",
+        "classifier logistic_regression is chosen for test; paper may not specify it"
+      ]
+    },
+    "error": null
+  }
+]

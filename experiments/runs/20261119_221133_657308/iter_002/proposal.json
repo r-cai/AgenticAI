@@ -1,0 +1,142 @@
+{
+  "reasoning": "LLM-selected and validated evidence-guided composition choices LLM-selected and validated evidence-guided composition choices LLM-selected and validated evidence-guided composition choices LLM-selected and validated evidence-guided composition choices LLM-selected and validated evidence-guided composition choices",
+  "candidates": [
+    {
+      "rationale": "Select the top K features based on feature importance from an Extra Trees model to reduce dimensionality and enhance interpretability.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "none",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "pipeline",
+        "transforms": [
+          {
+            "op": "standard_scaler",
+            "params": {}
+          },
+          {
+            "op": "select_k_best",
+            "params": {
+              "k": 10
+            }
+          }
+        ],
+        "branches": [],
+        "model": {
+          "name": "extra_trees",
+          "hyperparameters": {
+            "n_estimators": 150,
+            "max_depth": 8,
+            "min_samples_leaf": 2
+          }
+        },
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "ev_892146c13f0a85"
+      ],
+      "evidence_ids": [
+        "ev_892146c13f0a85"
+      ]
+    },
+    {
+      "rationale": "Apply feature selection to reduce dimensionality before training a gradient boosting model, addressing the small sample size constraints typical in tabular biomedical data.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "none",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "pipeline",
+        "transforms": [
+          {
+            "op": "standard_scaler",
+            "params": {}
+          },
+          {
+            "op": "select_k_best",
+            "params": {
+              "k": 10
+            }
+          }
+        ],
+        "branches": [],
+        "model": {
+          "name": "gradient_boosting",
+          "hyperparameters": {
+            "n_estimators": 150,
+            "max_depth": 5,
+            "learning_rate": 0.1
+          }
+        },
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "ev_892146c13f0a85"
+      ],
+      "evidence_ids": [
+        "ev_892146c13f0a85"
+      ]
+    }
+  ],
+  "candidate_origins": {
+    "0cbc030dcd69d405fdeaad6c41d262fcbd62c78c773b06f81cbd76d8b1f52ae9": "llm_evidence_design",
+    "800ff2840af1c481fa1830784a117697fbe552ea38da8998366eafbec76fae2c": "llm_evidence_design"
+  },
+  "candidate_evidence_mapping": {
+    "0cbc030dcd69d405fdeaad6c41d262fcbd62c78c773b06f81cbd76d8b1f52ae9": {
+      "method": "llm_evidence_grounded",
+      "evidence_ids": [
+        "ev_892146c13f0a85"
+      ],
+      "trace": [
+        {
+          "evidence_id": "ev_892146c13f0a85",
+          "paper_title": "Weight Predictor Network with Feature Selection for Small Sample Tabular Biomedical Data",
+          "source_excerpt": "Furthermore, we investigate the proposed feature selection mechanism and show that it improves performance while providing useful insights into the learning task.",
+          "supported_operations": [
+            "select_k_best"
+          ],
+          "matched_executable_operations": [
+            "select_k_best"
+          ],
+          "extraction_warnings": [],
+          "claim_scope": "operations_only_not_hyperparameters_or_whole_architecture"
+        }
+      ],
+      "implementation_choices": "Uncited architecture details and hyperparameters are LLM-proposed hypotheses, not proven settings from the cited papers"
+    },
+    "800ff2840af1c481fa1830784a117697fbe552ea38da8998366eafbec76fae2c": {
+      "method": "llm_evidence_grounded",
+      "evidence_ids": [
+        "ev_892146c13f0a85"
+      ],
+      "trace": [
+        {
+          "evidence_id": "ev_892146c13f0a85",
+          "paper_title": "Weight Predictor Network with Feature Selection for Small Sample Tabular Biomedical Data",
+          "source_excerpt": "Furthermore, we investigate the proposed feature selection mechanism and show that it improves performance while providing useful insights into the learning task.",
+          "supported_operations": [
+            "select_k_best"
+          ],
+          "matched_executable_operations": [
+            "select_k_best"
+          ],
+          "extraction_warnings": [],
+          "claim_scope": "operations_only_not_hyperparameters_or_whole_architecture"
+        }
+      ],
+      "implementation_choices": "Uncited architecture details and hyperparameters are LLM-proposed hypotheses, not proven settings from the cited papers"
+    }
+  },
+  "generator_error": null
+}

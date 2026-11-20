@@ -1,0 +1,244 @@
+[
+  {
+    "candidate_id": "iter02_c1",
+    "iteration": 2,
+    "config": {
+      "rationale": "Refine the successful LR+RF soft voting ensemble by increasing model capacity and switching to hard voting. Hard voting can be more stable for tabular data when individual models are strong, and increased estimators/deep trees allow better capture of complex non-linear interactions.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 1.0,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "rf",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 300,
+                "max_depth": 15,
+                "min_samples_split": 2,
+                "min_samples_leaf": 1,
+                "max_features": "sqrt",
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "gb",
+            "transforms": [],
+            "model": {
+              "name": "gradient_boosting",
+              "hyperparameters": {
+                "n_estimators": 200,
+                "learning_rate": 0.05,
+                "max_depth": 5,
+                "subsample": 0.8,
+                "min_samples_split": 2
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "hard",
+        "passthrough": false
+      },
+      "research_basis": [
+        "http://arxiv.org/abs/2507.04251v1"
+      ],
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ]
+    },
+    "model_name": "composition:voting",
+    "mean_cv_score": 0.963,
+    "std_cv_score": 0.0248,
+    "fold_scores": [
+      0.9646,
+      0.9883,
+      0.9525,
+      0.9416,
+      0.9882,
+      0.9525,
+      0.9765,
+      0.9883,
+      0.9762,
+      0.9061,
+      0.9646,
+      0.9882,
+      0.965,
+      0.9162,
+      0.9762
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 2.0439,
+    "cv_wall_time_seconds": 32.35,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.037,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter02_c2",
+    "iteration": 2,
+    "config": {
+      "rationale": "Test a single Gradient Boosting model with increased capacity (more estimators, deeper trees) to determine if it can outperform the ensemble without the complexity of combining models. Previous attempts used lower capacity settings.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "robust",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": {
+        "name": "gradient_boosting",
+        "hyperparameters": {
+          "n_estimators": 300,
+          "learning_rate": 0.05,
+          "max_depth": 6,
+          "subsample": 0.8,
+          "min_samples_split": 2
+        }
+      },
+      "composition": null,
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "gradient_boosting",
+    "mean_cv_score": 0.9606,
+    "std_cv_score": 0.0307,
+    "fold_scores": [
+      0.9525,
+      1.0,
+      0.9641,
+      0.9416,
+      0.9882,
+      0.9525,
+      0.9765,
+      0.9883,
+      0.9402,
+      0.8826,
+      0.9882,
+      0.9883,
+      0.9768,
+      0.9162,
+      0.9525
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 2.6055,
+    "cv_wall_time_seconds": 39.4183,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0394,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter02_c3",
+    "iteration": 2,
+    "config": {
+      "rationale": "Test a Soft Voting ensemble combining Logistic Regression and HistGradientBoostingClassifier. This diversifies from the previous LR+RF voting setup by using a different boosting algorithm, which may capture non-linear patterns differently.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 1.0,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "hgb",
+            "transforms": [],
+            "model": {
+              "name": "hist_gradient_boosting",
+              "hyperparameters": {
+                "max_iter": 100,
+                "learning_rate": 0.1,
+                "max_depth": 5,
+                "max_leaf_nodes": 31,
+                "l2_regularization": 0.0,
+                "early_stopping": false
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "composition:voting",
+    "mean_cv_score": 0.9733,
+    "std_cv_score": 0.0141,
+    "fold_scores": [
+      0.9641,
+      0.9768,
+      0.9646,
+      0.965,
+      0.9765,
+      0.953,
+      0.9765,
+      0.9883,
+      0.9762,
+      0.9882,
+      0.9882,
+      0.965,
+      0.9883,
+      0.9402,
+      0.9882
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.1476,
+    "cv_wall_time_seconds": 2.7297,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0267,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  }
+]

@@ -1,0 +1,284 @@
+[
+  {
+    "candidate_id": "iter02_c1",
+    "iteration": 2,
+    "config": {
+      "rationale": "Test source-grounded rfe as a registered Level-2 pipeline; examine CV benefit.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "none",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "pipeline",
+        "transforms": [
+          {
+            "op": "standard_scaler",
+            "params": {}
+          },
+          {
+            "op": "rfe",
+            "params": {
+              "n_features_to_select": 12,
+              "step": 1
+            }
+          }
+        ],
+        "branches": [],
+        "model": {
+          "name": "logistic_regression",
+          "hyperparameters": {
+            "max_iter": 1500,
+            "class_weight": "balanced"
+          }
+        },
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments"
+      ],
+      "evidence_ids": [
+        "ev_67cadb757a26d2"
+      ]
+    },
+    "model_name": "composition:pipeline",
+    "mean_cv_score": 0.6918,
+    "std_cv_score": 0.0196,
+    "fold_scores": [
+      0.6657,
+      0.6843,
+      0.7235,
+      0.6878,
+      0.676,
+      0.6984,
+      0.698,
+      0.722,
+      0.6674,
+      0.692,
+      0.6964,
+      0.7243,
+      0.6584,
+      0.6914,
+      0.6914
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.8323,
+    "cv_wall_time_seconds": 12.9257,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0279,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "evidence_compiler",
+    "evidence_mapping": {
+      "evidence_id": "ev_67cadb757a26d2",
+      "implemented_operation": "rfe",
+      "implementation_choices": [
+        "median imputation is an engineering choice, not attributed to source",
+        "RFE uses logistic regression as selector; subset size is exploratory",
+        "classifier logistic_regression is chosen for test; paper may not specify it"
+      ]
+    },
+    "error": null
+  },
+  {
+    "candidate_id": "iter02_c2",
+    "iteration": 2,
+    "config": {
+      "rationale": "Improve ensemble robustness by switching from hard to soft voting and adding a Gradient Boosting branch to capture non-linear interactions better than Random Forest or Logistic Regression.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 1.0,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "rf",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 200,
+                "max_depth": 10,
+                "min_samples_split": 2,
+                "min_samples_leaf": 1,
+                "max_features": "sqrt",
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "gb",
+            "transforms": [],
+            "model": {
+              "name": "gradient_boosting",
+              "hyperparameters": {
+                "n_estimators": 100,
+                "learning_rate": 0.1,
+                "max_depth": 3,
+                "subsample": 0.8,
+                "min_samples_split": 2
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [],
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ]
+    },
+    "model_name": "composition:voting",
+    "mean_cv_score": 0.7078,
+    "std_cv_score": 0.0191,
+    "fold_scores": [
+      0.7335,
+      0.6931,
+      0.6914,
+      0.6873,
+      0.7059,
+      0.7091,
+      0.7204,
+      0.726,
+      0.7059,
+      0.7159,
+      0.7268,
+      0.7173,
+      0.6639,
+      0.688,
+      0.732
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.7271,
+    "cv_wall_time_seconds": 12.7261,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0832,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter02_c3",
+    "iteration": 2,
+    "config": {
+      "rationale": "Apply Recursive Feature Elimination (RFE) to reduce dimensionality and mitigate overfitting before feeding data into an ensemble of Logistic Regression and Extra Trees, supported by evidence for RFE usage in high-dimensional tabular data.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [
+          {
+            "op": "rfe",
+            "params": {
+              "estimator": "logistic_regression",
+              "n_features_to_select": 10
+            }
+          }
+        ],
+        "branches": [
+          {
+            "name": "lr_rfe",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 1.0,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "et_rfe",
+            "transforms": [],
+            "model": {
+              "name": "extra_trees",
+              "hyperparameters": {
+                "n_estimators": 200,
+                "max_depth": 10,
+                "min_samples_split": 2,
+                "min_samples_leaf": 1,
+                "max_features": "sqrt",
+                "class_weight": "balanced"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "http://arxiv.org/abs/2507.04251v1"
+      ],
+      "evidence_ids": [
+        "ev_67cadb757a26d2",
+        "ev_5294c787c1645c"
+      ]
+    },
+    "model_name": "composition:voting",
+    "mean_cv_score": 0.6881,
+    "std_cv_score": 0.0197,
+    "fold_scores": [
+      0.6746,
+      0.6688,
+      0.7076,
+      0.676,
+      0.6757,
+      0.7201,
+      0.698,
+      0.7224,
+      0.6638,
+      0.6909,
+      0.6878,
+      0.7179,
+      0.6699,
+      0.6679,
+      0.6795
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.9082,
+    "cv_wall_time_seconds": 14.9569,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0434,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  }
+]

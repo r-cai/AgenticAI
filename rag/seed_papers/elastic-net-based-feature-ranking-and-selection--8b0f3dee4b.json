@@ -1,0 +1,72 @@
+{
+  "title": "Elastic Net based Feature Ranking and Selection",
+  "abstract": "Feature selection is important in data representation and intelligent diagnosis. Elastic net is one of the most widely used feature selectors. However, the features selected are dependant on the training data, and their weights dedicated for regularized regression are irrelevant to their importance if used for feature ranking, that degrades the model interpretability and extension. In this study, an intuitive idea is put at the end of multiple times of data splitting and elastic net based feature selection. It concerns the frequency of selected features and uses the frequency as an indicator of feature importance. After features are sorted according to their frequency, linear support vector machine performs the classification in an incremental manner. At last, a compact subset of discriminative features is selected by comparing the prediction performance. Experimental results on breast cancer data sets (BCDR-F03, WDBC, GSE 10810, and GSE 15852) suggest that the proposed framework achieves competitive or superior performance to elastic net and with consistent selection of fewer features. How to further enhance its consistency on high-dimension small-sample-size data sets should be paid more attention in our future work. The proposed framework is accessible online (https://github.com/NicoYuCN/elasticnetFR).",
+  "year": "2020",
+  "doi": "",
+  "url": "http://arxiv.org/abs/2012.14982v1",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/2012.14982v1",
+  "paper_key": "p_8b0f3dee4b2a4c775a7b82db",
+  "aliases": [
+    "arxiv:2012.14982",
+    "title:elasticnetbasedfeaturerankingandselection"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_e9932aad7326512c.json",
+    "/mnt/data/final_report(4).json"
+  ],
+  "evidence": [
+    {
+      "evidence_id": "ev_3451fb0a22544b",
+      "record": {
+        "evidence_id": "ev_3451fb0a22544b",
+        "paper_title": "Elastic Net based Feature Ranking and Selection",
+        "paper_url": "http://arxiv.org/abs/2012.14982v1",
+        "paper_doi": null,
+        "paper_year": "2020",
+        "method": "frequency_based_feature_ranking",
+        "source_excerpt": "It concerns the frequency of selected features and uses the frequency as an indicator of feature importance.",
+        "modeling_hypothesis": "Frequency of selected features indicates feature importance",
+        "suggested_operations": [
+          "select_k_best"
+        ],
+        "limitations": "",
+        "extraction_method": "llm_verified_excerpt",
+        "source_grounded": true
+      },
+      "verified": true,
+      "verification_reason": "excerpt_matches_stored_abstract",
+      "first_seen": "2026-11-20T00:32:32+00:00",
+      "provenance": [
+        "/mnt/data/final_report(4).json"
+      ]
+    },
+    {
+      "evidence_id": "ev_19c0392282e5ac",
+      "record": {
+        "evidence_id": "ev_19c0392282e5ac",
+        "paper_title": "Elastic Net based Feature Ranking and Selection",
+        "paper_url": "http://arxiv.org/abs/2012.14982v1",
+        "paper_doi": null,
+        "paper_year": "2020",
+        "method": "incremental_svm_classification",
+        "source_excerpt": "linear support vector machine performs the classification in an incremental manner",
+        "modeling_hypothesis": "Linear SVM can be used for incremental classification",
+        "suggested_operations": [
+          "svc"
+        ],
+        "limitations": "",
+        "extraction_method": "llm_verified_excerpt",
+        "source_grounded": true
+      },
+      "verified": true,
+      "verification_reason": "excerpt_matches_stored_abstract",
+      "first_seen": "2026-11-20T00:32:32+00:00",
+      "provenance": [
+        "/mnt/data/final_report(4).json"
+      ]
+    }
+  ]
+}

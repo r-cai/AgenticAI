@@ -1,0 +1,20 @@
+{
+  "title": "Optimizing Sparse Generalized Singular Vectors for Feature Selection in Proximal Support Vector Machines with Application to Breast and Ovarian Cancer Detection",
+  "abstract": "This paper presents approaches to compute sparse solutions of Generalized Singular Value Problem (GSVP). The GSVP is regularized by $\\ell_1$-norm and $\\ell_q$-penalty for $0<q<1$, resulting in the $\\ell_1$-GSVP and $\\ell_q$-GSVP formulations. The solutions of these problems are determined by applying the proximal gradient descent algorithm with a fixed step size. The inherent sparsity levels within the computed solutions are exploited for feature selection, and subsequently, binary classification with non-parallel Support Vector Machines (SVM). For our feature selection task, SVM is integrated into the $\\ell_1$-GSVP and $\\ell_q$-GSVP frameworks to derive the $\\ell_1$-GSVPSVM and $\\ell_q$-GSVPSVM variants. Machine learning applications to cancer detection are considered. We remarkably report near-to-perfect balanced accuracy across breast and ovarian cancer datasets using a few selected features.",
+  "year": "2024",
+  "doi": "",
+  "url": "http://arxiv.org/abs/2410.03978v1",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/2410.03978v1",
+  "paper_key": "p_d4e0cab4e288c85c6c346bea",
+  "aliases": [
+    "arxiv:2410.03978",
+    "title:optimizingsparsegeneralizedsingularvectorsforfeatureselectioninproximalsupportvectormachineswithapplicationtobreastandovariancancerdetection"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_2664bc65ed6f77c7.json"
+  ],
+  "evidence": []
+}

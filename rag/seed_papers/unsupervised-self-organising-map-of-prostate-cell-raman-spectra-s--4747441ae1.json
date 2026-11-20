@@ -1,0 +1,20 @@
+{
+  "title": "Unsupervised self-organising map of prostate cell Raman spectra shows disease-state subclustering",
+  "abstract": "Prostate cancer is a disease which poses an interesting clinical question: should it be treated? A small subset of prostate cancers are aggressive and require removal and treatment to prevent metastatic spread. However, conventional diagnostics remain challenged to risk-stratify such patients, hence, new methods of approach to biomolecularly subclassify the disease are needed. Here we use an unsupervised, self-organising map approach to analyse live-cell Raman spectroscopy data obtained from prostate cell-lines; our aim is to test the feasibility of this method to differentiate, at the single-cell-level, cancer from normal using high-dimensional datasets with minimal preprocessing. The results demonstrate not only successful separation of normal prostate and cancer cells, but also a new subclustering of the prostate cancer cell-line into two groups. Initial analysis of the spectra from each of the cancer subclusters demonstrates a differential expression of lipids, which, against the normal control, may be linked to disease-related changes in cellular signalling.",
+  "year": "2024",
+  "doi": "",
+  "url": "http://arxiv.org/abs/2403.07960v1",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/2403.07960v1",
+  "paper_key": "p_4747441ae1e459b2cfff4aab",
+  "aliases": [
+    "arxiv:2403.07960",
+    "title:unsupervisedselforganisingmapofprostatecellramanspectrashowsdiseasestatesubclustering"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_2287dcd19a001ea2.json"
+  ],
+  "evidence": []
+}

@@ -1,0 +1,77 @@
+{
+  "reasoning": "LLM-selected and validated evidence-guided composition choices LLM-selected and validated evidence-guided composition choices LLM-selected and validated evidence-guided composition choices LLM-selected and validated evidence-guided composition choices LLM-selected and validated evidence-guided composition choices",
+  "candidates": [
+    {
+      "rationale": "Apply Recursive Feature Elimination to reduce dimensionality from 49 features, aiming for a subset of 15 critical features before final classification.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "none",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "pipeline",
+        "transforms": [
+          {
+            "op": "standard_scaler",
+            "params": {}
+          },
+          {
+            "op": "rfe",
+            "params": {
+              "estimator": "logistic_regression",
+              "n_features_to_select": 10
+            }
+          }
+        ],
+        "branches": [],
+        "model": {
+          "name": "random_forest",
+          "hyperparameters": {
+            "n_estimators": 150,
+            "max_depth": 8,
+            "min_samples_leaf": 2
+          }
+        },
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "ev_67cadb757a26d2"
+      ],
+      "evidence_ids": [
+        "ev_67cadb757a26d2"
+      ]
+    }
+  ],
+  "candidate_origins": {
+    "8b6c14e7dd8632a9e0a4cf12aa2d18115711da355bbd6f67a2c32411c8744b42": "llm_evidence_design"
+  },
+  "candidate_evidence_mapping": {
+    "8b6c14e7dd8632a9e0a4cf12aa2d18115711da355bbd6f67a2c32411c8744b42": {
+      "method": "llm_evidence_grounded",
+      "evidence_ids": [
+        "ev_67cadb757a26d2"
+      ],
+      "trace": [
+        {
+          "evidence_id": "ev_67cadb757a26d2",
+          "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+          "source_excerpt": "Recursive Feature Elimination (RFE)",
+          "supported_operations": [
+            "rfe"
+          ],
+          "matched_executable_operations": [
+            "rfe"
+          ],
+          "extraction_warnings": [],
+          "claim_scope": "operations_only_not_hyperparameters_or_whole_architecture"
+        }
+      ],
+      "implementation_choices": "Uncited architecture details and hyperparameters are LLM-proposed hypotheses, not proven settings from the cited papers"
+    }
+  },
+  "generator_error": null
+}

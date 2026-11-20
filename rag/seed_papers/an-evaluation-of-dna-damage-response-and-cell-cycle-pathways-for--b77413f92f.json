@@ -1,0 +1,20 @@
+{
+  "title": "An evaluation of DNA-damage response and cell-cycle pathways for breast cancer classification",
+  "abstract": "Accurate subtyping or classification of breast cancer is important for ensuring proper treatment of patients and also for understanding the molecular mechanisms driving this disease. While there have been several gene signatures proposed in the literature to classify breast tumours, these signatures show very low overlaps, different classification performance, and not much relevance to the underlying biology of these tumours. Here we evaluate DNA-damage response (DDR) and cell cycle pathways, which are critical pathways implicated in a considerable proportion of breast tumours, for their usefulness and ability in breast tumour subtyping. We think that subtyping breast tumours based on these two pathways could lead to vital insights into molecular mechanisms driving these tumours. Here, we performed a systematic evaluation of DDR and cell-cycle pathways for subtyping of breast tumours into the five known intrinsic subtypes. Homologous Recombination (HR) pathway showed the best performance in subtyping breast tumours, indicating that HR genes are strongly involved in all breast tumours. Comparisons of pathway based signatures and two standard gene signatures supported the use of known pathways for breast tumour subtyping. Further, the evaluation of these standard gene signatures showed that breast tumour subtyping, prognosis and survival estimation are all closely related. Finally, we constructed an all-inclusive super-signature by combining (union of) all genes and performing a stringent feature selection, and found it to be reasonably accurate and robust in classification as well as prognostic value. Adopting DDR and cell cycle pathways for breast tumour subtyping achieved robust and accurate breast tumour subtyping, and constructing a super-signature which contains feature selected mix of genes from these molecular pathways as well as clinical aspects is valuable in clinical practice.",
+  "year": "2015",
+  "doi": "",
+  "url": "http://arxiv.org/abs/1505.04846v1",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/1505.04846v1",
+  "paper_key": "p_b77413f92f7d7c83d2e61624",
+  "aliases": [
+    "arxiv:1505.04846",
+    "title:anevaluationofdnadamageresponseandcellcyclepathwaysforbreastcancerclassification"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_2664bc65ed6f77c7.json"
+  ],
+  "evidence": []
+}

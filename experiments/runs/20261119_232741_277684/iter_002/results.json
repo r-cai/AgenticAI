@@ -1,0 +1,229 @@
+[
+  {
+    "candidate_id": "iter02_c1",
+    "iteration": 2,
+    "config": {
+      "rationale": "Refine the successful voting ensemble by applying stronger regularization to the logistic regression branch and using a different tree-based model (Gradient Boosting) to increase diversity in the ensemble.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr_strong_reg",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 0.2,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "gb_diverse",
+            "transforms": [],
+            "model": {
+              "name": "gradient_boosting",
+              "hyperparameters": {
+                "n_estimators": 100,
+                "learning_rate": 0.05,
+                "max_depth": 4,
+                "subsample": 0.7,
+                "min_samples_split": 2
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "ev_5294c787c1645c"
+      ],
+      "evidence_ids": []
+    },
+    "model_name": "composition:voting",
+    "mean_cv_score": 0.9575,
+    "std_cv_score": 0.0229,
+    "fold_scores": [
+      0.965,
+      0.953,
+      0.965,
+      0.9287,
+      0.9525,
+      0.9409,
+      1.0,
+      0.9162,
+      0.9883,
+      0.9525,
+      0.9536,
+      0.9882,
+      0.9296,
+      0.9762,
+      0.953
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.4033,
+    "cv_wall_time_seconds": 6.4074,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0395,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter02_c2",
+    "iteration": 2,
+    "config": {
+      "rationale": "Explore a single-model approach with HistGradientBoostingClassifier, which is often robust for tabular data. We will use a moderate learning rate and depth to prevent overfitting on the small dataset (n=455), avoiding the aggressive parameters of previous runs.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "robust",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": {
+        "name": "hist_gradient_boosting",
+        "hyperparameters": {
+          "max_iter": 150,
+          "learning_rate": 0.08,
+          "max_depth": 4,
+          "max_leaf_nodes": 20,
+          "l2_regularization": 0.01,
+          "early_stopping": true
+        }
+      },
+      "composition": null,
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "hist_gradient_boosting",
+    "mean_cv_score": 0.951,
+    "std_cv_score": 0.0245,
+    "fold_scores": [
+      0.9536,
+      0.9525,
+      0.965,
+      0.9162,
+      0.9641,
+      0.9402,
+      0.9883,
+      0.8908,
+      0.9654,
+      0.9641,
+      0.965,
+      0.9762,
+      0.9296,
+      0.9641,
+      0.9304
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.1019,
+    "cv_wall_time_seconds": 1.8106,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0433,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter02_c3",
+    "iteration": 2,
+    "config": {
+      "rationale": "Test if Gradient Boosting complements Logistic Regression better than Random Forest in a soft voting ensemble, leveraging evidence that ensembles improve performance (ev_5294c787c1645c).",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "gb",
+            "transforms": [],
+            "model": {
+              "name": "gradient_boosting",
+              "hyperparameters": {
+                "n_estimators": 150,
+                "learning_rate": 0.05,
+                "max_depth": 4,
+                "subsample": 0.8,
+                "min_samples_split": 2
+              }
+            }
+          },
+          {
+            "name": "lr",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 0.8,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [],
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ]
+    },
+    "model_name": "composition:voting",
+    "mean_cv_score": 0.9591,
+    "std_cv_score": 0.026,
+    "fold_scores": [
+      0.965,
+      0.965,
+      0.9765,
+      0.9061,
+      0.9641,
+      0.953,
+      0.9883,
+      0.9036,
+      0.9883,
+      0.9646,
+      0.965,
+      0.9882,
+      0.9296,
+      0.9762,
+      0.953
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.9258,
+    "cv_wall_time_seconds": 14.3991,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0409,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  }
+]

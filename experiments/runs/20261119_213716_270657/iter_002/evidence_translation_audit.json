@@ -1,0 +1,42 @@
+[
+  {
+    "origin": "llm",
+    "status": "deferred",
+    "reason": "architecture_kind_diversity",
+    "kind": "standalone",
+    "fingerprint": "ce987a8e2014b15c00ae4741168b0e4ae599011bc5b5ca12aef2a68cd07ab3df"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "generator_schema_validation",
+    "batch_round": 2,
+    "attempt": 1,
+    "candidate_index": 0,
+    "error": "ValueError: Candidate references non-retrieved evidence: ['iter01_c1']"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "generator_schema_validation",
+    "batch_round": 2,
+    "attempt": 1,
+    "candidate_index": 1,
+    "error": "ValueError: Candidate references non-retrieved evidence: ['iter01_c1', 'iter01_c2']"
+  },
+  {
+    "origin": "llm",
+    "status": "deferred",
+    "reason": "architecture_kind_diversity",
+    "kind": "standalone",
+    "fingerprint": "c1f553f92aa547aa8feb4a3fc1b1ae174c779e513bc656551e65e592d127a47f"
+  },
+  {
+    "origin": "batch_budget",
+    "status": "summary",
+    "requested": 3,
+    "proposed_valid": 3,
+    "unfilled": 0,
+    "llm_calls": 3
+  }
+]

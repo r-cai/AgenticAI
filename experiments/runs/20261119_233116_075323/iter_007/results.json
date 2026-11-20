@@ -1,0 +1,199 @@
+[
+  {
+    "candidate_id": "iter07_c1",
+    "iteration": 7,
+    "config": {
+      "rationale": "Apply Recursive Feature Elimination to reduce dimensionality from 49 features, leveraging the ensemble's feature importance for robust classification.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "none",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "pipeline",
+        "transforms": [
+          {
+            "op": "standard_scaler",
+            "params": {}
+          },
+          {
+            "op": "rfe",
+            "params": {
+              "estimator": "logistic_regression",
+              "n_features_to_select": 10
+            }
+          }
+        ],
+        "branches": [],
+        "model": {
+          "name": "random_forest",
+          "hyperparameters": {
+            "n_estimators": 150,
+            "max_depth": 8,
+            "min_samples_leaf": 2
+          }
+        },
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "ev_67cadb757a26d2"
+      ],
+      "evidence_ids": [
+        "ev_67cadb757a26d2"
+      ]
+    },
+    "model_name": "composition:pipeline",
+    "mean_cv_score": 0.6855,
+    "std_cv_score": 0.0172,
+    "fold_scores": [
+      0.655,
+      0.6929,
+      0.6603,
+      0.704,
+      0.7026,
+      0.6768,
+      0.7187,
+      0.6838,
+      0.6715,
+      0.677,
+      0.6852,
+      0.6691,
+      0.7065,
+      0.688,
+      0.6916
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.852,
+    "cv_wall_time_seconds": 13.7372,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0248,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm_evidence_design",
+    "evidence_mapping": {
+      "method": "llm_evidence_grounded",
+      "evidence_ids": [
+        "ev_67cadb757a26d2"
+      ],
+      "trace": [
+        {
+          "evidence_id": "ev_67cadb757a26d2",
+          "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+          "source_excerpt": "Recursive Feature Elimination (RFE)",
+          "supported_operations": [
+            "rfe"
+          ],
+          "matched_executable_operations": [
+            "rfe"
+          ],
+          "extraction_warnings": [],
+          "claim_scope": "operations_only_not_hyperparameters_or_whole_architecture"
+        }
+      ],
+      "implementation_choices": "Uncited architecture details and hyperparameters are LLM-proposed hypotheses, not proven settings from the cited papers"
+    },
+    "error": null
+  },
+  {
+    "candidate_id": "iter07_c2",
+    "iteration": 7,
+    "config": {
+      "rationale": "Select the top 15 features using gradient boosting's intrinsic feature selection mechanism to mitigate overfitting in small sample tabular biomedical data.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "none",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "pipeline",
+        "transforms": [
+          {
+            "op": "standard_scaler",
+            "params": {}
+          },
+          {
+            "op": "select_k_best",
+            "params": {
+              "k": 10
+            }
+          }
+        ],
+        "branches": [],
+        "model": {
+          "name": "gradient_boosting",
+          "hyperparameters": {
+            "n_estimators": 150,
+            "max_depth": 5,
+            "learning_rate": 0.1
+          }
+        },
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "ev_892146c13f0a85"
+      ],
+      "evidence_ids": [
+        "ev_892146c13f0a85"
+      ]
+    },
+    "model_name": "composition:pipeline",
+    "mean_cv_score": 0.666,
+    "std_cv_score": 0.0268,
+    "fold_scores": [
+      0.6826,
+      0.6359,
+      0.6144,
+      0.6804,
+      0.6959,
+      0.6532,
+      0.6747,
+      0.647,
+      0.692,
+      0.6668,
+      0.6951,
+      0.6604,
+      0.6703,
+      0.6182,
+      0.7028
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.347,
+    "cv_wall_time_seconds": 5.6222,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0338,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm_evidence_design",
+    "evidence_mapping": {
+      "method": "llm_evidence_grounded",
+      "evidence_ids": [
+        "ev_892146c13f0a85"
+      ],
+      "trace": [
+        {
+          "evidence_id": "ev_892146c13f0a85",
+          "paper_title": "Weight Predictor Network with Feature Selection for Small Sample Tabular Biomedical Data",
+          "source_excerpt": "Furthermore, we investigate the proposed feature selection mechanism and show that it improves performance while providing useful insights into the learning task.",
+          "supported_operations": [
+            "select_k_best"
+          ],
+          "matched_executable_operations": [
+            "select_k_best"
+          ],
+          "extraction_warnings": [],
+          "claim_scope": "operations_only_not_hyperparameters_or_whole_architecture"
+        }
+      ],
+      "implementation_choices": "Uncited architecture details and hyperparameters are LLM-proposed hypotheses, not proven settings from the cited papers"
+    },
+    "error": null
+  }
+]

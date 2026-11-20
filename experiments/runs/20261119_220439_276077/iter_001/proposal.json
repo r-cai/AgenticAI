@@ -1,0 +1,166 @@
+{
+  "reasoning": "The baseline Random Forest achieved a CV mean of 0.695 with a significant train/CV gap (0.179), indicating overfitting or insufficient regularization. The dataset has 49 features and only 1252 samples, which is relatively small for deep trees. Literature suggests that for small sample tabular data, feature selection (RFE) combined with ensemble methods can improve generalization [ev_67cadb757a26d2]. Additionally, Weight Predictor Networks suggest that reducing learnable parameters via feature selection enhances performance on small datasets [ev_892146c13f0a85]. To address the overfitting and high dimensionality, we propose two distinct paths: 1) A Voting ensemble with a Random Forest and Logistic Regression, incorporating Recursive Feature Elimination (RFE) to reduce feature count before modeling, testing if fewer features improve stability. 2) An Extreme Gradient Boosting model with stronger regularization (higher min_samples_leaf) and RFE, as XGBoost/Gradient Boosting often benefits from aggressive pruning on small datasets to prevent overfitting. The baseline Random Forest achieved 0.695 CV score with a significant train/CV gap (0.179), suggesting overfitting or suboptimal regularization. Literature on small-sample tabular data (WPFS) suggests feature selection improves performance, while ensemble methods (voting) are standard for robustness. To address the high dimensionality (49 features) and potential overfitting, Candidate 1 will apply Recursive Feature Elimination (RFE) to reduce feature count before a Random Forest, testing if fewer features improve generalization. Candidate 2 will shift to Logistic Regression with L2 regularization (as per schema rules), which is theoretically robust for small samples when combined with feature selection, and uses soft voting with the RFE-optimized RF to test complementary decision boundaries. The baseline Random Forest achieved a CV mean of 0.695 with a significant train-CV gap (0.179), suggesting overfitting or suboptimal regularization. The critic feedback is null, so we rely on the dataset profile (small n=1252, high dimensionality) and literature evidence. Evidence 'ev_892146c13f0a85' supports Weight Predictor Network with Feature Selection (WPFS) for small sample tabular data, but WPFS is not a supported model/transform in the schema; however, it suggests combining feature selection with a neural network approach. Since we cannot use custom networks, we adapt this by using a pipeline with a Gradient Boosting classifier (often more robust to overfitting than RF on small data) and an RFE transform (supported by 'ev_67cadb757a26d2') to reduce dimensionality before training. Evidence 'ev_5294c787c1645c' supports ensemble voting, but the current batch already has two voting candidates; to ensure diversity and address the overfitting gap, we propose a single-model pipeline with feature selection first. We will vary the regularization strength (C for logistic regression is not in the new candidate, so we use max_depth/min_samples_split for trees or C for LR). Let's try Logistic Regression with L2 regularization (as per rules) inside a pipeline with RFE, as linear models are less prone to overfitting than trees on small data. We will test a moderate C value. The baseline Random Forest achieved a CV mean of 0.695 with a significant train-CV gap (0.179), indicating overfitting on the small dataset (n=1252) relative to feature count (n=49). Literature evidence supports using feature selection to mitigate overfitting in high-dimensional tabular data [ev_892146c13f0a85, ev_67cadb757a26d2]. Candidate 1 applies RFE within a pipeline to reduce dimensionality before training an Extra Trees classifier, which is robust to noise. Candidate 2 tests the hypothesis that logistic regression with balanced class weights and strong regularization (low C) performs better on imbalanced medical data than tree ensembles [ev_5294c787c1645c]. Candidate 3 proposes a soft voting ensemble combining Logistic Regression and Gradient Boosting, leveraging complementary decision boundaries as suggested in the literature for ensemble feature selection approaches [ev_5294c787c1645c], while maintaining distinct model families from the baseline.",
+  "candidates": [
+    {
+      "rationale": "Test literature-mentioned voting with two diverse registered learners.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "none",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "linear",
+            "transforms": [
+              {
+                "op": "standard_scaler",
+                "params": {}
+              }
+            ],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "max_iter": 1500,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "trees",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 200,
+                "min_samples_leaf": 2,
+                "class_weight": "balanced"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "hard",
+        "passthrough": false
+      },
+      "research_basis": [
+        "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments"
+      ],
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ]
+    },
+    {
+      "rationale": "Test a Logistic Regression model with L2 regularization combined with RFE feature selection, using soft voting with the optimized Random Forest to leverage linear decision boundaries and ensemble robustness.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr_rfe",
+            "transforms": [
+              {
+                "op": "rfe",
+                "params": {
+                  "estimator": "logistic_regression",
+                  "n_features_to_select": 15
+                }
+              }
+            ],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 0.5,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "rf_rfe",
+            "transforms": [
+              {
+                "op": "rfe",
+                "params": {
+                  "estimator": "random_forest",
+                  "n_features_to_select": 15
+                }
+              }
+            ],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 200,
+                "max_depth": 8,
+                "min_samples_split": 4,
+                "min_samples_leaf": 2,
+                "class_weight": "balanced"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "http://arxiv.org/abs/2507.04251v1"
+      ],
+      "evidence_ids": [
+        "ev_5294c787c1645c",
+        "ev_67cadb757a26d2"
+      ]
+    },
+    {
+      "rationale": "Test regularized Logistic Regression with balanced class weights to handle the near-balanced but potentially noisy data, avoiding tree-based overfitting.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": {
+        "name": "logistic_regression",
+        "hyperparameters": {
+          "C": 0.1,
+          "solver": "lbfgs",
+          "max_iter": 1000,
+          "class_weight": "balanced"
+        }
+      },
+      "composition": null,
+      "research_basis": [],
+      "evidence_ids": []
+    }
+  ],
+  "candidate_origins": {
+    "7e9e6747ce97d1d3d2f26c71b8f1d98b1ca5088d8667b01cf818fa98d898a3d9": "evidence_compiler",
+    "7121495bf08231bd2d64439dd2a9bca509a65fcc711a66d3251fe0d0b6a209e7": "llm",
+    "ad02f3f43c7dbc2df15ef427da6e1981e9f07a8b7f4d8d6f6ef3e0d924130fa8": "llm"
+  },
+  "candidate_evidence_mapping": {
+    "7e9e6747ce97d1d3d2f26c71b8f1d98b1ca5088d8667b01cf818fa98d898a3d9": {
+      "evidence_id": "ev_5294c787c1645c",
+      "implemented_operation": "voting",
+      "implementation_choices": [
+        "median imputation is an engineering choice, not attributed to source",
+        "base learners are experiment design choices, not claimed paper settings"
+      ]
+    }
+  },
+  "generator_error": null
+}

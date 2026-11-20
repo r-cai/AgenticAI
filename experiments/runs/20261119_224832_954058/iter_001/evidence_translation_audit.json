@@ -1,0 +1,16 @@
+[
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "source_does_not_support_used_operations:ev_892146c13f0a85",
+    "fingerprint": "16425c2500a13a337f0612ced2edba1258ba0cb547b2761fa36c648307ef4f69"
+  },
+  {
+    "origin": "batch_budget",
+    "status": "summary",
+    "requested": 3,
+    "proposed_valid": 3,
+    "unfilled": 0,
+    "llm_calls": 2
+  }
+]

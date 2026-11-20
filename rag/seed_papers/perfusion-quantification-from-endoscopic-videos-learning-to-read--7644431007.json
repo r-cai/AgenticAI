@@ -1,0 +1,20 @@
+{
+  "title": "Perfusion Quantification from Endoscopic Videos: Learning to Read Tumor Signatures",
+  "abstract": "Intra-operative identification of malignant versus benign or healthy tissue is a major challenge in fluorescence guided cancer surgery. We propose a perfusion quantification method for computer-aided interpretation of subtle differences in dynamic perfusion patterns which can be used to distinguish between normal tissue and benign or malignant tumors intra-operatively in real-time by using multispectral endoscopic videos. The method exploits the fact that vasculature arising from cancer angiogenesis gives tumors differing perfusion patterns from the surrounding tissue, and defines a signature of tumor which could be used to differentiate tumors from normal tissues. Experimental evaluation of our method on a cohort of colorectal cancer surgery endoscopic videos suggests that the proposed tumor signature is able to successfully discriminate between healthy, cancerous and benign tissue with 95% accuracy.",
+  "year": "2020",
+  "doi": "",
+  "url": "http://arxiv.org/abs/2006.14321v1",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/2006.14321v1",
+  "paper_key": "p_76444310077c99e137f9a4c9",
+  "aliases": [
+    "arxiv:2006.14321",
+    "title:perfusionquantificationfromendoscopicvideoslearningtoreadtumorsignatures"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_b0beb0c1b6bad18a.json"
+  ],
+  "evidence": []
+}

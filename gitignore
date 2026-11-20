@@ -1,0 +1,51 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments and packaging
+.venv/
+venv/
+env/
+*.egg-info/
+build/
+dist/
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local secrets and environment overrides
+.env
+.env.*
+!.env.example
+*.local.yaml
+
+# Runtime RAG cache and mutable indexes
+rag/cache/*
+!rag/cache/.keep
+RAG_Knowledge_Base/literature.sqlite3
+RAG_Knowledge_Base/*.sqlite3*
+*.sqlite3-journal
+*.sqlite3-wal
+*.sqlite3-shm
+
+# Generated experiment outputs (retain source configs and frozen examples)
+experiments/runs/
+experiments/controlled/
+
+# Temporary files and logs
+*.log
+*.tmp
+*.bak
+*.swp
+~$*
+
+# Keep curated data/, rag/seed_papers/, rag/seed_literature.sqlite3,
+# configs/, examples/frozen_*/, and scripts/ tracked for reproducibility.

@@ -1,0 +1,20 @@
+{
+  "title": "Benchmarking Quantum and Classical Machine Learning Models on Oncological Data",
+  "abstract": "Machine learning is being increasingly used for the detection, diagnosis, and treatment of cancer. However, models often struggle with biological data due to high dimensionality, limited sample diversity, and complex feature interactions. Recent works have investigated the potential for quantum machine learning models to exhibit improved performance over classical models on this kind of complex data, but have often lacked rigorous empirical evaluation of quantum advantage. In this work, we develop a methodology for fair benchmarking of quantum and classical machine learning models, based on the Red Cedar quantum machine learning and resource estimation framework and AutoML-optimized classical neural networks. We assess the potential for quantum advantage in machine learning across tabular, omics, and spatial oncological datasets drawn from the existing quantum machine learning literature, with a range of preprocessing methods, and find no evidence of quantum advantage. Our results suggest that the field should prioritize analyzing higher-dimensional, more biologically realistic datasets to make meaningful progress toward practical quantum advantage in oncological classification problems.",
+  "year": "2026",
+  "doi": "",
+  "url": "http://arxiv.org/abs/2608.11373v1",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/2608.11373v1",
+  "paper_key": "p_29b7ab9273b0a35355bb971f",
+  "aliases": [
+    "arxiv:2608.11373",
+    "title:benchmarkingquantumandclassicalmachinelearningmodelsononcologicaldata"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_2287dcd19a001ea2.json"
+  ],
+  "evidence": []
+}

@@ -1,0 +1,20 @@
+{
+  "title": "Two-Layer Mixture Network Ensemble for Apparel Attributes Classification",
+  "abstract": "Recognizing apparel attributes has recently drawn great interest in the computer vision community. Methods based on various deep neural networks have been proposed for image classification, which could be applied to apparel attributes recognition. An interesting problem raised is how to ensemble these methods to further improve the accuracy. In this paper, we propose a two-layer mixture framework for ensemble different networks. In the first layer of this framework, two types of ensemble learning methods, bagging and boosting, are separately applied. Different from traditional methods, our bagging process makes use of the whole training set, not random subsets, to train each model in the ensemble, where several differentiated deep networks are used to promote model variance. To avoid the bias of small-scale samples, the second layer only adopts bagging to mix the results obtained with bagging and boosting in the first layer. Experimental results demonstrate that the proposed mixture framework outperforms any individual network model or either independent ensemble method in apparel attributes classification.",
+  "year": "2018",
+  "doi": "",
+  "url": "http://arxiv.org/abs/1807.10572v1",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/1807.10572v1",
+  "paper_key": "p_a45795095d26a79e6464ac45",
+  "aliases": [
+    "arxiv:1807.10572",
+    "title:twolayermixturenetworkensembleforapparelattributesclassification"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_27a0cc576890c91f.json"
+  ],
+  "evidence": []
+}

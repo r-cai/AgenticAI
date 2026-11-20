@@ -1,0 +1,16 @@
+[
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "pipeline_preflight_failed:ValueError:rfe.estimator must be logistic_regression or random_forest",
+    "fingerprint": "3c6163717a144137a1ffe0145cd50e95457b665af19a5c7ee1607af341267e73"
+  },
+  {
+    "origin": "batch_budget",
+    "status": "summary",
+    "requested": 3,
+    "proposed_valid": 3,
+    "unfilled": 0,
+    "llm_calls": 2
+  }
+]

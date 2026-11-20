@@ -1,0 +1,188 @@
+[
+  {
+    "candidate_id": "iter02_c1",
+    "iteration": 2,
+    "config": {
+      "rationale": "Test source-grounded rfe as a registered Level-2 pipeline; examine CV benefit.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "none",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "pipeline",
+        "transforms": [
+          {
+            "op": "standard_scaler",
+            "params": {}
+          },
+          {
+            "op": "rfe",
+            "params": {
+              "n_features_to_select": 12,
+              "step": 1
+            }
+          }
+        ],
+        "branches": [],
+        "model": {
+          "name": "logistic_regression",
+          "hyperparameters": {
+            "max_iter": 1500,
+            "class_weight": "balanced"
+          }
+        },
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments"
+      ],
+      "evidence_ids": [
+        "ev_67cadb757a26d2"
+      ]
+    },
+    "model_name": "composition:pipeline",
+    "mean_cv_score": 0.6943,
+    "std_cv_score": 0.0249,
+    "fold_scores": [
+      0.7569,
+      0.6852,
+      0.7079,
+      0.684,
+      0.6511,
+      0.6481,
+      0.7012,
+      0.7039,
+      0.6748,
+      0.6999,
+      0.713,
+      0.6971,
+      0.6919,
+      0.6959,
+      0.704
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.493,
+    "cv_wall_time_seconds": 7.6944,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0119,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "evidence_compiler",
+    "evidence_mapping": {
+      "evidence_id": "ev_67cadb757a26d2",
+      "implemented_operation": "rfe",
+      "implementation_choices": [
+        "median imputation is an engineering choice, not attributed to source",
+        "RFE uses logistic regression as selector; subset size is exploratory",
+        "classifier logistic_regression is chosen for test; paper may not specify it"
+      ]
+    },
+    "error": null
+  },
+  {
+    "candidate_id": "iter02_c2",
+    "iteration": 2,
+    "config": {
+      "rationale": "Construct a soft-voting ensemble with Logistic Regression, Random Forest, and Extreme Gradient Boosting to leverage complementary decision boundaries, supported by evidence ev_5294c787c1645c.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 1.0,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "rf",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 200,
+                "max_depth": 10,
+                "min_samples_split": 2,
+                "min_samples_leaf": 1,
+                "max_features": "sqrt",
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "et",
+            "transforms": [],
+            "model": {
+              "name": "extra_trees",
+              "hyperparameters": {
+                "n_estimators": 200,
+                "max_depth": 10,
+                "min_samples_split": 2,
+                "min_samples_leaf": 1,
+                "max_features": "sqrt",
+                "class_weight": "balanced"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [],
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ]
+    },
+    "model_name": "composition:voting",
+    "mean_cv_score": 0.7036,
+    "std_cv_score": 0.0192,
+    "fold_scores": [
+      0.7501,
+      0.7051,
+      0.7031,
+      0.6808,
+      0.6825,
+      0.6809,
+      0.7012,
+      0.6896,
+      0.6797,
+      0.7197,
+      0.7142,
+      0.6984,
+      0.7098,
+      0.712,
+      0.7276
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.5106,
+    "cv_wall_time_seconds": 9.3897,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0888,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  }
+]

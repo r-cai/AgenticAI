@@ -1,0 +1,21 @@
+{
+  "title": "A structured combination of ensemble classifier and filter-based feature selection to improve breast cancer diagnosis.",
+  "abstract": "Advances in technology have led to the emergence of computerized diagnostic systems as intelligent medical assistants. Machine learning approaches cannot replace professional humans, but they can change the treatment of diseases such as cancer and be used as medical assistants. Breast cancer treatment can be very effective, especially when the disease is detected in the early stages. Feature selection and classification are common data mining techniques in machine learning that can provide breast cancer diagnosis with high speed, low cost and high precision. This paper proposes a new intelligent approach using an integrated filter-evolutionary search-based feature selection and an optimized ensemble classifier for breast cancer diagnosis. The selected features mainly relate to the viable solution as the selected features are successfully used in the breast cancer disease classification process. The proposed feature selection method selects the most informative features from the original feature set by integrating adaptive thresholder information gain-based feature selection and evolutionary gravity-search-based feature selection. Meanwhile, classification model is done by proposing a new intelligent multi-layer perceptron neural network-based ensemble classifier. The simulation results show that the proposed method provides better performance compared to the state-of-the-art algorithms in terms of various criteria such as accuracy, sensitivity and specificity. Specifically, the proposed method achieves an average accuracy of 99.42% on WBCD, WDBC and WPBC datasets from Wisconsin database with only 56.7% of features. Systems based on intelligent medical assistants configured with machine learning approaches are an important step toward helping doctors to detect breast cancer early.",
+  "year": "2023",
+  "doi": "10.1007/s00432-023-05238-4",
+  "url": "https://pubmed.ncbi.nlm.nih.gov/37567985/",
+  "source": "pubmed",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "pubmed:37567985",
+  "paper_key": "p_7620e84843c983baeeaaf987",
+  "aliases": [
+    "doi:10.1007/s00432-023-05238-4",
+    "pubmed:37567985",
+    "title:astructuredcombinationofensembleclassifierandfilterbasedfeatureselectiontoimprovebreastcancerdiagnosis"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/pubmed_3db4e0d59427ec9b.json"
+  ],
+  "evidence": []
+}

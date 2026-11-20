@@ -1,0 +1,49 @@
+[
+  {
+    "evidence_id": "ev_5294c787c1645c",
+    "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+    "status": "rejected",
+    "reason": "duplicate_executable_architecture",
+    "matched_operations": [
+      "voting"
+    ],
+    "extraction_warnings": []
+  },
+  {
+    "evidence_id": "ev_67cadb757a26d2",
+    "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+    "status": "accepted",
+    "reason": null,
+    "matched_operations": [
+      "rfe"
+    ],
+    "extraction_warnings": [],
+    "implemented_operation": "rfe",
+    "implementation_choices": [
+      "median imputation is an engineering choice, not attributed to source",
+      "RFE uses logistic regression as selector; subset size is exploratory",
+      "classifier logistic_regression is chosen for test; paper may not specify it"
+    ],
+    "candidate_fingerprint": "c76aeaab1da09b5c92083fefedd203082838c9db9e273b15340682682502dd0e"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "pipeline_preflight_failed:ValueError:Unsupported rfe parameters: ['cv']",
+    "fingerprint": "b52d96e45b73c4114af30fd903f58717b17ea5378c813852d0393e579f34bb25"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "pipeline_preflight_failed:ValueError:Unsupported rfe parameters: ['n_iter_no_change', 'verbose']",
+    "fingerprint": "9ca0e528b8cd798c8da795d17a80c56e7cefae14ca689a2df8542b43fabf7df8"
+  },
+  {
+    "origin": "batch_budget",
+    "status": "summary",
+    "requested": 3,
+    "proposed_valid": 3,
+    "unfilled": 0,
+    "llm_calls": 3
+  }
+]

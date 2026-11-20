@@ -1,0 +1,216 @@
+[
+  {
+    "candidate_id": "iter01_c1",
+    "iteration": 1,
+    "config": {
+      "rationale": "Construct a soft voting ensemble combining Extra Trees and Random Forest to test complementary feature selection mechanisms and reduce variance.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "et",
+            "transforms": [],
+            "model": {
+              "name": "extra_trees",
+              "hyperparameters": {
+                "n_estimators": 150,
+                "max_depth": 8,
+                "min_samples_split": 2,
+                "min_samples_leaf": 1,
+                "max_features": "sqrt",
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "rf",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 150,
+                "max_depth": 8,
+                "min_samples_split": 2,
+                "min_samples_leaf": 1,
+                "max_features": "sqrt",
+                "class_weight": "balanced"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "composition:voting",
+    "mean_cv_score": 0.7217,
+    "std_cv_score": 0.0255,
+    "fold_scores": [
+      0.6942,
+      0.7077,
+      0.6822,
+      0.7669,
+      0.7616,
+      0.7073,
+      0.6963,
+      0.7036,
+      0.7397,
+      0.7174,
+      0.7556,
+      0.7254,
+      0.7235,
+      0.7007,
+      0.7429
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.389,
+    "cv_wall_time_seconds": 7.3166,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0683,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter01_c2",
+    "iteration": 1,
+    "config": {
+      "rationale": "Replace Random Forest with HistGradientBoosting to test if stronger L2 regularization reduces the observed train/CV gap (0.1743) by preventing overfitting on the small dataset.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "pipeline",
+        "transforms": [],
+        "branches": [],
+        "model": {
+          "name": "hist_gradient_boosting",
+          "hyperparameters": {
+            "max_iter": 100,
+            "learning_rate": 0.05,
+            "max_depth": 4,
+            "max_leaf_nodes": 15,
+            "l2_regularization": 0.1,
+            "early_stopping": true
+          }
+        },
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "composition:pipeline",
+    "mean_cv_score": 0.7158,
+    "std_cv_score": 0.0236,
+    "fold_scores": [
+      0.6779,
+      0.7378,
+      0.6833,
+      0.741,
+      0.7651,
+      0.7272,
+      0.7118,
+      0.7007,
+      0.7446,
+      0.6909,
+      0.7206,
+      0.6981,
+      0.7207,
+      0.7083,
+      0.7089
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.0908,
+    "cv_wall_time_seconds": 1.7098,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0289,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter01_c3",
+    "iteration": 1,
+    "config": {
+      "rationale": "Test a linear model (Logistic Regression) with L2 regularization and standard scaling to evaluate if a simpler decision boundary performs better than tree-based methods on this tabular dataset.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "pipeline",
+        "transforms": [],
+        "branches": [],
+        "model": {
+          "name": "logistic_regression",
+          "hyperparameters": {
+            "C": 0.5,
+            "solver": "lbfgs",
+            "max_iter": 1000,
+            "class_weight": "balanced"
+          }
+        },
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "composition:pipeline",
+    "mean_cv_score": 0.7186,
+    "std_cv_score": 0.0214,
+    "fold_scores": [
+      0.6878,
+      0.7248,
+      0.688,
+      0.7557,
+      0.7434,
+      0.717,
+      0.7167,
+      0.7288,
+      0.7543,
+      0.6906,
+      0.724,
+      0.708,
+      0.7174,
+      0.6947,
+      0.728
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.0201,
+    "cv_wall_time_seconds": 0.5345,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0265,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  }
+]

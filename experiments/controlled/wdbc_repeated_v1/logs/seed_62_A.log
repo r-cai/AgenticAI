@@ -1,0 +1,43 @@
+[config] Loaded C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\controlled\wdbc_repeated_v1\configs\62\A_no_rag.yaml
+Run 20261119_224614_139028
+[output] reports will be saved to C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\runs\20261119_224614_139028
+[data] optional excluded columns not present; skipped: ['id']
+Baseline (random_forest): CV 0.9596
+Research context: 0 item(s)
+Grounded method records: 0; eligible/diverse: 0
+
+=== Iteration 1 ===
+[generator] attempt=1 prompt_tokens=5887 output_tokens=714
+[generator] attempt=1 prompt_tokens=6118 output_tokens=960
+[generator] attempt=1 prompt_tokens=6176 output_tokens=695
+[generator] attempt=1 prompt_tokens=6176 output_tokens=576
+[generator] rejected candidate[0]: ValueError: Candidate references non-retrieved evidence: ['logistic_regression_with_class_weight_balanced_improves_sensitivity_on_imbalanced_datasets']
+[generator] rejected candidate[1]: ValueError: Candidate references non-retrieved evidence: ['extra_trees_with_min_samples_leaf_reduces_overfitting_on_small_mediated_datasets']
+[generator] attempt=2 prompt_tokens=6292 output_tokens=352
+[generator] attempt=1 prompt_tokens=6176 output_tokens=1197
+  iter01_c1 random_forest: CV 0.9613 (+/- 0.0149, gap 0.0387)
+  iter01_c2 logistic_regression: CV 0.9789 (+/- 0.0129, gap 0.0080)
+  iter01_c3 composition:voting: CV 0.9804 (+/- 0.0153, gap 0.0128)
+
+=== Iteration 2 ===
+[generator] attempt=1 prompt_tokens=6648 output_tokens=1493
+  iter02_c1 composition:voting: CV 0.9773 (+/- 0.0131, gap 0.0160)
+  iter02_c2 composition:voting: CV 0.9725 (+/- 0.0134, gap 0.0263)
+  iter02_c3 composition:pipeline: CV 0.9773 (+/- 0.0163, gap 0.0102)
+[controlled] completed 6 successfully evaluated candidates
+
+Selected iter01_c3 (composition:voting), CV 0.9804
+PDF report: experiments\runs\20261119_224614_139028\level2_experiment_report.pdf
+[report] Named latest: C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\reports\final_report_data-3_A.json
+[report] Run archive:  C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\reports\final_report_data-3_A_20261119_224614_139028.json
+
+============================================================
+Best: iter01_c3 (composition:voting)
+  CV f1_macro: 0.9804 +/- 0.0153
+  Baseline CV:    0.9596
+  Holdout:        0.9623 (CV-holdout gap +0.0181)
+Stopped: target_evaluated_candidates_reached after 2 iteration(s)
+Full report: experiments/runs/20261119_224614_139028/final_report.json
+Named report: experiments\reports\final_report_data-3_A.json
+Archived copy: experiments\reports\final_report_data-3_A_20261119_224614_139028.json
+PDF report:  experiments\runs\20261119_224614_139028\level2_experiment_report.pdf

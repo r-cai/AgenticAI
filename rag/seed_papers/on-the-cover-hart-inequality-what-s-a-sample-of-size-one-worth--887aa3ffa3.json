@@ -1,0 +1,20 @@
+{
+  "title": "On the Cover-Hart Inequality: What's a Sample of Size One Worth?",
+  "abstract": "Bob predicts a future observation based on a sample of size one. Alice can draw a sample of any size before issuing her prediction. How much better can she do than Bob? Perhaps surprisingly, under a large class of loss functions, which we refer to as the Cover-Hart family, the best Alice can do is to halve Bob's risk. In this sense, half the information in an infinite sample is contained in a sample of size one. The Cover-Hart family is a convex cone that includes metrics and negative definite functions, subject to slight regularity conditions. These results may help explain the small relative differences in empirical performance measures in applied classification and forecasting problems, as well as the success of reasoning and learning by analogy in general, and nearest neighbor techniques in particular.",
+  "year": "2012",
+  "doi": "",
+  "url": "http://arxiv.org/abs/1206.3381v1",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/1206.3381v1",
+  "paper_key": "p_887aa3ffa3e5d36393970fb8",
+  "aliases": [
+    "arxiv:1206.3381",
+    "title:onthecoverhartinequalitywhatsasampleofsizeoneworth"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_782616f4558be395.json"
+  ],
+  "evidence": []
+}

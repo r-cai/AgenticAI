@@ -1,0 +1,224 @@
+[
+  {
+    "candidate_id": "iter02_c1",
+    "iteration": 2,
+    "config": {
+      "rationale": "Test HistGradientBoosting with L2 regularization and early stopping to reduce overfitting compared to standard Gradient Boosting, while maintaining a simple voting ensemble structure.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 1.0,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "hgb",
+            "transforms": [],
+            "model": {
+              "name": "hist_gradient_boosting",
+              "hyperparameters": {
+                "max_iter": 100,
+                "learning_rate": 0.05,
+                "max_depth": 4,
+                "max_leaf_nodes": 31,
+                "l2_regularization": 0.1,
+                "early_stopping": true
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "composition:voting",
+    "mean_cv_score": 0.7039,
+    "std_cv_score": 0.019,
+    "fold_scores": [
+      0.7118,
+      0.7551,
+      0.6836,
+      0.69,
+      0.6933,
+      0.7136,
+      0.685,
+      0.7283,
+      0.694,
+      0.6983,
+      0.6984,
+      0.6954,
+      0.7191,
+      0.7105,
+      0.6822
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.1335,
+    "cv_wall_time_seconds": 2.5817,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0405,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter02_c2",
+    "iteration": 2,
+    "config": {
+      "rationale": "Address the high train/CV gap in Random Forest by increasing model capacity (n_estimators=300) and reducing depth constraints, combined with explicit feature scaling via a Pipeline to ensure numerical stability.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": {
+        "name": "random_forest",
+        "hyperparameters": {
+          "n_estimators": 300,
+          "max_depth": 12,
+          "min_samples_split": 2,
+          "min_samples_leaf": 1,
+          "max_features": "sqrt",
+          "class_weight": "balanced"
+        }
+      },
+      "composition": null,
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "random_forest",
+    "mean_cv_score": 0.7076,
+    "std_cv_score": 0.0243,
+    "fold_scores": [
+      0.6807,
+      0.7523,
+      0.6999,
+      0.6851,
+      0.6684,
+      0.7126,
+      0.6979,
+      0.715,
+      0.6754,
+      0.7098,
+      0.7281,
+      0.7044,
+      0.7343,
+      0.748,
+      0.7028
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.5172,
+    "cv_wall_time_seconds": 9.2334,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.1459,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter02_c3",
+    "iteration": 2,
+    "config": {
+      "rationale": "Explore a Feature Union architecture to combine raw numeric features (scaled) with encoded categorical features, potentially capturing interactions that simple pipelines miss, using an Extra Trees classifier which is robust to noise.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "feature_union",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "numeric_branch",
+            "transforms": [
+              {
+                "op": "standard_scaler",
+                "params": {}
+              }
+            ],
+            "model": null
+          },
+          {
+            "name": "categorical_branch",
+            "transforms": [],
+            "model": null
+          }
+        ],
+        "model": {
+          "name": "extra_trees",
+          "hyperparameters": {
+            "n_estimators": 200,
+            "max_depth": 10,
+            "min_samples_split": 2,
+            "min_samples_leaf": 1,
+            "max_features": "sqrt",
+            "class_weight": "balanced"
+          }
+        },
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "composition:feature_union",
+    "mean_cv_score": 0.714,
+    "std_cv_score": 0.0256,
+    "fold_scores": [
+      0.7031,
+      0.7662,
+      0.6754,
+      0.6982,
+      0.6865,
+      0.713,
+      0.6945,
+      0.7473,
+      0.7,
+      0.7153,
+      0.7136,
+      0.7016,
+      0.7288,
+      0.762,
+      0.7046
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.3045,
+    "cv_wall_time_seconds": 5.6297,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.1025,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  }
+]

@@ -1,0 +1,68 @@
+{
+  "title": "Predicting breast cancer with AI for individual risk-adjusted MRI screening and early detection",
+  "abstract": "Women with an increased life-time risk of breast cancer undergo supplemental annual screening MRI. We propose to predict the risk of developing breast cancer within one year based on the current MRI, with the objective of reducing screening burden and facilitating early detection. An AI algorithm was developed on 53,858 breasts from 12,694 patients who underwent screening or diagnostic MRI and accrued over 12 years, with 2,331 confirmed cancers. A first U-Net was trained to segment lesions and identify regions of concern. A second convolutional network was trained to detect malignant cancer using features extracted by the U-Net. This network was then fine-tuned to estimate the risk of developing cancer within a year in cases that radiologists considered normal or likely benign. Risk predictions from this AI were evaluated with a retrospective analysis of 9,183 breasts from a high-risk screening cohort, which were not used for training. Statistical analysis focused on the tradeoff between number of omitted exams versus negative predictive value, and number of potential early detections versus positive predictive value. The AI algorithm identified regions of concern that coincided with future tumors in 52% of screen-detected cancers. Upon directed review, a radiologist found that 71.3% of cancers had a visible correlate on the MRI prior to diagnosis, 65% of these correlates were identified by the AI model. Reevaluating these regions in 10% of all cases with higher AI-predicted risk could have resulted in up to 33% early detections by a radiologist. Additionally, screening burden could have been reduced in 16% of lower-risk cases by recommending a later follow-up without compromising current interval cancer rate. With increasing datasets and improving image quality we expect this new AI-aided, adaptive screening to meaningfully reduce screening burden and improve early detection.",
+  "year": "2023",
+  "doi": "",
+  "url": "http://arxiv.org/abs/2312.00067v2",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/2312.00067v2",
+  "paper_key": "p_f7338ec76b538a6accd0ded7",
+  "aliases": [
+    "arxiv:2312.00067",
+    "title:predictingbreastcancerwithaiforindividualriskadjustedmriscreeningandearlydetection"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_b0beb0c1b6bad18a.json",
+    "/mnt/data/final_report.json"
+  ],
+  "evidence": [
+    {
+      "evidence_id": "ev_90adf32ea28f24",
+      "record": {
+        "evidence_id": "ev_90adf32ea28f24",
+        "paper_title": "Predicting breast cancer with AI for individual risk-adjusted MRI screening and early detection",
+        "paper_url": "http://arxiv.org/abs/2312.00067v2",
+        "paper_doi": null,
+        "paper_year": "2023",
+        "method": "U-Net",
+        "source_excerpt": "A first U-Net was trained to segment lesions and identify regions of concern.",
+        "modeling_hypothesis": "U-Net can segment lesions and identify regions of concern in MRI scans.",
+        "suggested_operations": [],
+        "limitations": "",
+        "extraction_method": "llm_verified_excerpt",
+        "source_grounded": true
+      },
+      "verified": true,
+      "verification_reason": "excerpt_matches_stored_abstract",
+      "first_seen": "2026-11-20T00:32:32+00:00",
+      "provenance": [
+        "/mnt/data/final_report.json"
+      ]
+    },
+    {
+      "evidence_id": "ev_f530a0b74e9320",
+      "record": {
+        "evidence_id": "ev_f530a0b74e9320",
+        "paper_title": "Predicting breast cancer with AI for individual risk-adjusted MRI screening and early detection",
+        "paper_url": "http://arxiv.org/abs/2312.00067v2",
+        "paper_doi": null,
+        "paper_year": "2023",
+        "method": "fine-tuned network",
+        "source_excerpt": "This network was then fine-tuned to estimate the risk of developing cancer within a year in cases that radiologists considered normal or likely benign.",
+        "modeling_hypothesis": "A fine-tuned network can estimate the risk of developing cancer within a year for normal or likely benign cases.",
+        "suggested_operations": [],
+        "limitations": "",
+        "extraction_method": "llm_verified_excerpt",
+        "source_grounded": true
+      },
+      "verified": true,
+      "verification_reason": "excerpt_matches_stored_abstract",
+      "first_seen": "2026-11-20T00:32:32+00:00",
+      "provenance": [
+        "/mnt/data/final_report.json"
+      ]
+    }
+  ]
+}

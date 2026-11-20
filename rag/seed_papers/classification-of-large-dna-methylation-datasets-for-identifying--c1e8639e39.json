@@ -1,0 +1,20 @@
+{
+  "title": "Classification of large DNA methylation datasets for identifying cancer drivers",
+  "abstract": "DNA methylation is a well-studied genetic modification crucial to regulate the functioning of the genome. Its alterations play an important role in tumorigenesis and tumor-suppression. Thus, studying DNA methylation data may help biomarker discovery in cancer. Since public data on DNA methylation become abundant, and considering the high number of methylated sites (features) present in the genome, it is important to have a method for efficiently processing such large datasets. Relying on big data technologies, we propose BIGBIOCL an algorithm that can apply supervised classification methods to datasets with hundreds of thousands of features. It is designed for the extraction of alternative and equivalent classification models through iterative deletion of selected features. We run experiments on DNA methylation datasets extracted from The Cancer Genome Atlas, focusing on three tumor types: breast, kidney, and thyroid carcinomas. We perform classifications extracting several methylated sites and their associated genes with accurate performance. Results suggest that BIGBIOCL can perform hundreds of classification iterations on hundreds of thousands of features in few hours. Moreover, we compare the performance of our method with other state-of-the-art classifiers and with a wide-spread DNA methylation analysis method based on network analysis. Finally, we are able to efficiently compute multiple alternative classification models and extract, from DNA-methylation large datasets, a set of candidate genes to be further investigated to determine their active role in cancer. BIGBIOCL, results of experiments, and a guide to carry on new experiments are freely available on GitHub.",
+  "year": "2018",
+  "doi": "",
+  "url": "http://arxiv.org/abs/1804.04839v1",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/1804.04839v1",
+  "paper_key": "p_c1e8639e39e00ba8c0f70d6b",
+  "aliases": [
+    "arxiv:1804.04839",
+    "title:classificationoflargednamethylationdatasetsforidentifyingcancerdrivers"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_2664bc65ed6f77c7.json"
+  ],
+  "evidence": []
+}

@@ -1,0 +1,53 @@
+{
+  "title": "Differential patterns of circadian rhythmicity in women with malignant versus benign gynecologic tumors",
+  "abstract": "",
+  "year": "2019",
+  "doi": "10.1002/pon.4972",
+  "url": "https://www.semanticscholar.org/paper/cb077a2d6df5aec36fad0a511caf4abe7f984a34",
+  "source": "legacy_report",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "",
+  "paper_key": "p_cf5c8ece3e9b96087445728f",
+  "aliases": [
+    "doi:10.1002/pon.4972",
+    "url:https://www.semanticscholar.org/paper/cb077a2d6df5aec36fad0a511caf4abe7f984a34",
+    "title:differentialpatternsofcircadianrhythmicityinwomenwithmalignantversusbenigngynecologictumors"
+  ],
+  "provenance": [
+    "/mnt/data/final_report(5).json",
+    "/mnt/data/final_report_B.json",
+    "/mnt/data/final_report_C.json",
+    "/mnt/data/final_report_D.json"
+  ],
+  "evidence": [
+    {
+      "evidence_id": "ev_392fae69bdd88b",
+      "record": {
+        "evidence_id": "ev_392fae69bdd88b",
+        "paper_title": "Differential patterns of circadian rhythmicity in women with malignant versus benign gynecologic tumors",
+        "paper_url": "https://www.semanticscholar.org/paper/cb077a2d6df5aec36fad0a511caf4abe7f984a34",
+        "paper_doi": "10.1002/pon.4972",
+        "paper_year": 2019,
+        "method": "gradient_boosting",
+        "source_excerpt": "circadian rhythmicity prior to diagnostic surgery differed between women with malignant versus benign gynecologic tumors",
+        "modeling_hypothesis": "Patients with malignant tumors exhibit more circadian dysregulation and worse symptomatology prior to surgery than those with benign tumors",
+        "suggested_operations": [
+          "gradient_boosting"
+        ],
+        "limitations": "",
+        "extraction_method": "llm_verified_excerpt",
+        "source_grounded": true
+      },
+      "verified": false,
+      "verification_reason": "no_matching_source_abstract",
+      "first_seen": "2026-11-20T00:32:32+00:00",
+      "provenance": [
+        "/mnt/data/final_report(5).json",
+        "/mnt/data/final_report_B.json",
+        "/mnt/data/final_report_C.json",
+        "/mnt/data/final_report_D.json"
+      ]
+    }
+  ]
+}

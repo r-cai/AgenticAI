@@ -1,0 +1,120 @@
+[
+  {
+    "evidence_id": "ev_5294c787c1645c",
+    "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+    "status": "accepted",
+    "reason": null,
+    "matched_operations": [
+      "voting"
+    ],
+    "extraction_warnings": [],
+    "implemented_operation": "voting",
+    "implementation_choices": [
+      "median imputation is an engineering choice, not attributed to source",
+      "base learners are experiment design choices, not claimed paper settings"
+    ],
+    "candidate_fingerprint": "7e9e6747ce97d1d3d2f26c71b8f1d98b1ca5088d8667b01cf818fa98d898a3d9"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "generator_schema_validation",
+    "batch_round": 1,
+    "attempt": 1,
+    "candidate_index": 0,
+    "error": "ValidationError: 1 validation error for Candidate\ncomposition\n  Value error, pipeline needs model, no branches/final_estimator [type=value_error, input_value={'kind': 'pipeline', 'tra...: 20}}], 'branches': []}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/value_error"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "generator_schema_validation",
+    "batch_round": 1,
+    "attempt": 1,
+    "candidate_index": 1,
+    "error": "ValidationError: 1 validation error for Candidate\ncomposition\n  Value error, pipeline needs model, no branches/final_estimator [type=value_error, input_value={'kind': 'pipeline', 'tra...: 15}}], 'branches': []}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/value_error"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "generator_schema_validation",
+    "batch_round": 1,
+    "attempt": 1,
+    "candidate_index": 2,
+    "error": "ValidationError: 1 validation error for Candidate\ncomposition\n  Value error, pipeline needs model, no branches/final_estimator [type=value_error, input_value={'kind': 'pipeline', 'tra...: 18}}], 'branches': []}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/value_error"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "generator_schema_validation",
+    "batch_round": 1,
+    "attempt": 2,
+    "candidate_index": 0,
+    "error": "ValidationError: 1 validation error for Candidate\n  Value error, Specify exactly one of model or composition [type=value_error, input_value={'rationale': \"Corrects t...', 'ev_24905bb7d707bc']}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/value_error"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "source_does_not_support_used_operations:ev_67cadb757a26d2",
+    "fingerprint": "6084d81c39ada792e99eb3812eca921f4e178728acfd8d831a888969855363ab"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "source_does_not_support_used_operations:ev_5294c787c1645c;source_does_not_support_used_operations:ev_67cadb757a26d2",
+    "fingerprint": "69047abeb5e9beb0a592976b418923146f5180630609a421385a6eca68798ebe"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "source_does_not_support_used_operations:ev_892146c13f0a85",
+    "fingerprint": "bcc021363a20f27df82f53e3a238c40ee0207888e946c8f7b0f053a0fa922d5c"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "source_does_not_support_used_operations:ev_892146c13f0a85",
+    "fingerprint": "30aa2c09515a45320b459589cfb7d9e9d0af75c64c8cbd4c8a58d5a45e9135e7"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "generator_schema_validation",
+    "batch_round": 3,
+    "attempt": 1,
+    "candidate_index": 1,
+    "error": "ValidationError: 1 validation error for Candidate\ncomposition\n  Value error, pipeline needs model, no branches/final_estimator [type=value_error, input_value={'kind': 'pipeline', 'tra...', 'passthrough': False}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/value_error"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "generator_schema_validation",
+    "batch_round": 3,
+    "attempt": 2,
+    "candidate_index": 0,
+    "error": "ValidationError: 1 validation error for Candidate\ncomposition\n  Value error, pipeline needs model, no branches/final_estimator [type=value_error, input_value={'kind': 'pipeline', 'tra...], 'passthrough': False}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/value_error"
+  },
+  {
+    "origin": "llm",
+    "status": "deferred",
+    "reason": "architecture_kind_diversity",
+    "kind": "voting",
+    "fingerprint": "a5ea414ccfcded5ebeeff690976f5c2e82b99b5d3130f2f10ec9e87230494586"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "generator_schema_validation",
+    "batch_round": 4,
+    "attempt": 1,
+    "candidate_index": 0,
+    "error": "ValidationError: 1 validation error for Candidate\ncomposition\n  Value error, pipeline needs model, no branches/final_estimator [type=value_error, input_value={'kind': 'pipeline', 'tra...False}}], 'model': None}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/value_error"
+  },
+  {
+    "origin": "batch_budget",
+    "status": "summary",
+    "requested": 3,
+    "proposed_valid": 3,
+    "unfilled": 0,
+    "llm_calls": 4
+  }
+]

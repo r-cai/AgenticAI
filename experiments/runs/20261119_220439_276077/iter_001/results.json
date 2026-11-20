@@ -1,0 +1,256 @@
+[
+  {
+    "candidate_id": "iter01_c1",
+    "iteration": 1,
+    "config": {
+      "rationale": "Test literature-mentioned voting with two diverse registered learners.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "none",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "linear",
+            "transforms": [
+              {
+                "op": "standard_scaler",
+                "params": {}
+              }
+            ],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "max_iter": 1500,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "trees",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 200,
+                "min_samples_leaf": 2,
+                "class_weight": "balanced"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "hard",
+        "passthrough": false
+      },
+      "research_basis": [
+        "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments"
+      ],
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ]
+    },
+    "model_name": "composition:voting",
+    "mean_cv_score": 0.7092,
+    "std_cv_score": 0.0208,
+    "fold_scores": [
+      0.7061,
+      0.7405,
+      0.7207,
+      0.6698,
+      0.6798,
+      0.7275,
+      0.6899,
+      0.7386,
+      0.7164,
+      0.6791,
+      0.7127,
+      0.7137,
+      0.7164,
+      0.7259,
+      0.7012
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.3977,
+    "cv_wall_time_seconds": 7.4835,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0639,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "evidence_compiler",
+    "evidence_mapping": {
+      "evidence_id": "ev_5294c787c1645c",
+      "implemented_operation": "voting",
+      "implementation_choices": [
+        "median imputation is an engineering choice, not attributed to source",
+        "base learners are experiment design choices, not claimed paper settings"
+      ]
+    },
+    "error": null
+  },
+  {
+    "candidate_id": "iter01_c2",
+    "iteration": 1,
+    "config": {
+      "rationale": "Test a Logistic Regression model with L2 regularization combined with RFE feature selection, using soft voting with the optimized Random Forest to leverage linear decision boundaries and ensemble robustness.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr_rfe",
+            "transforms": [
+              {
+                "op": "rfe",
+                "params": {
+                  "estimator": "logistic_regression",
+                  "n_features_to_select": 15
+                }
+              }
+            ],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 0.5,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "rf_rfe",
+            "transforms": [
+              {
+                "op": "rfe",
+                "params": {
+                  "estimator": "random_forest",
+                  "n_features_to_select": 15
+                }
+              }
+            ],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 200,
+                "max_depth": 8,
+                "min_samples_split": 4,
+                "min_samples_leaf": 2,
+                "class_weight": "balanced"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "http://arxiv.org/abs/2507.04251v1"
+      ],
+      "evidence_ids": [
+        "ev_5294c787c1645c",
+        "ev_67cadb757a26d2"
+      ]
+    },
+    "model_name": "composition:voting",
+    "mean_cv_score": 0.7018,
+    "std_cv_score": 0.0262,
+    "fold_scores": [
+      0.653,
+      0.7596,
+      0.6717,
+      0.6784,
+      0.6997,
+      0.709,
+      0.7131,
+      0.7236,
+      0.686,
+      0.692,
+      0.7007,
+      0.7131,
+      0.7072,
+      0.7398,
+      0.6795
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 8.6833,
+    "cv_wall_time_seconds": 131.7593,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.046,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter01_c3",
+    "iteration": 1,
+    "config": {
+      "rationale": "Test regularized Logistic Regression with balanced class weights to handle the near-balanced but potentially noisy data, avoiding tree-based overfitting.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": {
+        "name": "logistic_regression",
+        "hyperparameters": {
+          "C": 0.1,
+          "solver": "lbfgs",
+          "max_iter": 1000,
+          "class_weight": "balanced"
+        }
+      },
+      "composition": null,
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "logistic_regression",
+    "mean_cv_score": 0.6958,
+    "std_cv_score": 0.0258,
+    "fold_scores": [
+      0.729,
+      0.7448,
+      0.6635,
+      0.6672,
+      0.6646,
+      0.6989,
+      0.6644,
+      0.731,
+      0.7033,
+      0.692,
+      0.6964,
+      0.7037,
+      0.7017,
+      0.7119,
+      0.664
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.0259,
+    "cv_wall_time_seconds": 0.7143,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0339,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  }
+]

@@ -1,0 +1,56 @@
+[
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "duplicate_executable_architecture",
+    "fingerprint": "47e13e67f0746131c022ef4131a74bf06e90914e34e00945625fac007e0616f8"
+  },
+  {
+    "origin": "llm_evidence_design",
+    "status": "accepted",
+    "candidate_fingerprint": "8b6c14e7dd8632a9e0a4cf12aa2d18115711da355bbd6f67a2c32411c8744b42",
+    "evidence_ids": [
+      "ev_67cadb757a26d2"
+    ]
+  },
+  {
+    "origin": "llm_evidence_design",
+    "status": "accepted",
+    "candidate_fingerprint": "800ff2840af1c481fa1830784a117697fbe552ea38da8998366eafbec76fae2c",
+    "evidence_ids": [
+      "ev_892146c13f0a85"
+    ]
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "duplicate_executable_architecture",
+    "fingerprint": "47e13e67f0746131c022ef4131a74bf06e90914e34e00945625fac007e0616f8"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "duplicate_executable_architecture",
+    "fingerprint": "47e13e67f0746131c022ef4131a74bf06e90914e34e00945625fac007e0616f8"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "duplicate_executable_architecture",
+    "fingerprint": "47e13e67f0746131c022ef4131a74bf06e90914e34e00945625fac007e0616f8"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "duplicate_executable_architecture",
+    "fingerprint": "47e13e67f0746131c022ef4131a74bf06e90914e34e00945625fac007e0616f8"
+  },
+  {
+    "origin": "batch_budget",
+    "status": "summary",
+    "requested": 3,
+    "proposed_valid": 2,
+    "unfilled": 1,
+    "llm_calls": 5
+  }
+]

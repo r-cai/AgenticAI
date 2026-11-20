@@ -1,0 +1,21 @@
+{
+  "title": "Decision Support for Breast Cancer Detection: Classification Improvement Through Feature Selection.",
+  "abstract": "Several statistical-based approaches have been developed to support medical personnel in early breast cancer detection. This article presents a method for feature selection aimed at classifying cases into categories based on patients' breast tissue measures and protein microarray. The effectiveness of this feature selection strategy was evaluated against the commonly used Wisconsin Breast Cancer Database-WBCD (with several patients and fewer features) and a new protein microarray data set (with several features and fewer patients). Features were ranked according to a feature importance index that combines parameters emerging from the unsupervised method of principal component analysis and the supervised method of Bhattacharyya distance. Observations of a training set were iteratively categorized into malignant and benign cases through 3 classification techniques: k-Nearest Neighbor, linear discriminant analysis, and probabilistic neural network. After each classification, the feature with the smallest importance index was removed, and a new categorization was carried out until there was only one feature left. The subset yielding maximum accuracy was used to classify observations in the testing set. Our method yielded average 99.17% accurate classifications in the testing set while retaining average 4.61 out of 9 features in the WBCD, which is comparable to the best results reported by the literature on that data set, with the advantage of relying on simple and widely available multivariate techniques. When applied to the microarray data, the method yielded average accuracy of 98.30% while retaining average 2.17% of the original features. Our results can aid health-care professionals during early diagnosis of breast cancer.",
+  "year": "2019",
+  "doi": "10.1177/1073274819876598",
+  "url": "https://pubmed.ncbi.nlm.nih.gov/31538497/",
+  "source": "pubmed",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "pubmed:31538497",
+  "paper_key": "p_cf1364b261b11c9ed98d46ed",
+  "aliases": [
+    "doi:10.1177/1073274819876598",
+    "pubmed:31538497",
+    "title:decisionsupportforbreastcancerdetectionclassificationimprovementthroughfeatureselection"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/pubmed_3db4e0d59427ec9b.json"
+  ],
+  "evidence": []
+}

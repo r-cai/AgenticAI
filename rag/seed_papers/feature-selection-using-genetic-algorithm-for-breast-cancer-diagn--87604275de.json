@@ -1,0 +1,20 @@
+{
+  "title": "Feature selection using genetic algorithm for breast cancer diagnosis: experiment on three different datasets.",
+  "abstract": "This study addresses feature selection for breast cancer diagnosis. The present process uses a wrapper approach using GA-based on feature selection and PS-classifier. The results of experiment show that the proposed model is comparable to the other models on Wisconsin breast cancer datasets. To evaluate effectiveness of proposed feature selection method, we employed three different classifiers artificial neural network (ANN) and PS-classifier and genetic algorithm based classifier (GA-classifier) on Wisconsin breast cancer datasets include Wisconsin breast cancer dataset (WBC), Wisconsin diagnosis breast cancer (WDBC), and Wisconsin prognosis breast cancer (WPBC). For WBC dataset, it is observed that feature selection improved the accuracy of all classifiers expect of ANN and the best accuracy with feature selection achieved by PS-classifier. For WDBC and WPBC, results show feature selection improved accuracy of all three classifiers and the best accuracy with feature selection achieved by ANN. Also specificity and sensitivity improved after feature selection. The results show that feature selection can improve accuracy, specificity and sensitivity of classifiers. Result of this study is comparable with the other studies on Wisconsin breast cancer datasets.",
+  "year": "2016",
+  "doi": "",
+  "url": "https://pubmed.ncbi.nlm.nih.gov/27403253/",
+  "source": "pubmed",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "pubmed:27403253",
+  "paper_key": "p_87604275de5ca509898ae296",
+  "aliases": [
+    "pubmed:27403253",
+    "title:featureselectionusinggeneticalgorithmforbreastcancerdiagnosisexperimentonthreedifferentdatasets"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/pubmed_3db4e0d59427ec9b.json"
+  ],
+  "evidence": []
+}

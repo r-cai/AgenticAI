@@ -1,0 +1,171 @@
+[
+  {
+    "candidate_id": "iter01_c1",
+    "iteration": 1,
+    "config": {
+      "rationale": "Construct a soft-voting ensemble combining Logistic Regression and Gradient Boosting to capture linear and non-linear patterns respectively.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 1.0,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "gb",
+            "transforms": [],
+            "model": {
+              "name": "gradient_boosting",
+              "hyperparameters": {
+                "n_estimators": 100,
+                "learning_rate": 0.1,
+                "max_depth": 3,
+                "subsample": 0.8,
+                "min_samples_split": 2
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [],
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ]
+    },
+    "model_name": "composition:voting",
+    "mean_cv_score": 0.7069,
+    "std_cv_score": 0.0177,
+    "fold_scores": [
+      0.742,
+      0.717,
+      0.7076,
+      0.7008,
+      0.6759,
+      0.6731,
+      0.7141,
+      0.6962,
+      0.7035,
+      0.7196,
+      0.7243,
+      0.6904,
+      0.7031,
+      0.7238,
+      0.7118
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.2249,
+    "cv_wall_time_seconds": 3.8679,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0629,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter01_c2",
+    "iteration": 1,
+    "config": {
+      "rationale": "Test a Voting ensemble with tuned hyperparameters (lower regularization for LR, fewer trees for RF) to see if model complexity reduction alone improves generalization without explicit feature selection.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 0.3,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "rf",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 100,
+                "max_depth": 6,
+                "min_samples_split": 2,
+                "min_samples_leaf": 2,
+                "max_features": "sqrt",
+                "class_weight": "balanced"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "composition:voting",
+    "mean_cv_score": 0.6996,
+    "std_cv_score": 0.0222,
+    "fold_scores": [
+      0.7696,
+      0.7131,
+      0.6992,
+      0.6898,
+      0.6748,
+      0.677,
+      0.7031,
+      0.6984,
+      0.6836,
+      0.6999,
+      0.7168,
+      0.679,
+      0.6947,
+      0.704,
+      0.6916
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.1646,
+    "cv_wall_time_seconds": 3.2312,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0454,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  }
+]

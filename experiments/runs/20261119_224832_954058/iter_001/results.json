@@ -1,0 +1,241 @@
+[
+  {
+    "candidate_id": "iter01_c1",
+    "iteration": 1,
+    "config": {
+      "rationale": "Test complementary decision boundaries using soft voting to reduce variance and improve generalization on small tabular data.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 1.0,
+                "solver": "lbfgs"
+              }
+            }
+          },
+          {
+            "name": "rf",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 150,
+                "max_depth": 8,
+                "min_samples_leaf": 2
+              }
+            }
+          },
+          {
+            "name": "gb",
+            "transforms": [],
+            "model": {
+              "name": "gradient_boosting",
+              "hyperparameters": {
+                "n_estimators": 100,
+                "learning_rate": 0.05,
+                "max_depth": 3,
+                "min_samples_split": 2
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "http://arxiv.org/abs/2507.04251v1"
+      ],
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ]
+    },
+    "model_name": "composition:voting",
+    "mean_cv_score": 0.7309,
+    "std_cv_score": 0.0359,
+    "fold_scores": [
+      0.7275,
+      0.7135,
+      0.7565,
+      0.7546,
+      0.6997,
+      0.7387,
+      0.7785,
+      0.7493,
+      0.7204,
+      0.6679,
+      0.8097,
+      0.6835,
+      0.7266,
+      0.7441,
+      0.6925
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.4448,
+    "cv_wall_time_seconds": 7.806,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0359,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter01_c2",
+    "iteration": 1,
+    "config": {
+      "rationale": "Apply stronger L2 regularization to the Random Forest baseline to mitigate overfitting, hypothesizing that reducing model capacity will close the train/CV gap.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": {
+        "name": "random_forest",
+        "hyperparameters": {
+          "n_estimators": 200,
+          "max_depth": 5,
+          "min_samples_split": 2,
+          "min_samples_leaf": 4,
+          "max_features": "sqrt"
+        }
+      },
+      "composition": null,
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "random_forest",
+    "mean_cv_score": 0.7102,
+    "std_cv_score": 0.031,
+    "fold_scores": [
+      0.6964,
+      0.6961,
+      0.7222,
+      0.7499,
+      0.6909,
+      0.7229,
+      0.7462,
+      0.7392,
+      0.7089,
+      0.6595,
+      0.7664,
+      0.6711,
+      0.6945,
+      0.7231,
+      0.6655
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.3602,
+    "cv_wall_time_seconds": 6.4967,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0221,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter01_c3",
+    "iteration": 1,
+    "config": {
+      "rationale": "Test ensemble diversity using soft voting to reduce variance compared to the single Random Forest baseline.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 1.0,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "gb",
+            "transforms": [],
+            "model": {
+              "name": "gradient_boosting",
+              "hyperparameters": {
+                "n_estimators": 100,
+                "learning_rate": 0.1,
+                "max_depth": 3,
+                "subsample": 0.8,
+                "min_samples_split": 2
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "http://arxiv.org/abs/2507.04251v1"
+      ],
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ]
+    },
+    "model_name": "composition:voting",
+    "mean_cv_score": 0.7214,
+    "std_cv_score": 0.0361,
+    "fold_scores": [
+      0.7142,
+      0.7012,
+      0.7651,
+      0.748,
+      0.6748,
+      0.706,
+      0.7603,
+      0.728,
+      0.7156,
+      0.6703,
+      0.7753,
+      0.6838,
+      0.7274,
+      0.7778,
+      0.6727
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.2622,
+    "cv_wall_time_seconds": 4.5345,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.058,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  }
+]

@@ -1,0 +1,127 @@
+{
+  "reasoning": "The baseline Random Forest achieved a CV mean of 0.7045 with a significant train/CV gap (0.1696), suggesting overfitting or insufficient regularization. The current batch uses 'voting' architecture, so diversity requires changing the ensemble strategy or model family. Evidence from [ev_24905bb7d707bc] suggests radiomic features can distinguish tumor types with feature selection, and [ev_5294c787c1645c] supports using a Majority Voting Classifier. To address the high train/CV gap, Candidate 1 will use Logistic Regression with L2 regularization (as per rules) within a voting ensemble, testing complementary linear boundaries. Candidate 2 will explore Gradient Boosting, which is often robust for tabular data, combined with a feature selection pipeline (RFE) to reduce dimensionality and mitigate overfitting, addressing the high feature count (49) relative to samples (1252). The previous candidate (fingerprint ae6efbf...) was a single Random Forest model with standard preprocessing, which achieved a CV mean of 0.7045 but suffered from significant overfitting (train_cv_gap: 0.1696). The critic feedback indicates the need to address this gap. Evidence 'ev_24905bb7d707bc' suggests radiomic features can distinguish tumor types, implying that feature selection is crucial for small sample tabular data. Evidence 'ev_892146c13f0a85' supports Weight Predictor Networks with Feature Selection (WPFS) for small datasets, though WPFS is not a supported model in the schema; however, it suggests using RFE or filter methods to reduce dimensionality. To address overfitting and leverage the evidence on feature selection, I will propose two distinct voting ensemble configurations. The first will use Recursive Feature Elimination (RFE) as a preprocessing step to select top features before feeding them to a Random Forest and Logistic Regression pipeline, testing if fewer features improve generalization. The second will test a Stacking approach where a Gradient Boosting classifier acts as the meta-learner on predictions from a Random Forest and an SVM branch, potentially capturing non-linear interactions better than simple voting while using RFE for feature reduction. The baseline Random Forest achieved a CV mean of 0.7045 with a significant train-CV gap (0.1696), indicating overfitting on the small dataset (n=1252, n_features=49). The critic feedback is null, but literature evidence suggests that for small sample tabular data, feature selection combined with regularization or simpler models can improve generalization. Evidence 'ev_892146c13f0a85' supports using Weight Predictor Networks (WPFS) which implicitly perform feature selection to reduce parameters. Evidence 'ev_67cadb757a26d2' and 'ev_5294c787c1645c' support ensemble voting with feature selection. To address overfitting, Candidate 1 will apply Recursive Feature Elimination (RFE) to reduce dimensionality before a Random Forest, testing if fewer features improve the CV score. Candidate 2 will switch to Logistic Regression with L2 regularization (as per rules) and apply RFE, testing if linear models generalize better on this specific small dataset compared to trees. Both candidates use the same preprocessing strategy but differ in model family and feature selection application. The baseline Random Forest achieved a CV mean of 0.7045 with a significant train-CV gap (0.1696), indicating overfitting or insufficient regularization. The critic feedback is null, so we rely on the experiment history and literature evidence. Evidence 'ev_5294c787c1645c' supports ensemble voting for micro-array data, but the current batch already has a voting architecture ('current_batch_architecture_kinds': ['voting']). To ensure diversity and address the overfitting gap, we propose two distinct paths: 1) A Voting Ensemble with different model families (Logistic Regression + Gradient Boosting) to test complementary decision boundaries, as suggested by evidence 'ev_5294c787c1645c'. We will use specific hyperparameters (C=1.0 for LR, n_estimators=100 for GB) to avoid repeating the baseline's empty config. 2) A Pipeline approach incorporating Recursive Feature Elimination (RFE). Evidence 'ev_67cadb757a26d2' explicitly supports RFE for feature selection in high-dimensional tabular data. Applying RFE before a strong estimator (like HistGradientBoosting, which is often robust on tabular data) aims to reduce dimensionality and the train-CV gap. This differs from the voting ensemble and the baseline RF. The previous candidate was rejected due to a schema validation error regarding pipeline structure. The user requires distinct configurations from the current batch (which includes 'voting'). To address the validation error, I will ensure all candidates use valid structures: either a single model with `composition=null` or a proper ensemble (`voting` or `stacking`) with 2-3 complete branches. Given the dataset profile (small sample size n=1252, high dimensionality n=49) and the critic feedback on overfitting in the baseline Random Forest, I will propose: 1) A Voting ensemble combining Logistic Regression and Gradient Boosting to test complementary decision boundaries, supported by evidence of ensemble feature selection improving performance. 2) A Pipeline applying Recursive Feature Elimination (RFE) before a Random Forest, leveraging literature support for RFE in high-dimensional tabular data to reduce overfitting. The baseline Random Forest achieved 0.7045 CV but showed significant overfitting (train_cv_gap: 0.1696). Literature suggests that for small sample tabular data, feature selection mechanisms like Recursive Feature Elimination (RFE) can improve performance by reducing irrelevant features [ev_67cadb757a26d2]. Additionally, ensemble methods using soft voting with complementary models (Logistic Regression and Gradient Boosting) have been shown to enhance reliability in biomedical classification tasks [ev_5294c787c1645c]. To address the overfitting and improve generalization, we propose: 1) A pipeline applying RFE before a Random Forest to test feature selection efficacy. 2) A soft voting ensemble combining Logistic Regression and Gradient Boosting with tuned hyperparameters to explore complementary decision boundaries. The baseline Random Forest achieved 0.7045 CV score with a significant train-CV gap (0.1696), indicating overfitting on the small dataset (n=1252, p=49). Literature suggests that for small sample tabular data, Weight Predictor Networks or feature selection methods like RFE can improve generalization by reducing parameters and selecting relevant features [ev_892146c13f0a85, ev_67cadb757a26d2]. To address overfitting while maintaining ensemble diversity (required by schema), we propose: 1) A Voting ensemble using Logistic Regression with strong L2 regularization (small C) and Random Forest with reduced depth to test boundary complementarity. 2) An RFE-based pipeline to explicitly reduce dimensionality before training a Gradient Boosting model, leveraging evidence that feature selection improves performance on high-dimensional biomedical data [ev_67cadb757a26d2].",
+  "candidates": [
+    {
+      "rationale": "Test literature-mentioned voting with two diverse registered learners.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "none",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "linear",
+            "transforms": [
+              {
+                "op": "standard_scaler",
+                "params": {}
+              }
+            ],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "max_iter": 1500,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "trees",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 200,
+                "min_samples_leaf": 2,
+                "class_weight": "balanced"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "hard",
+        "passthrough": false
+      },
+      "research_basis": [
+        "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments"
+      ],
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ]
+    },
+    {
+      "rationale": "Test complementary decision boundaries using soft voting with Logistic Regression and Gradient Boosting, leveraging evidence for ensemble feature selection on micro-array data.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 1.0,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "gb",
+            "transforms": [],
+            "model": {
+              "name": "gradient_boosting",
+              "hyperparameters": {
+                "n_estimators": 100,
+                "learning_rate": 0.1,
+                "max_depth": 3,
+                "subsample": 0.8,
+                "min_samples_split": 2
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "http://arxiv.org/abs/2507.04251v1"
+      ],
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ]
+    }
+  ],
+  "candidate_origins": {
+    "7e9e6747ce97d1d3d2f26c71b8f1d98b1ca5088d8667b01cf818fa98d898a3d9": "evidence_compiler",
+    "b49d41adc5b27806675869c88028601793c4b3a681fc5368728efe2aed1125cc": "llm"
+  },
+  "candidate_evidence_mapping": {
+    "7e9e6747ce97d1d3d2f26c71b8f1d98b1ca5088d8667b01cf818fa98d898a3d9": {
+      "evidence_id": "ev_5294c787c1645c",
+      "implemented_operation": "voting",
+      "implementation_choices": [
+        "median imputation is an engineering choice, not attributed to source",
+        "base learners are experiment design choices, not claimed paper settings"
+      ]
+    }
+  },
+  "generator_error": null
+}

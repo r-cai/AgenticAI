@@ -1,0 +1,204 @@
+[
+  {
+    "candidate_id": "iter01_c1",
+    "iteration": 1,
+    "config": {
+      "rationale": "Refine Random Forest with deeper trees and balanced class weights to better handle the slight class imbalance and capture more complex non-linear patterns.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": {
+        "name": "random_forest",
+        "hyperparameters": {
+          "n_estimators": 300,
+          "max_depth": 15,
+          "min_samples_split": 2,
+          "min_samples_leaf": 4,
+          "max_features": "sqrt",
+          "class_weight": "balanced"
+        }
+      },
+      "composition": null,
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "random_forest",
+    "mean_cv_score": 0.9508,
+    "std_cv_score": 0.0224,
+    "fold_scores": [
+      0.9654,
+      0.9162,
+      0.9071,
+      0.9536,
+      1.0,
+      0.9654,
+      0.9409,
+      0.965,
+      0.9518,
+      0.9428,
+      0.9304,
+      0.9416,
+      0.9768,
+      0.953,
+      0.9525
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.4841,
+    "cv_wall_time_seconds": 8.2558,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0331,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter01_c2",
+    "iteration": 1,
+    "config": {
+      "rationale": "Test Gradient Boosting with a moderate learning rate and limited depth to assess if sequential modeling outperforms the bagged RF on this small tabular dataset.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": {
+        "name": "gradient_boosting",
+        "hyperparameters": {
+          "n_estimators": 150,
+          "learning_rate": 0.05,
+          "max_depth": 4,
+          "subsample": 0.8,
+          "min_samples_split": 2,
+          "min_samples_leaf": 5
+        }
+      },
+      "composition": null,
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "gradient_boosting",
+    "mean_cv_score": 0.9598,
+    "std_cv_score": 0.0229,
+    "fold_scores": [
+      1.0,
+      0.9277,
+      0.9296,
+      0.9416,
+      0.9882,
+      0.965,
+      0.9402,
+      0.9883,
+      0.9518,
+      0.9646,
+      0.9409,
+      0.9409,
+      0.9768,
+      0.9882,
+      0.9525
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.8543,
+    "cv_wall_time_seconds": 13.1137,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0402,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter01_c3",
+    "iteration": 1,
+    "config": {
+      "rationale": "Implement a soft voting ensemble combining Random Forest and Logistic Regression to leverage complementary decision boundaries, supported by literature on ensemble feature selection (ev_5294c787c1645c).",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "rf_branch",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 200,
+                "max_depth": 10,
+                "min_samples_split": 2,
+                "min_samples_leaf": 1,
+                "max_features": "sqrt",
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "lr_branch",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 0.5,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "http://arxiv.org/abs/2507.04251v1"
+      ],
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ]
+    },
+    "model_name": "composition:voting",
+    "mean_cv_score": 0.9747,
+    "std_cv_score": 0.0203,
+    "fold_scores": [
+      1.0,
+      0.9641,
+      0.9525,
+      0.9765,
+      1.0,
+      0.9654,
+      0.9641,
+      0.9768,
+      0.9518,
+      1.0,
+      0.9765,
+      0.9765,
+      1.0,
+      0.9882,
+      0.9287
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.4348,
+    "cv_wall_time_seconds": 7.804,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0188,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  }
+]

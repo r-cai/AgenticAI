@@ -1,0 +1,483 @@
+{
+  "run_id": "20261119_224614_139028",
+  "output_dir": "C:\\Users\\charl\\anaconda3\\AgenticAI\\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\\experiments\\runs\\20261119_224614_139028",
+  "dataset": "C:\\Users\\charl\\anaconda3\\AgenticAI\\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\\data\\data-3.csv",
+  "target": "diagnosis",
+  "description": "Predict malignant versus benign tumors using WDBC measurements",
+  "scoring": "f1_macro",
+  "baseline_cv_score": 0.9596,
+  "dataset_sha256": "f6c65a8089f4dffb414973265861e4040ce6088473cba0b4552357f928995459",
+  "split_sha256": "6c06b033b4e247ddbe94777200ac9ab68219d5d2897cc643d51b43b57aa45419",
+  "predictions_file": "experiments\\runs\\20261119_224614_139028\\holdout_predictions.csv",
+  "controlled_study": {
+    "enabled": true,
+    "target_evaluated_candidates": 6,
+    "successfully_evaluated_candidates": 6,
+    "budget_complete": true,
+    "suite_id": "wdbc_repeated_v1",
+    "frozen_corpus_sha256": "196269270424c72104387c38bdf444ac3e25c0e4d4bbb78d4ef6cf84cc02adfb"
+  },
+  "run_wall_time_seconds_excluding_pdf": 223.9827,
+  "best": {
+    "candidate_id": "iter01_c3",
+    "iteration": 1,
+    "config": {
+      "rationale": "Improve robustness to class imbalance and reduce variance by combining a regularized linear model with an ensemble via soft voting, while standardizing features to handle scale differences.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 0.5,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "rf",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 150,
+                "max_depth": 8,
+                "min_samples_split": 2,
+                "min_samples_leaf": 1,
+                "max_features": "sqrt",
+                "class_weight": "balanced"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "cv_mean": 0.9804,
+    "cv_std": 0.0153
+  },
+  "holdout": {
+    "score": 0.9623,
+    "scoring": "f1_macro",
+    "precision": 0.9623,
+    "accuracy": 0.9649,
+    "balanced_accuracy": 0.9623,
+    "recall": 0.9623,
+    "f1_score": 0.9623,
+    "f1_macro": 0.9623,
+    "auc": 0.9944,
+    "roc_auc": 0.9944,
+    "n_train": 455,
+    "n_test": 114,
+    "convergence": {
+      "fit_time_seconds": 0.3541,
+      "iterations_used": null,
+      "convergence_warning": false,
+      "warning_detail": null
+    }
+  },
+  "cv_holdout_gap": 0.0181,
+  "iterations_run": 2,
+  "stop_reason": "target_evaluated_candidates_reached",
+  "research_used": false,
+  "critic_enabled": false,
+  "rag_enabled": false,
+  "research_rounds": 0,
+  "research_source": "persistent_kb_offline",
+  "knowledge_base": {
+    "enabled": true,
+    "directory": "C:\\Users\\charl\\anaconda3\\AgenticAI\\RAG_Knowledge_Base\\papers",
+    "index_database": "C:\\Users\\charl\\anaconda3\\AgenticAI\\RAG_Knowledge_Base\\literature.sqlite3",
+    "storage_format": "one_json_per_paper",
+    "refresh_mode": "offline"
+  },
+  "research_evidence_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "evidence_recovery_audit": [],
+  "strict_D_completed": null,
+  "llm_evidence_design_enabled": false,
+  "llm_grounded_strategy": "freeform",
+  "evidence_records": [],
+  "eligible_evidence_ids": [],
+  "evidence_selection_audit": [],
+  "data_exclusion_audit": {
+    "requested": [
+      "id"
+    ],
+    "removed": [],
+    "absent_optional": [
+      "id"
+    ],
+    "missing_policy": "ignore"
+  },
+  "evidence_ids_selected": [],
+  "best_candidate_origin": "llm",
+  "best_candidate_evidence_mapping": {},
+  "evidence_translation_audit": [
+    {
+      "iteration": 1,
+      "origin": "llm",
+      "status": "deferred",
+      "reason": "architecture_kind_diversity",
+      "kind": "standalone",
+      "fingerprint": "5f7f672bdc141bab177f32dc339553f566c8dd4348c053831bfd63703e53620c"
+    },
+    {
+      "iteration": 1,
+      "origin": "llm",
+      "status": "deferred",
+      "reason": "architecture_kind_diversity",
+      "kind": "standalone",
+      "fingerprint": "cf90c014773037f3faf147f5430d3311633fd15ddde49fb9090b52f43cd5b387"
+    },
+    {
+      "iteration": 1,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "cf90c014773037f3faf147f5430d3311633fd15ddde49fb9090b52f43cd5b387"
+    },
+    {
+      "iteration": 1,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "generator_schema_validation",
+      "batch_round": 4,
+      "attempt": 1,
+      "candidate_index": 0,
+      "error": "ValueError: Candidate references non-retrieved evidence: ['logistic_regression_with_class_weight_balanced_improves_sensitivity_on_imbalanced_datasets']"
+    },
+    {
+      "iteration": 1,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "generator_schema_validation",
+      "batch_round": 4,
+      "attempt": 1,
+      "candidate_index": 1,
+      "error": "ValueError: Candidate references non-retrieved evidence: ['extra_trees_with_min_samples_leaf_reduces_overfitting_on_small_mediated_datasets']"
+    },
+    {
+      "iteration": 1,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "da536c006d2789eb5b3e92827db5c3bdd0f0bed4699fa01d85bb3c19f957d434"
+    },
+    {
+      "iteration": 1,
+      "origin": "batch_budget",
+      "status": "summary",
+      "requested": 3,
+      "proposed_valid": 3,
+      "unfilled": 0,
+      "llm_calls": 5
+    },
+    {
+      "iteration": 2,
+      "origin": "batch_budget",
+      "status": "summary",
+      "requested": 3,
+      "proposed_valid": 3,
+      "unfilled": 0,
+      "llm_calls": 1
+    }
+  ],
+  "evidence_composition_enabled": false,
+  "research_influence": {
+    "evidence_records_extracted": 0,
+    "evidence_records_eligible": 0,
+    "accepted_translation_attempts": 0,
+    "rejected_translation_attempts": 4,
+    "accepted_compiler_translations": 0,
+    "rejected_llm_proposals": 4,
+    "generation_calls": 6,
+    "literature_derived_candidates_executed": 0,
+    "literature_cited_candidates_executed": 0,
+    "generated_candidates_evaluated": 6,
+    "successful_generated_candidates": 6,
+    "configured_candidate_budget": 6,
+    "attempted_candidate_slots": 6,
+    "unfilled_candidate_slots": 0,
+    "not_run_due_to_early_stop": 0,
+    "best_is_literature_derived": false,
+    "best_is_composition": true,
+    "best_is_evidence_compiled": false,
+    "best_is_llm_evidence_grounded": false,
+    "llm_grounded_candidates_executed": 0
+  },
+  "history": [
+    {
+      "candidate_id": "baseline",
+      "iteration": 0,
+      "model": "random_forest",
+      "evidence_ids": [],
+      "origin": null,
+      "evidence_mapping": {},
+      "composition": null,
+      "cv_mean": 0.9596,
+      "cv_std": 0.017,
+      "train_cv_gap": 0.0404,
+      "cv_wall_time_seconds": 3.3879,
+      "error": null
+    },
+    {
+      "candidate_id": "iter01_c1",
+      "iteration": 1,
+      "model": "random_forest",
+      "evidence_ids": [],
+      "origin": "llm",
+      "evidence_mapping": {},
+      "composition": null,
+      "cv_mean": 0.9613,
+      "cv_std": 0.0149,
+      "train_cv_gap": 0.0387,
+      "cv_wall_time_seconds": 7.8619,
+      "error": null
+    },
+    {
+      "candidate_id": "iter01_c2",
+      "iteration": 1,
+      "model": "logistic_regression",
+      "evidence_ids": [],
+      "origin": "llm",
+      "evidence_mapping": {},
+      "composition": null,
+      "cv_mean": 0.9789,
+      "cv_std": 0.0129,
+      "train_cv_gap": 0.008,
+      "cv_wall_time_seconds": 0.5702,
+      "error": null
+    },
+    {
+      "candidate_id": "iter01_c3",
+      "iteration": 1,
+      "model": "composition:voting",
+      "evidence_ids": [],
+      "origin": "llm",
+      "evidence_mapping": {},
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 0.5,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "rf",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 150,
+                "max_depth": 8,
+                "min_samples_split": 2,
+                "min_samples_leaf": 1,
+                "max_features": "sqrt",
+                "class_weight": "balanced"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "cv_mean": 0.9804,
+      "cv_std": 0.0153,
+      "train_cv_gap": 0.0128,
+      "cv_wall_time_seconds": 6.1126,
+      "error": null
+    },
+    {
+      "candidate_id": "iter02_c1",
+      "iteration": 2,
+      "model": "composition:voting",
+      "evidence_ids": [],
+      "origin": "llm",
+      "evidence_mapping": {},
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr_weak",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 5.0,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "rf_shallow",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 200,
+                "max_depth": 5,
+                "min_samples_split": 2,
+                "min_samples_leaf": 1,
+                "max_features": "sqrt",
+                "class_weight": "balanced"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "cv_mean": 0.9773,
+      "cv_std": 0.0131,
+      "train_cv_gap": 0.016,
+      "cv_wall_time_seconds": 7.7364,
+      "error": null
+    },
+    {
+      "candidate_id": "iter02_c2",
+      "iteration": 2,
+      "model": "composition:voting",
+      "evidence_ids": [],
+      "origin": "llm",
+      "evidence_mapping": {},
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr_base",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 1.0,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "rf_base",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 200,
+                "max_depth": 10,
+                "min_samples_split": 2,
+                "min_samples_leaf": 1,
+                "max_features": "sqrt",
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "gb_tuned",
+            "transforms": [],
+            "model": {
+              "name": "gradient_boosting",
+              "hyperparameters": {
+                "n_estimators": 100,
+                "learning_rate": 0.05,
+                "max_depth": 3,
+                "subsample": 0.8,
+                "min_samples_split": 2
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "cv_mean": 0.9725,
+      "cv_std": 0.0134,
+      "train_cv_gap": 0.0263,
+      "cv_wall_time_seconds": 14.7335,
+      "error": null
+    },
+    {
+      "candidate_id": "iter02_c3",
+      "iteration": 2,
+      "model": "composition:pipeline",
+      "evidence_ids": [],
+      "origin": "llm",
+      "evidence_mapping": {},
+      "composition": {
+        "kind": "pipeline",
+        "transforms": [
+          {
+            "op": "pca",
+            "params": {
+              "n_components": 15
+            }
+          }
+        ],
+        "branches": [],
+        "model": {
+          "name": "logistic_regression",
+          "hyperparameters": {
+            "C": 1.0,
+            "solver": "lbfgs",
+            "max_iter": 1000,
+            "class_weight": "balanced"
+          }
+        },
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "cv_mean": 0.9773,
+      "cv_std": 0.0163,
+      "train_cv_gap": 0.0102,
+      "cv_wall_time_seconds": 0.4764,
+      "error": null
+    }
+  ],
+  "pdf_report": "experiments\\runs\\20261119_224614_139028\\level2_experiment_report.pdf",
+  "dataset_id": "data-3",
+  "experiment_id": "A",
+  "report_paths": {
+    "original": "experiments\\runs\\20261119_224614_139028\\final_report.json",
+    "named_run_copy": "experiments\\runs\\20261119_224614_139028\\final_report_data-3_A.json",
+    "archived_copy": "experiments\\reports\\final_report_data-3_A_20261119_224614_139028.json",
+    "latest_copy": "experiments\\reports\\final_report_data-3_A.json"
+  }
+}

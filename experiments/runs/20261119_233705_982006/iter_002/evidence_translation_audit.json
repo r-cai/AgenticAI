@@ -1,0 +1,49 @@
+[
+  {
+    "evidence_id": "ev_5294c787c1645c",
+    "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+    "status": "rejected",
+    "reason": "duplicate_executable_architecture",
+    "matched_operations": [
+      "voting"
+    ],
+    "extraction_warnings": []
+  },
+  {
+    "evidence_id": "ev_67cadb757a26d2",
+    "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+    "status": "accepted",
+    "reason": null,
+    "matched_operations": [
+      "rfe"
+    ],
+    "extraction_warnings": [],
+    "implemented_operation": "rfe",
+    "implementation_choices": [
+      "median imputation is an engineering choice, not attributed to source",
+      "RFE uses logistic regression as selector; subset size is exploratory",
+      "classifier logistic_regression is chosen for test; paper may not specify it"
+    ],
+    "candidate_fingerprint": "c76aeaab1da09b5c92083fefedd203082838c9db9e273b15340682682502dd0e"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "source_does_not_support_used_operations:ev_892146c13f0a85",
+    "fingerprint": "ef9396afcdc7e3de4253d8d0d398c081410bc7b706483197d9d9784c6da48766"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "source_does_not_support_used_operations:ev_67cadb757a26d2",
+    "fingerprint": "d28f4b5f4d3afe79f059e2c291ddee5db879b2609c0c3e47496ed01df37526b9"
+  },
+  {
+    "origin": "batch_budget",
+    "status": "summary",
+    "requested": 3,
+    "proposed_valid": 3,
+    "unfilled": 0,
+    "llm_calls": 3
+  }
+]

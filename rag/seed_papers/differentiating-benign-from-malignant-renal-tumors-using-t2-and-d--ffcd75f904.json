@@ -1,0 +1,51 @@
+{
+  "title": "Differentiating Benign from Malignant Renal Tumors Using T2‐ and Diffusion‐Weighted Images: A Comparison of Deep Learning and Radiomics Models Versus Assessment from Radiologists",
+  "abstract": "",
+  "year": "2021",
+  "doi": "10.1002/jmri.27900",
+  "url": "https://www.semanticscholar.org/paper/cc1526d0b66323d2b89a1f49dc1f903588a608ae",
+  "source": "legacy_report",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "",
+  "paper_key": "p_ffcd75f904fad4023c657ce4",
+  "aliases": [
+    "doi:10.1002/jmri.27900",
+    "url:https://www.semanticscholar.org/paper/cc1526d0b66323d2b89a1f49dc1f903588a608ae",
+    "title:differentiatingbenignfrommalignantrenaltumorsusingt2anddiffusionweightedimagesacomparisonofdeeplearningandradiomicsmodelsversusassessmentfromradiologists"
+  ],
+  "provenance": [
+    "/mnt/data/final_report(5).json",
+    "/mnt/data/final_report_B.json",
+    "/mnt/data/final_report_C.json",
+    "/mnt/data/final_report_D.json"
+  ],
+  "evidence": [
+    {
+      "evidence_id": "ev_f3f414fa73427f",
+      "record": {
+        "evidence_id": "ev_f3f414fa73427f",
+        "paper_title": "Differentiating Benign from Malignant Renal Tumors Using T2‐ and Diffusion‐Weighted Images: A Comparison of Deep Learning and Radiomics Models Versus Assessment from Radiologists",
+        "paper_url": "https://www.semanticscholar.org/paper/cc1526d0b66323d2b89a1f49dc1f903588a608ae",
+        "paper_doi": "10.1002/jmri.27900",
+        "paper_year": 2021,
+        "method": "deep learning",
+        "source_excerpt": "Differentiating benign from malignant renal tumors is important for selection of the most effective treatment.",
+        "modeling_hypothesis": "Deep learning models can differentiate benign from malignant renal tumors using T2 and diffusion-weighted images.",
+        "suggested_operations": [],
+        "limitations": "",
+        "extraction_method": "llm_verified_excerpt",
+        "source_grounded": true
+      },
+      "verified": false,
+      "verification_reason": "no_matching_source_abstract",
+      "first_seen": "2026-11-20T00:32:32+00:00",
+      "provenance": [
+        "/mnt/data/final_report(5).json",
+        "/mnt/data/final_report_B.json",
+        "/mnt/data/final_report_C.json",
+        "/mnt/data/final_report_D.json"
+      ]
+    }
+  ]
+}

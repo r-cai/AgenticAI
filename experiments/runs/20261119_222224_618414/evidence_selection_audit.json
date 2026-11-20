@@ -1,0 +1,104 @@
+[
+  {
+    "evidence_id": "ev_0c8c98024d39cf",
+    "paper_title": "Multimodal Deep Learning for Phyllodes Tumor Classification from Ultrasound and Clinical Data",
+    "status": "rejected",
+    "reason": "image_modality_not_applicable_to_tabular_modeling"
+  },
+  {
+    "evidence_id": "ev_e2fcd7f995683e",
+    "paper_title": "Multimodal Deep Learning for Phyllodes Tumor Classification from Ultrasound and Clinical Data",
+    "status": "rejected",
+    "reason": "image_modality_not_applicable_to_tabular_modeling"
+  },
+  {
+    "evidence_id": "ev_e934d3147790ed",
+    "paper_title": "Multimodal Deep Learning for Phyllodes Tumor Classification from Ultrasound and Clinical Data",
+    "status": "rejected",
+    "reason": "image_modality_not_applicable_to_tabular_modeling"
+  },
+  {
+    "evidence_id": "ev_2d570e2b74da47",
+    "paper_title": "Weight Predictor Network with Feature Selection for Small Sample Tabular Biomedical Data",
+    "status": "rejected",
+    "reason": "no_supported_composition_operation",
+    "supported_operations": [],
+    "extraction_warnings": []
+  },
+  {
+    "evidence_id": "ev_42f418e7dab419",
+    "paper_title": "Weight Predictor Network with Feature Selection for Small Sample Tabular Biomedical Data",
+    "status": "rejected",
+    "reason": "no_supported_composition_operation",
+    "supported_operations": [],
+    "extraction_warnings": []
+  },
+  {
+    "evidence_id": "ev_540bb5b380aef1",
+    "paper_title": "Developing a Machine Learning-Based Clinical Decision Support Tool for Uterine Tumor Imaging",
+    "status": "rejected",
+    "reason": "image_modality_not_applicable_to_tabular_modeling"
+  },
+  {
+    "evidence_id": "ev_071d9e0c79d051",
+    "paper_title": "Developing a Machine Learning-Based Clinical Decision Support Tool for Uterine Tumor Imaging",
+    "status": "rejected",
+    "reason": "no_supported_composition_operation",
+    "supported_operations": [],
+    "extraction_warnings": []
+  },
+  {
+    "evidence_id": "ev_c4efc324626589",
+    "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+    "status": "rejected",
+    "reason": "no_supported_composition_operation",
+    "supported_operations": [
+      "logistic_regression"
+    ],
+    "extraction_warnings": []
+  },
+  {
+    "evidence_id": "ev_5294c787c1645c",
+    "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+    "status": "selected",
+    "reason": null,
+    "supported_operations": [
+      "voting"
+    ],
+    "extraction_warnings": [],
+    "method_group": "voting"
+  },
+  {
+    "evidence_id": "ev_67cadb757a26d2",
+    "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+    "status": "selected",
+    "reason": null,
+    "supported_operations": [
+      "rfe"
+    ],
+    "extraction_warnings": [],
+    "method_group": "rfe"
+  },
+  {
+    "evidence_id": "ev_892146c13f0a85",
+    "paper_title": "Weight Predictor Network with Feature Selection for Small Sample Tabular Biomedical Data",
+    "status": "selected",
+    "reason": null,
+    "supported_operations": [
+      "select_k_best"
+    ],
+    "extraction_warnings": [],
+    "method_group": "select_k_best"
+  },
+  {
+    "evidence_id": "ev_24905bb7d707bc",
+    "paper_title": "Developing a Machine Learning-Based Clinical Decision Support Tool for Uterine Tumor Imaging",
+    "status": "selected",
+    "reason": null,
+    "supported_operations": [
+      "select_k_best"
+    ],
+    "extraction_warnings": [],
+    "method_group": "select_k_best"
+  }
+]

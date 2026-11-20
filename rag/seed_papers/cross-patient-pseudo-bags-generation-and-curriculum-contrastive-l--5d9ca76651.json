@@ -1,0 +1,67 @@
+{
+  "title": "Cross-Patient Pseudo Bags Generation and Curriculum Contrastive Learning for Imbalanced Multiclassification of Whole Slide Image",
+  "abstract": "",
+  "year": "2024",
+  "doi": "",
+  "url": "http://arxiv.org/abs/2411.11262v1",
+  "source": "legacy_report",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "",
+  "paper_key": "p_5d9ca76651361ebb80925f28",
+  "aliases": [
+    "arxiv:2411.11262",
+    "title:crosspatientpseudobagsgenerationandcurriculumcontrastivelearningforimbalancedmulticlassificationofwholeslideimage"
+  ],
+  "provenance": [
+    "/mnt/data/final_report.json"
+  ],
+  "evidence": [
+    {
+      "evidence_id": "ev_753275942bad95",
+      "record": {
+        "evidence_id": "ev_753275942bad95",
+        "paper_title": "Cross-Patient Pseudo Bags Generation and Curriculum Contrastive Learning for Imbalanced Multiclassification of Whole Slide Image",
+        "paper_url": "http://arxiv.org/abs/2411.11262v1",
+        "paper_doi": null,
+        "paper_year": "2024",
+        "method": "pseudo-bag generation algorithm",
+        "source_excerpt": "we utilize a pseudo-bag generation algorithm to further leverage the abundant and redundant information in WSIs",
+        "modeling_hypothesis": "This method generates sub-bags with feature distributions similar to the original WSIs to handle imbalanced multi-classification tasks.",
+        "suggested_operations": [],
+        "limitations": "",
+        "extraction_method": "llm_verified_excerpt",
+        "source_grounded": true
+      },
+      "verified": false,
+      "verification_reason": "no_matching_source_abstract",
+      "first_seen": "2026-11-20T00:32:32+00:00",
+      "provenance": [
+        "/mnt/data/final_report.json"
+      ]
+    },
+    {
+      "evidence_id": "ev_89790ce4150ea1",
+      "record": {
+        "evidence_id": "ev_89790ce4150ea1",
+        "paper_title": "Cross-Patient Pseudo Bags Generation and Curriculum Contrastive Learning for Imbalanced Multiclassification of Whole Slide Image",
+        "paper_url": "http://arxiv.org/abs/2411.11262v1",
+        "paper_doi": null,
+        "paper_year": "2024",
+        "method": "transition from bag-level to feature distribution learning",
+        "source_excerpt": "Unlike previous approaches, our framework transitions from learning bag-level representations to understanding and exploiting the feature distribution of multi-instance bags",
+        "modeling_hypothesis": "This method shifts the focus from bag-level representations to feature distribution within multi-instance bags for improved fine-grained information learning.",
+        "suggested_operations": [],
+        "limitations": "",
+        "extraction_method": "llm_verified_excerpt",
+        "source_grounded": true
+      },
+      "verified": false,
+      "verification_reason": "no_matching_source_abstract",
+      "first_seen": "2026-11-20T00:32:32+00:00",
+      "provenance": [
+        "/mnt/data/final_report.json"
+      ]
+    }
+  ]
+}

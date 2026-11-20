@@ -1,0 +1,21 @@
+{
+  "title": "Enhancing Breast Cancer Detection and Classification Using Advanced Multi-Model Features and Ensemble Machine Learning Techniques.",
+  "abstract": "Breast cancer (BC) is the most common cancer among women, making it essential to have an accurate and dependable system for diagnosing benign or malignant tumors. It is essential to detect this cancer early in order to inform subsequent treatments. Currently, fine needle aspiration (FNA) cytology and machine learning (ML) models can be used to detect and diagnose this cancer more accurately. Consequently, an effective and dependable approach needs to be developed to enhance the clinical capacity to diagnose this illness. This study aims to detect and divide BC into two categories using the Wisconsin Diagnostic Breast Cancer (WDBC) benchmark feature set and to select the fewest features to attain the highest accuracy. To this end, this study explores automated BC prediction using multi-model features and ensemble machine learning (EML) techniques. To achieve this, we propose an advanced ensemble technique, which incorporates voting, bagging, stacking, and boosting as combination techniques for the classifier in the proposed EML methods to distinguish benign breast tumors from malignant cancers. In the feature extraction process, we suggest a recursive feature elimination technique to find the most important features of the WDBC that are pertinent to BC detection and classification. Furthermore, we conducted cross-validation experiments, and the comparative results demonstrated that our method can effectively enhance classification performance and attain the highest value in six evaluation metrics, including precision, sensitivity, area under the curve (AUC), specificity, accuracy, and F1-score. Overall, the stacking model achieved the best average accuracy, at 99.89%, and its sensitivity, specificity, F1-score, precision, and AUC/ROC were 1.00%, 0.999%, 1.00%, 1.00%, and 1.00%, respectively, thus generating excellent results. The findings of this study can be used to establish a reliable clinical detection system, enabling experts to make more precise and operative decisions in the future. Additionally, the proposed technology might be used to detect a variety of cancers.",
+  "year": "2023",
+  "doi": "10.3390/life13102093",
+  "url": "https://pubmed.ncbi.nlm.nih.gov/37895474/",
+  "source": "pubmed",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "pubmed:37895474",
+  "paper_key": "p_6b913aa8b7713298938947c7",
+  "aliases": [
+    "doi:10.3390/life13102093",
+    "pubmed:37895474",
+    "title:enhancingbreastcancerdetectionandclassificationusingadvancedmultimodelfeaturesandensemblemachinelearningtechniques"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/pubmed_3db4e0d59427ec9b.json"
+  ],
+  "evidence": []
+}

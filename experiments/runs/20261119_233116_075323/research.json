@@ -1,0 +1,227 @@
+[
+  {
+    "abstract": "Background: Breast cancer has the highest prevalence in women globally. The classification and diagnosis of breast cancer and its histopathological images have always been a hot spot of clinical concern. In Computer-Aided Diagnosis (CAD), traditional classification models mostly use a single network to extract features, which has significant limitations. On the other hand, many networks are trained and optimized on patient-level datasets, ignoring the application of lower-level data labels. Method: This paper proposes a deep ensemble model based on image-level labels for the binary classification of benign and malignant lesions of breast histopathological images. First, the BreaKHis dataset is randomly divided into a training, validation and test set. Then, data augmentation techniques are used to balance the number of benign and malignant samples. Thirdly, considering the performance of transfer learning and the complementarity between each network, VGG16, Xception, ResNet50, DenseNet201 are selected as the base classifiers. Result: In the ensemble network model with accuracy as the weight, the image-level binary classification achieves an accuracy of $98.90\\%$. In order to verify the capabilities of our method, the latest Transformer and Multilayer Perception (MLP) models have been experimentally compared on the same dataset. Our model wins with a $5\\%-20\\%$ advantage, emphasizing the ensemble model's far-reaching significance in classification tasks. Conclusion: This research focuses on improving the model's classification performance with an ensemble algorithm. Transfer learning plays an essential role in small datasets, improving training speed and accuracy. Our model has outperformed many existing approaches in accuracy, providing a method for the field of auxiliary medical diagnosis.",
+    "doi": "",
+    "id": "http://arxiv.org/abs/2204.08311v2",
+    "source": "arxiv",
+    "title": "Application of Transfer Learning and Ensemble Learning in Image-level Classification for Breast Histopathology",
+    "url": "http://arxiv.org/abs/2204.08311v2",
+    "year": "2022"
+  },
+  {
+    "abstract": "Phyllodes tumors (PTs) are rare fibroepithelial breast lesions that are difficult to classify preoperatively due to their radiological similarity to benign fibroadenomas. This often leads to unnecessary surgical excisions. To address this, we propose a multimodal deep learning framework that integrates breast ultrasound (BUS) images with structured clinical data to improve diagnostic accuracy. We developed a dual-branch neural network that extracts and fuses features from ultrasound images and patient metadata from 81 subjects with confirmed PTs. Class-aware sampling and subject-stratified 5-fold cross-validation were applied to prevent class imbalance and data leakage. The results show that our proposed multimodal method outperforms unimodal baselines in classifying benign versus borderline/malignant PTs. Among six image encoders, ConvNeXt and ResNet18 achieved the best performance in the multimodal setting, with AUC-ROC scores of 0.9427 and 0.9349, and F1-scores of 0.6720 and 0.7294, respectively. This study demonstrates the potential of multimodal AI to serve as a non-invasive diagnostic tool, reducing unnecessary biopsies and improving clinical decision-making in breast tumor management.",
+    "doi": "",
+    "id": "http://arxiv.org/abs/2509.00213v2",
+    "source": "arxiv",
+    "title": "Multimodal Deep Learning for Phyllodes Tumor Classification from Ultrasound and Clinical Data",
+    "url": "http://arxiv.org/abs/2509.00213v2",
+    "year": "2025"
+  },
+  {
+    "abstract": "Breast cancer (BC) is the most common cancer among women, making it essential to have an accurate and dependable system for diagnosing benign or malignant tumors. It is essential to detect this cancer early in order to inform subsequent treatments. Currently, fine needle aspiration (FNA) cytology and machine learning (ML) models can be used to detect and diagnose this cancer more accurately. Consequently, an effective and dependable approach needs to be developed to enhance the clinical capacity to diagnose this illness. This study aims to detect and divide BC into two categories using the Wisconsin Diagnostic Breast Cancer (WDBC) benchmark feature set and to select the fewest features to attain the highest accuracy. To this end, this study explores automated BC prediction using multi-model features and ensemble machine learning (EML) techniques. To achieve this, we propose an advanced ensemble technique, which incorporates voting, bagging, stacking, and boosting as combination techniques for the classifier in the proposed EML methods to distinguish benign breast tumors from malignant cancers. In the feature extraction process, we suggest a recursive feature elimination technique to find the most important features of the WDBC that are pertinent to BC detection and classification. Furthermore, we conducted cross-validation experiments, and the comparative results demonstrated that our method can effectively enhance classification performance and attain the highest value in six evaluation metrics, including precision, sensitivity, area under the curve (AUC), specificity, accuracy, and F1-score. Overall, the stacking model achieved the best average accuracy, at 99.89%, and its sensitivity, specificity, F1-score, precision, and AUC/ROC were 1.00%, 0.999%, 1.00%, 1.00%, and 1.00%, respectively, thus generating excellent results. The findings of this study can be used to establish a reliable clinical detection system, enabling experts to make more precise and operative decisions in the future. Additionally, the proposed technology might be used to detect a variety of cancers.",
+    "doi": "10.3390/life13102093",
+    "id": "pubmed:37895474",
+    "source": "pubmed",
+    "title": "Enhancing Breast Cancer Detection and Classification Using Advanced Multi-Model Features and Ensemble Machine Learning Techniques.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/37895474/",
+    "year": "2023"
+  },
+  {
+    "abstract": "Tabular biomedical data is often high-dimensional but with a very small number of samples. Although recent work showed that well-regularised simple neural networks could outperform more sophisticated architectures on tabular data, they are still prone to overfitting on tiny datasets with many potentially irrelevant features. To combat these issues, we propose Weight Predictor Network with Feature Selection (WPFS) for learning neural networks from high-dimensional and small sample data by reducing the number of learnable parameters and simultaneously performing feature selection. In addition to the classification network, WPFS uses two small auxiliary networks that together output the weights of the first layer of the classification model. We evaluate on nine real-world biomedical datasets and demonstrate that WPFS outperforms other standard as well as more recent methods typically applied to tabular data. Furthermore, we investigate the proposed feature selection mechanism and show that it improves performance while providing useful insights into the learning task.",
+    "doi": "",
+    "id": "http://arxiv.org/abs/2211.15616v1",
+    "source": "arxiv",
+    "title": "Weight Predictor Network with Feature Selection for Small Sample Tabular Biomedical Data",
+    "url": "http://arxiv.org/abs/2211.15616v1",
+    "year": "2022"
+  },
+  {
+    "abstract": "Advances in technology have led to the emergence of computerized diagnostic systems as intelligent medical assistants. Machine learning approaches cannot replace professional humans, but they can change the treatment of diseases such as cancer and be used as medical assistants. Breast cancer treatment can be very effective, especially when the disease is detected in the early stages. Feature selection and classification are common data mining techniques in machine learning that can provide breast cancer diagnosis with high speed, low cost and high precision. This paper proposes a new intelligent approach using an integrated filter-evolutionary search-based feature selection and an optimized ensemble classifier for breast cancer diagnosis. The selected features mainly relate to the viable solution as the selected features are successfully used in the breast cancer disease classification process. The proposed feature selection method selects the most informative features from the original feature set by integrating adaptive thresholder information gain-based feature selection and evolutionary gravity-search-based feature selection. Meanwhile, classification model is done by proposing a new intelligent multi-layer perceptron neural network-based ensemble classifier. The simulation results show that the proposed method provides better performance compared to the state-of-the-art algorithms in terms of various criteria such as accuracy, sensitivity and specificity. Specifically, the proposed method achieves an average accuracy of 99.42% on WBCD, WDBC and WPBC datasets from Wisconsin database with only 56.7% of features. Systems based on intelligent medical assistants configured with machine learning approaches are an important step toward helping doctors to detect breast cancer early.",
+    "doi": "10.1007/s00432-023-05238-4",
+    "id": "pubmed:37567985",
+    "source": "pubmed",
+    "title": "A structured combination of ensemble classifier and filter-based feature selection to improve breast cancer diagnosis.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/37567985/",
+    "year": "2023"
+  },
+  {
+    "abstract": "Artificial Intelligence (AI) has emerged as a valuable tool for assisting radiologists in breast cancer detection and diagnosis. However, the success of AI applications in this domain is restricted by the quantity and quality of available data, posing challenges due to limited and costly data annotation procedures that often lead to annotation shifts. This study simulates, analyses and mitigates annotation shifts in cancer classification in the breast mammography domain. First, a high-accuracy cancer risk prediction model is developed, which effectively distinguishes benign from malignant lesions. Next, model performance is used to quantify the impact of annotation shift. We uncover a substantial impact of annotation shift on multiclass classification performance particularly for malignant lesions. We thus propose a training data augmentation approach based on single-image generative models for the affected class, requiring as few as four in-domain annotations to considerably mitigate annotation shift, while also addressing dataset imbalance. Lastly, we further increase performance by proposing and validating an ensemble architecture based on multiple models trained under different data augmentation regimes. Our study offers key insights into annotation shift in deep learning breast cancer classification and explores the potential of single-image generative models to overcome domain shift challenges.",
+    "doi": "",
+    "id": "http://arxiv.org/abs/2405.19754v1",
+    "source": "arxiv",
+    "title": "Mitigating annotation shift in cancer classification using single image generative models",
+    "url": "http://arxiv.org/abs/2405.19754v1",
+    "year": "2024"
+  },
+  {
+    "abstract": "Growth of malignant tumors in the breast results in breast cancer. It is a cause of death of many women across the world. As a part of treatment, a woman might have to go through painful surgery and chemotherapy that may further lead to severe side effects. However, it is possible to cure it if it is diagnosed in the initial stage. Recently, many researchers have leveraged machine learning (ML) techniques to classify breast cancer. However, these methods are computationally expensive and prone to the overfitting problem. A simple single-layer neural network, i.e., functional link artificial neural network (FLANN), is proposed to overcome this problem. Further, the F-score is used to reduce the issue of overfitting by selecting features having a higher significance level. In this paper, FLANN is proposed to classify breast cancer using Wisconsin Breast Cancer Dataset (WBCD) (with 699 samples) and Wisconsin Diagnostic Breast Cancer (WDBC) (with 569 samples) datasets. Experimental results reveal that the proposed models can diagnose breast cancer with higher performance. The proposed model can be used in the early breast cancer diagnosis with 99.41% accuracy.",
+    "doi": "10.1155/2022/2696916",
+    "id": "pubmed:35411308",
+    "source": "pubmed",
+    "title": "Feature Importance Score-Based Functional Link Artificial Neural Networks for Breast Cancer Classification.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/35411308/",
+    "year": "2022"
+  },
+  {
+    "abstract": "Several statistical-based approaches have been developed to support medical personnel in early breast cancer detection. This article presents a method for feature selection aimed at classifying cases into categories based on patients' breast tissue measures and protein microarray. The effectiveness of this feature selection strategy was evaluated against the commonly used Wisconsin Breast Cancer Database-WBCD (with several patients and fewer features) and a new protein microarray data set (with several features and fewer patients). Features were ranked according to a feature importance index that combines parameters emerging from the unsupervised method of principal component analysis and the supervised method of Bhattacharyya distance. Observations of a training set were iteratively categorized into malignant and benign cases through 3 classification techniques: k-Nearest Neighbor, linear discriminant analysis, and probabilistic neural network. After each classification, the feature with the smallest importance index was removed, and a new categorization was carried out until there was only one feature left. The subset yielding maximum accuracy was used to classify observations in the testing set. Our method yielded average 99.17% accurate classifications in the testing set while retaining average 4.61 out of 9 features in the WBCD, which is comparable to the best results reported by the literature on that data set, with the advantage of relying on simple and widely available multivariate techniques. When applied to the microarray data, the method yielded average accuracy of 98.30% while retaining average 2.17% of the original features. Our results can aid health-care professionals during early diagnosis of breast cancer.",
+    "doi": "10.1177/1073274819876598",
+    "id": "pubmed:31538497",
+    "source": "pubmed",
+    "title": "Decision Support for Breast Cancer Detection: Classification Improvement Through Feature Selection.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/31538497/",
+    "year": "2019"
+  },
+  {
+    "abstract": "Mammography remains the most prevalent imaging tool for early breast cancer screening. The language used to describe abnormalities in mammographic reports is based on the breast Imaging Reporting and Data System (BI-RADS). Assigning a correct BI-RADS category to each examined mammogram is a strenuous and challenging task for even experts. This paper proposes a new and effective computer-aided diagnosis (CAD) system to classify mammographic masses into four assessment categories in BI-RADS. The mass regions are first enhanced by means of histogram equalization and then semiautomatically segmented based on the region growing technique. A total of 130 handcrafted BI-RADS features are then extrcated from the shape, margin, and density of each mass, together with the mass size and the patient's age, as mentioned in BI-RADS mammography. Then, a modified feature selection method based on the genetic algorithm (GA) is proposed to select the most clinically significant BI-RADS features. Finally, a back-propagation neural network (BPN) is employed for classification, and its accuracy is used as the fitness in GA. A set of 500 mammogram images from the digital database of screening mammography (DDSM) is used for evaluation. Our system achieves classification accuracy, positive predictive value, negative predictive value, and Matthews correlation coefficient of 84.5%, 84.4%, 94.8%, and 79.3%, respectively. To our best knowledge, this is the best current result for BI-RADS classification of breast masses in mammography, which makes the proposed system promising to support radiologists for deciding proper patient management based on the automatically assigned BI-RADS categories.",
+    "doi": "",
+    "id": "http://arxiv.org/abs/2005.05074v1",
+    "source": "arxiv",
+    "title": "A New Computer-Aided Diagnosis System with Modified Genetic Feature Selection for BI-RADS Classification of Breast Masses in Mammograms",
+    "url": "http://arxiv.org/abs/2005.05074v1",
+    "year": "2020"
+  },
+  {
+    "abstract": "Breast cancer is one of the leading causes of death among women, more so than all other cancers. The accurate diagnosis of breast cancer is very difficult due to the complexity of the disease, changing treatment procedures and different patient population samples. Diagnostic techniques with better performance are very important for personalized care and treatment and to reduce and control the recurrence of cancer. The main objective of this research was to select feature selection techniques using correlation analysis and variance of input features before passing these significant features to a classification method. We used an ensemble method to improve the classification of breast cancer. The proposed approach was evaluated using the public WBCD dataset (Wisconsin Breast Cancer Dataset). Correlation analysis and principal component analysis were used for dimensionality reduction. Performance was evaluated for well-known machine learning classifiers, and the best seven classifiers were chosen for the next step. Hyper-parameter tuning was performed to improve the performances of the classifiers. The best performing classification algorithms were combined with two different voting techniques. Hard voting predicts the class that gets the majority vote, whereas soft voting predicts the class based on highest probability. The proposed approach performed better than state-of-the-art work, achieving an accuracy of 98.24%, high precision (99.29%) and a recall value of 95.89%.",
+    "doi": "10.3390/jimaging7110225",
+    "id": "pubmed:34821856",
+    "source": "pubmed",
+    "title": "Feature Selection Using Correlation Analysis and Principal Component Analysis for Accurate Breast Cancer Diagnosis.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/34821856/",
+    "year": "2021"
+  },
+  {
+    "abstract": "This study addresses feature selection for breast cancer diagnosis. The present process uses a wrapper approach using GA-based on feature selection and PS-classifier. The results of experiment show that the proposed model is comparable to the other models on Wisconsin breast cancer datasets. To evaluate effectiveness of proposed feature selection method, we employed three different classifiers artificial neural network (ANN) and PS-classifier and genetic algorithm based classifier (GA-classifier) on Wisconsin breast cancer datasets include Wisconsin breast cancer dataset (WBC), Wisconsin diagnosis breast cancer (WDBC), and Wisconsin prognosis breast cancer (WPBC). For WBC dataset, it is observed that feature selection improved the accuracy of all classifiers expect of ANN and the best accuracy with feature selection achieved by PS-classifier. For WDBC and WPBC, results show feature selection improved accuracy of all three classifiers and the best accuracy with feature selection achieved by ANN. Also specificity and sensitivity improved after feature selection. The results show that feature selection can improve accuracy, specificity and sensitivity of classifiers. Result of this study is comparable with the other studies on Wisconsin breast cancer datasets.",
+    "doi": "",
+    "id": "pubmed:27403253",
+    "source": "pubmed",
+    "title": "Feature selection using genetic algorithm for breast cancer diagnosis: experiment on three different datasets.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/27403253/",
+    "year": "2016"
+  },
+  {
+    "abstract": "Machine learning is being increasingly used for the detection, diagnosis, and treatment of cancer. However, models often struggle with biological data due to high dimensionality, limited sample diversity, and complex feature interactions. Recent works have investigated the potential for quantum machine learning models to exhibit improved performance over classical models on this kind of complex data, but have often lacked rigorous empirical evaluation of quantum advantage. In this work, we develop a methodology for fair benchmarking of quantum and classical machine learning models, based on the Red Cedar quantum machine learning and resource estimation framework and AutoML-optimized classical neural networks. We assess the potential for quantum advantage in machine learning across tabular, omics, and spatial oncological datasets drawn from the existing quantum machine learning literature, with a range of preprocessing methods, and find no evidence of quantum advantage. Our results suggest that the field should prioritize analyzing higher-dimensional, more biologically realistic datasets to make meaningful progress toward practical quantum advantage in oncological classification problems.",
+    "doi": "",
+    "id": "http://arxiv.org/abs/2608.11373v1",
+    "source": "arxiv",
+    "title": "Benchmarking Quantum and Classical Machine Learning Models on Oncological Data",
+    "url": "http://arxiv.org/abs/2608.11373v1",
+    "year": "2026"
+  },
+  {
+    "abstract": "Accurate classification of breast cancer subtypes from gene expression data is critical for diagnosis and treatment selection. However, such datasets are characterized by high dimensionality and limited sample size, posing challenges for machine learning models. In this study, we evaluate the impact of model complexity and feature selection on subtype classification performance using TCGA-BRCA gene expression data. Logistic regression, random forest, and support vector machine (SVM) models were trained using varying numbers of highly variable genes (50 to 20,518). Performance was evaluated using stratified 5-fold cross-validation and assessed with accuracy and macro F1 score. While all models achieved high accuracy, macro F1 analysis revealed substantial differences in subtype-level performance. Logistic regression demonstrated the most stable and balanced performance across subtypes, including improved detection of rare classes. Random forest underperformed on minority subtypes despite strong overall accuracy, while SVM showed sensitivity to feature dimensionality. These findings highlight the importance of model simplicity, evaluation metrics, and feature selection in high-dimensional biological classification tasks.",
+    "doi": "",
+    "id": "http://arxiv.org/abs/2605.06562v1",
+    "source": "arxiv",
+    "title": "Feature Dimensionality Outweighs Model Complexity in Breast Cancer Subtype Classification Using TCGA-BRCA Gene Expression Data",
+    "url": "http://arxiv.org/abs/2605.06562v1",
+    "year": "2026"
+  },
+  {
+    "abstract": "Ensembling is a successful technique to improve the performance of machine learning (ML) models. Conf-Ensemble is an adaptation to Boosting to create ensembles based on model confidence instead of model errors to better classify difficult edge-cases. The key idea is to create successive model experts for samples that were difficult (not necessarily incorrectly classified) by the preceding model. This technique has been shown to provide better results than boosting in binary-classification with a small feature space (~80 features). In this paper, we evaluate the Conf-Ensemble approach in the much more complex task of image classification with the ImageNet dataset (224x224x3 features with 1000 classes). Image classification is an important benchmark for AI-based perception and thus it helps to assess if this method can be used in safety-critical applications using ML ensembles. Our experiments indicate that in a complex multi-label classification task, the expected benefit of specialization on complex input samples cannot be achieved with a small sample set, i.e., a good classifier seems to rely on very complex feature analysis that cannot be well trained on just a limited subset of \"difficult samples\". We propose an improvement to Conf-Ensemble to increase the number of samples fed to successive ensemble members, and a three-member Conf-Ensemble using this improvement was able to surpass a single model in accuracy, although the amount is not significant. Our findings shed light on the limits of the approach and the non-triviality of harnessing big data.",
+    "doi": "",
+    "id": "http://arxiv.org/abs/2303.03185v1",
+    "source": "arxiv",
+    "title": "Evaluation of Confidence-based Ensembling in Deep Learning Image Classification",
+    "url": "http://arxiv.org/abs/2303.03185v1",
+    "year": "2023"
+  },
+  {
+    "abstract": "Intra-operative identification of malignant versus benign or healthy tissue is a major challenge in fluorescence guided cancer surgery. We propose a perfusion quantification method for computer-aided interpretation of subtle differences in dynamic perfusion patterns which can be used to distinguish between normal tissue and benign or malignant tumors intra-operatively in real-time by using multispectral endoscopic videos. The method exploits the fact that vasculature arising from cancer angiogenesis gives tumors differing perfusion patterns from the surrounding tissue, and defines a signature of tumor which could be used to differentiate tumors from normal tissues. Experimental evaluation of our method on a cohort of colorectal cancer surgery endoscopic videos suggests that the proposed tumor signature is able to successfully discriminate between healthy, cancerous and benign tissue with 95% accuracy.",
+    "doi": "",
+    "id": "http://arxiv.org/abs/2006.14321v1",
+    "source": "arxiv",
+    "title": "Perfusion Quantification from Endoscopic Videos: Learning to Read Tumor Signatures",
+    "url": "http://arxiv.org/abs/2006.14321v1",
+    "year": "2020"
+  },
+  {
+    "abstract": "Omics studies often produce tables with thousands to tens of thousands of molecular features and few samples. Tabular foundation models use diverse strategies to predict labels for such tables, with some relying on in-context learning, while approaches to wide tables may involve subsampling, grouping, or compressing features. We present TabOmics, a small, open family of tabular foundation models with 7.3M parameters, pretrained exclusively on synthetic tables. TabOmics processes all features retained after preprocessing jointly and derives predictions, attention-derived feature-importance scores, and test sample embeddings from the same forward pass. On 46 classification tasks from three benchmarks of high-dimensional, low-sample-size tables, TabOmics v2.5 with eight ensemble members achieves the highest mean area under the receiver operating characteristic curve (AUROC) among the evaluated models (0.943), outperforming TabPFN-3.5 with eight members on 32 tasks despite having about 30 times fewer parameters. With a single member, TabOmics v2.5 reaches a mean AUROC of 0.941, versus 0.942 for TabPFN-3.5 with eight members, with no significant paired difference under the reported task-level analysis. On synthetic tables, its feature-importance scores achieve feature recovery similar to that of TabPFN-Wide, and its predictions remain above chance at 30,000 features. On breast cancer tasks, the top ranked genes include PAM50 genes, which define the subtype labels, indicating concordance with the label definition rather than independent biological validation. The code, model weights, training recipes, and experimental artifacts are publicly available.",
+    "doi": "",
+    "id": "http://arxiv.org/abs/2611.15329v1",
+    "source": "arxiv",
+    "title": "TabOmics: A Small, Open Tabular Foundation Model for Wide Omics Data",
+    "url": "http://arxiv.org/abs/2611.15329v1",
+    "year": "2026"
+  },
+  {
+    "abstract": "Uterine leiomyosarcoma (LMS) is a rare but aggressive malignancy. On imaging, it is difficult to differentiate LMS from, for example, degenerated leiomyoma (LM), a prevalent but benign condition. We curated a data set of 115 axial T2-weighted MRI images from 110 patients (mean [range] age=45 [17-81] years) with UTs that included five different tumor types. These data were randomly split stratifying on tumor volume into training (n=85) and test sets (n=30). An independent second reader (reader 2) provided manual segmentations for all test set images. To automate segmentation, we applied nnU-Net and explored the effect of training set size on performance by randomly generating subsets with 25, 45, 65 and 85 training set images. We evaluated the ability of radiomic features to distinguish between types of UT individually and when combined through feature selection and machine learning. Using the entire training set the mean [95% CI] fibroid DSC was measured as 0.87 [0.59-1.00] and the agreement between the two readers was 0.89 [0.77-1.0] on the test set. When classifying degenerated LM from LMS we achieve a test set F1-score of 0.80. Classifying UTs based on radiomic features we identify classifiers achieving F1-scores of 0.53 [0.45, 0.61] and 0.80 [0.80, 0.80] on the test set for the benign versus malignant, and degenerated LM versus LMS tasks. We show that it is possible to develop an automated method for 3D segmentation of the uterus and UT that is close to human-level performance with fewer than 150 annotated images. For distinguishing UT types, while we train models that merit further investigation with additional data, reliable automatic differentiation of UTs remains a challenge.",
+    "doi": "",
+    "id": "http://arxiv.org/abs/2308.10372v1",
+    "source": "arxiv",
+    "title": "Developing a Machine Learning-Based Clinical Decision Support Tool for Uterine Tumor Imaging",
+    "url": "http://arxiv.org/abs/2308.10372v1",
+    "year": "2023"
+  },
+  {
+    "abstract": "Dynamic contrast enhanced breast MRI (DCE-MRI) is a powerful clinical tool for breast cancer detection, providing high resolution anatomical detail together with rich temporal contrast information. However, high dimensional 4D inputs, small lesions, and heterogeneous acquisition protocols across clinical sites hinder robust automated classification of healthy, benign, and malignant cases. To address these challenges, we propose a framework that dynamically analyzes latent representations to adapt to protocol-specific characteristics. Spatial variability is mitigated by reducing confounding background uptake and compensating for misalignment caused by deformable soft tissue. Additionally, relationships in the latent space across phases are leveraged to select the most informative temporal features, improving robustness to protocol-specific temporal variability. Finally, task specific discriminative features are promoted through large scale supervised lesion segmentation pretraining, which substantially enhances downstream finetuning. Evaluated under leave-one-center-out validation on the ODELIA dataset and the held-out AMBL cohort, the proposed framework substantially outperforms finetuned radiology foundation models and prior methods, improving mean AUROC by nearly 8 points and balanced accuracy by 4 points over the strongest baseline. Additionally, our method achieved first place in the MICCAI ODELIA Breast MRI Challenge 2025, further demonstrating its effectiveness for robust breast cancer classification. We publicly release our codebase under https://github.com/MIC-DKFZ/CURIAtor.",
+    "doi": "",
+    "id": "http://arxiv.org/abs/2609.32555v1",
+    "source": "arxiv",
+    "title": "Feature Space Guidance for Breast Cancer Classification in DCE-MRI",
+    "url": "http://arxiv.org/abs/2609.32555v1",
+    "year": "2026"
+  },
+  {
+    "abstract": "Oral cancer is frequently diagnosed at later stages due to its similarity to other lesions. Existing research on computer aided diagnosis has made progress using deep learning; however, most approaches remain limited by small, imbalanced datasets and a dependence on single-modality features, which restricts model generalization in real-world clinical settings. To address these limitations, this study proposes a novel data-augmentation driven multimodal feature-fusion framework integrated within a (Vision Recognition)VR assisted oral cancer recognition system. Our method combines extensive data centric augmentation with fused clinical and image-based representations to enhance model robustness and reduce diagnostic ambiguity. Using a stratified training pipeline and an EfficientNetV2 B1 backbone, the system improves feature diversity, mitigates imbalance, and strengthens the learned multimodal embeddings. Experimental evaluation demonstrates that the proposed framework achieves an overall accuracy of 82.57 percent on 2 classes, 65.13 percent on 3 classes, and 54.97 percent on 4 classes, outperforming traditional single stream CNN models. These results highlight the effectiveness of multimodal feature fusion combined with strategic augmentation for reliable early oral cancer lesion recognition and serve as a foundation for immersive VR based clinical decision support tools.",
+    "doi": "",
+    "id": "http://arxiv.org/abs/2511.21582v3",
+    "source": "arxiv",
+    "title": "Data-Augmented Multimodal Feature Fusion for Multiclass Visual Recognition of Oral Cancer Lesions",
+    "url": "http://arxiv.org/abs/2511.21582v3",
+    "year": "2025"
+  },
+  {
+    "abstract": "This paper presents approaches to compute sparse solutions of Generalized Singular Value Problem (GSVP). The GSVP is regularized by $\\ell_1$-norm and $\\ell_q$-penalty for $0<q<1$, resulting in the $\\ell_1$-GSVP and $\\ell_q$-GSVP formulations. The solutions of these problems are determined by applying the proximal gradient descent algorithm with a fixed step size. The inherent sparsity levels within the computed solutions are exploited for feature selection, and subsequently, binary classification with non-parallel Support Vector Machines (SVM). For our feature selection task, SVM is integrated into the $\\ell_1$-GSVP and $\\ell_q$-GSVP frameworks to derive the $\\ell_1$-GSVPSVM and $\\ell_q$-GSVPSVM variants. Machine learning applications to cancer detection are considered. We remarkably report near-to-perfect balanced accuracy across breast and ovarian cancer datasets using a few selected features.",
+    "doi": "",
+    "id": "http://arxiv.org/abs/2410.03978v1",
+    "source": "arxiv",
+    "title": "Optimizing Sparse Generalized Singular Vectors for Feature Selection in Proximal Support Vector Machines with Application to Breast and Ovarian Cancer Detection",
+    "url": "http://arxiv.org/abs/2410.03978v1",
+    "year": "2024"
+  },
+  {
+    "abstract": "A representation family is a distinct way of extracting features from time series. Ensemble algorithms that combine several representation families remain the most accurate approach to time series classification. Current state-of-the-art ensembles, most notably HIVE-COTE~2.0, pair a bespoke classification algorithm with each representation family and combine their predictions using a fixed, non-adaptive rule. We present TIGER (Time-series classification with In-context-learning Gated Ensemble of Representations), which instead applies the same small portfolio of three general-purpose classifiers (Ridge, Extra Trees, and Naive Bayes) to four representations from four distinct families, stacking the resulting twelve base learners' predictions into a meta-feature matrix. The final prediction is produced by an adaptive meta-classification rule that chooses, independently for each data set, between a weighted hard majority vote and TabICLv2, a pretrained tabular foundation model used in-context as a meta-classifier, based on the mean number of training samples available per class. On a 142-data-set benchmark drawn from the UCR time series classification archive, TIGER obtains the best mean accuracy, balanced accuracy, and F1-score among six compared algorithms, including HIVE-COTE~2.0, and significantly outperforms each of the other five individually. TIGER's adaptive rule also meaningfully outperforms either of its two constituent meta-classification methods used alone, and its single hyperparameter, tuned using only a twenty-data-set development subset, is shown to generalize to the full evaluation benchmark. We further characterize TIGER's design through an extensive set of ablation experiments and report the design alternatives that we investigated and ultimately discarded.",
+    "doi": "",
+    "id": "http://arxiv.org/abs/2610.06156v1",
+    "source": "arxiv",
+    "title": "TIGER: Time-Series Classification with In-Context-Learning Gated Ensemble of Representations",
+    "url": "http://arxiv.org/abs/2610.06156v1",
+    "year": "2026"
+  },
+  {
+    "abstract": "High dimensionality in datasets produced by microarray technology presents a challenge for Machine Learning (ML) algorithms, particularly in terms of dimensionality reduction and handling imbalanced sample sizes. To mitigate the explained problems, we have proposedhybrid ensemble feature selection techniques with majority voting classifier for micro array classi f ication. Here we have considered both filter and wrapper-based feature selection techniques including Mutual Information (MI), Chi-Square, Variance Threshold (VT), Least Absolute Shrinkage and Selection Operator (LASSO), Analysis of Variance (ANOVA), and Recursive Feature Elimination (RFE), followed by Particle Swarm Optimization (PSO) for selecting the optimal features. This Artificial Intelligence (AI) approach leverages a Majority Voting Classifier that combines multiple machine learning models, such as Logistic Regression (LR), Random Forest (RF), and Extreme Gradient Boosting (XGBoost), to enhance overall performance and accuracy. By leveraging the strengths of each model, the ensemble approach aims to provide more reliable and effective diagnostic predictions. The efficacy of the proposed model has been tested in both local and cloud environments. In the cloud environment, three virtual machines virtual Central Processing Unit (vCPU) with size 8,16 and 64 bits, have been used to demonstrate the model performance. From the experiment it has been observed that, virtual Central Processing Unit (vCPU)-64 bits provides better classification accuracies of 95.89%, 97.50%, 99.13%, 99.58%, 99.11%, and 94.60% with six microarray datasets, Mixed Lineage Leukemia (MLL), Leukemia, Small Round Blue Cell Tumors (SRBCT), Lymphoma, Ovarian, andLung,respectively, validating the effectiveness of the proposed modelin bothlocalandcloud environments.",
+    "doi": "",
+    "id": "http://arxiv.org/abs/2507.04251v1",
+    "source": "arxiv",
+    "title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+    "url": "http://arxiv.org/abs/2507.04251v1",
+    "year": "2025"
+  },
+  {
+    "abstract": "Gene expression data represents a unique challenge in predictive model building, because of the small number of samples $(n)$ compared to the huge amount of features $(p)$. This \"$n<<p$\" property has hampered application of deep learning techniques for disease outcome classification. Sparse learning by incorporating external gene network information could be a potential solution to this issue. Still, the problem is very challenging because (1) there are tens of thousands of features and only hundreds of training samples, (2) the scale-free structure of the gene network is unfriendly to the setup of convolutional neural networks. To address these issues and build a robust classification model, we propose the Graph-Embedded Deep Feedforward Networks (GEDFN), to integrate external relational information of features into the deep neural network architecture. The method is able to achieve sparse connection between network layers to prevent overfitting. To validate the method's capability, we conducted both simulation experiments and a real data analysis using a breast cancer RNA-seq dataset from The Cancer Genome Atlas (TCGA). The resulting high classification accuracy and easily interpretable feature selection results suggest the method is a useful addition to the current classification models and feature selection procedures. The method is available at https://github.com/yunchuankong/NetworkNeuralNetwork.",
+    "doi": "",
+    "id": "http://arxiv.org/abs/1801.06202v2",
+    "source": "arxiv",
+    "title": "A graph-embedded deep feedforward network for disease outcome classification and feature selection using gene expression data",
+    "url": "http://arxiv.org/abs/1801.06202v2",
+    "year": "2018"
+  },
+  {
+    "abstract": "Breast cancer treatment still remains a challenge, where molecular subtypes classification plays a crucial role in selecting appropriate and specific therapy. The four subtypes are Luminal A (LA), Luminal B (LB), HER2 subtype, and Triple-Negative Breast Cancer (TNBC). Immunohistochemistry is the gold-standard evaluation, although interobserver variations are reported and molecular signatures identification is time-consuming. Fourier transform infrared micro-spectroscopy with machine learning approaches have been used to evaluate cancer samples, presenting biochemical-related explainability. However, this explainability is harder when using deep learning. This study created a 1D deep learning tool for breast cancer subtype evaluation and biochemical contribution. Sixty hyperspectral images were acquired from a human breast cancer microarray. K-Means clustering was applied to select tissue and paraffin spectra. CaReNet-V1, a novel 1D convolutional neural network, was developed to classify breast cancer (CA) and adjacent tissue (AT), and molecular subtypes. A 1D adaptation of Grad-CAM was applied to assess the biochemical impact to the classifications. CaReNet-V1 effectively classified CA and AT (test accuracy of 0.89), as well as HER2 and TNBC subtypes (0.83 and 0.86), with greater difficulty for LA and LB (0.74 and 0.68). The model enabled the evaluation of the most contributing wavenumbers to the predictions, providing a direct relationship with the biochemical content. Therefore, CaReNet-V1 and hyperspectral images is a potential approach for breast cancer biopsies assessment, providing additional information to the pathology report. Biochemical content impact feature may be used for other studies, such as treatment efficacy evaluation and development new diagnostics and therapeutic methods.",
+    "doi": "",
+    "id": "http://arxiv.org/abs/2310.15094v1",
+    "source": "arxiv",
+    "title": "One-dimensional convolutional neural network model for breast cancer subtypes classification and biochemical content evaluation using micro-FTIR hyperspectral images",
+    "url": "http://arxiv.org/abs/2310.15094v1",
+    "year": "2023"
+  },
+  {
+    "abstract": "Raman spectroscopy provides label-free, chemically specific characterization of biological systems and has become an important tool for cancer diagnosis, molecular subtyping, microbiological identification, and intraoperative decision support. Biomedical Raman spectra are, however, high-dimensional, noisy, and affected by fluorescence background, acquisition variability, and biological heterogeneity, making robust computational analysis essential. This review examines the role of machine learning across the biomedical Raman spectroscopy pipeline, from preprocessing and signal correction to unsupervised structure discovery, supervised diagnosis and molecular stratification, representation and transfer learning, explainability, biomarker discovery, and multimodal integration with imaging, pathology, and molecular profiling. Emphasis is placed on the use of machine learning not only for diagnostic classification, but also for biologically interpretable and clinically actionable analysis. We also discuss the main barriers to clinical translation, including limited dataset sizes, inter-instrument variability, inconsistent preprocessing, insufficient external validation, reproducibility concerns, and limited sharing of software, data, and metadata. We argue that progress will require methodological advances together with standardization, robust validation, explainability, and deployment-ready analytical frameworks. By integrating methodological, biomedical, and translational perspectives, this review outlines key directions for developing reliable and clinically deployable Raman-AI systems.",
+    "doi": "",
+    "id": "http://arxiv.org/abs/2606.14169v1",
+    "source": "arxiv",
+    "title": "Machine Learning for Biomedical Raman Spectroscopy: From Spectral Acquisition to Clinical Translation",
+    "url": "http://arxiv.org/abs/2606.14169v1",
+    "year": "2026"
+  }
+]

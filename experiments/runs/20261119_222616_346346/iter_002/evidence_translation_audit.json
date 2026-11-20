@@ -1,0 +1,37 @@
+[
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "generator_schema_validation",
+    "batch_round": 1,
+    "attempt": 1,
+    "candidate_index": 1,
+    "error": "ValidationError: 1 validation error for Candidate\ncomposition\n  Value error, pipeline needs model, no branches/final_estimator [type=value_error, input_value={'kind': 'pipeline', 'tra...'final_estimator': None}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/value_error"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "source_does_not_support_used_operations:ev_67cadb757a26d2",
+    "fingerprint": "14ddd8f058a0b9fd70c8356265cbb23daf80cb5da4dc8c4fe422d132efe44fd3"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "pipeline_preflight_failed:ValueError:Unsupported rfe parameters: ['verbose']",
+    "fingerprint": "144e9b2994df07eb58ca06dfffd99755e2687ef9b23f898142428b5a72eafbcf"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "source_does_not_support_used_operations:ev_892146c13f0a85",
+    "fingerprint": "7ba06b94d88353615969318266deecf96f935defa8bf700f61db9dbb4b2e0c44"
+  },
+  {
+    "origin": "batch_budget",
+    "status": "summary",
+    "requested": 3,
+    "proposed_valid": 3,
+    "unfilled": 0,
+    "llm_calls": 3
+  }
+]

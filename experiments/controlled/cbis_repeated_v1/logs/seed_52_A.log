@@ -1,0 +1,55 @@
+[config] Loaded C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\controlled\cbis_repeated_v1\configs\52\A_no_rag.yaml
+Run 20261119_215534_810726
+[output] reports will be saved to C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\runs\20261119_215534_810726
+[data] optional excluded columns not present; skipped: ['id']
+Baseline (random_forest): CV 0.6950
+Research context: 0 item(s)
+Grounded method records: 0; eligible/diverse: 0
+
+=== Iteration 1 ===
+[generator] attempt=1 prompt_tokens=5878 output_tokens=1017
+[generator] rejected candidate[2]: ValidationError: 1 validation error for Candidate
+composition
+  Value error, pipeline needs model, no branches/final_estimator [type=value_error, input_value={'kind': 'pipeline', 'tra...full'}}], 'model': None}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/value_error
+[generator] attempt=2 prompt_tokens=6119 output_tokens=833
+[generator] attempt=1 prompt_tokens=6055 output_tokens=936
+[generator] rejected candidate[0]: ValidationError: 1 validation error for Candidate
+composition
+  Value error, pipeline needs model, no branches/final_estimator [type=value_error, input_value={'kind': 'pipeline', 'tra...n_samples_split': 5}}}]}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/value_error
+[generator] rejected candidate[1]: ValidationError: 1 validation error for Candidate
+composition
+  Value error, pipeline needs model, no branches/final_estimator [type=value_error, input_value={'kind': 'pipeline', 'tra...weight': 'balanced'}}}]}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/value_error
+[generator] rejected candidate[2]: ValidationError: 1 validation error for Candidate
+composition
+  Value error, pipeline needs model, no branches/final_estimator [type=value_error, input_value={'kind': 'pipeline', 'tra...weight': 'balanced'}}}]}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/value_error
+[generator] attempt=2 prompt_tokens=6332 output_tokens=924
+  iter01_c1 composition:voting: CV 0.6972 (+/- 0.0237, gap 0.0583)
+  iter01_c2 composition:voting: CV 0.7058 (+/- 0.0225, gap 0.0579)
+  iter01_c3 random_forest: CV 0.6991 (+/- 0.0271, gap 0.1735)
+
+=== Iteration 2 ===
+[generator] attempt=1 prompt_tokens=6768 output_tokens=1118
+  iter02_c1 composition:voting: CV 0.7039 (+/- 0.0190, gap 0.0405)
+  iter02_c2 random_forest: CV 0.7076 (+/- 0.0243, gap 0.1459)
+  iter02_c3 composition:feature_union: CV 0.7140 (+/- 0.0256, gap 0.1025)
+[controlled] completed 6 successfully evaluated candidates
+
+Selected iter02_c3 (composition:feature_union), CV 0.7140
+PDF report: experiments\runs\20261119_215534_810726\level2_experiment_report.pdf
+[report] Named latest: C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\reports\final_report_data-cbis-ddsm_A.json
+[report] Run archive:  C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\reports\final_report_data-cbis-ddsm_A_20261119_215534_810726.json
+
+============================================================
+Best: iter02_c3 (composition:feature_union)
+  CV f1_macro: 0.7140 +/- 0.0256
+  Baseline CV:    0.6950
+  Holdout:        0.7289 (CV-holdout gap -0.0149)
+Stopped: target_evaluated_candidates_reached after 2 iteration(s)
+Full report: experiments/runs/20261119_215534_810726/final_report.json
+Named report: experiments\reports\final_report_data-cbis-ddsm_A.json
+Archived copy: experiments\reports\final_report_data-cbis-ddsm_A_20261119_215534_810726.json
+PDF report:  experiments\runs\20261119_215534_810726\level2_experiment_report.pdf

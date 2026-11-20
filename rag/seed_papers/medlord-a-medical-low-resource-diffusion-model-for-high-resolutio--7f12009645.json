@@ -1,0 +1,20 @@
+{
+  "title": "MedLoRD: A Medical Low-Resource Diffusion Model for High-Resolution 3D CT Image Synthesis",
+  "abstract": "Advancements in AI for medical imaging offer significant potential. However, their applications are constrained by the limited availability of data and the reluctance of medical centers to share it due to patient privacy concerns. Generative models present a promising solution by creating synthetic data as a substitute for real patient data. However, medical images are typically high-dimensional, and current state-of-the-art methods are often impractical for computational resource-constrained healthcare environments. These models rely on data sub-sampling, raising doubts about their feasibility and real-world applicability. Furthermore, many of these models are evaluated on quantitative metrics that alone can be misleading in assessing the image quality and clinical meaningfulness of the generated images. To address this, we introduce MedLoRD, a generative diffusion model designed for computational resource-constrained environments. MedLoRD is capable of generating high-dimensional medical volumes with resolutions up to 512$\\times$512$\\times$256, utilizing GPUs with only 24GB VRAM, which are commonly found in standard desktop workstations. MedLoRD is evaluated across multiple modalities, including Coronary Computed Tomography Angiography and Lung Computed Tomography datasets. Extensive evaluations through radiological evaluation, relative regional volume analysis, adherence to conditional masks, and downstream tasks show that MedLoRD generates high-fidelity images closely adhering to segmentation mask conditions, surpassing the capabilities of current state-of-the-art generative models for medical image synthesis in computational resource-constrained environments.",
+  "year": "2025",
+  "doi": "",
+  "url": "http://arxiv.org/abs/2503.13211v2",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/2503.13211v2",
+  "paper_key": "p_7f120096450330e64324c46c",
+  "aliases": [
+    "arxiv:2503.13211",
+    "title:medlordamedicallowresourcediffusionmodelforhighresolution3dctimagesynthesis"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_eb1c1fbae050ae58.json"
+  ],
+  "evidence": []
+}

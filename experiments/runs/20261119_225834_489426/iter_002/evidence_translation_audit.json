@@ -1,0 +1,82 @@
+[
+  {
+    "evidence_id": "ev_5294c787c1645c",
+    "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+    "status": "rejected",
+    "reason": "duplicate_executable_architecture",
+    "matched_operations": [
+      "voting"
+    ],
+    "extraction_warnings": []
+  },
+  {
+    "evidence_id": "ev_67cadb757a26d2",
+    "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+    "status": "accepted",
+    "reason": null,
+    "matched_operations": [
+      "rfe"
+    ],
+    "extraction_warnings": [],
+    "implemented_operation": "rfe",
+    "implementation_choices": [
+      "median imputation is an engineering choice, not attributed to source",
+      "RFE uses logistic regression as selector; subset size is exploratory",
+      "classifier logistic_regression is chosen for test; paper may not specify it"
+    ],
+    "candidate_fingerprint": "c76aeaab1da09b5c92083fefedd203082838c9db9e273b15340682682502dd0e"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "evidence-linked candidate must be an actual Level-2 composition",
+    "fingerprint": "f2f0c3ba6d52b2ded109faa5722ed6643ae1e18e94342ae9741f8111aa4f6c99"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "pipeline_preflight_failed:ValueError:Unsupported rfe parameters: ['verbose']",
+    "fingerprint": "7804a6b16e33234d20c43236d3818b1d8cf2ba5c49853e9f0baee3abf84c5910"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "pipeline_preflight_failed:ValueError:Unsupported rfe parameters: ['verbose']",
+    "fingerprint": "fe1e64fa17e8dac3fc2b94766703a7288115c4020dc23d27379a81b04f657562"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "evidence-linked candidate must be an actual Level-2 composition",
+    "fingerprint": "dbf2c0620793ecf082631140916b00fba280a33bb1ed7defe7d83843f40640cf"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "generator_schema_validation",
+    "batch_round": 4,
+    "attempt": 1,
+    "candidate_index": 0,
+    "error": "ValidationError: 1 validation error for Candidate\ncomposition\n  Value error, pipeline needs model, no branches/final_estimator [type=value_error, input_value={'kind': 'pipeline', 'tra...', 'passthrough': False}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/value_error"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "pipeline_preflight_failed:ValueError:rfe.estimator must be logistic_regression or random_forest",
+    "fingerprint": "859b3a61bd3dce8816641de5109999ca94ca1f1a8406546e4297cfedb87eeba1"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "evidence-linked candidate must be an actual Level-2 composition",
+    "fingerprint": "e532f8996f7d69c5c6e79be11518064905d6abac462e383b5bc4359f74468c83"
+  },
+  {
+    "origin": "batch_budget",
+    "status": "summary",
+    "requested": 3,
+    "proposed_valid": 2,
+    "unfilled": 1,
+    "llm_calls": 5
+  }
+]

@@ -1,0 +1,121 @@
+{
+  "title": "Feature Selection from High-Dimensional Data with Very Low Sample Size: A Cautionary Tale",
+  "abstract": "In classification problems, the purpose of feature selection is to identify a small, highly discriminative subset of the original feature set. In many applications, the dataset may have thousands of features and only a few dozens of samples (sometimes termed `wide'). This study is a cautionary tale demonstrating why feature selection in such cases may lead to undesirable results. In view to highlight the sample size issue, we derive the required sample size for declaring two features different. Using an example, we illustrate the heavy dependency between feature set and classifier, which poses a question to classifier-agnostic feature selection methods. However, the choice of a good selector-classifier pair is hampered by the low correlation between estimated and true error rate, as illustrated by another example. While previous studies raising similar issues validate their message with mostly synthetic data, here we carried out an experiment with 20 real datasets. We created an exaggerated scenario whereby we cut a very small portion of the data (10 instances per class) for feature selection and used the rest of the data for testing. The results reinforce the caution and suggest that it may be better to refrain from feature selection from very wide datasets rather than return misleading output to the user.",
+  "year": "2020",
+  "doi": "",
+  "url": "http://arxiv.org/abs/2008.12025v1",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/2008.12025v1",
+  "paper_key": "p_889c343f9e0810dc6776066e",
+  "aliases": [
+    "arxiv:2008.12025",
+    "title:featureselectionfromhighdimensionaldatawithverylowsamplesizeacautionarytale"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_e9932aad7326512c.json",
+    "/mnt/data/final_report(2).json",
+    "/mnt/data/final_report(3).json",
+    "/mnt/data/final_report(4).json",
+    "/mnt/data/final_report(5).json",
+    "/mnt/data/final_report_B.json",
+    "/mnt/data/final_report_C.json",
+    "/mnt/data/final_report_D.json"
+  ],
+  "evidence": [
+    {
+      "evidence_id": "ev_05886b4388e244",
+      "record": {
+        "evidence_id": "ev_05886b4388e244",
+        "paper_title": "Feature Selection from High-Dimensional Data with Very Low Sample Size: A Cautionary Tale",
+        "paper_url": "http://arxiv.org/abs/2008.12025v1",
+        "paper_doi": null,
+        "paper_year": "2020",
+        "method": "select_k_best",
+        "source_excerpt": "In view to highlight the sample size issue, we derive the required sample size for declaring two features different.",
+        "modeling_hypothesis": "Feature selection methods may produce misleading results when the dataset has a very low sample size (e.g., 10 instances per class).",
+        "suggested_operations": [
+          "select_k_best"
+        ],
+        "limitations": "",
+        "extraction_method": "llm_verified_excerpt",
+        "source_grounded": true
+      },
+      "verified": true,
+      "verification_reason": "excerpt_matches_stored_abstract",
+      "first_seen": "2026-11-20T00:32:32+00:00",
+      "provenance": [
+        "/mnt/data/final_report(2).json",
+        "/mnt/data/final_report(3).json",
+        "/mnt/data/final_report(4).json",
+        "/mnt/data/final_report(5).json",
+        "/mnt/data/final_report_B.json",
+        "/mnt/data/final_report_C.json",
+        "/mnt/data/final_report_D.json"
+      ]
+    },
+    {
+      "evidence_id": "ev_00c216d7c25069",
+      "record": {
+        "evidence_id": "ev_00c216d7c25069",
+        "paper_title": "Feature Selection from High-Dimensional Data with Very Low Sample Size: A Cautionary Tale",
+        "paper_url": "http://arxiv.org/abs/2008.12025v1",
+        "paper_doi": null,
+        "paper_year": "2020",
+        "method": "rfe",
+        "source_excerpt": "The results reinforce the caution and suggest that it may be better to refrain from feature selection from very wide datasets rather than return misleading output to the user.",
+        "modeling_hypothesis": "Feature selection methods are prone to high variance in results when the dataset has a very low sample size (e: 10 instances per class).",
+        "suggested_operations": [
+          "rfe"
+        ],
+        "limitations": "",
+        "extraction_method": "llm_verified_excerpt",
+        "source_grounded": true
+      },
+      "verified": true,
+      "verification_reason": "excerpt_matches_stored_abstract",
+      "first_seen": "2026-11-20T00:32:32+00:00",
+      "provenance": [
+        "/mnt/data/final_report(2).json",
+        "/mnt/data/final_report(3).json",
+        "/mnt/data/final_report(4).json",
+        "/mnt/data/final_report(5).json",
+        "/mnt/data/final_report_B.json",
+        "/mnt/data/final_report_C.json",
+        "/mnt/data/final_report_D.json"
+      ]
+    },
+    {
+      "evidence_id": "ev_cd3a55e85929ec",
+      "record": {
+        "evidence_id": "ev_cd3a55e85929ec",
+        "paper_title": "Feature Selection from High-Dimensional Data with Very Low Sample Size: A Cautionary Tale",
+        "paper_url": "http://arxiv.org/abs/2008.12025v1",
+        "paper_doi": null,
+        "paper_year": "2020",
+        "method": "variance_threshold",
+        "source_excerpt": "While previous studies raising similar issues validate their message with mostly synthetic data, here we carried out an experiment with 20 real datasets.",
+        "modeling_hypothesis": "Feature selection methods may not be reliable for real-world datasets with very low sample sizes due to high variance in results.",
+        "suggested_operations": [
+          "variance_threshold"
+        ],
+        "limitations": "",
+        "extraction_method": "llm_verified_excerpt",
+        "source_grounded": true
+      },
+      "verified": true,
+      "verification_reason": "excerpt_matches_stored_abstract",
+      "first_seen": "2026-11-20T00:32:32+00:00",
+      "provenance": [
+        "/mnt/data/final_report(2).json",
+        "/mnt/data/final_report(3).json",
+        "/mnt/data/final_report(4).json",
+        "/mnt/data/final_report(5).json",
+        "/mnt/data/final_report_B.json",
+        "/mnt/data/final_report_C.json",
+        "/mnt/data/final_report_D.json"
+      ]
+    }
+  ]
+}

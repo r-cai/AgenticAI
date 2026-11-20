@@ -1,0 +1,16 @@
+[
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "pipeline_preflight_failed:ValueError:Soft voting with SVC requires probability=True",
+    "fingerprint": "55712b5ee1641cd950b78e8f4a5183708fab946a8de2beb1293ba50fa9e511cb"
+  },
+  {
+    "origin": "batch_budget",
+    "status": "summary",
+    "requested": 3,
+    "proposed_valid": 3,
+    "unfilled": 0,
+    "llm_calls": 2
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "title": "Evaluation of Confidence-based Ensembling in Deep Learning Image Classification",
+  "abstract": "Ensembling is a successful technique to improve the performance of machine learning (ML) models. Conf-Ensemble is an adaptation to Boosting to create ensembles based on model confidence instead of model errors to better classify difficult edge-cases. The key idea is to create successive model experts for samples that were difficult (not necessarily incorrectly classified) by the preceding model. This technique has been shown to provide better results than boosting in binary-classification with a small feature space (~80 features). In this paper, we evaluate the Conf-Ensemble approach in the much more complex task of image classification with the ImageNet dataset (224x224x3 features with 1000 classes). Image classification is an important benchmark for AI-based perception and thus it helps to assess if this method can be used in safety-critical applications using ML ensembles. Our experiments indicate that in a complex multi-label classification task, the expected benefit of specialization on complex input samples cannot be achieved with a small sample set, i.e., a good classifier seems to rely on very complex feature analysis that cannot be well trained on just a limited subset of \"difficult samples\". We propose an improvement to Conf-Ensemble to increase the number of samples fed to successive ensemble members, and a three-member Conf-Ensemble using this improvement was able to surpass a single model in accuracy, although the amount is not significant. Our findings shed light on the limits of the approach and the non-triviality of harnessing big data.",
+  "year": "2023",
+  "doi": "",
+  "url": "http://arxiv.org/abs/2303.03185v1",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/2303.03185v1",
+  "paper_key": "p_e17a4c3bb43f0b40e58b7943",
+  "aliases": [
+    "arxiv:2303.03185",
+    "title:evaluationofconfidencebasedensemblingindeeplearningimageclassification"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_27a0cc576890c91f.json"
+  ],
+  "evidence": []
+}

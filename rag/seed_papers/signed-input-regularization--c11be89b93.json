@@ -1,0 +1,20 @@
+{
+  "title": "Signed Input Regularization",
+  "abstract": "Over-parameterized deep models usually over-fit to a given training distribution, which makes them sensitive to small changes and out-of-distribution samples at inference time, leading to low generalization performance. To this end, several model-based and randomized data-dependent regularization methods are applied, such as data augmentation, which prevents a model from memorizing the training distribution. Instead of the random transformation of the input images, we propose SIGN, a new regularization method, which modifies the input variables using a linear transformation by estimating each variable's contribution to the final prediction. Our proposed technique maps the input data to a new manifold where the less important variables are de-emphasized. To test the effectiveness of the proposed idea and compare it with other competing methods, we design several test scenarios, such as classification performance, uncertainty, out-of-distribution, and robustness analyses. We compare the methods using three different datasets and four models. We find that SIGN encourages more compact class representations, which results in the model's robustness to random corruptions and out-of-distribution samples while also simultaneously achieving superior performance on normal data compared to other competing methods. Our experiments also demonstrate the successful transferability of the SIGN samples from one model to another.",
+  "year": "2019",
+  "doi": "",
+  "url": "http://arxiv.org/abs/1911.07086v3",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/1911.07086v3",
+  "paper_key": "p_c11be89b93806c09a26c4027",
+  "aliases": [
+    "arxiv:1911.07086",
+    "title:signedinputregularization"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_782616f4558be395.json"
+  ],
+  "evidence": []
+}

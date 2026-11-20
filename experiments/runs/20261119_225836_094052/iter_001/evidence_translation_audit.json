@@ -1,0 +1,32 @@
+[
+  {
+    "evidence_id": "ev_5294c787c1645c",
+    "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+    "status": "accepted",
+    "reason": null,
+    "matched_operations": [
+      "voting"
+    ],
+    "extraction_warnings": [],
+    "implemented_operation": "voting",
+    "implementation_choices": [
+      "median imputation is an engineering choice, not attributed to source",
+      "base learners are experiment design choices, not claimed paper settings"
+    ],
+    "candidate_fingerprint": "7e9e6747ce97d1d3d2f26c71b8f1d98b1ca5088d8667b01cf818fa98d898a3d9"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "source_does_not_support_used_operations:ev_892146c13f0a85",
+    "fingerprint": "9e31f10289f484980a1308a3f6ef76f467b4e65842c657520555911144422a90"
+  },
+  {
+    "origin": "batch_budget",
+    "status": "summary",
+    "requested": 3,
+    "proposed_valid": 3,
+    "unfilled": 0,
+    "llm_calls": 2
+  }
+]

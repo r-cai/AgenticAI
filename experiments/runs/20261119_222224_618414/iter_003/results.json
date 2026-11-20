@@ -1,0 +1,101 @@
+[
+  {
+    "candidate_id": "iter03_c1",
+    "iteration": 3,
+    "config": {
+      "rationale": "Refine the top-performing soft voting ensemble by increasing tree depth in Gradient Boosting and Extra Trees to capture more complex patterns, while keeping Logistic Regression fixed to test if deeper trees improve the ensemble bound.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "gb_deep",
+            "transforms": [],
+            "model": {
+              "name": "gradient_boosting",
+              "hyperparameters": {
+                "n_estimators": 100,
+                "learning_rate": 0.1,
+                "max_depth": 5,
+                "subsample": 0.8,
+                "min_samples_split": 2
+              }
+            }
+          },
+          {
+            "name": "et_deep",
+            "transforms": [],
+            "model": {
+              "name": "extra_trees",
+              "hyperparameters": {
+                "n_estimators": 150,
+                "max_depth": 10,
+                "min_samples_split": 2,
+                "min_samples_leaf": 1,
+                "max_features": "sqrt"
+              }
+            }
+          },
+          {
+            "name": "lr_bal",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 0.5,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "http://arxiv.org/abs/2507.04251v1"
+      ],
+      "evidence_ids": []
+    },
+    "model_name": "composition:voting",
+    "mean_cv_score": 0.7111,
+    "std_cv_score": 0.0134,
+    "fold_scores": [
+      0.7297,
+      0.7091,
+      0.7017,
+      0.7051,
+      0.7174,
+      0.6972,
+      0.7432,
+      0.7209,
+      0.7059,
+      0.7035,
+      0.6969,
+      0.7087,
+      0.6902,
+      0.7198,
+      0.7178
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.7963,
+    "cv_wall_time_seconds": 13.6522,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.1146,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  }
+]

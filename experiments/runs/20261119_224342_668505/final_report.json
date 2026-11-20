@@ -1,0 +1,407 @@
+{
+  "run_id": "20261119_224342_668505",
+  "output_dir": "C:\\Users\\charl\\anaconda3\\AgenticAI\\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\\experiments\\runs\\20261119_224342_668505",
+  "dataset": "C:\\Users\\charl\\anaconda3\\AgenticAI\\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\\data\\data-cbis-ddsm.csv",
+  "target": "diagnosis",
+  "description": "Classify benign and malignant breast lesions using mammographic metadata, feature selection, ensemble learning, and tabular machine learning",
+  "scoring": "f1_macro",
+  "baseline_cv_score": 0.7045,
+  "dataset_sha256": "8b2cfb44554f85cf6be6bfa58fae54caea555e88372e1e5f04a2d733e62fa8e5",
+  "split_sha256": "4ed32dc0ba61a78223596acc504fae7aee361cb26f686c0284da55e1e61e5838",
+  "predictions_file": "experiments\\runs\\20261119_224342_668505\\holdout_predictions.csv",
+  "controlled_study": {
+    "enabled": true,
+    "target_evaluated_candidates": 6,
+    "successfully_evaluated_candidates": 6,
+    "budget_complete": true,
+    "suite_id": "cbis_repeated_v1",
+    "frozen_corpus_sha256": "4e90d362b26f41200af2dd30448ef7d1e325e878cf887d786368cbf94c94ee3f"
+  },
+  "run_wall_time_seconds_excluding_pdf": 285.4518,
+  "best": {
+    "candidate_id": "iter01_c3",
+    "iteration": 1,
+    "config": {
+      "rationale": "Evaluate Gradient Boosting with a shallow tree depth (max_depth=3) and high regularization (min_samples_split=2) to test if sequential boosting generalizes better than bagging-based RF.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": {
+        "name": "gradient_boosting",
+        "hyperparameters": {
+          "n_estimators": 100,
+          "learning_rate": 0.1,
+          "max_depth": 3,
+          "subsample": 0.8,
+          "min_samples_split": 2
+        }
+      },
+      "composition": null,
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "cv_mean": 0.7224,
+    "cv_std": 0.0418
+  },
+  "holdout": {
+    "score": 0.6816,
+    "scoring": "f1_macro",
+    "precision": 0.6947,
+    "accuracy": 0.6879,
+    "balanced_accuracy": 0.6835,
+    "recall": 0.6835,
+    "f1_score": 0.6816,
+    "f1_macro": 0.6816,
+    "auc": 0.768,
+    "roc_auc": 0.768,
+    "n_train": 1252,
+    "n_test": 314,
+    "convergence": {
+      "fit_time_seconds": 0.3024,
+      "iterations_used": null,
+      "convergence_warning": false,
+      "warning_detail": null
+    }
+  },
+  "cv_holdout_gap": 0.0408,
+  "iterations_run": 2,
+  "stop_reason": "target_evaluated_candidates_reached",
+  "research_used": false,
+  "critic_enabled": false,
+  "rag_enabled": false,
+  "research_rounds": 0,
+  "research_source": "persistent_kb_offline",
+  "knowledge_base": {
+    "enabled": true,
+    "directory": "C:\\Users\\charl\\anaconda3\\AgenticAI\\RAG_Knowledge_Base\\papers",
+    "index_database": "C:\\Users\\charl\\anaconda3\\AgenticAI\\RAG_Knowledge_Base\\literature.sqlite3",
+    "storage_format": "one_json_per_paper",
+    "refresh_mode": "offline"
+  },
+  "research_evidence_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "evidence_recovery_audit": [],
+  "strict_D_completed": null,
+  "llm_evidence_design_enabled": false,
+  "llm_grounded_strategy": "freeform",
+  "evidence_records": [],
+  "eligible_evidence_ids": [],
+  "evidence_selection_audit": [],
+  "data_exclusion_audit": {
+    "requested": [
+      "id"
+    ],
+    "removed": [],
+    "absent_optional": [
+      "id"
+    ],
+    "missing_policy": "ignore"
+  },
+  "evidence_ids_selected": [],
+  "best_candidate_origin": "llm",
+  "best_candidate_evidence_mapping": {},
+  "evidence_translation_audit": [
+    {
+      "iteration": 1,
+      "origin": "llm",
+      "status": "deferred",
+      "reason": "architecture_kind_diversity",
+      "kind": "standalone",
+      "fingerprint": "4297f88b580b32b08a9c0d14304704669af7153732f0556d4491c8b2f31f95cf"
+    },
+    {
+      "iteration": 1,
+      "origin": "llm",
+      "status": "deferred",
+      "reason": "architecture_kind_diversity",
+      "kind": "standalone",
+      "fingerprint": "da536c006d2789eb5b3e92827db5c3bdd0f0bed4699fa01d85bb3c19f957d434"
+    },
+    {
+      "iteration": 1,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "da536c006d2789eb5b3e92827db5c3bdd0f0bed4699fa01d85bb3c19f957d434"
+    },
+    {
+      "iteration": 1,
+      "origin": "llm",
+      "status": "deferred",
+      "reason": "architecture_kind_diversity",
+      "kind": "standalone",
+      "fingerprint": "5f7f672bdc141bab177f32dc339553f566c8dd4348c053831bfd63703e53620c"
+    },
+    {
+      "iteration": 1,
+      "origin": "llm",
+      "status": "deferred",
+      "reason": "architecture_kind_diversity",
+      "kind": "standalone",
+      "fingerprint": "cf90c014773037f3faf147f5430d3311633fd15ddde49fb9090b52f43cd5b387"
+    },
+    {
+      "iteration": 1,
+      "origin": "llm",
+      "status": "accepted",
+      "reason": "diversity_fallback",
+      "fingerprint": "4297f88b580b32b08a9c0d14304704669af7153732f0556d4491c8b2f31f95cf",
+      "kind": "standalone"
+    },
+    {
+      "iteration": 1,
+      "origin": "batch_budget",
+      "status": "summary",
+      "requested": 3,
+      "proposed_valid": 3,
+      "unfilled": 0,
+      "llm_calls": 5
+    },
+    {
+      "iteration": 2,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "generator_schema_validation",
+      "batch_round": 1,
+      "attempt": 1,
+      "candidate_index": 0,
+      "error": "ValueError: Candidate references non-retrieved evidence: ['iter01_c1', 'iter01_c3']"
+    },
+    {
+      "iteration": 2,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "generator_schema_validation",
+      "batch_round": 1,
+      "attempt": 1,
+      "candidate_index": 1,
+      "error": "ValueError: Candidate references non-retrieved evidence: ['iter01_c1']"
+    },
+    {
+      "iteration": 2,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "generator_schema_validation",
+      "batch_round": 1,
+      "attempt": 2,
+      "candidate_index": 0,
+      "error": "ValueError: Candidate references non-retrieved evidence: ['iter01_c3']"
+    },
+    {
+      "iteration": 2,
+      "origin": "batch_budget",
+      "status": "summary",
+      "requested": 3,
+      "proposed_valid": 3,
+      "unfilled": 0,
+      "llm_calls": 2
+    }
+  ],
+  "evidence_composition_enabled": false,
+  "research_influence": {
+    "evidence_records_extracted": 0,
+    "evidence_records_eligible": 0,
+    "accepted_translation_attempts": 1,
+    "rejected_translation_attempts": 4,
+    "accepted_compiler_translations": 0,
+    "rejected_llm_proposals": 4,
+    "generation_calls": 7,
+    "literature_derived_candidates_executed": 0,
+    "literature_cited_candidates_executed": 0,
+    "generated_candidates_evaluated": 6,
+    "successful_generated_candidates": 6,
+    "configured_candidate_budget": 6,
+    "attempted_candidate_slots": 6,
+    "unfilled_candidate_slots": 0,
+    "not_run_due_to_early_stop": 0,
+    "best_is_literature_derived": false,
+    "best_is_composition": false,
+    "best_is_evidence_compiled": false,
+    "best_is_llm_evidence_grounded": false,
+    "llm_grounded_candidates_executed": 0
+  },
+  "history": [
+    {
+      "candidate_id": "baseline",
+      "iteration": 0,
+      "model": "random_forest",
+      "evidence_ids": [],
+      "origin": null,
+      "evidence_mapping": {},
+      "composition": null,
+      "cv_mean": 0.7045,
+      "cv_std": 0.0376,
+      "train_cv_gap": 0.1696,
+      "cv_wall_time_seconds": 4.685,
+      "error": null
+    },
+    {
+      "candidate_id": "iter01_c1",
+      "iteration": 1,
+      "model": "logistic_regression",
+      "evidence_ids": [],
+      "origin": "llm",
+      "evidence_mapping": {},
+      "composition": null,
+      "cv_mean": 0.7168,
+      "cv_std": 0.0313,
+      "train_cv_gap": 0.0281,
+      "cv_wall_time_seconds": 0.7055,
+      "error": null
+    },
+    {
+      "candidate_id": "iter01_c2",
+      "iteration": 1,
+      "model": "extra_trees",
+      "evidence_ids": [],
+      "origin": "llm",
+      "evidence_mapping": {},
+      "composition": null,
+      "cv_mean": 0.7009,
+      "cv_std": 0.0323,
+      "train_cv_gap": 0.0148,
+      "cv_wall_time_seconds": 4.9201,
+      "error": null
+    },
+    {
+      "candidate_id": "iter01_c3",
+      "iteration": 1,
+      "model": "gradient_boosting",
+      "evidence_ids": [],
+      "origin": "llm",
+      "evidence_mapping": {},
+      "composition": null,
+      "cv_mean": 0.7224,
+      "cv_std": 0.0418,
+      "train_cv_gap": 0.0757,
+      "cv_wall_time_seconds": 4.4358,
+      "error": null
+    },
+    {
+      "candidate_id": "iter02_c1",
+      "iteration": 2,
+      "model": "composition:voting",
+      "evidence_ids": [],
+      "origin": "llm",
+      "evidence_mapping": {},
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr_branch",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 1.0,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "rf_branch",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 150,
+                "max_depth": 8,
+                "min_samples_split": 2,
+                "min_samples_leaf": 1,
+                "max_features": "sqrt"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "cv_mean": 0.7215,
+      "cv_std": 0.0337,
+      "train_cv_gap": 0.0489,
+      "cv_wall_time_seconds": 7.7673,
+      "error": null
+    },
+    {
+      "candidate_id": "iter02_c2",
+      "iteration": 2,
+      "model": "composition:voting",
+      "evidence_ids": [],
+      "origin": "llm",
+      "evidence_mapping": {},
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr_branch",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 1.0,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "rf_branch",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 200,
+                "max_depth": 10,
+                "min_samples_split": 2,
+                "min_samples_leaf": 1,
+                "max_features": "sqrt",
+                "class_weight": "balanced"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "cv_mean": 0.7172,
+      "cv_std": 0.0372,
+      "train_cv_gap": 0.0708,
+      "cv_wall_time_seconds": 9.3306,
+      "error": null
+    },
+    {
+      "candidate_id": "iter02_c3",
+      "iteration": 2,
+      "model": "random_forest",
+      "evidence_ids": [],
+      "origin": "llm",
+      "evidence_mapping": {},
+      "composition": null,
+      "cv_mean": 0.7056,
+      "cv_std": 0.0386,
+      "train_cv_gap": 0.1659,
+      "cv_wall_time_seconds": 9.7749,
+      "error": null
+    }
+  ],
+  "pdf_report": "experiments\\runs\\20261119_224342_668505\\level2_experiment_report.pdf",
+  "dataset_id": "data-cbis-ddsm",
+  "experiment_id": "A",
+  "report_paths": {
+    "original": "experiments\\runs\\20261119_224342_668505\\final_report.json",
+    "named_run_copy": "experiments\\runs\\20261119_224342_668505\\final_report_data-cbis-ddsm_A.json",
+    "archived_copy": "experiments\\reports\\final_report_data-cbis-ddsm_A_20261119_224342_668505.json",
+    "latest_copy": "experiments\\reports\\final_report_data-cbis-ddsm_A.json"
+  }
+}

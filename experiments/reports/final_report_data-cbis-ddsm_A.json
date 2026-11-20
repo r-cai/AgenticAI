@@ -1,0 +1,454 @@
+{
+  "run_id": "20261119_231800_384815",
+  "output_dir": "C:\\Users\\charl\\anaconda3\\AgenticAI\\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\\experiments\\runs\\20261119_231800_384815",
+  "dataset": "C:\\Users\\charl\\anaconda3\\AgenticAI\\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\\data\\data-cbis-ddsm.csv",
+  "target": "diagnosis",
+  "description": "Classify benign and malignant breast lesions using mammographic metadata, feature selection, ensemble learning, and tabular machine learning",
+  "scoring": "f1_macro",
+  "baseline_cv_score": 0.6972,
+  "dataset_sha256": "8b2cfb44554f85cf6be6bfa58fae54caea555e88372e1e5f04a2d733e62fa8e5",
+  "split_sha256": "d5fdb2c4f42001d010cfe4521c1786f2fed2b1bdd8a9c8aac417684788b7dd24",
+  "predictions_file": "experiments\\runs\\20261119_231800_384815\\holdout_predictions.csv",
+  "controlled_study": {
+    "enabled": true,
+    "target_evaluated_candidates": 6,
+    "successfully_evaluated_candidates": 6,
+    "budget_complete": true,
+    "suite_id": "cbis_repeated_v1",
+    "frozen_corpus_sha256": "4e90d362b26f41200af2dd30448ef7d1e325e878cf887d786368cbf94c94ee3f"
+  },
+  "run_wall_time_seconds_excluding_pdf": 252.7377,
+  "best": {
+    "candidate_id": "iter01_c1",
+    "iteration": 1,
+    "config": {
+      "rationale": "Construct a soft voting ensemble combining Extra Trees and Random Forest to test complementary feature selection mechanisms and reduce variance.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "et",
+            "transforms": [],
+            "model": {
+              "name": "extra_trees",
+              "hyperparameters": {
+                "n_estimators": 150,
+                "max_depth": 8,
+                "min_samples_split": 2,
+                "min_samples_leaf": 1,
+                "max_features": "sqrt",
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "rf",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 150,
+                "max_depth": 8,
+                "min_samples_split": 2,
+                "min_samples_leaf": 1,
+                "max_features": "sqrt",
+                "class_weight": "balanced"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "cv_mean": 0.7217,
+    "cv_std": 0.0255
+  },
+  "holdout": {
+    "score": 0.6987,
+    "scoring": "f1_macro",
+    "precision": 0.71,
+    "accuracy": 0.7038,
+    "balanced_accuracy": 0.6999,
+    "recall": 0.6999,
+    "f1_score": 0.6987,
+    "f1_macro": 0.6987,
+    "auc": 0.8022,
+    "roc_auc": 0.8022,
+    "n_train": 1252,
+    "n_test": 314,
+    "convergence": {
+      "fit_time_seconds": 0.5511,
+      "iterations_used": null,
+      "convergence_warning": false,
+      "warning_detail": null
+    }
+  },
+  "cv_holdout_gap": 0.023,
+  "iterations_run": 2,
+  "stop_reason": "target_evaluated_candidates_reached",
+  "research_used": false,
+  "critic_enabled": false,
+  "rag_enabled": false,
+  "research_rounds": 0,
+  "research_source": "persistent_kb_offline",
+  "knowledge_base": {
+    "enabled": true,
+    "directory": "C:\\Users\\charl\\anaconda3\\AgenticAI\\RAG_Knowledge_Base\\papers",
+    "index_database": "C:\\Users\\charl\\anaconda3\\AgenticAI\\RAG_Knowledge_Base\\literature.sqlite3",
+    "storage_format": "one_json_per_paper",
+    "refresh_mode": "offline"
+  },
+  "research_evidence_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "evidence_recovery_audit": [],
+  "strict_D_completed": null,
+  "llm_evidence_design_enabled": false,
+  "llm_grounded_strategy": "freeform",
+  "evidence_records": [],
+  "eligible_evidence_ids": [],
+  "evidence_selection_audit": [],
+  "data_exclusion_audit": {
+    "requested": [
+      "id"
+    ],
+    "removed": [],
+    "absent_optional": [
+      "id"
+    ],
+    "missing_policy": "ignore"
+  },
+  "evidence_ids_selected": [],
+  "best_candidate_origin": "llm",
+  "best_candidate_evidence_mapping": {},
+  "evidence_translation_audit": [
+    {
+      "iteration": 1,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "generator_schema_validation",
+      "batch_round": 1,
+      "attempt": 1,
+      "candidate_index": 0,
+      "error": "ValidationError: 1 validation error for Candidate\ncomposition\n  Value error, pipeline needs model, no branches/final_estimator [type=value_error, input_value={'kind': 'pipeline', 'tra...'final_estimator': None}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/value_error"
+    },
+    {
+      "iteration": 1,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "generator_schema_validation",
+      "batch_round": 1,
+      "attempt": 1,
+      "candidate_index": 1,
+      "error": "ValidationError: 1 validation error for Candidate\ncomposition\n  Value error, pipeline needs model, no branches/final_estimator [type=value_error, input_value={'kind': 'pipeline', 'tra...'final_estimator': None}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/value_error"
+    },
+    {
+      "iteration": 1,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "generator_schema_validation",
+      "batch_round": 1,
+      "attempt": 1,
+      "candidate_index": 2,
+      "error": "ValidationError: 1 validation error for Candidate\ncomposition\n  Value error, pipeline needs model, no branches/final_estimator [type=value_error, input_value={'kind': 'pipeline', 'tra...'final_estimator': None}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/value_error"
+    },
+    {
+      "iteration": 1,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "generator_schema_validation",
+      "batch_round": 1,
+      "attempt": 2,
+      "candidate_index": 0,
+      "error": "ValidationError: 1 validation error for Candidate\n  Value error, Specify exactly one of model or composition [type=value_error, input_value={'rationale': 'Test linea... [], 'evidence_ids': []}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/value_error"
+    },
+    {
+      "iteration": 1,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "generator_schema_validation",
+      "batch_round": 1,
+      "attempt": 2,
+      "candidate_index": 2,
+      "error": "ValidationError: 1 validation error for Candidate\n  Value error, Specify exactly one of model or composition [type=value_error, input_value={'rationale': 'Apply Grad... [], 'evidence_ids': []}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/value_error"
+    },
+    {
+      "iteration": 1,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "generator_schema_validation",
+      "batch_round": 2,
+      "attempt": 1,
+      "candidate_index": 0,
+      "error": "ValidationError: 1 validation error for Candidate\ncomposition\n  Value error, pipeline needs model, no branches/final_estimator [type=value_error, input_value={'kind': 'pipeline', 'tra...rly_stopping': True}}}]}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/value_error"
+    },
+    {
+      "iteration": 1,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "generator_schema_validation",
+      "batch_round": 2,
+      "attempt": 1,
+      "candidate_index": 1,
+      "error": "ValidationError: 1 validation error for Candidate\ncomposition\n  Value error, pipeline needs model, no branches/final_estimator [type=value_error, input_value={'kind': 'pipeline', 'tra...weight': 'balanced'}}}]}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/value_error"
+    },
+    {
+      "iteration": 1,
+      "origin": "batch_budget",
+      "status": "summary",
+      "requested": 3,
+      "proposed_valid": 3,
+      "unfilled": 0,
+      "llm_calls": 2
+    },
+    {
+      "iteration": 2,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "pipeline_preflight_failed:ValueError:Soft voting with SVC requires probability=True",
+      "fingerprint": "55712b5ee1641cd950b78e8f4a5183708fab946a8de2beb1293ba50fa9e511cb"
+    },
+    {
+      "iteration": 2,
+      "origin": "batch_budget",
+      "status": "summary",
+      "requested": 3,
+      "proposed_valid": 3,
+      "unfilled": 0,
+      "llm_calls": 2
+    }
+  ],
+  "evidence_composition_enabled": false,
+  "research_influence": {
+    "evidence_records_extracted": 0,
+    "evidence_records_eligible": 0,
+    "accepted_translation_attempts": 0,
+    "rejected_translation_attempts": 8,
+    "accepted_compiler_translations": 0,
+    "rejected_llm_proposals": 8,
+    "generation_calls": 4,
+    "literature_derived_candidates_executed": 0,
+    "literature_cited_candidates_executed": 0,
+    "generated_candidates_evaluated": 6,
+    "successful_generated_candidates": 6,
+    "configured_candidate_budget": 6,
+    "attempted_candidate_slots": 6,
+    "unfilled_candidate_slots": 0,
+    "not_run_due_to_early_stop": 0,
+    "best_is_literature_derived": false,
+    "best_is_composition": true,
+    "best_is_evidence_compiled": false,
+    "best_is_llm_evidence_grounded": false,
+    "llm_grounded_candidates_executed": 0
+  },
+  "history": [
+    {
+      "candidate_id": "baseline",
+      "iteration": 0,
+      "model": "random_forest",
+      "evidence_ids": [],
+      "origin": null,
+      "evidence_mapping": {},
+      "composition": null,
+      "cv_mean": 0.6972,
+      "cv_std": 0.0277,
+      "train_cv_gap": 0.1743,
+      "cv_wall_time_seconds": 4.6079,
+      "error": null
+    },
+    {
+      "candidate_id": "iter01_c1",
+      "iteration": 1,
+      "model": "composition:voting",
+      "evidence_ids": [],
+      "origin": "llm",
+      "evidence_mapping": {},
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "et",
+            "transforms": [],
+            "model": {
+              "name": "extra_trees",
+              "hyperparameters": {
+                "n_estimators": 150,
+                "max_depth": 8,
+                "min_samples_split": 2,
+                "min_samples_leaf": 1,
+                "max_features": "sqrt",
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "rf",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 150,
+                "max_depth": 8,
+                "min_samples_split": 2,
+                "min_samples_leaf": 1,
+                "max_features": "sqrt",
+                "class_weight": "balanced"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "cv_mean": 0.7217,
+      "cv_std": 0.0255,
+      "train_cv_gap": 0.0683,
+      "cv_wall_time_seconds": 7.3166,
+      "error": null
+    },
+    {
+      "candidate_id": "iter01_c2",
+      "iteration": 1,
+      "model": "composition:pipeline",
+      "evidence_ids": [],
+      "origin": "llm",
+      "evidence_mapping": {},
+      "composition": {
+        "kind": "pipeline",
+        "transforms": [],
+        "branches": [],
+        "model": {
+          "name": "hist_gradient_boosting",
+          "hyperparameters": {
+            "max_iter": 100,
+            "learning_rate": 0.05,
+            "max_depth": 4,
+            "max_leaf_nodes": 15,
+            "l2_regularization": 0.1,
+            "early_stopping": true
+          }
+        },
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "cv_mean": 0.7158,
+      "cv_std": 0.0236,
+      "train_cv_gap": 0.0289,
+      "cv_wall_time_seconds": 1.7098,
+      "error": null
+    },
+    {
+      "candidate_id": "iter01_c3",
+      "iteration": 1,
+      "model": "composition:pipeline",
+      "evidence_ids": [],
+      "origin": "llm",
+      "evidence_mapping": {},
+      "composition": {
+        "kind": "pipeline",
+        "transforms": [],
+        "branches": [],
+        "model": {
+          "name": "logistic_regression",
+          "hyperparameters": {
+            "C": 0.5,
+            "solver": "lbfgs",
+            "max_iter": 1000,
+            "class_weight": "balanced"
+          }
+        },
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "cv_mean": 0.7186,
+      "cv_std": 0.0214,
+      "train_cv_gap": 0.0265,
+      "cv_wall_time_seconds": 0.5345,
+      "error": null
+    },
+    {
+      "candidate_id": "iter02_c1",
+      "iteration": 2,
+      "model": "gradient_boosting",
+      "evidence_ids": [],
+      "origin": "llm",
+      "evidence_mapping": {},
+      "composition": null,
+      "cv_mean": 0.7183,
+      "cv_std": 0.0267,
+      "train_cv_gap": 0.0918,
+      "cv_wall_time_seconds": 6.7674,
+      "error": null
+    },
+    {
+      "candidate_id": "iter02_c2",
+      "iteration": 2,
+      "model": "hist_gradient_boosting",
+      "evidence_ids": [],
+      "origin": "llm",
+      "evidence_mapping": {},
+      "composition": null,
+      "cv_mean": 0.7208,
+      "cv_std": 0.029,
+      "train_cv_gap": 0.0686,
+      "cv_wall_time_seconds": 3.9358,
+      "error": null
+    },
+    {
+      "candidate_id": "iter02_c3",
+      "iteration": 2,
+      "model": "composition:pipeline",
+      "evidence_ids": [],
+      "origin": "llm",
+      "evidence_mapping": {},
+      "composition": {
+        "kind": "pipeline",
+        "transforms": [],
+        "branches": [],
+        "model": {
+          "name": "gradient_boosting",
+          "hyperparameters": {
+            "n_estimators": 100,
+            "learning_rate": 0.1,
+            "max_depth": 3,
+            "subsample": 0.8,
+            "min_samples_split": 2
+          }
+        },
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "cv_mean": 0.7155,
+      "cv_std": 0.0267,
+      "train_cv_gap": 0.077,
+      "cv_wall_time_seconds": 3.8361,
+      "error": null
+    }
+  ],
+  "pdf_report": "experiments\\runs\\20261119_231800_384815\\level2_experiment_report.pdf",
+  "dataset_id": "data-cbis-ddsm",
+  "experiment_id": "A",
+  "report_paths": {
+    "original": "experiments\\runs\\20261119_231800_384815\\final_report.json",
+    "named_run_copy": "experiments\\runs\\20261119_231800_384815\\final_report_data-cbis-ddsm_A.json",
+    "archived_copy": "experiments\\reports\\final_report_data-cbis-ddsm_A_20261119_231800_384815.json",
+    "latest_copy": "experiments\\reports\\final_report_data-cbis-ddsm_A.json"
+  }
+}

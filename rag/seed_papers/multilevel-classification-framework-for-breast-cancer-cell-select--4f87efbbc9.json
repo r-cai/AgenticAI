@@ -1,0 +1,20 @@
+{
+  "title": "Multilevel classification framework for breast cancer cell selection and its integration with advanced disease models",
+  "abstract": "Breast cancer cell lines are indispensable tools for unraveling disease mechanisms, enabling drug discovery, and developing personalized treatments, yet their heterogeneity and inconsistent classification pose significant challenges in model selection and data reproducibility. This review aims at providing a comprehensive and user-friendly framework for broadly mapping the features of breast cancer types and commercially available human breast cancer cell lines, defining absolute criteria, i.e. objective features such as origin (e.g., MDA-MB, MCF), histological subtype (ductal, lobular), hormone receptor status (ER/PR/HER2), and genetic mutations (BRCA1, TP53), and relative criteria, which contextualize functional behaviors like metastatic potential, drug sensitivity, and genomic instability. It then examines how the proposed framework could be applied to cell line screening in advanced and emerging disease models. By supporting better informed choices, this work aims to improve experimental design and strengthen the connection between in vitro breast cancer studies and their clinical translation.",
+  "year": "2025",
+  "doi": "",
+  "url": "http://arxiv.org/abs/2502.15868v2",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/2502.15868v2",
+  "paper_key": "p_4f87efbbc9a67f87933d89e0",
+  "aliases": [
+    "arxiv:2502.15868",
+    "title:multilevelclassificationframeworkforbreastcancercellselectionanditsintegrationwithadvanceddiseasemodels"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_2664bc65ed6f77c7.json"
+  ],
+  "evidence": []
+}

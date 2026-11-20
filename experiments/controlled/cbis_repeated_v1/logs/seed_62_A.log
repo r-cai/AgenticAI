@@ -1,0 +1,57 @@
+[config] Loaded C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\controlled\cbis_repeated_v1\configs\62\A_no_rag.yaml
+Run 20261119_221834_501004
+[output] reports will be saved to C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\runs\20261119_221834_501004
+[data] optional excluded columns not present; skipped: ['id']
+Baseline (random_forest): CV 0.6969
+Research context: 0 item(s)
+Grounded method records: 0; eligible/diverse: 0
+
+=== Iteration 1 ===
+[generator] attempt=1 prompt_tokens=5901 output_tokens=1046
+[generator] rejected candidate[0]: ValidationError: 1 validation error for Candidate
+composition
+  Value error, pipeline needs model, no branches/final_estimator [type=value_error, input_value={'kind': 'pipeline', 'tra...n_samples_split': 2}}}]}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/value_error
+[generator] rejected candidate[2]: ValidationError: 1 validation error for Candidate
+composition
+  Value error, pipeline needs model, no branches/final_estimator [type=value_error, input_value={'kind': 'pipeline', 'tra...rly_stopping': True}}}]}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/value_error
+[generator] attempt=2 prompt_tokens=6159 output_tokens=800
+[generator] rejected candidate[0]: ValidationError: 1 validation error for Candidate
+  Value error, Specify exactly one of model or composition [type=value_error, input_value={'rationale': 'Replace ov... [], 'evidence_ids': []}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/value_error
+[generator] attempt=1 prompt_tokens=6069 output_tokens=1133
+[generator] rejected candidate[0]: ValidationError: 1 validation error for Candidate
+composition
+  Value error, pipeline needs model, no branches/final_estimator [type=value_error, input_value={'kind': 'pipeline', 'tra...egularization': 0.1}}}]}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/value_error
+[generator] rejected candidate[1]: ValidationError: 1 validation error for Candidate
+composition
+  Value error, pipeline needs model, no branches/final_estimator [type=value_error, input_value={'kind': 'pipeline', 'tra...weight': 'balanced'}}}]}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/value_error
+  iter01_c1 composition:voting: CV 0.7087 (+/- 0.0178, gap 0.0541)
+  iter01_c2 composition:voting: CV 0.7102 (+/- 0.0134, gap 0.1008)
+  iter01_c3 composition:stacking: CV 0.7085 (+/- 0.0223, gap 0.0909)
+
+=== Iteration 2 ===
+[generator] attempt=1 prompt_tokens=6981 output_tokens=1043
+  iter02_c1 composition:voting: CV 0.7097 (+/- 0.0169, gap 0.0466)
+  iter02_c2 hist_gradient_boosting: CV 0.7156 (+/- 0.0163, gap 0.0344)
+  iter02_c3 composition:pipeline: CV 0.7098 (+/- 0.0159, gap 0.0891)
+[controlled] completed 6 successfully evaluated candidates
+
+Selected iter02_c2 (hist_gradient_boosting), CV 0.7156
+PDF report: experiments\runs\20261119_221834_501004\level2_experiment_report.pdf
+[report] Named latest: C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\reports\final_report_data-cbis-ddsm_A.json
+[report] Run archive:  C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\reports\final_report_data-cbis-ddsm_A_20261119_221834_501004.json
+
+============================================================
+Best: iter02_c2 (hist_gradient_boosting)
+  CV f1_macro: 0.7156 +/- 0.0163
+  Baseline CV:    0.6969
+  Holdout:        0.7121 (CV-holdout gap +0.0035)
+Stopped: target_evaluated_candidates_reached after 2 iteration(s)
+Full report: experiments/runs/20261119_221834_501004/final_report.json
+Named report: experiments\reports\final_report_data-cbis-ddsm_A.json
+Archived copy: experiments\reports\final_report_data-cbis-ddsm_A_20261119_221834_501004.json
+PDF report:  experiments\runs\20261119_221834_501004\level2_experiment_report.pdf

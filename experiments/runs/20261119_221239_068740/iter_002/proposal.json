@@ -1,0 +1,168 @@
+{
+  "reasoning": "The baseline Random Forest achieved 0.9541 CV score with a significant train-test gap (0.0459), indicating potential overfitting or suboptimal regularization. The previous voting ensemble (iter01_c3) using Logistic Regression and Gradient Boosting with soft voting performed best at 0.9716, but used standard preprocessing without feature selection. Literature evidence supports the use of Recursive Feature Elimination (RFE) for high-dimensional tabular data to reduce noise and improve generalization [ev_67cadb757a26d2]. Additionally, while soft voting is effective, hard voting can sometimes yield more robust decision boundaries in imbalanced datasets if models are well-calibrated. We propose two distinct paths: 1) A refined single-model approach using HistGradientBoosting with stronger regularization (lower learning rate, higher max_leaf_nodes) and standard scaling to test if a single deep tree model can beat the ensemble without complexity overhead. 2) An RFE-enhanced voting ensemble that applies feature selection before training two distinct models (Logistic Regression and Extra Trees), leveraging the evidence for RFE [ev_67cadb757a26d2] to address the high dimensionality (30 features) relative to samples (455). The baseline Random Forest achieved 0.9541 CV score with a significant train/test gap (0.0459), indicating overfitting or suboptimal regularization. The previous voting ensemble (iter01_c3) using Logistic Regression and Gradient Boosting with soft voting performed best at 0.9716, but used standard preprocessing without feature selection. Evidence from the 'Two-Stage Ensemble Feature Selection' paper suggests that combining filter/wrapper methods like RFE with ensembles improves performance on high-dimensional tabular data. We will propose two distinct paths: 1) A refined single-model approach using HistGradientBoosting (a more robust alternative to standard RF for tabular data) with stronger regularization (lower C equivalent via max_iter/depth control) and standard scaling. 2) A feature selection pipeline based on RFE, feeding into a Random Forest, addressing the high dimensionality (30 features) and potential overfitting seen in the baseline. The baseline Random Forest achieved 0.9541 CV score with standard scaling, but showed a train/test gap of 0.0459, indicating potential overfitting or suboptimal regularization. The previous voting ensemble (iter01_c3) using Logistic Regression and Gradient Boosting with soft voting achieved the highest score (0.9716) with a very low train/test gap (0.0272). This suggests that combining linear and tree-based models via soft voting is highly effective for this dataset, likely due to complementary decision boundaries. To improve upon 0.9716, we should refine the hyperparameters of these two strong candidates rather than switching architectures. We will test a higher regularization strength (lower C) for Logistic Regression to prevent overfitting on the minority class, and increase the depth/estimators for Gradient Boosting to capture more complex patterns while maintaining subsampling to control variance. Additionally, we will introduce a feature selection pipeline based on Recursive Feature Elimination (RFE), supported by evidence [ev_67cadb757a26d2], as reducing dimensionality from 30 features might further reduce the train/test gap and improve generalization.",
+  "candidates": [
+    {
+      "rationale": "Test source-grounded rfe as a registered Level-2 pipeline; examine CV benefit.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "none",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "pipeline",
+        "transforms": [
+          {
+            "op": "standard_scaler",
+            "params": {}
+          },
+          {
+            "op": "rfe",
+            "params": {
+              "n_features_to_select": 12,
+              "step": 1
+            }
+          }
+        ],
+        "branches": [],
+        "model": {
+          "name": "logistic_regression",
+          "hyperparameters": {
+            "max_iter": 1500,
+            "class_weight": "balanced"
+          }
+        },
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments"
+      ],
+      "evidence_ids": [
+        "ev_67cadb757a26d2"
+      ]
+    },
+    {
+      "rationale": "Refine the top-performing ensemble by switching to HistGradientBoosting for one branch and adjusting regularization parameters to test robustness against overfitting, while maintaining the soft voting strategy which showed promise.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 0.5,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "hgb",
+            "transforms": [],
+            "model": {
+              "name": "hist_gradient_boosting",
+              "hyperparameters": {
+                "max_iter": 50,
+                "learning_rate": 0.05,
+                "max_depth": 4,
+                "max_leaf_nodes": 15,
+                "l2_regularization": 0.1,
+                "early_stopping": true
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [],
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ]
+    },
+    {
+      "rationale": "Refine the successful soft-voting ensemble by increasing regularization for Logistic Regression to combat overfitting and boosting Gradient Boosting capacity, while maintaining complementary model families.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr_reg",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 0.5,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "gb_deep",
+            "transforms": [],
+            "model": {
+              "name": "gradient_boosting",
+              "hyperparameters": {
+                "n_estimators": 150,
+                "learning_rate": 0.05,
+                "max_depth": 4,
+                "subsample": 0.7,
+                "min_samples_split": 2
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [],
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ]
+    }
+  ],
+  "candidate_origins": {
+    "c76aeaab1da09b5c92083fefedd203082838c9db9e273b15340682682502dd0e": "evidence_compiler",
+    "c96a72465c79bf186bcdfe756d5b37ed748f26e0e2d67ab38945e0e1a8aeb006": "llm",
+    "dbe8ce9036e4904c8e5f5e126d05cda6d0c4c4411b5d9d28bf0f3250580be423": "llm"
+  },
+  "candidate_evidence_mapping": {
+    "c76aeaab1da09b5c92083fefedd203082838c9db9e273b15340682682502dd0e": {
+      "evidence_id": "ev_67cadb757a26d2",
+      "implemented_operation": "rfe",
+      "implementation_choices": [
+        "median imputation is an engineering choice, not attributed to source",
+        "RFE uses logistic regression as selector; subset size is exploratory",
+        "classifier logistic_regression is chosen for test; paper may not specify it"
+      ]
+    }
+  },
+  "generator_error": null
+}

@@ -1,0 +1,59 @@
+agents:
+  critic:
+    enabled: false
+    model: qwen3:4b
+    temperature: 0.2
+    think: false
+  generator:
+    model: qwen3.5:4b
+    temperature: 0.2
+cv:
+  folds: 5
+  n_jobs: 1
+  repeats: 3
+  scoring: f1_macro
+data:
+  exclude_columns:
+  - id
+  missing_exclusions: ignore
+evidence:
+  enabled: false
+  max_papers: 5
+  mode: llm
+  model: qwen3:4b
+evidence_composition:
+  allow_keyword: false
+  enabled: false
+  reserve_slots: 1
+loop:
+  candidates_per_iteration: 3
+  max_failures: 10
+  max_iterations: 9
+  min_delta: 0.002
+  patience: 10
+  max_batch_rounds: 5
+  target_evaluated_candidates: 6
+rag:
+  enabled: false
+  planner_model: qwen3:4b
+  timeout_sec: 60
+  top_k: 5
+  knowledge_base:
+    enabled: true
+    refresh_mode: offline
+    min_local_score: 0.06
+    cooldown_hours: 24
+  replay_from_run: null
+seed: 52
+test_size: 0.2
+evidence_selection:
+  enabled: true
+  max_records: 9
+  max_per_method: 2
+  require_structural: true
+  max_candidates_per_kind: 2
+controlled_study:
+  suite_id: wdbc_repeated_v1
+  frozen_corpus_sha256: 196269270424c72104387c38bdf444ac3e25c0e4d4bbb78d4ef6cf84cc02adfb
+  save_baseline_predictions: true
+  experiment_arm: A

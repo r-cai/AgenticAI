@@ -1,0 +1,104 @@
+[
+  {
+    "candidate_id": "iter03_c1",
+    "iteration": 3,
+    "config": {
+      "rationale": "Increase regularization strength in the voting ensemble components to combat overfitting observed in previous iterations.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr_strong_reg",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 0.5,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "gb_strong_reg",
+            "transforms": [],
+            "model": {
+              "name": "gradient_boosting",
+              "hyperparameters": {
+                "n_estimators": 100,
+                "learning_rate": 0.05,
+                "max_depth": 3,
+                "subsample": 0.8,
+                "min_samples_split": 2
+              }
+            }
+          },
+          {
+            "name": "hgb_strong_reg",
+            "transforms": [],
+            "model": {
+              "name": "hist_gradient_boosting",
+              "hyperparameters": {
+                "max_iter": 150,
+                "learning_rate": 0.03,
+                "max_depth": 6,
+                "max_leaf_nodes": 31,
+                "l2_regularization": 0.0,
+                "early_stopping": false
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "http://arxiv.org/abs/2507.04251v1"
+      ],
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ]
+    },
+    "model_name": "composition:voting",
+    "mean_cv_score": 0.7295,
+    "std_cv_score": 0.0373,
+    "fold_scores": [
+      0.7328,
+      0.7055,
+      0.7603,
+      0.7493,
+      0.7002,
+      0.7249,
+      0.7673,
+      0.7304,
+      0.723,
+      0.6614,
+      0.7977,
+      0.686,
+      0.7378,
+      0.7847,
+      0.6814
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.4455,
+    "cv_wall_time_seconds": 7.4786,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0391,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  }
+]

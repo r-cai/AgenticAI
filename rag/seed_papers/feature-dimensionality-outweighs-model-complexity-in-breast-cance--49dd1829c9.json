@@ -1,0 +1,20 @@
+{
+  "title": "Feature Dimensionality Outweighs Model Complexity in Breast Cancer Subtype Classification Using TCGA-BRCA Gene Expression Data",
+  "abstract": "Accurate classification of breast cancer subtypes from gene expression data is critical for diagnosis and treatment selection. However, such datasets are characterized by high dimensionality and limited sample size, posing challenges for machine learning models. In this study, we evaluate the impact of model complexity and feature selection on subtype classification performance using TCGA-BRCA gene expression data. Logistic regression, random forest, and support vector machine (SVM) models were trained using varying numbers of highly variable genes (50 to 20,518). Performance was evaluated using stratified 5-fold cross-validation and assessed with accuracy and macro F1 score. While all models achieved high accuracy, macro F1 analysis revealed substantial differences in subtype-level performance. Logistic regression demonstrated the most stable and balanced performance across subtypes, including improved detection of rare classes. Random forest underperformed on minority subtypes despite strong overall accuracy, while SVM showed sensitivity to feature dimensionality. These findings highlight the importance of model simplicity, evaluation metrics, and feature selection in high-dimensional biological classification tasks.",
+  "year": "2026",
+  "doi": "",
+  "url": "http://arxiv.org/abs/2605.06562v1",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/2605.06562v1",
+  "paper_key": "p_49dd1829c9a93bc0d510b53f",
+  "aliases": [
+    "arxiv:2605.06562",
+    "title:featuredimensionalityoutweighsmodelcomplexityinbreastcancersubtypeclassificationusingtcgabrcageneexpressiondata"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_2664bc65ed6f77c7.json"
+  ],
+  "evidence": []
+}

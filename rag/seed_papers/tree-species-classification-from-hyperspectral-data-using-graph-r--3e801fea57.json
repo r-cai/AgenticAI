@@ -1,0 +1,20 @@
+{
+  "title": "Tree species classification from hyperspectral data using graph-regularized neural networks",
+  "abstract": "We propose a novel graph-regularized neural network (GRNN) algorithm for tree species classification. The proposed algorithm encompasses superpixel-based segmentation for graph construction, a pixel-wise neural network classifier, and the label propagation technique to generate an accurate and realistic (emulating tree crowns) classification map on a sparsely annotated data set. GRNN outperforms several state-of-the-art techniques not only for the standard Indian Pines HSI but also achieves a high classification accuracy (approx. 92%) on a new HSI data set collected over the heterogeneous forests of French Guiana (FG) when less than 1% of the pixels are labeled. We further show that GRNN is competitive with the state-of-the-art semi-supervised methods and exhibits a small deviation in accuracy for different numbers of training samples and over repeated trials with randomly sampled labeled pixels for training.",
+  "year": "2022",
+  "doi": "",
+  "url": "http://arxiv.org/abs/2208.08675v2",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/2208.08675v2",
+  "paper_key": "p_3e801fea57b93087dc7904e9",
+  "aliases": [
+    "arxiv:2208.08675",
+    "title:treespeciesclassificationfromhyperspectraldatausinggraphregularizedneuralnetworks"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_782616f4558be395.json"
+  ],
+  "evidence": []
+}

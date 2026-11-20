@@ -1,0 +1,1239 @@
+{
+  "run_id": "20261119_205438_581520",
+  "output_dir": "C:\\Users\\charl\\anaconda3\\AgenticAI\\AgenticResearchPipeline_L2_JSON_Literature_KB\\experiments\\runs\\20261119_205438_581520",
+  "dataset": "data/data-cbis-ddsm.csv",
+  "target": "diagnosis",
+  "description": "Classify benign and malignant breast lesions using mammographic metadata, feature selection, ensemble learning, and tabular machine learning",
+  "scoring": "f1_macro",
+  "baseline_cv_score": 0.6948,
+  "run_wall_time_seconds_excluding_pdf": 601.9768,
+  "best": {
+    "candidate_id": "iter03_c3",
+    "iteration": 3,
+    "config": {
+      "rationale": "Refine the successful RFE pipeline by increasing feature selection count to 30 and using HistGradientBoosting as the downstream model to test if a different base learner improves performance after feature selection.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "pipeline",
+        "transforms": [
+          {
+            "op": "rfe",
+            "params": {
+              "estimator": "random_forest",
+              "n_features_to_select": 30
+            }
+          }
+        ],
+        "branches": [],
+        "model": {
+          "name": "hist_gradient_boosting",
+          "hyperparameters": {
+            "max_iter": 100,
+            "learning_rate": 0.1,
+            "max_depth": 5,
+            "max_leaf_nodes": 31,
+            "l2_regularization": 0.0,
+            "early_stopping": false
+          }
+        },
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "cv_mean": 0.7141,
+    "cv_std": 0.0224
+  },
+  "holdout": {
+    "score": 0.7022,
+    "scoring": "f1_macro",
+    "precision": 0.7041,
+    "accuracy": 0.7038,
+    "balanced_accuracy": 0.702,
+    "recall": 0.702,
+    "f1_score": 0.7022,
+    "f1_macro": 0.7022,
+    "auc": 0.8065,
+    "roc_auc": 0.8065,
+    "n_train": 1252,
+    "n_test": 314,
+    "convergence": {
+      "fit_time_seconds": 3.7878,
+      "iterations_used": null,
+      "convergence_warning": false,
+      "warning_detail": null
+    }
+  },
+  "cv_holdout_gap": 0.0119,
+  "iterations_run": 3,
+  "stop_reason": "max_iterations",
+  "research_used": true,
+  "critic_enabled": false,
+  "rag_enabled": true,
+  "research_rounds": 3,
+  "research_source": "persistent_kb_and_optional_online_retrieval",
+  "knowledge_base": {
+    "enabled": true,
+    "directory": "C:\\Users\\charl\\anaconda3\\AgenticAI\\RAG_Knowledge_Base\\papers",
+    "index_database": "C:\\Users\\charl\\anaconda3\\AgenticAI\\RAG_Knowledge_Base\\literature.sqlite3",
+    "storage_format": "one_json_per_paper",
+    "refresh_mode": "on_unseen_query"
+  },
+  "research_evidence_sha256": "a634328e96defa57cc6e72c952ba067f64e12580819a063f3ac6a6470834aa90",
+  "evidence_recovery_audit": [],
+  "strict_D_completed": true,
+  "llm_evidence_design_enabled": false,
+  "llm_grounded_strategy": "freeform",
+  "evidence_records": [
+    {
+      "evidence_id": "ev_0072b4b1967b59",
+      "paper_title": "Provision of the DDSM mammography metadata in an accessible format.",
+      "paper_url": "https://pubmed.ncbi.nlm.nih.gov/24784381/",
+      "paper_doi": "10.1118/1.4870379",
+      "paper_year": "2014",
+      "method": "semiautomatically transformed",
+      "source_excerpt": "The authors semiautomatically transformed the data available athttp://marathon.csee.usf.edu/Mamm",
+      "modeling_hypothesis": "The DDSM metadata is made accessible through semiautomated transformation of the original database into tab-delimited text files.",
+      "suggested_operations": [],
+      "limitations": "",
+      "extraction_method": "llm_verified_excerpt",
+      "source_grounded": true
+    },
+    {
+      "evidence_id": "ev_afea8005f4b07a",
+      "paper_title": "Application of Tuning-ensemble N-Best in Auto-Sklearn for Mammographic Radiomic Analysis for Breast Cancer Prediction.",
+      "paper_url": "https://pubmed.ncbi.nlm.nih.gov/40755094/",
+      "paper_doi": "10.2174/0115734056400080250722024127",
+      "paper_year": "2025",
+      "method": "Auto-Sklearn",
+      "source_excerpt": "Auto-Sklearn was employed to automate model selection, hyperparameter tuning and ensemble construction.",
+      "modeling_hypothesis": "Auto-Sklearn automates model selection, hyperparameter tuning, and ensemble construction for breast tumor classification using radiomic features.",
+      "suggested_operations": [],
+      "limitations": "",
+      "extraction_method": "llm_verified_excerpt",
+      "source_grounded": true
+    },
+    {
+      "evidence_id": "ev_1ba15964b8cb8e",
+      "paper_title": "Application of Tuning-ensemble N-Best in Auto-Sklearn for Mammographic Radiomic Analysis for Breast Cancer Prediction.",
+      "paper_url": "https://pubmed.ncbi.nlm.nih.gov/40755094/",
+      "paper_doi": "10.2174/0115734056400080250722024127",
+      "paper_year": "2025",
+      "method": "Auto-Sklearn",
+      "source_excerpt": "After the resampling strategy was applied, the accuracy for the training set and testing set increased to 95.26% and 76.16%, respectively.",
+      "modeling_hypothesis": "Resampling strategy improves Auto-Sklearn's classification accuracy for breast tumor classification.",
+      "suggested_operations": [],
+      "limitations": "",
+      "extraction_method": "llm_verified_excerpt",
+      "source_grounded": true
+    },
+    {
+      "evidence_id": "ev_483cd593b9803d",
+      "paper_title": "Application of Tuning-ensemble N-Best in Auto-Sklearn for Mammographic Radiomic Analysis for Breast Cancer Prediction.",
+      "paper_url": "https://pubmed.ncbi.nlm.nih.gov/40755094/",
+      "paper_doi": "10.2174/0115734056400080250722024127",
+      "paper_year": "2025",
+      "method": "Auto-Sklearn",
+      "source_excerpt": "The Receiver Operating Curve and Area Under Curve (ROC-AUC) for the standard and resampling strategy of Auto-Sklearn were 0.660 and 0.840, outperforming conventional models, demonstrating its efficiency in automating radiomic classification tasks.",
+      "modeling_hypothesis": "Auto-Sklearn with resampling strategy achieves higher ROC-AUC (0.840) compared to standard Auto-Sklearn (0.660), outperforming conventional models in radiomic classification.",
+      "suggested_operations": [],
+      "limitations": "",
+      "extraction_method": "llm_verified_excerpt",
+      "source_grounded": true
+    },
+    {
+      "evidence_id": "ev_2d570e2b74da47",
+      "paper_title": "Weight Predictor Network with Feature Selection for Small Sample Tabular Biomedical Data",
+      "paper_url": "http://arxiv.org/abs/2211.15616v1",
+      "paper_doi": null,
+      "paper_year": "2022",
+      "method": "Weight Predictor Network with Feature Selection (WPFS)",
+      "source_excerpt": "In addition to the classification network, WPFS uses two small auxiliary networks that together output the weights of the first layer of the classification model.",
+      "modeling_hypothesis": "WPFS reduces the number of learnable parameters and performs feature selection to improve performance on small sample tabular biomedical data.",
+      "suggested_operations": [],
+      "limitations": "",
+      "extraction_method": "llm_verified_excerpt",
+      "source_grounded": true
+    },
+    {
+      "evidence_id": "ev_42f418e7dab419",
+      "paper_title": "Weight Predictor Network with Feature Selection for Small Sample Tabular Biomedical Data",
+      "paper_url": "http://arxiv.org/abs/2211.15616v1",
+      "paper_doi": null,
+      "paper_year": "2022",
+      "method": "Weight Predictor Network with Feature Selection (WPFS)",
+      "source_excerpt": "We evaluate on nine real-world biomedical datasets and demonstrate that WPFS outperforms other standard as well as more recent methods typically applied to tabular data.",
+      "modeling_hypothesis": "WPFS achieves better performance than standard and recent methods on tabular biomedical data with small sample sizes.",
+      "suggested_operations": [],
+      "limitations": "",
+      "extraction_method": "llm_verified_excerpt",
+      "source_grounded": true
+    },
+    {
+      "evidence_id": "ev_892146c13f0a85",
+      "paper_title": "Weight Predictor Network with Feature Selection for Small Sample Tabular Biomedical Data",
+      "paper_url": "http://arxiv.org/abs/2211.15616v1",
+      "paper_doi": null,
+      "paper_year": "2022",
+      "method": "Weight Predictor Network with Feature Selection (WPFS)",
+      "source_excerpt": "Furthermore, we investigate the proposed feature selection mechanism and show that it improves performance while providing useful insights into the learning task.",
+      "modeling_hypothesis": "The feature selection mechanism in WPFS enhances model performance and offers insights into the learning task.",
+      "suggested_operations": [],
+      "limitations": "",
+      "extraction_method": "llm_verified_excerpt",
+      "source_grounded": true
+    },
+    {
+      "evidence_id": "ev_59403731171ca6",
+      "paper_title": "Detection and classification of masses in mammographic images in a multi-kernel approach",
+      "paper_url": "http://arxiv.org/abs/1712.07116v1",
+      "paper_doi": "",
+      "paper_year": "2017",
+      "method": "multi-resolution wavelets",
+      "source_excerpt": "decomposing each image using multi-resolution wavelets",
+      "modeling_hypothesis": "This method decomposes images into multiple scales to capture texture and shape features for lesion detection and classification.",
+      "suggested_operations": [],
+      "limitations": "",
+      "extraction_method": "llm_verified_excerpt",
+      "source_grounded": true
+    },
+    {
+      "evidence_id": "ev_0d2bcd25cd60ba",
+      "paper_title": "Detection and classification of masses in mammographic images in a multi-kernel approach",
+      "paper_url": "http://arxiv.org/abs/1712.07116v1",
+      "paper_doi": "",
+      "paper_year": "2017",
+      "method": "Zernike moments",
+      "source_excerpt": "Zernike moments are extracted from each wavelet component",
+      "modeling_hypothesis": "This method extracts shape and texture features from wavelet components for lesion classification.",
+      "suggested_operations": [],
+      "limitations": "",
+      "extraction_method": "llm_verified_excerpt",
+      "source_grounded": true
+    },
+    {
+      "evidence_id": "ev_8f91a6c1114914",
+      "paper_title": "Detection and classification of masses in mammographic images in a multi-kernel approach",
+      "paper_url": "http://arxiv.org/abs/1712.07116v1",
+      "paper_doi": "",
+      "paper_year": "2017",
+      "method": "SVM with modified kernels",
+      "source_excerpt": "Classification was performed by using SVM and ELM networks with modified kernels",
+      "modeling_hypothesis": "This method uses support vector machines with customized kernels to optimize classification accuracy.",
+      "suggested_operations": [],
+      "limitations": "",
+      "extraction_method": "llm_verified_excerpt",
+      "source_grounded": true
+    },
+    {
+      "evidence_id": "ev_0c8c98024d39cf",
+      "paper_title": "Multimodal Deep Learning for Phyllodes Tumor Classification from Ultrasound and Clinical Data",
+      "paper_url": "http://arxiv.org/abs/2509.00213v2",
+      "paper_doi": null,
+      "paper_year": "2025",
+      "method": "multimodal deep learning framework",
+      "source_excerpt": "We developed a dual-branch neural network that extracts and fuses features from ultrasound images and patient metadata from 81 subjects with confirmed PTs.",
+      "modeling_hypothesis": "The dual-branch neural network integrates ultrasound images and clinical data to improve PT classification accuracy.",
+      "suggested_operations": [],
+      "limitations": "",
+      "extraction_method": "llm_verified_excerpt",
+      "source_grounded": true
+    },
+    {
+      "evidence_id": "ev_e2fcd7f995683e",
+      "paper_title": "Multimodal Deep Learning for Phyllodes Tumor Classification from Ultrasound and Clinical Data",
+      "paper_url": "http://arxiv.org/abs/2509.00213v2",
+      "paper_doi": null,
+      "paper_year": "2025",
+      "method": "class-aware sampling and subject-stratified 5-fold cross-validation",
+      "source_excerpt": "Class-aware sampling and subject-stratified 5-fold cross-validation were applied to prevent class imbalance and data leakage.",
+      "modeling_hypothesis": "Class-aware sampling and subject-stratified 5-fold cross-validation improve model robustness by addressing class imbalance and data leakage.",
+      "suggested_operations": [],
+      "limitations": "",
+      "extraction_method": "llm_verified_excerpt",
+      "source_grounded": true
+    },
+    {
+      "evidence_id": "ev_e934d3147790ed",
+      "paper_title": "Multimodal Deep Learning for Phyllodes Tumor Classification from Ultrasound and Clinical Data",
+      "paper_url": "http://arxiv.org/abs/2509.00213v2",
+      "paper_doi": null,
+      "paper_year": "2025",
+      "method": "ConvNeXt and ResNet18 as image encoders",
+      "source_excerpt": "Among six image encoders, ConvNeXt and ResNet18 achieved the best performance in the multimodal setting, with AUC-ROC scores of 0.9427 and 0.9349, and F1-scores of 0.6720 and 0.7294, respectively.",
+      "modeling_hypothesis": "ConvNeXt and ResNet18 are optimal image encoders for multimodal PT classification, achieving high AUC-ROC and F1-scores.",
+      "suggested_operations": [],
+      "limitations": "",
+      "extraction_method": "llm_verified_excerpt",
+      "source_grounded": true
+    },
+    {
+      "evidence_id": "ev_f3f414fa73427f",
+      "paper_title": "Differentiating Benign from Malignant Renal Tumors Using T2‐ and Diffusion‐Weighted Images: A Comparison of Deep Learning and Radiomics Models Versus Assessment from Radiologists",
+      "paper_url": "https://www.semanticscholar.org/paper/cc1526d0b66323d2b89a1f49dc1f903588a608ae",
+      "paper_doi": "10.1002/jmri.27900",
+      "paper_year": 2021,
+      "method": "deep learning",
+      "source_excerpt": "Differentiating benign from malignant renal tumors is important for selection of the most effective treatment.",
+      "modeling_hypothesis": "Deep learning models can differentiate benign from malignant renal tumors using T2 and diffusion-weighted images.",
+      "suggested_operations": [],
+      "limitations": "",
+      "extraction_method": "llm_verified_excerpt",
+      "source_grounded": true
+    },
+    {
+      "evidence_id": "ev_2fea4c39665d71",
+      "paper_title": "Skin cancer diagnosis using NIR spectroscopy data of skin lesions in vivo using machine learning algorithms",
+      "paper_url": "http://arxiv.org/abs/2401.01200v1",
+      "paper_doi": null,
+      "paper_year": "2024",
+      "method": "LightGBM",
+      "source_excerpt": "LightGBM",
+      "modeling_hypothesis": "LightGBM with pre-processing using standard normal variate (SNV) provides the best performance for classifying skin lesions as cancerous or non-cancerous using NIR spectroscopy data.",
+      "suggested_operations": [],
+      "limitations": "",
+      "extraction_method": "llm_verified_excerpt",
+      "source_grounded": true
+    },
+    {
+      "evidence_id": "ev_9843f58e95d899",
+      "paper_title": "Skin cancer diagnosis using NIR spectroscopy data of skin lesions in vivo using machine learning algorithms",
+      "paper_url": "http://arxiv.org/abs/2401.01200v1",
+      "paper_doi": null,
+      "paper_year": "2024",
+      "method": "XGBoost",
+      "source_excerpt": "XGBoost,",
+      "modeling_hypothesis": "XGBoost is one of the machine learning algorithms investigated for classifying skin lesions as cancerous or non-cancerous using NIR spectroscopy data.",
+      "suggested_operations": [],
+      "limitations": "",
+      "extraction_method": "llm_verified_excerpt",
+      "source_grounded": true
+    },
+    {
+      "evidence_id": "ev_82a629cedc93e8",
+      "paper_title": "Skin cancer diagnosis using NIR spectroscopy data of skin lesions in vivo using machine learning algorithms",
+      "paper_url": "http://arxiv.org/abs/2401.01200v1",
+      "paper_doi": null,
+      "paper_year": "2024",
+      "method": "CatBoost",
+      "source_excerpt": "CatBoost",
+      "modeling_hypothesis": "CatBoost is one of the machine learning algorithms investigated for classifying skin lesions as cancerous or non-cancerous using NIR spectroscopy data.",
+      "suggested_operations": [],
+      "limitations": "",
+      "extraction_method": "llm_verified_excerpt",
+      "source_grounded": true
+    },
+    {
+      "evidence_id": "ev_0140e29fd82254",
+      "paper_title": "Enhancing Breast Cancer Detection and Classification Using Advanced Multi-Model Features and Ensemble Machine Learning Techniques.",
+      "paper_url": "https://pubmed.ncbi.nlm.nih.gov/37895474/",
+      "paper_doi": "10.3390/life13102093",
+      "paper_year": "2023",
+      "method": "rfe",
+      "source_excerpt": "In the feature extraction process, we suggest a recursive feature elimination technique to find the most important features of the WDBC that are pertinent to BC detection and classification.",
+      "modeling_hypothesis": "Recursive feature elimination (RFE) is used to select the most relevant features for breast cancer detection and classification using the WDBC dataset.",
+      "suggested_operations": [],
+      "limitations": "",
+      "extraction_method": "llm_verified_excerpt",
+      "source_grounded": true
+    },
+    {
+      "evidence_id": "ev_726c81dc3ad8c8",
+      "paper_title": "Enhancing Breast Cancer Detection and Classification Using Advanced Multi-Model Features and Ensemble Machine Learning Techniques.",
+      "paper_url": "https://pubmed.ncbi.nlm.nih.gov/37895474/",
+      "paper_doi": "10.3390/life13102093",
+      "paper_year": "2023",
+      "method": "stacking",
+      "source_excerpt": "we propose an advanced ensemble technique, which incorporates voting, bagging, stacking, and boosting as combination techniques for the classifier in the proposed EML methods to distinguish benign breast tumors from malignant cancers.",
+      "modeling_hypothesis": "Stacking is used as a combination technique in the ensemble machine learning methods for distinguishing benign and malignant breast tumors.",
+      "suggested_operations": [],
+      "limitations": "",
+      "extraction_method": "llm_verified_excerpt",
+      "source_grounded": true
+    },
+    {
+      "evidence_id": "ev_577acfea7b54ef",
+      "paper_title": "Classification of Patients with Breast Cancer using Neighbourhood Component Analysis and Supervised Machine Learning Techniques",
+      "paper_url": "https://www.semanticscholar.org/paper/f652fd8f0b40bf9ac226ead8d4c2acd892260e58",
+      "paper_doi": "10.1109/CommNet49926.2020.9199633",
+      "paper_year": 2020,
+      "method": "knn",
+      "source_excerpt": "The predictive accuracy reached a 99.12% for the kNN model",
+      "modeling_hypothesis": "knn model achieves 99.12% predictive accuracy on the Breast Cancer Wisconsin dataset after feature selection with NCA",
+      "suggested_operations": [],
+      "limitations": "",
+      "extraction_method": "llm_verified_excerpt",
+      "source_grounded": true
+    },
+    {
+      "evidence_id": "ev_140cff07ec118f",
+      "paper_title": "Classification of Patients with Breast Cancer using Neighbourhood Component Analysis and Supervised Machine Learning Techniques",
+      "paper_url": "https://www.semanticscholar.org/paper/f652fd8f0b40bf9ac226ead8d4c2acd892260e58",
+      "paper_doi": "10.1109/CommNet49926.2020.9199633",
+      "paper_year": 2020,
+      "method": "svc",
+      "source_excerpt": "the best predictive specificity obtained was 9S.S6% for the Binary SVM model",
+      "modeling_hypothesis": "svc model achieves :9S.S6% specificity on the Breast Cancer Wisconsin dataset after feature selection with NCA",
+      "suggested_operations": [],
+      "limitations": "",
+      "extraction_method": "llm_verified_excerpt",
+      "source_grounded": true
+    },
+    {
+      "evidence_id": "ev_f78cfab16a5599",
+      "paper_title": "Classification of Patients with Breast Cancer using Neighbourhood Component Analysis and Supervised Machine Learning Techniques",
+      "paper_url": "https://www.semanticscholar.org/paper/f652fd8f0b40bf9ac226ead8d4c2acd892260e58",
+      "paper_doi": "10.1109/CommNet49926.2020.9199633",
+      "paper_year": 2020,
+      "method": "adaboost",
+      "source_excerpt": "the highest predictive sensitivity obtained was up to one for both kNN and Adaboost models",
+      "modeling_hypothesis": "adaboost model achieves 100% sensitivity on the Breast Cancer Wisconsin dataset after feature selection with NCA",
+      "suggested_operations": [],
+      "limitations": "",
+      "extraction_method": "llm_verified_excerpt",
+      "source_grounded": true
+    },
+    {
+      "evidence_id": "ev_65a6f8f82acf68",
+      "paper_title": "Application of Transfer Learning and Ensemble Learning in Image-level Classification for Breast Histopathology",
+      "paper_url": "http://arxiv.org/abs/2204.08311v2",
+      "paper_doi": null,
+      "paper_year": "2022",
+      "method": "ensemble",
+      "source_excerpt": "This paper proposes a deep ensemble model based on image-level labels for the binary classification of benign and malignant lesions of breast histopathological images.",
+      "modeling_hypothesis": "The ensemble model achieves 98.90% accuracy in binary classification of breast histopathological images using image-level labels.",
+      "suggested_operations": [],
+      "limitations": "",
+      "extraction_method": "llm_verified_excerpt",
+      "source_grounded": true
+    },
+    {
+      "evidence_id": "ev_d899542d586220",
+      "paper_title": "Application of Transfer Learning and Ensemble Learning in Image-level Classification for Breast Histopathology",
+      "paper_url": "http://arxiv.org/abs/2204.08311v2",
+      "paper_doi": null,
+      "paper_year": "2022",
+      "method": "data_augmentation",
+      "source_excerpt": "Then, data augmentation techniques are used to balance the number of benign and malignant samples.",
+      "modeling_hypothesis": "Data augmentation techniques are employed to balance the class distribution in the breast histopathological dataset.",
+      "suggested_operations": [],
+      "limitations": "",
+      "extraction_method": "llm_verified_excerpt",
+      "source_grounded": true
+    },
+    {
+      "evidence_id": "ev_0b4c70063934d0",
+      "paper_title": "Application of Transfer Learning and Ensemble Learning in Image-level Classification for Breast Histopathology",
+      "paper_url": "http://arxiv.org/abs/2204.08311v2",
+      "paper_doi": null,
+      "paper_year": "2022",
+      "method": "stacking",
+      "source_excerpt": "In the ensemble network model with accuracy as the weight, the image-level binary classification achieves an accuracy of $98.90\\%$.",
+      "modeling_hypothesis": "The ensemble model uses stacking to combine predictions from multiple base classifiers.",
+      "suggested_operations": [],
+      "limitations": "",
+      "extraction_method": "llm_verified_excerpt",
+      "source_grounded": true
+    },
+    {
+      "evidence_id": "ev_e1784adde1866f",
+      "paper_title": "Feature Importance Score-Based Functional Link Artificial Neural Networks for Breast Cancer Classification.",
+      "paper_url": "https://pubmed.ncbi.nlm.nih.gov/35411308/",
+      "paper_doi": "10.1155/2022/2696916",
+      "paper_year": "2022",
+      "method": "rfe",
+      "source_excerpt": "F-score is used to reduce the issue of overfitting by selecting features having a higher significance level.",
+      "modeling_hypothesis": "The F-score is used to select features with higher significance levels to reduce overfitting.",
+      "suggested_operations": [],
+      "limitations": "",
+      "extraction_method": "llm_verified_excerpt",
+      "source_grounded": true
+    },
+    {
+      "evidence_id": "ev_b33d1d2af363b5",
+      "paper_title": "BI-RADS prediction of mammographic masses using uncertainty information extracted from a Bayesian Deep Learning model",
+      "paper_url": "http://arxiv.org/abs/2503.13999v2",
+      "paper_doi": "",
+      "paper_year": "2025",
+      "method": "Bayesian Deep Learning",
+      "source_excerpt": "the uncertainty information extracted by a Bayesian deep learning model is utilized to predict the BI_RADS score",
+      "modeling_hypothesis": "The Bayesian Deep Learning model extracts uncertainty information to predict BI_RADS scores",
+      "suggested_operations": [],
+      "limitations": "",
+      "extraction_method": "llm_verified_excerpt",
+      "source_grounded": true
+    },
+    {
+      "evidence_id": "ev_782da84c9638a4",
+      "paper_title": "Mitigating annotation shift in cancer classification using single image generative models",
+      "paper_url": "http://arxiv.org/abs/2405.19754v1",
+      "paper_doi": "",
+      "paper_year": "2024",
+      "method": "single-image generative models",
+      "source_excerpt": "a training data augmentation approach based on single-image generative models for the affected class",
+      "modeling_hypothesis": "Mitigating annotation shift in cancer classification using single image generative models",
+      "suggested_operations": [],
+      "limitations": "",
+      "extraction_method": "llm_verified_excerpt",
+      "source_grounded": true
+    },
+    {
+      "evidence_id": "ev_9ac9bd3003c005",
+      "paper_title": "Mitigating annotation shift in cancer classification using single image generative models",
+      "paper_url": "http://arxiv.org/abs/2405.19754v1",
+      "paper_doi": "",
+      "paper_year": "2024",
+      "method": "ensemble architecture",
+      "source_excerpt": "an ensemble architecture based on multiple models trained under different data augmentation regimes",
+      "modeling_hypothesis": "Mitigating annotation shift in cancer classification using single image generative models",
+      "suggested_operations": [],
+      "limitations": "",
+      "extraction_method": "llm_verified_excerpt",
+      "source_grounded": true
+    },
+    {
+      "evidence_id": "ev_e0e1aa442be5de",
+      "paper_title": "Detection of breast masses in mammograms by density slicing and texture flow-field analysis.",
+      "paper_url": "https://pubmed.ncbi.nlm.nih.gov/11811822/",
+      "paper_doi": "10.1109/42.974917",
+      "paper_year": "2001",
+      "method": "logistic_regression",
+      "source_excerpt": "The mass regions that were successfully segmented were further classified as benign or malignant disease by computing five texture features based on gray-level co-occurrence matrices (GCMs) and using the features in a logistic regression method.",
+      "modeling_hypothesis": "The logistic regression method is used for classifying segmented mass regions as benign or malignant disease using texture features derived from gray-level co-occurrence matrices.",
+      "suggested_operations": [],
+      "limitations": "",
+      "extraction_method": "llm_verified_excerpt",
+      "source_grounded": true
+    },
+    {
+      "evidence_id": "ev_89a4b2fd083a68",
+      "paper_title": "Predicting the Severity of Breast Masses with Data Mining Methods",
+      "paper_url": "http://arxiv.org/abs/1305.7057v1",
+      "paper_doi": "",
+      "paper_year": "2013",
+      "method": "svc",
+      "source_excerpt": "SVM predicts severity of breast cancer with least error rate and highest accuracy",
+      "modeling_hypothesis": "SVM is the most accurate model for predicting breast cancer severity",
+      "suggested_operations": [],
+      "limitations": "",
+      "extraction_method": "llm_verified_excerpt",
+      "source_grounded": true
+    },
+    {
+      "evidence_id": "ev_2762def442cfc4",
+      "paper_title": "Predicting the Severity of Breast Masses with Data Mining Methods",
+      "paper_url": "http://arxiv.org/abs/1305.7057v1",
+      "paper_doi": "",
+      "paper_year": "2013",
+      "method": "knn",
+      "source_excerpt": "Accuracy of DT, ANN and SVM are 78.12%, 80.56% and 81.25% of test samples respectively",
+      "modeling_hypothesis": "KNN has 80.56% accuracy in predicting breast cancer severity",
+      "suggested_operations": [],
+      "limitations": "",
+      "extraction_method": "llm_verified_excerpt",
+      "source_grounded": true
+    }
+  ],
+  "eligible_evidence_ids": [
+    "ev_0140e29fd82254",
+    "ev_726c81dc3ad8c8",
+    "ev_892146c13f0a85"
+  ],
+  "evidence_selection_audit": [
+    {
+      "evidence_id": "ev_0072b4b1967b59",
+      "paper_title": "Provision of the DDSM mammography metadata in an accessible format.",
+      "status": "rejected",
+      "reason": "no_supported_composition_operation",
+      "supported_operations": [],
+      "extraction_warnings": []
+    },
+    {
+      "evidence_id": "ev_afea8005f4b07a",
+      "paper_title": "Application of Tuning-ensemble N-Best in Auto-Sklearn for Mammographic Radiomic Analysis for Breast Cancer Prediction.",
+      "status": "rejected",
+      "reason": "no_supported_composition_operation",
+      "supported_operations": [],
+      "extraction_warnings": []
+    },
+    {
+      "evidence_id": "ev_1ba15964b8cb8e",
+      "paper_title": "Application of Tuning-ensemble N-Best in Auto-Sklearn for Mammographic Radiomic Analysis for Breast Cancer Prediction.",
+      "status": "rejected",
+      "reason": "no_supported_composition_operation",
+      "supported_operations": [],
+      "extraction_warnings": []
+    },
+    {
+      "evidence_id": "ev_483cd593b9803d",
+      "paper_title": "Application of Tuning-ensemble N-Best in Auto-Sklearn for Mammographic Radiomic Analysis for Breast Cancer Prediction.",
+      "status": "rejected",
+      "reason": "no_supported_composition_operation",
+      "supported_operations": [],
+      "extraction_warnings": []
+    },
+    {
+      "evidence_id": "ev_2d570e2b74da47",
+      "paper_title": "Weight Predictor Network with Feature Selection for Small Sample Tabular Biomedical Data",
+      "status": "rejected",
+      "reason": "no_supported_composition_operation",
+      "supported_operations": [],
+      "extraction_warnings": []
+    },
+    {
+      "evidence_id": "ev_42f418e7dab419",
+      "paper_title": "Weight Predictor Network with Feature Selection for Small Sample Tabular Biomedical Data",
+      "status": "rejected",
+      "reason": "no_supported_composition_operation",
+      "supported_operations": [],
+      "extraction_warnings": []
+    },
+    {
+      "evidence_id": "ev_59403731171ca6",
+      "paper_title": "Detection and classification of masses in mammographic images in a multi-kernel approach",
+      "status": "rejected",
+      "reason": "image_modality_not_applicable_to_tabular_modeling"
+    },
+    {
+      "evidence_id": "ev_0d2bcd25cd60ba",
+      "paper_title": "Detection and classification of masses in mammographic images in a multi-kernel approach",
+      "status": "rejected",
+      "reason": "image_modality_not_applicable_to_tabular_modeling"
+    },
+    {
+      "evidence_id": "ev_8f91a6c1114914",
+      "paper_title": "Detection and classification of masses in mammographic images in a multi-kernel approach",
+      "status": "rejected",
+      "reason": "image_modality_not_applicable_to_tabular_modeling"
+    },
+    {
+      "evidence_id": "ev_0c8c98024d39cf",
+      "paper_title": "Multimodal Deep Learning for Phyllodes Tumor Classification from Ultrasound and Clinical Data",
+      "status": "rejected",
+      "reason": "image_modality_not_applicable_to_tabular_modeling"
+    },
+    {
+      "evidence_id": "ev_e2fcd7f995683e",
+      "paper_title": "Multimodal Deep Learning for Phyllodes Tumor Classification from Ultrasound and Clinical Data",
+      "status": "rejected",
+      "reason": "image_modality_not_applicable_to_tabular_modeling"
+    },
+    {
+      "evidence_id": "ev_e934d3147790ed",
+      "paper_title": "Multimodal Deep Learning for Phyllodes Tumor Classification from Ultrasound and Clinical Data",
+      "status": "rejected",
+      "reason": "image_modality_not_applicable_to_tabular_modeling"
+    },
+    {
+      "evidence_id": "ev_f3f414fa73427f",
+      "paper_title": "Differentiating Benign from Malignant Renal Tumors Using T2‐ and Diffusion‐Weighted Images: A Comparison of Deep Learning and Radiomics Models Versus Assessment from Radiologists",
+      "status": "rejected",
+      "reason": "no_supported_composition_operation",
+      "supported_operations": [],
+      "extraction_warnings": []
+    },
+    {
+      "evidence_id": "ev_2fea4c39665d71",
+      "paper_title": "Skin cancer diagnosis using NIR spectroscopy data of skin lesions in vivo using machine learning algorithms",
+      "status": "rejected",
+      "reason": "no_supported_composition_operation",
+      "supported_operations": [],
+      "extraction_warnings": []
+    },
+    {
+      "evidence_id": "ev_9843f58e95d899",
+      "paper_title": "Skin cancer diagnosis using NIR spectroscopy data of skin lesions in vivo using machine learning algorithms",
+      "status": "rejected",
+      "reason": "no_supported_composition_operation",
+      "supported_operations": [],
+      "extraction_warnings": []
+    },
+    {
+      "evidence_id": "ev_82a629cedc93e8",
+      "paper_title": "Skin cancer diagnosis using NIR spectroscopy data of skin lesions in vivo using machine learning algorithms",
+      "status": "rejected",
+      "reason": "no_supported_composition_operation",
+      "supported_operations": [],
+      "extraction_warnings": []
+    },
+    {
+      "evidence_id": "ev_577acfea7b54ef",
+      "paper_title": "Classification of Patients with Breast Cancer using Neighbourhood Component Analysis and Supervised Machine Learning Techniques",
+      "status": "rejected",
+      "reason": "no_supported_composition_operation",
+      "supported_operations": [
+        "knn"
+      ],
+      "extraction_warnings": []
+    },
+    {
+      "evidence_id": "ev_140cff07ec118f",
+      "paper_title": "Classification of Patients with Breast Cancer using Neighbourhood Component Analysis and Supervised Machine Learning Techniques",
+      "status": "rejected",
+      "reason": "no_supported_composition_operation",
+      "supported_operations": [
+        "svc"
+      ],
+      "extraction_warnings": []
+    },
+    {
+      "evidence_id": "ev_f78cfab16a5599",
+      "paper_title": "Classification of Patients with Breast Cancer using Neighbourhood Component Analysis and Supervised Machine Learning Techniques",
+      "status": "rejected",
+      "reason": "no_supported_composition_operation",
+      "supported_operations": [
+        "knn"
+      ],
+      "extraction_warnings": []
+    },
+    {
+      "evidence_id": "ev_65a6f8f82acf68",
+      "paper_title": "Application of Transfer Learning and Ensemble Learning in Image-level Classification for Breast Histopathology",
+      "status": "rejected",
+      "reason": "image_modality_not_applicable_to_tabular_modeling"
+    },
+    {
+      "evidence_id": "ev_d899542d586220",
+      "paper_title": "Application of Transfer Learning and Ensemble Learning in Image-level Classification for Breast Histopathology",
+      "status": "rejected",
+      "reason": "image_modality_not_applicable_to_tabular_modeling"
+    },
+    {
+      "evidence_id": "ev_0b4c70063934d0",
+      "paper_title": "Application of Transfer Learning and Ensemble Learning in Image-level Classification for Breast Histopathology",
+      "status": "rejected",
+      "reason": "image_modality_not_applicable_to_tabular_modeling"
+    },
+    {
+      "evidence_id": "ev_e1784adde1866f",
+      "paper_title": "Feature Importance Score-Based Functional Link Artificial Neural Networks for Breast Cancer Classification.",
+      "status": "rejected",
+      "reason": "no_supported_composition_operation",
+      "supported_operations": [],
+      "extraction_warnings": []
+    },
+    {
+      "evidence_id": "ev_b33d1d2af363b5",
+      "paper_title": "BI-RADS prediction of mammographic masses using uncertainty information extracted from a Bayesian Deep Learning model",
+      "status": "rejected",
+      "reason": "no_supported_composition_operation",
+      "supported_operations": [],
+      "extraction_warnings": []
+    },
+    {
+      "evidence_id": "ev_782da84c9638a4",
+      "paper_title": "Mitigating annotation shift in cancer classification using single image generative models",
+      "status": "rejected",
+      "reason": "no_supported_composition_operation",
+      "supported_operations": [],
+      "extraction_warnings": []
+    },
+    {
+      "evidence_id": "ev_9ac9bd3003c005",
+      "paper_title": "Mitigating annotation shift in cancer classification using single image generative models",
+      "status": "rejected",
+      "reason": "no_supported_composition_operation",
+      "supported_operations": [],
+      "extraction_warnings": []
+    },
+    {
+      "evidence_id": "ev_e0e1aa442be5de",
+      "paper_title": "Detection of breast masses in mammograms by density slicing and texture flow-field analysis.",
+      "status": "rejected",
+      "reason": "no_supported_composition_operation",
+      "supported_operations": [
+        "logistic_regression"
+      ],
+      "extraction_warnings": []
+    },
+    {
+      "evidence_id": "ev_89a4b2fd083a68",
+      "paper_title": "Predicting the Severity of Breast Masses with Data Mining Methods",
+      "status": "rejected",
+      "reason": "no_supported_composition_operation",
+      "supported_operations": [
+        "svc"
+      ],
+      "extraction_warnings": []
+    },
+    {
+      "evidence_id": "ev_2762def442cfc4",
+      "paper_title": "Predicting the Severity of Breast Masses with Data Mining Methods",
+      "status": "rejected",
+      "reason": "no_supported_composition_operation",
+      "supported_operations": [
+        "svc"
+      ],
+      "extraction_warnings": []
+    },
+    {
+      "evidence_id": "ev_0140e29fd82254",
+      "paper_title": "Enhancing Breast Cancer Detection and Classification Using Advanced Multi-Model Features and Ensemble Machine Learning Techniques.",
+      "status": "selected",
+      "reason": null,
+      "supported_operations": [
+        "rfe"
+      ],
+      "extraction_warnings": [],
+      "method_group": "rfe"
+    },
+    {
+      "evidence_id": "ev_726c81dc3ad8c8",
+      "paper_title": "Enhancing Breast Cancer Detection and Classification Using Advanced Multi-Model Features and Ensemble Machine Learning Techniques.",
+      "status": "selected",
+      "reason": null,
+      "supported_operations": [
+        "stacking"
+      ],
+      "extraction_warnings": [],
+      "method_group": "stacking"
+    },
+    {
+      "evidence_id": "ev_892146c13f0a85",
+      "paper_title": "Weight Predictor Network with Feature Selection for Small Sample Tabular Biomedical Data",
+      "status": "selected",
+      "reason": null,
+      "supported_operations": [
+        "select_k_best"
+      ],
+      "extraction_warnings": [],
+      "method_group": "select_k_best"
+    }
+  ],
+  "data_exclusion_audit": {
+    "requested": [
+      "id"
+    ],
+    "removed": [],
+    "absent_optional": [
+      "id"
+    ],
+    "missing_policy": "ignore"
+  },
+  "evidence_ids_selected": [],
+  "best_candidate_origin": "llm",
+  "best_candidate_evidence_mapping": {},
+  "evidence_translation_audit": [
+    {
+      "iteration": 1,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "source_does_not_support_used_operations:ev_892146c13f0a85",
+      "fingerprint": "9d2ae1b7e22e3b9e449f84447a9504b6cecf5fc130ae664077661f3a54775163"
+    },
+    {
+      "iteration": 1,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "evidence-linked candidate must be an actual Level-2 composition",
+      "fingerprint": "522538dc542545e6b7d009a3637b1f1b70d7eb2d6d1d9fcef9cd186573558712"
+    },
+    {
+      "iteration": 1,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "source_does_not_support_used_operations:ev_892146c13f0a85",
+      "fingerprint": "da5de1a2e905033fa50281e35a133a451c86de6b0a3615ea8816050ba8b1ef53"
+    },
+    {
+      "iteration": 1,
+      "origin": "batch_budget",
+      "status": "summary",
+      "requested": 3,
+      "proposed_valid": 2,
+      "unfilled": 1,
+      "llm_calls": 3
+    },
+    {
+      "iteration": 2,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "generator_schema_validation",
+      "batch_round": 1,
+      "attempt": 1,
+      "candidate_index": 1,
+      "error": "ValidationError: 1 validation error for Candidate\ncomposition\n  Value error, ensembles require 2-3 model branches [type=value_error, input_value={'kind': 'stacking', 'tra...', 'passthrough': False}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/value_error"
+    },
+    {
+      "iteration": 2,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "pipeline_preflight_failed:ValueError:Unsupported select_k_best parameters: ['estimator', 'n_features']",
+      "fingerprint": "c458246b5b43306f311fcc641b0462867c1b062a8c9ea7cbde4f2ad9e894d6ea"
+    },
+    {
+      "iteration": 2,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "generator_schema_validation",
+      "batch_round": 2,
+      "attempt": 1,
+      "candidate_index": 0,
+      "error": "ValidationError: 1 validation error for Candidate\ncomposition\n  Value error, pipeline needs model, no branches/final_estimator [type=value_error, input_value={'kind': 'pipeline', 'tra...: 10}}], 'branches': []}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/value_error"
+    },
+    {
+      "iteration": 2,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "source_does_not_support_used_operations:ev_726c81dc3ad8c8",
+      "fingerprint": "9c0ee21facbefec51f904f1bcfe3a733ece30c9aacd8d9aa85b3ecb2d9227aa7"
+    },
+    {
+      "iteration": 2,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "pipeline_preflight_failed:ValueError:rfe.estimator must be logistic_regression or random_forest",
+      "fingerprint": "a839bec66f233e180dc092d8012383705659480a23d7970e71bbc28541e5463e"
+    },
+    {
+      "iteration": 2,
+      "origin": "batch_budget",
+      "status": "summary",
+      "requested": 3,
+      "proposed_valid": 2,
+      "unfilled": 1,
+      "llm_calls": 3
+    },
+    {
+      "iteration": 3,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "evidence-linked candidate must be an actual Level-2 composition",
+      "fingerprint": "3c5bac1092af10a0011385e76b3f75dad2747ebaaceefc21bc15328f5ede1134"
+    },
+    {
+      "iteration": 3,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "pipeline_preflight_failed:ValueError:rfe.estimator must be logistic_regression or random_forest",
+      "fingerprint": "067c2ee54b9b599c70cf0d2c76100cb93049810545b45718686721d513527cc9"
+    },
+    {
+      "iteration": 3,
+      "origin": "batch_budget",
+      "status": "summary",
+      "requested": 3,
+      "proposed_valid": 3,
+      "unfilled": 0,
+      "llm_calls": 2
+    }
+  ],
+  "evidence_composition_enabled": false,
+  "research_influence": {
+    "evidence_records_extracted": 32,
+    "evidence_records_eligible": 3,
+    "accepted_translation_attempts": 0,
+    "rejected_translation_attempts": 10,
+    "accepted_compiler_translations": 0,
+    "rejected_llm_proposals": 10,
+    "generation_calls": 8,
+    "literature_derived_candidates_executed": 0,
+    "literature_cited_candidates_executed": 1,
+    "generated_candidates_evaluated": 7,
+    "successful_generated_candidates": 7,
+    "configured_candidate_budget": 9,
+    "attempted_candidate_slots": 9,
+    "unfilled_candidate_slots": 2,
+    "not_run_due_to_early_stop": 0,
+    "best_is_literature_derived": false,
+    "best_is_composition": true,
+    "best_is_evidence_compiled": false,
+    "best_is_llm_evidence_grounded": false,
+    "llm_grounded_candidates_executed": 0
+  },
+  "history": [
+    {
+      "candidate_id": "baseline",
+      "iteration": 0,
+      "model": "random_forest",
+      "evidence_ids": [],
+      "origin": null,
+      "evidence_mapping": {},
+      "composition": null,
+      "cv_mean": 0.6948,
+      "cv_std": 0.016,
+      "train_cv_gap": 0.1789,
+      "cv_wall_time_seconds": 3.9394,
+      "error": null
+    },
+    {
+      "candidate_id": "iter01_c1",
+      "iteration": 1,
+      "model": "logistic_regression",
+      "evidence_ids": [],
+      "origin": "llm",
+      "evidence_mapping": {},
+      "composition": null,
+      "cv_mean": 0.7027,
+      "cv_std": 0.0233,
+      "train_cv_gap": 0.0321,
+      "cv_wall_time_seconds": 0.6942,
+      "error": null
+    },
+    {
+      "candidate_id": "iter01_c2",
+      "iteration": 1,
+      "model": "gradient_boosting",
+      "evidence_ids": [],
+      "origin": "llm",
+      "evidence_mapping": {},
+      "composition": null,
+      "cv_mean": 0.706,
+      "cv_std": 0.0149,
+      "train_cv_gap": 0.114,
+      "cv_wall_time_seconds": 3.8035,
+      "error": null
+    },
+    {
+      "candidate_id": "iter02_c1",
+      "iteration": 2,
+      "model": "composition:pipeline",
+      "evidence_ids": [
+        "ev_0140e29fd82254"
+      ],
+      "origin": "llm",
+      "evidence_mapping": {},
+      "composition": {
+        "kind": "pipeline",
+        "transforms": [
+          {
+            "op": "rfe",
+            "params": {
+              "estimator": "random_forest",
+              "n_features_to_select": 20
+            }
+          }
+        ],
+        "branches": [],
+        "model": {
+          "name": "random_forest",
+          "hyperparameters": {
+            "n_estimators": 150,
+            "max_depth": 8,
+            "min_samples_split": 2,
+            "min_samples_leaf": 2,
+            "max_features": "sqrt",
+            "class_weight": "balanced"
+          }
+        },
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "cv_mean": 0.7128,
+      "cv_std": 0.022,
+      "train_cv_gap": 0.0632,
+      "cv_wall_time_seconds": 126.7551,
+      "error": null
+    },
+    {
+      "candidate_id": "iter02_c2",
+      "iteration": 2,
+      "model": "composition:voting",
+      "evidence_ids": [],
+      "origin": "llm",
+      "evidence_mapping": {},
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 1.0,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "rf",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 150,
+                "max_depth": 6,
+                "min_samples_split": 2,
+                "min_samples_leaf": 1,
+                "max_features": "sqrt",
+                "class_weight": "balanced"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "cv_mean": 0.6984,
+      "cv_std": 0.022,
+      "train_cv_gap": 0.0471,
+      "cv_wall_time_seconds": 5.2839,
+      "error": null
+    },
+    {
+      "candidate_id": "iter03_c1",
+      "iteration": 3,
+      "model": "composition:voting",
+      "evidence_ids": [],
+      "origin": "llm",
+      "evidence_mapping": {},
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 0.5,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "et",
+            "transforms": [],
+            "model": {
+              "name": "extra_trees",
+              "hyperparameters": {
+                "n_estimators": 150,
+                "max_depth": 8,
+                "min_samples_split": 2,
+                "min_samples_leaf": 1,
+                "max_features": "sqrt",
+                "class_weight": "balanced"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "cv_mean": 0.702,
+      "cv_std": 0.0204,
+      "train_cv_gap": 0.0534,
+      "cv_wall_time_seconds": 4.0312,
+      "error": null
+    },
+    {
+      "candidate_id": "iter03_c2",
+      "iteration": 3,
+      "model": "composition:voting",
+      "evidence_ids": [],
+      "origin": "llm",
+      "evidence_mapping": {},
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 1.0,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "gb",
+            "transforms": [],
+            "model": {
+              "name": "gradient_boosting",
+              "hyperparameters": {
+                "n_estimators": 100,
+                "learning_rate": 0.2,
+                "max_depth": 3,
+                "subsample": 0.8,
+                "min_samples_split": 2
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "cv_mean": 0.704,
+      "cv_std": 0.0138,
+      "train_cv_gap": 0.09,
+      "cv_wall_time_seconds": 3.0463,
+      "error": null
+    },
+    {
+      "candidate_id": "iter03_c3",
+      "iteration": 3,
+      "model": "composition:pipeline",
+      "evidence_ids": [],
+      "origin": "llm",
+      "evidence_mapping": {},
+      "composition": {
+        "kind": "pipeline",
+        "transforms": [
+          {
+            "op": "rfe",
+            "params": {
+              "estimator": "random_forest",
+              "n_features_to_select": 30
+            }
+          }
+        ],
+        "branches": [],
+        "model": {
+          "name": "hist_gradient_boosting",
+          "hyperparameters": {
+            "max_iter": 100,
+            "learning_rate": 0.1,
+            "max_depth": 5,
+            "max_leaf_nodes": 31,
+            "l2_regularization": 0.0,
+            "early_stopping": false
+          }
+        },
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "cv_mean": 0.7141,
+      "cv_std": 0.0224,
+      "train_cv_gap": 0.0669,
+      "cv_wall_time_seconds": 54.6589,
+      "error": null
+    }
+  ],
+  "pdf_report": "experiments\\runs\\20261119_205438_581520\\level2_experiment_report.pdf",
+  "dataset_id": "data-cbis-ddsm",
+  "experiment_id": "B",
+  "report_paths": {
+    "original": "experiments\\runs\\20261119_205438_581520\\final_report.json",
+    "named_run_copy": "experiments\\runs\\20261119_205438_581520\\final_report_data-cbis-ddsm_B.json",
+    "archived_copy": "experiments\\reports\\final_report_data-cbis-ddsm_B_20261119_205438_581520.json",
+    "latest_copy": "experiments\\reports\\final_report_data-cbis-ddsm_B.json"
+  }
+}

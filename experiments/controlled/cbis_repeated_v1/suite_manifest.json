@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "suite_id": "cbis_repeated_v1",
+  "dataset": "cbis",
+  "csv": "C:\\Users\\charl\\anaconda3\\AgenticAI\\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\\data\\data-cbis-ddsm.csv",
+  "dataset_sha256": "8b2cfb44554f85cf6be6bfa58fae54caea555e88372e1e5f04a2d733e62fa8e5",
+  "task": "Classify benign and malignant breast lesions using mammographic metadata, feature selection, ensemble learning, and tabular machine learning",
+  "seeds": [
+    42,
+    52,
+    62,
+    72,
+    82
+  ],
+  "target_evaluated_candidates": 6,
+  "max_iterations": 9,
+  "arms": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "frozen_corpus": "C:\\Users\\charl\\anaconda3\\AgenticAI\\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\\experiments\\controlled\\cbis_repeated_v1\\frozen_corpus",
+  "frozen_corpus_sha256": "4e90d362b26f41200af2dd30448ef7d1e325e878cf887d786368cbf94c94ee3f",
+  "holdout_policy": "one stratified 80/20 split per seed; identical A/B/C/D row indices",
+  "candidate_policy": "identical number of successfully CV-evaluated candidates, not just slots",
+  "inference_policy": "paired within each seed; repeated splits overlap, so cross-seed intervals are descriptive"
+}

@@ -1,0 +1,58 @@
+[
+  {
+    "evidence_id": "ev_5294c787c1645c",
+    "extraction_method": "llm_verified_excerpt",
+    "limitations": "",
+    "method": "voting",
+    "modeling_hypothesis": "The proposed model uses a Majority Voting Classifier to combine multiple machine learning models for enhanced classification performance.",
+    "paper_doi": null,
+    "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+    "paper_url": "http://arxiv.org/abs/2507.04251v1",
+    "paper_year": "2025",
+    "source_excerpt": "Majority Voting Classifier",
+    "source_grounded": true,
+    "suggested_operations": []
+  },
+  {
+    "evidence_id": "ev_67cadb757a26d2",
+    "extraction_method": "llm_verified_excerpt",
+    "limitations": "",
+    "method": "rfe",
+    "modeling_hypothesis": "The proposed model incorporates Recursive Feature Elimination (RFE) as part of the feature selection process.",
+    "paper_doi": null,
+    "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+    "paper_url": "http://arxiv.org/abs/2507.04251v1",
+    "paper_year": "2025",
+    "source_excerpt": "Recursive Feature Elimination (RFE)",
+    "source_grounded": true,
+    "suggested_operations": []
+  },
+  {
+    "evidence_id": "ev_892146c13f0a85",
+    "extraction_method": "llm_verified_excerpt",
+    "limitations": "",
+    "method": "Weight Predictor Network with Feature Selection (WPFS)",
+    "modeling_hypothesis": "The feature selection mechanism in WPFS enhances model performance and offers insights into the learning task.",
+    "paper_doi": null,
+    "paper_title": "Weight Predictor Network with Feature Selection for Small Sample Tabular Biomedical Data",
+    "paper_url": "http://arxiv.org/abs/2211.15616v1",
+    "paper_year": "2022",
+    "source_excerpt": "Furthermore, we investigate the proposed feature selection mechanism and show that it improves performance while providing useful insights into the learning task.",
+    "source_grounded": true,
+    "suggested_operations": []
+  },
+  {
+    "evidence_id": "ev_24905bb7d707bc",
+    "extraction_method": "llm_verified_excerpt",
+    "limitations": "",
+    "method": "radiomic features",
+    "modeling_hypothesis": "Radiomic features can distinguish between benign and malignant uterine tumors with an F1-score of 0.53 [0.45, 0.61] and between degenerated leiomyoma and leiomyosarcoma with an F1-score of 0.80 [0.80, 0.80].",
+    "paper_doi": null,
+    "paper_title": "Developing a Machine Learning-Based Clinical Decision Support Tool for Uterine Tumor Imaging",
+    "paper_url": "http://arxiv.org/abs/2308.10372v1",
+    "paper_year": "2023",
+    "source_excerpt": "We evaluated the ability of radiomic features to distinguish between types of UT individually and when combined through feature selection and machine learning.",
+    "source_grounded": true,
+    "suggested_operations": []
+  }
+]

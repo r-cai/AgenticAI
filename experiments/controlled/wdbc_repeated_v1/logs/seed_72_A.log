@@ -1,0 +1,40 @@
+[config] Loaded C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\controlled\wdbc_repeated_v1\configs\72\A_no_rag.yaml
+Run 20261119_230826_819271
+[output] reports will be saved to C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\runs\20261119_230826_819271
+[data] optional excluded columns not present; skipped: ['id']
+Baseline (random_forest): CV 0.9511
+Research context: 0 item(s)
+Grounded method records: 0; eligible/diverse: 0
+
+=== Iteration 1 ===
+[generator] attempt=1 prompt_tokens=5899 output_tokens=780
+[generator] attempt=1 prompt_tokens=6070 output_tokens=696
+[generator] attempt=1 prompt_tokens=6128 output_tokens=918
+[generator] attempt=1 prompt_tokens=6128 output_tokens=711
+[generator] attempt=1 prompt_tokens=6128 output_tokens=498
+  iter01_c1 logistic_regression: CV 0.9741 (+/- 0.0145, gap 0.0091)
+  iter01_c2 svc: CV 0.9665 (+/- 0.0134, gap 0.0169)
+  iter01_c3 logistic_regression: CV 0.9717 (+/- 0.0156, gap 0.0140)
+
+=== Iteration 2 ===
+[generator] attempt=1 prompt_tokens=6516 output_tokens=882
+  iter02_c1 logistic_regression: CV 0.9772 (+/- 0.0119, gap 0.0024)
+  iter02_c2 composition:voting: CV 0.9755 (+/- 0.0166, gap 0.0180)
+  iter02_c3 gradient_boosting: CV 0.9544 (+/- 0.0233, gap 0.0456)
+[controlled] completed 6 successfully evaluated candidates
+
+Selected iter02_c1 (logistic_regression), CV 0.9772
+PDF report: experiments\runs\20261119_230826_819271\level2_experiment_report.pdf
+[report] Named latest: C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\reports\final_report_data-3_A.json
+[report] Run archive:  C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\reports\final_report_data-3_A_20261119_230826_819271.json
+
+============================================================
+Best: iter02_c1 (logistic_regression)
+  CV f1_macro: 0.9772 +/- 0.0119
+  Baseline CV:    0.9511
+  Holdout:        0.9810 (CV-holdout gap -0.0038)
+Stopped: target_evaluated_candidates_reached after 2 iteration(s)
+Full report: experiments/runs/20261119_230826_819271/final_report.json
+Named report: experiments\reports\final_report_data-3_A.json
+Archived copy: experiments\reports\final_report_data-3_A_20261119_230826_819271.json
+PDF report:  experiments\runs\20261119_230826_819271\level2_experiment_report.pdf

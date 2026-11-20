@@ -1,0 +1,20 @@
+{
+  "title": "Reasoning-Enhanced Rare-Event Prediction with Balanced Outcome Correction",
+  "abstract": "Rare-event prediction is critical in domains such as healthcare, finance, reliability engineering, customer support, aviation safety, where positive outcomes are infrequent yet potentially catastrophic. Extreme class imbalance biases conventional models toward majority-class predictions, limiting recall, calibration, and operational usefulness. We propose LPCORP (Low-Prevalence CORrector for Prediction)*, a two-stage framework that combines reasoning-enhanced prediction with confidence-based outcome correction. A reasoning model first produces enriched predictions from narrative inputs, after which a lightweight classifier evaluates and selectively corrects these outputs to mitigate prevalence-driven bias. In this study we used Logistic-Regression (LR) and a simple Multilayer Perceptron (MLP) classifiers for this purpose. We evaluate LPCORP on real-world datasets from medical and consumer service domains. The results show that this method transforms the original rare-event prediction problem into a more balanced supervised correction task without discarding or resampling observations. Test-set evaluation demonstrates substantially improved performance, particularly in precision, which is a known weakness in low-prevalence data. We further provide a cost-reduction analysis comparing the expenses associated with rare-event damage control without preventive measures to those incurred when low-cost, prediction-based preventive interventions are applied that showed up to 40+% reduction in some cases.",
+  "year": "2026",
+  "doi": "",
+  "url": "http://arxiv.org/abs/2601.16406v2",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/2601.16406v2",
+  "paper_key": "p_556b268a56f68c49323088be",
+  "aliases": [
+    "arxiv:2601.16406",
+    "title:reasoningenhancedrareeventpredictionwithbalancedoutcomecorrection"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_1977335c05dfe5ea.json"
+  ],
+  "evidence": []
+}

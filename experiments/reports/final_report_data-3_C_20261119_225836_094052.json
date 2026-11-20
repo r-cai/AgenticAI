@@ -1,0 +1,1033 @@
+{
+  "run_id": "20261119_225836_094052",
+  "output_dir": "C:\\Users\\charl\\anaconda3\\AgenticAI\\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\\experiments\\runs\\20261119_225836_094052",
+  "dataset": "C:\\Users\\charl\\anaconda3\\AgenticAI\\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\\data\\data-3.csv",
+  "target": "diagnosis",
+  "description": "Predict malignant versus benign tumors using WDBC measurements",
+  "scoring": "f1_macro",
+  "baseline_cv_score": 0.9596,
+  "dataset_sha256": "f6c65a8089f4dffb414973265861e4040ce6088473cba0b4552357f928995459",
+  "split_sha256": "6c06b033b4e247ddbe94777200ac9ab68219d5d2897cc643d51b43b57aa45419",
+  "predictions_file": "experiments\\runs\\20261119_225836_094052\\holdout_predictions.csv",
+  "controlled_study": {
+    "enabled": true,
+    "target_evaluated_candidates": 6,
+    "successfully_evaluated_candidates": 6,
+    "budget_complete": true,
+    "suite_id": "wdbc_repeated_v1",
+    "frozen_corpus_sha256": "196269270424c72104387c38bdf444ac3e25c0e4d4bbb78d4ef6cf84cc02adfb"
+  },
+  "run_wall_time_seconds_excluding_pdf": 200.453,
+  "best": {
+    "candidate_id": "iter02_c2",
+    "iteration": 2,
+    "config": {
+      "rationale": "Refine the successful soft-voting ensemble by testing stronger regularization in Logistic Regression and deeper trees in Random Forest to mitigate overfitting observed in the baseline.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr_strong_reg",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 0.5,
+                "solver": "lbfgs"
+              }
+            }
+          },
+          {
+            "name": "rf_deep",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 200,
+                "max_depth": 15,
+                "min_samples_split": 2,
+                "min_samples_leaf": 1,
+                "max_features": "sqrt",
+                "class_weight": "balanced"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "http://arxiv.org/abs/2507.04251v1"
+      ],
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ]
+    },
+    "cv_mean": 0.9826,
+    "cv_std": 0.0137
+  },
+  "holdout": {
+    "score": 0.9429,
+    "scoring": "f1_macro",
+    "precision": 0.948,
+    "accuracy": 0.9474,
+    "balanced_accuracy": 0.9385,
+    "recall": 0.9385,
+    "f1_score": 0.9429,
+    "f1_macro": 0.9429,
+    "auc": 0.9944,
+    "roc_auc": 0.9944,
+    "n_train": 455,
+    "n_test": 114,
+    "convergence": {
+      "fit_time_seconds": 0.4876,
+      "iterations_used": null,
+      "convergence_warning": false,
+      "warning_detail": null
+    }
+  },
+  "cv_holdout_gap": 0.0397,
+  "iterations_run": 2,
+  "stop_reason": "target_evaluated_candidates_reached",
+  "research_used": true,
+  "critic_enabled": false,
+  "rag_enabled": true,
+  "research_rounds": 1,
+  "research_source": "frozen_replay",
+  "knowledge_base": {
+    "enabled": false,
+    "note": "frozen replay does not update the shared knowledge base"
+  },
+  "research_evidence_sha256": "dd05452895be4366dbd01e0a9bf7181e11e76b3ea9ab193ea49cec52b665a84d",
+  "evidence_recovery_audit": [],
+  "strict_D_completed": null,
+  "llm_evidence_design_enabled": false,
+  "llm_grounded_strategy": "freeform",
+  "evidence_records": [
+    {
+      "evidence_id": "ev_2d570e2b74da47",
+      "extraction_method": "llm_verified_excerpt",
+      "limitations": "",
+      "method": "Weight Predictor Network with Feature Selection (WPFS)",
+      "modeling_hypothesis": "WPFS reduces the number of learnable parameters and performs feature selection to improve performance on small sample tabular biomedical data.",
+      "paper_doi": null,
+      "paper_title": "Weight Predictor Network with Feature Selection for Small Sample Tabular Biomedical Data",
+      "paper_url": "http://arxiv.org/abs/2211.15616v1",
+      "paper_year": "2022",
+      "source_excerpt": "In addition to the classification network, WPFS uses two small auxiliary networks that together output the weights of the first layer of the classification model.",
+      "source_grounded": true,
+      "suggested_operations": []
+    },
+    {
+      "evidence_id": "ev_42f418e7dab419",
+      "extraction_method": "llm_verified_excerpt",
+      "limitations": "",
+      "method": "Weight Predictor Network with Feature Selection (WPFS)",
+      "modeling_hypothesis": "WPFS achieves better performance than standard and recent methods on tabular biomedical data with small sample sizes.",
+      "paper_doi": null,
+      "paper_title": "Weight Predictor Network with Feature Selection for Small Sample Tabular Biomedical Data",
+      "paper_url": "http://arxiv.org/abs/2211.15616v1",
+      "paper_year": "2022",
+      "source_excerpt": "We evaluate on nine real-world biomedical datasets and demonstrate that WPFS outperforms other standard as well as more recent methods typically applied to tabular data.",
+      "source_grounded": true,
+      "suggested_operations": []
+    },
+    {
+      "evidence_id": "ev_892146c13f0a85",
+      "extraction_method": "llm_verified_excerpt",
+      "limitations": "",
+      "method": "Weight Predictor Network with Feature Selection (WPFS)",
+      "modeling_hypothesis": "The feature selection mechanism in WPFS enhances model performance and offers insights into the learning task.",
+      "paper_doi": null,
+      "paper_title": "Weight Predictor Network with Feature Selection for Small Sample Tabular Biomedical Data",
+      "paper_url": "http://arxiv.org/abs/2211.15616v1",
+      "paper_year": "2022",
+      "source_excerpt": "Furthermore, we investigate the proposed feature selection mechanism and show that it improves performance while providing useful insights into the learning task.",
+      "source_grounded": true,
+      "suggested_operations": []
+    },
+    {
+      "evidence_id": "ev_90adf32ea28f24",
+      "extraction_method": "llm_verified_excerpt",
+      "limitations": "",
+      "method": "U-Net",
+      "modeling_hypothesis": "U-Net can segment lesions and identify regions of concern in MRI scans.",
+      "paper_doi": null,
+      "paper_title": "Predicting breast cancer with AI for individual risk-adjusted MRI screening and early detection",
+      "paper_url": "http://arxiv.org/abs/2312.00067v2",
+      "paper_year": "2023",
+      "source_excerpt": "A first U-Net was trained to segment lesions and identify regions of concern.",
+      "source_grounded": true,
+      "suggested_operations": []
+    },
+    {
+      "evidence_id": "ev_f530a0b74e9320",
+      "extraction_method": "llm_verified_excerpt",
+      "limitations": "",
+      "method": "fine-tuned network",
+      "modeling_hypothesis": "A fine-tuned network can estimate the risk of developing cancer within a year for normal or likely benign cases.",
+      "paper_doi": null,
+      "paper_title": "Predicting breast cancer with AI for individual risk-adjusted MRI screening and early detection",
+      "paper_url": "http://arxiv.org/abs/2312.00067v2",
+      "paper_year": "2023",
+      "source_excerpt": "This network was then fine-tuned to estimate the risk of developing cancer within a year in cases that radiologists considered normal or likely benign.",
+      "source_grounded": true,
+      "suggested_operations": []
+    },
+    {
+      "evidence_id": "ev_0c8c98024d39cf",
+      "extraction_method": "llm_verified_excerpt",
+      "limitations": "",
+      "method": "multimodal deep learning framework",
+      "modeling_hypothesis": "The dual-branch neural network integrates ultrasound images and clinical data to improve PT classification accuracy.",
+      "paper_doi": null,
+      "paper_title": "Multimodal Deep Learning for Phyllodes Tumor Classification from Ultrasound and Clinical Data",
+      "paper_url": "http://arxiv.org/abs/2509.00213v2",
+      "paper_year": "2025",
+      "source_excerpt": "We developed a dual-branch neural network that extracts and fuses features from ultrasound images and patient metadata from 81 subjects with confirmed PTs.",
+      "source_grounded": true,
+      "suggested_operations": []
+    },
+    {
+      "evidence_id": "ev_e2fcd7f995683e",
+      "extraction_method": "llm_verified_excerpt",
+      "limitations": "",
+      "method": "class-aware sampling and subject-stratified 5-fold cross-validation",
+      "modeling_hypothesis": "Class-aware sampling and subject-stratified 5-fold cross-validation improve model robustness by addressing class imbalance and data leakage.",
+      "paper_doi": null,
+      "paper_title": "Multimodal Deep Learning for Phyllodes Tumor Classification from Ultrasound and Clinical Data",
+      "paper_url": "http://arxiv.org/abs/2509.00213v2",
+      "paper_year": "2025",
+      "source_excerpt": "Class-aware sampling and subject-stratified 5-fold cross-validation were applied to prevent class imbalance and data leakage.",
+      "source_grounded": true,
+      "suggested_operations": []
+    },
+    {
+      "evidence_id": "ev_e934d3147790ed",
+      "extraction_method": "llm_verified_excerpt",
+      "limitations": "",
+      "method": "ConvNeXt and ResNet18 as image encoders",
+      "modeling_hypothesis": "ConvNeXt and ResNet18 are optimal image encoders for multimodal PT classification, achieving high AUC-ROC and F1-scores.",
+      "paper_doi": null,
+      "paper_title": "Multimodal Deep Learning for Phyllodes Tumor Classification from Ultrasound and Clinical Data",
+      "paper_url": "http://arxiv.org/abs/2509.00213v2",
+      "paper_year": "2025",
+      "source_excerpt": "Among six image encoders, ConvNeXt and ResNet18 achieved the best performance in the multimodal setting, with AUC-ROC scores of 0.9427 and 0.9349, and F1-scores of 0.6720 and 0.7294, respectively.",
+      "source_grounded": true,
+      "suggested_operations": []
+    },
+    {
+      "evidence_id": "ev_540bb5b380aef1",
+      "extraction_method": "llm_verified_excerpt",
+      "limitations": "",
+      "method": "nnU-Net",
+      "modeling_hypothesis": "nnU-Net can achieve near-human-level performance for 3D segmentation of the uterus and uterine tumors with fewer than 150 annotated images.",
+      "paper_doi": null,
+      "paper_title": "Developing a Machine Learning-Based Clinical Decision Support Tool for Uterine Tumor Imaging",
+      "paper_url": "http://arxiv.org/abs/2308.10372v1",
+      "paper_year": "2023",
+      "source_excerpt": "We applied nnU-Net and explored the effect of training set size on performance by randomly generating subsets with 25, 45, 65 and 85 training set images.",
+      "source_grounded": true,
+      "suggested_operations": []
+    },
+    {
+      "evidence_id": "ev_24905bb7d707bc",
+      "extraction_method": "llm_verified_excerpt",
+      "limitations": "",
+      "method": "radiomic features",
+      "modeling_hypothesis": "Radiomic features can distinguish between benign and malignant uterine tumors with an F1-score of 0.53 [0.45, 0.61] and between degenerated leiomyoma and leiomyosarcoma with an F1-score of 0.80 [0.80, 0.80].",
+      "paper_doi": null,
+      "paper_title": "Developing a Machine Learning-Based Clinical Decision Support Tool for Uterine Tumor Imaging",
+      "paper_url": "http://arxiv.org/abs/2308.10372v1",
+      "paper_year": "2023",
+      "source_excerpt": "We evaluated the ability of radiomic features to distinguish between types of UT individually and when combined through feature selection and machine learning.",
+      "source_grounded": true,
+      "suggested_operations": []
+    },
+    {
+      "evidence_id": "ev_071d9e0c79d051",
+      "extraction_method": "llm_verified_excerpt",
+      "limitations": "",
+      "method": "machine learning classifiers",
+      "modeling_hypothesis": "Machine learning classifiers using radiomic features can achieve F1-scores of 0.53 [0.45, 0.61] for benign versus malignant classification and 0.80 [0.80, 0.80] for degenerated leiomyoma versus leiomyosarcoma classification.",
+      "paper_doi": null,
+      "paper_title": "Developing a Machine Learning-Based Clinical Decision Support Tool for Uterine Tumor Imaging",
+      "paper_url": "http://arxiv.org/abs/2308.10372v1",
+      "paper_year": "2023",
+      "source_excerpt": "Classifying UTs based on radiomic features we identify classifiers achieving F1-scores of 0.53 [0.45, 0.61] and 0.80 [0.80, 0.80] on the test set for the benign versus malignant, and degenerated LM versus LMS tasks.",
+      "source_grounded": true,
+      "suggested_operations": []
+    },
+    {
+      "evidence_id": "ev_5294c787c1645c",
+      "extraction_method": "llm_verified_excerpt",
+      "limitations": "",
+      "method": "voting",
+      "modeling_hypothesis": "The proposed model uses a Majority Voting Classifier to combine multiple machine learning models for enhanced classification performance.",
+      "paper_doi": null,
+      "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+      "paper_url": "http://arxiv.org/abs/2507.04251v1",
+      "paper_year": "2025",
+      "source_excerpt": "Majority Voting Classifier",
+      "source_grounded": true,
+      "suggested_operations": []
+    },
+    {
+      "evidence_id": "ev_67cadb757a26d2",
+      "extraction_method": "llm_verified_excerpt",
+      "limitations": "",
+      "method": "rfe",
+      "modeling_hypothesis": "The proposed model incorporates Recursive Feature Elimination (RFE) as part of the feature selection process.",
+      "paper_doi": null,
+      "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+      "paper_url": "http://arxiv.org/abs/2507.04251v1",
+      "paper_year": "2025",
+      "source_excerpt": "Recursive Feature Elimination (RFE)",
+      "source_grounded": true,
+      "suggested_operations": []
+    },
+    {
+      "evidence_id": "ev_c4efc324626589",
+      "extraction_method": "llm_verified_excerpt",
+      "limitations": "",
+      "method": "logistic_regression",
+      "modeling_hypothesis": "The proposed model includes Logistic Regression as one of the base classifiers in the ensemble.",
+      "paper_doi": null,
+      "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+      "paper_url": "http://arxiv.org/abs/2507.04251v1",
+      "paper_year": "2025",
+      "source_excerpt": "Logistic Regression (LR)",
+      "source_grounded": true,
+      "suggested_operations": []
+    },
+    {
+      "evidence_id": "ev_9a02e9ab301eac",
+      "extraction_method": "llm_verified_excerpt",
+      "limitations": "",
+      "method": "svc",
+      "modeling_hypothesis": "The predominant role of SVM for cancer classification",
+      "paper_doi": null,
+      "paper_title": "Review on Feature Selection Techniques and the Impact of SVM for Cancer Classification using Gene Expression Profile",
+      "paper_url": "http://arxiv.org/abs/1109.1062v1",
+      "paper_year": "2011",
+      "source_excerpt": "This paper presents a review of feature selection techniques that have been employed in micro array data based cancer classification",
+      "source_grounded": true,
+      "suggested_operations": []
+    },
+    {
+      "evidence_id": "ev_3451fb0a22544b",
+      "extraction_method": "llm_verified_excerpt",
+      "limitations": "",
+      "method": "frequency_based_feature_ranking",
+      "modeling_hypothesis": "Frequency of selected features indicates feature importance",
+      "paper_doi": null,
+      "paper_title": "Elastic Net based Feature Ranking and Selection",
+      "paper_url": "http://arxiv.org/abs/2012.14982v1",
+      "paper_year": "2020",
+      "source_excerpt": "It concerns the frequency of selected features and uses the frequency as an indicator of feature importance.",
+      "source_grounded": true,
+      "suggested_operations": [
+        "select_k_best"
+      ]
+    },
+    {
+      "evidence_id": "ev_19c0392282e5ac",
+      "extraction_method": "llm_verified_excerpt",
+      "limitations": "",
+      "method": "incremental_svm_classification",
+      "modeling_hypothesis": "Linear SVM can be used for incremental classification",
+      "paper_doi": null,
+      "paper_title": "Elastic Net based Feature Ranking and Selection",
+      "paper_url": "http://arxiv.org/abs/2012.14982v1",
+      "paper_year": "2020",
+      "source_excerpt": "linear support vector machine performs the classification in an incremental manner",
+      "source_grounded": true,
+      "suggested_operations": [
+        "svc"
+      ]
+    },
+    {
+      "evidence_id": "ev_5673d7dcaa4c89",
+      "extraction_method": "llm_verified_excerpt",
+      "limitations": "",
+      "method": "feature_selection",
+      "modeling_hypothesis": "The proposed pipeline improves classification accuracy on small omics datasets through feature selection and synthetic data generation",
+      "paper_doi": null,
+      "paper_title": "Improving Omics-Based Classification: The Role of Feature Selection and Synthetic Data Generation",
+      "paper_url": "http://arxiv.org/abs/2505.03387v1",
+      "paper_year": "2025",
+      "source_excerpt": "We show that the proposed pipeline yields cross validated perfomance on small dataset that is conserved when the trained classifier is applied to a larger test set",
+      "source_grounded": true,
+      "suggested_operations": [
+        "rfe"
+      ]
+    },
+    {
+      "evidence_id": "ev_05886b4388e244",
+      "extraction_method": "llm_verified_excerpt",
+      "limitations": "",
+      "method": "select_k_best",
+      "modeling_hypothesis": "Feature selection methods may produce misleading results when the dataset has a very low sample size (e.g., 10 instances per class).",
+      "paper_doi": null,
+      "paper_title": "Feature Selection from High-Dimensional Data with Very Low Sample Size: A Cautionary Tale",
+      "paper_url": "http://arxiv.org/abs/2008.12025v1",
+      "paper_year": "2020",
+      "source_excerpt": "In view to highlight the sample size issue, we derive the required sample size for declaring two features different.",
+      "source_grounded": true,
+      "suggested_operations": [
+        "select_k_best"
+      ]
+    },
+    {
+      "evidence_id": "ev_00c216d7c25069",
+      "extraction_method": "llm_verified_excerpt",
+      "limitations": "",
+      "method": "rfe",
+      "modeling_hypothesis": "Feature selection methods are prone to high variance in results when the dataset has a very low sample size (e: 10 instances per class).",
+      "paper_doi": null,
+      "paper_title": "Feature Selection from High-Dimensional Data with Very Low Sample Size: A Cautionary Tale",
+      "paper_url": "http://arxiv.org/abs/2008.12025v1",
+      "paper_year": "2020",
+      "source_excerpt": "The results reinforce the caution and suggest that it may be better to refrain from feature selection from very wide datasets rather than return misleading output to the user.",
+      "source_grounded": true,
+      "suggested_operations": [
+        "rfe"
+      ]
+    },
+    {
+      "evidence_id": "ev_cd3a55e85929ec",
+      "extraction_method": "llm_verified_excerpt",
+      "limitations": "",
+      "method": "variance_threshold",
+      "modeling_hypothesis": "Feature selection methods may not be reliable for real-world datasets with very low sample sizes due to high variance in results.",
+      "paper_doi": null,
+      "paper_title": "Feature Selection from High-Dimensional Data with Very Low Sample Size: A Cautionary Tale",
+      "paper_url": "http://arxiv.org/abs/2008.12025v1",
+      "paper_year": "2020",
+      "source_excerpt": "While previous studies raising similar issues validate their message with mostly synthetic data, here we carried out an experiment with 20 real datasets.",
+      "source_grounded": true,
+      "suggested_operations": [
+        "variance_threshold"
+      ]
+    }
+  ],
+  "eligible_evidence_ids": [
+    "ev_24905bb7d707bc",
+    "ev_5294c787c1645c",
+    "ev_67cadb757a26d2",
+    "ev_892146c13f0a85"
+  ],
+  "evidence_selection_audit": [
+    {
+      "evidence_id": "ev_2d570e2b74da47",
+      "paper_title": "Weight Predictor Network with Feature Selection for Small Sample Tabular Biomedical Data",
+      "status": "rejected",
+      "reason": "no_supported_composition_operation",
+      "supported_operations": [],
+      "extraction_warnings": []
+    },
+    {
+      "evidence_id": "ev_42f418e7dab419",
+      "paper_title": "Weight Predictor Network with Feature Selection for Small Sample Tabular Biomedical Data",
+      "status": "rejected",
+      "reason": "no_supported_composition_operation",
+      "supported_operations": [],
+      "extraction_warnings": []
+    },
+    {
+      "evidence_id": "ev_90adf32ea28f24",
+      "paper_title": "Predicting breast cancer with AI for individual risk-adjusted MRI screening and early detection",
+      "status": "rejected",
+      "reason": "image_modality_not_applicable_to_tabular_modeling"
+    },
+    {
+      "evidence_id": "ev_f530a0b74e9320",
+      "paper_title": "Predicting breast cancer with AI for individual risk-adjusted MRI screening and early detection",
+      "status": "rejected",
+      "reason": "image_modality_not_applicable_to_tabular_modeling"
+    },
+    {
+      "evidence_id": "ev_0c8c98024d39cf",
+      "paper_title": "Multimodal Deep Learning for Phyllodes Tumor Classification from Ultrasound and Clinical Data",
+      "status": "rejected",
+      "reason": "image_modality_not_applicable_to_tabular_modeling"
+    },
+    {
+      "evidence_id": "ev_e2fcd7f995683e",
+      "paper_title": "Multimodal Deep Learning for Phyllodes Tumor Classification from Ultrasound and Clinical Data",
+      "status": "rejected",
+      "reason": "image_modality_not_applicable_to_tabular_modeling"
+    },
+    {
+      "evidence_id": "ev_e934d3147790ed",
+      "paper_title": "Multimodal Deep Learning for Phyllodes Tumor Classification from Ultrasound and Clinical Data",
+      "status": "rejected",
+      "reason": "image_modality_not_applicable_to_tabular_modeling"
+    },
+    {
+      "evidence_id": "ev_540bb5b380aef1",
+      "paper_title": "Developing a Machine Learning-Based Clinical Decision Support Tool for Uterine Tumor Imaging",
+      "status": "rejected",
+      "reason": "image_modality_not_applicable_to_tabular_modeling"
+    },
+    {
+      "evidence_id": "ev_071d9e0c79d051",
+      "paper_title": "Developing a Machine Learning-Based Clinical Decision Support Tool for Uterine Tumor Imaging",
+      "status": "rejected",
+      "reason": "no_supported_composition_operation",
+      "supported_operations": [],
+      "extraction_warnings": []
+    },
+    {
+      "evidence_id": "ev_c4efc324626589",
+      "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+      "status": "rejected",
+      "reason": "no_supported_composition_operation",
+      "supported_operations": [
+        "logistic_regression"
+      ],
+      "extraction_warnings": []
+    },
+    {
+      "evidence_id": "ev_19c0392282e5ac",
+      "paper_title": "Elastic Net based Feature Ranking and Selection",
+      "status": "rejected",
+      "reason": "no_supported_composition_operation",
+      "supported_operations": [
+        "svc"
+      ],
+      "extraction_warnings": []
+    },
+    {
+      "evidence_id": "ev_5673d7dcaa4c89",
+      "paper_title": "Improving Omics-Based Classification: The Role of Feature Selection and Synthetic Data Generation",
+      "status": "rejected",
+      "reason": "no_supported_composition_operation",
+      "supported_operations": [],
+      "extraction_warnings": [
+        "suggested_operations_unsupported_by_excerpt"
+      ]
+    },
+    {
+      "evidence_id": "ev_05886b4388e244",
+      "paper_title": "Feature Selection from High-Dimensional Data with Very Low Sample Size: A Cautionary Tale",
+      "status": "rejected",
+      "reason": "cautionary_not_positive_method_support"
+    },
+    {
+      "evidence_id": "ev_00c216d7c25069",
+      "paper_title": "Feature Selection from High-Dimensional Data with Very Low Sample Size: A Cautionary Tale",
+      "status": "rejected",
+      "reason": "cautionary_not_positive_method_support"
+    },
+    {
+      "evidence_id": "ev_cd3a55e85929ec",
+      "paper_title": "Feature Selection from High-Dimensional Data with Very Low Sample Size: A Cautionary Tale",
+      "status": "rejected",
+      "reason": "cautionary_not_positive_method_support"
+    },
+    {
+      "evidence_id": "ev_5294c787c1645c",
+      "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+      "status": "selected",
+      "reason": null,
+      "supported_operations": [
+        "voting"
+      ],
+      "extraction_warnings": [],
+      "method_group": "voting"
+    },
+    {
+      "evidence_id": "ev_67cadb757a26d2",
+      "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+      "status": "selected",
+      "reason": null,
+      "supported_operations": [
+        "rfe"
+      ],
+      "extraction_warnings": [],
+      "method_group": "rfe"
+    },
+    {
+      "evidence_id": "ev_892146c13f0a85",
+      "paper_title": "Weight Predictor Network with Feature Selection for Small Sample Tabular Biomedical Data",
+      "status": "selected",
+      "reason": null,
+      "supported_operations": [
+        "select_k_best"
+      ],
+      "extraction_warnings": [],
+      "method_group": "select_k_best"
+    },
+    {
+      "evidence_id": "ev_24905bb7d707bc",
+      "paper_title": "Developing a Machine Learning-Based Clinical Decision Support Tool for Uterine Tumor Imaging",
+      "status": "selected",
+      "reason": null,
+      "supported_operations": [
+        "select_k_best"
+      ],
+      "extraction_warnings": [],
+      "method_group": "select_k_best"
+    },
+    {
+      "evidence_id": "ev_9a02e9ab301eac",
+      "paper_title": "Review on Feature Selection Techniques and the Impact of SVM for Cancer Classification using Gene Expression Profile",
+      "status": "rejected",
+      "reason": "method_quota_or_global_limit",
+      "supported_operations": [
+        "select_k_best"
+      ],
+      "extraction_warnings": [],
+      "method_group": "select_k_best"
+    },
+    {
+      "evidence_id": "ev_3451fb0a22544b",
+      "paper_title": "Elastic Net based Feature Ranking and Selection",
+      "status": "rejected",
+      "reason": "method_quota_or_global_limit",
+      "supported_operations": [
+        "select_k_best"
+      ],
+      "extraction_warnings": [],
+      "method_group": "select_k_best"
+    }
+  ],
+  "data_exclusion_audit": {
+    "requested": [
+      "id"
+    ],
+    "removed": [],
+    "absent_optional": [
+      "id"
+    ],
+    "missing_policy": "ignore"
+  },
+  "evidence_ids_selected": [
+    "ev_5294c787c1645c"
+  ],
+  "best_candidate_origin": "llm",
+  "best_candidate_evidence_mapping": {},
+  "evidence_translation_audit": [
+    {
+      "iteration": 1,
+      "evidence_id": "ev_5294c787c1645c",
+      "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+      "status": "accepted",
+      "reason": null,
+      "matched_operations": [
+        "voting"
+      ],
+      "extraction_warnings": [],
+      "implemented_operation": "voting",
+      "implementation_choices": [
+        "median imputation is an engineering choice, not attributed to source",
+        "base learners are experiment design choices, not claimed paper settings"
+      ],
+      "candidate_fingerprint": "7e9e6747ce97d1d3d2f26c71b8f1d98b1ca5088d8667b01cf818fa98d898a3d9"
+    },
+    {
+      "iteration": 1,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "source_does_not_support_used_operations:ev_892146c13f0a85",
+      "fingerprint": "9e31f10289f484980a1308a3f6ef76f467b4e65842c657520555911144422a90"
+    },
+    {
+      "iteration": 1,
+      "origin": "batch_budget",
+      "status": "summary",
+      "requested": 3,
+      "proposed_valid": 3,
+      "unfilled": 0,
+      "llm_calls": 2
+    },
+    {
+      "iteration": 2,
+      "evidence_id": "ev_5294c787c1645c",
+      "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "matched_operations": [
+        "voting"
+      ],
+      "extraction_warnings": []
+    },
+    {
+      "iteration": 2,
+      "evidence_id": "ev_67cadb757a26d2",
+      "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+      "status": "accepted",
+      "reason": null,
+      "matched_operations": [
+        "rfe"
+      ],
+      "extraction_warnings": [],
+      "implemented_operation": "rfe",
+      "implementation_choices": [
+        "median imputation is an engineering choice, not attributed to source",
+        "RFE uses logistic regression as selector; subset size is exploratory",
+        "classifier logistic_regression is chosen for test; paper may not specify it"
+      ],
+      "candidate_fingerprint": "c76aeaab1da09b5c92083fefedd203082838c9db9e273b15340682682502dd0e"
+    },
+    {
+      "iteration": 2,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "source_does_not_support_used_operations:ev_892146c13f0a85",
+      "fingerprint": "80a042adc84fdb2706da7838241d630feb070348b6264011a208f6e643b714cd"
+    },
+    {
+      "iteration": 2,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "generator_schema_validation",
+      "batch_round": 2,
+      "attempt": 1,
+      "candidate_index": 0,
+      "error": "ValidationError: 1 validation error for Candidate\ncomposition\n  Value error, pipeline needs model, no branches/final_estimator [type=value_error, input_value={'kind': 'pipeline', 'tra...', 'passthrough': False}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/value_error"
+    },
+    {
+      "iteration": 2,
+      "origin": "batch_budget",
+      "status": "summary",
+      "requested": 3,
+      "proposed_valid": 3,
+      "unfilled": 0,
+      "llm_calls": 2
+    }
+  ],
+  "evidence_composition_enabled": true,
+  "research_influence": {
+    "evidence_records_extracted": 21,
+    "evidence_records_eligible": 4,
+    "accepted_translation_attempts": 2,
+    "rejected_translation_attempts": 4,
+    "accepted_compiler_translations": 2,
+    "rejected_llm_proposals": 3,
+    "generation_calls": 4,
+    "literature_derived_candidates_executed": 2,
+    "literature_cited_candidates_executed": 4,
+    "generated_candidates_evaluated": 6,
+    "successful_generated_candidates": 6,
+    "configured_candidate_budget": 6,
+    "attempted_candidate_slots": 6,
+    "unfilled_candidate_slots": 0,
+    "not_run_due_to_early_stop": 0,
+    "best_is_literature_derived": true,
+    "best_is_composition": true,
+    "best_is_evidence_compiled": false,
+    "best_is_llm_evidence_grounded": false,
+    "llm_grounded_candidates_executed": 0
+  },
+  "history": [
+    {
+      "candidate_id": "baseline",
+      "iteration": 0,
+      "model": "random_forest",
+      "evidence_ids": [],
+      "origin": null,
+      "evidence_mapping": {},
+      "composition": null,
+      "cv_mean": 0.9596,
+      "cv_std": 0.017,
+      "train_cv_gap": 0.0404,
+      "cv_wall_time_seconds": 2.8903,
+      "error": null
+    },
+    {
+      "candidate_id": "iter01_c1",
+      "iteration": 1,
+      "model": "composition:voting",
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ],
+      "origin": "evidence_compiler",
+      "evidence_mapping": {
+        "evidence_id": "ev_5294c787c1645c",
+        "implemented_operation": "voting",
+        "implementation_choices": [
+          "median imputation is an engineering choice, not attributed to source",
+          "base learners are experiment design choices, not claimed paper settings"
+        ]
+      },
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "linear",
+            "transforms": [
+              {
+                "op": "standard_scaler",
+                "params": {}
+              }
+            ],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "max_iter": 1500,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "trees",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 200,
+                "min_samples_leaf": 2,
+                "class_weight": "balanced"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "hard",
+        "passthrough": false
+      },
+      "cv_mean": 0.9673,
+      "cv_std": 0.018,
+      "train_cv_gap": 0.0254,
+      "cv_wall_time_seconds": 9.0173,
+      "error": null
+    },
+    {
+      "candidate_id": "iter01_c2",
+      "iteration": 1,
+      "model": "composition:voting",
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ],
+      "origin": "llm",
+      "evidence_mapping": {},
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 1.0,
+                "solver": "lbfgs"
+              }
+            }
+          },
+          {
+            "name": "rf",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 200,
+                "max_depth": 10,
+                "min_samples_split": 2,
+                "min_samples_leaf": 1,
+                "max_features": "sqrt"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "cv_mean": 0.9811,
+      "cv_std": 0.0113,
+      "train_cv_gap": 0.0118,
+      "cv_wall_time_seconds": 8.9979,
+      "error": null
+    },
+    {
+      "candidate_id": "iter01_c3",
+      "iteration": 1,
+      "model": "random_forest",
+      "evidence_ids": [],
+      "origin": "llm",
+      "evidence_mapping": {},
+      "composition": null,
+      "cv_mean": 0.9613,
+      "cv_std": 0.0149,
+      "train_cv_gap": 0.0387,
+      "cv_wall_time_seconds": 7.1021,
+      "error": null
+    },
+    {
+      "candidate_id": "iter02_c1",
+      "iteration": 2,
+      "model": "composition:pipeline",
+      "evidence_ids": [
+        "ev_67cadb757a26d2"
+      ],
+      "origin": "evidence_compiler",
+      "evidence_mapping": {
+        "evidence_id": "ev_67cadb757a26d2",
+        "implemented_operation": "rfe",
+        "implementation_choices": [
+          "median imputation is an engineering choice, not attributed to source",
+          "RFE uses logistic regression as selector; subset size is exploratory",
+          "classifier logistic_regression is chosen for test; paper may not specify it"
+        ]
+      },
+      "composition": {
+        "kind": "pipeline",
+        "transforms": [
+          {
+            "op": "standard_scaler",
+            "params": {}
+          },
+          {
+            "op": "rfe",
+            "params": {
+              "n_features_to_select": 12,
+              "step": 1
+            }
+          }
+        ],
+        "branches": [],
+        "model": {
+          "name": "logistic_regression",
+          "hyperparameters": {
+            "max_iter": 1500,
+            "class_weight": "balanced"
+          }
+        },
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "cv_mean": 0.9742,
+      "cv_std": 0.013,
+      "train_cv_gap": 0.0125,
+      "cv_wall_time_seconds": 2.1767,
+      "error": null
+    },
+    {
+      "candidate_id": "iter02_c2",
+      "iteration": 2,
+      "model": "composition:voting",
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ],
+      "origin": "llm",
+      "evidence_mapping": {},
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr_strong_reg",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 0.5,
+                "solver": "lbfgs"
+              }
+            }
+          },
+          {
+            "name": "rf_deep",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 200,
+                "max_depth": 15,
+                "min_samples_split": 2,
+                "min_samples_leaf": 1,
+                "max_features": "sqrt",
+                "class_weight": "balanced"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "cv_mean": 0.9826,
+      "cv_std": 0.0137,
+      "train_cv_gap": 0.0103,
+      "cv_wall_time_seconds": 7.9131,
+      "error": null
+    },
+    {
+      "candidate_id": "iter02_c3",
+      "iteration": 2,
+      "model": "composition:voting",
+      "evidence_ids": [],
+      "origin": "llm",
+      "evidence_mapping": {},
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr_strong",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 0.5,
+                "solver": "lbfgs"
+              }
+            }
+          },
+          {
+            "name": "rf",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 200,
+                "max_depth": 10,
+                "min_samples_split": 2,
+                "min_samples_leaf": 1,
+                "max_features": "sqrt",
+                "class_weight": "balanced"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "cv_mean": 0.9826,
+      "cv_std": 0.0137,
+      "train_cv_gap": 0.0103,
+      "cv_wall_time_seconds": 7.9484,
+      "error": null
+    }
+  ],
+  "pdf_report": "experiments\\runs\\20261119_225836_094052\\level2_experiment_report.pdf",
+  "dataset_id": "data-3",
+  "experiment_id": "C",
+  "report_paths": {
+    "original": "experiments\\runs\\20261119_225836_094052\\final_report.json",
+    "named_run_copy": "experiments\\runs\\20261119_225836_094052\\final_report_data-3_C.json",
+    "archived_copy": "experiments\\reports\\final_report_data-3_C_20261119_225836_094052.json",
+    "latest_copy": "experiments\\reports\\final_report_data-3_C.json"
+  }
+}

@@ -1,0 +1,75 @@
+[config] Loaded C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\controlled\wdbc_repeated_v1\configs\72\D_rag_llm_grounded.yaml
+Run 20261119_232335_319158
+[output] reports will be saved to C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\runs\20261119_232335_319158
+[data] optional excluded columns not present; skipped: ['id']
+Baseline (random_forest): CV 0.9511
+[rag] reusing frozen research/evidence corpus from C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\controlled\wdbc_repeated_v1\frozen_corpus
+Research context: 25 item(s)
+Grounded method records: 21; eligible/diverse: 4
+
+=== Iteration 1 ===
+[guided-D] attempt=1 requested=3 choices=3
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] accepted rfe (ev_67cadb757a26d2) 
+[guided-D] accepted select_k_best (ev_892146c13f0a85) 
+  iter01_c1 composition:voting: CV 0.9746 (+/- 0.0180, gap 0.0181)
+  iter01_c2 composition:pipeline: CV 0.9356 (+/- 0.0337, gap 0.0644)
+  iter01_c3 composition:pipeline: CV 0.9479 (+/- 0.0239, gap 0.0381)
+
+=== Iteration 2 ===
+[guided-D] attempt=1 requested=3 choices=3
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] accepted rfe (ev_67cadb757a26d2) 
+[guided-D] accepted select_k_best (ev_892146c13f0a85) 
+[guided-D] attempt=1 requested=3 choices=3
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] accepted rfe (ev_67cadb757a26d2) 
+[guided-D] accepted select_k_best (ev_892146c13f0a85) 
+[guided-D] attempt=1 requested=3 choices=3
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] accepted rfe (ev_67cadb757a26d2) 
+[guided-D] accepted select_k_best (ev_892146c13f0a85) 
+[guided-D] attempt=1 requested=2 choices=2
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] accepted select_k_best (ev_892146c13f0a85) 
+[guided-D] attempt=1 requested=1 choices=1
+[guided-D] accepted voting (ev_5294c787c1645c) 
+  iter02_c1 composition:pipeline: CV 0.9467 (+/- 0.0228, gap 0.0033)
+  iter02_c2 composition:pipeline: CV 0.9229 (+/- 0.0298, gap 0.0771)
+
+=== Iteration 3 ===
+[guided-D] attempt=1 requested=3 choices=3
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] accepted rfe (ev_67cadb757a26d2) 
+[guided-D] accepted select_k_best (ev_892146c13f0a85) 
+[guided-D] attempt=1 requested=3 choices=3
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] accepted rfe (ev_67cadb757a26d2) 
+[guided-D] accepted select_k_best (ev_892146c13f0a85) 
+[guided-D] attempt=1 requested=3 choices=3
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] accepted rfe (ev_67cadb757a26d2) 
+[guided-D] accepted select_k_best (ev_892146c13f0a85) 
+[guided-D] attempt=1 requested=2 choices=2
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] accepted select_k_best (ev_892146c13f0a85) 
+[guided-D] attempt=1 requested=1 choices=1
+[guided-D] accepted voting (ev_5294c787c1645c) 
+  iter03_c1 composition:pipeline: CV 0.9536 (+/- 0.0248, gap 0.0409)
+[controlled] completed 6 successfully evaluated candidates
+
+Selected iter01_c1 (composition:voting), CV 0.9746
+PDF report: experiments\runs\20261119_232335_319158\level2_experiment_report.pdf
+[report] Named latest: C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\reports\final_report_data-3_D.json
+[report] Run archive:  C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\reports\final_report_data-3_D_20261119_232335_319158.json
+
+============================================================
+Best: iter01_c1 (composition:voting)
+  CV f1_macro: 0.9746 +/- 0.0180
+  Baseline CV:    0.9511
+  Holdout:        0.9905 (CV-holdout gap -0.0159)
+Stopped: target_evaluated_candidates_reached after 3 iteration(s)
+Full report: experiments/runs/20261119_232335_319158/final_report.json
+Named report: experiments\reports\final_report_data-3_D.json
+Archived copy: experiments\reports\final_report_data-3_D_20261119_232335_319158.json
+PDF report:  experiments\runs\20261119_232335_319158\level2_experiment_report.pdf

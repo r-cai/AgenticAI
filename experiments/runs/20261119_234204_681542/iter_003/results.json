@@ -1,0 +1,100 @@
+[
+  {
+    "candidate_id": "iter03_c1",
+    "iteration": 3,
+    "config": {
+      "rationale": "Select the top 15 features using a feature selection mechanism to improve interpretability and reduce overfitting on small sample tabular data.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "none",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "pipeline",
+        "transforms": [
+          {
+            "op": "standard_scaler",
+            "params": {}
+          },
+          {
+            "op": "select_k_best",
+            "params": {
+              "k": 10
+            }
+          }
+        ],
+        "branches": [],
+        "model": {
+          "name": "extra_trees",
+          "hyperparameters": {
+            "n_estimators": 150,
+            "max_depth": 8,
+            "min_samples_leaf": 2
+          }
+        },
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "ev_892146c13f0a85"
+      ],
+      "evidence_ids": [
+        "ev_892146c13f0a85"
+      ]
+    },
+    "model_name": "composition:pipeline",
+    "mean_cv_score": 0.9462,
+    "std_cv_score": 0.0241,
+    "fold_scores": [
+      0.9304,
+      0.9277,
+      0.9765,
+      0.9402,
+      0.9525,
+      0.9409,
+      0.9765,
+      0.9036,
+      1.0,
+      0.9525,
+      0.9416,
+      0.9393,
+      0.9296,
+      0.9641,
+      0.9183
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.1251,
+    "cv_wall_time_seconds": 2.4561,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0354,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm_evidence_design",
+    "evidence_mapping": {
+      "method": "llm_evidence_grounded",
+      "evidence_ids": [
+        "ev_892146c13f0a85"
+      ],
+      "trace": [
+        {
+          "evidence_id": "ev_892146c13f0a85",
+          "paper_title": "Weight Predictor Network with Feature Selection for Small Sample Tabular Biomedical Data",
+          "source_excerpt": "Furthermore, we investigate the proposed feature selection mechanism and show that it improves performance while providing useful insights into the learning task.",
+          "supported_operations": [
+            "select_k_best"
+          ],
+          "matched_executable_operations": [
+            "select_k_best"
+          ],
+          "extraction_warnings": [],
+          "claim_scope": "operations_only_not_hyperparameters_or_whole_architecture"
+        }
+      ],
+      "implementation_choices": "Uncited architecture details and hyperparameters are LLM-proposed hypotheses, not proven settings from the cited papers"
+    },
+    "error": null
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "title": "WDM: 3D Wavelet Diffusion Models for High-Resolution Medical Image Synthesis",
+  "abstract": "Due to the three-dimensional nature of CT- or MR-scans, generative modeling of medical images is a particularly challenging task. Existing approaches mostly apply patch-wise, slice-wise, or cascaded generation techniques to fit the high-dimensional data into the limited GPU memory. However, these approaches may introduce artifacts and potentially restrict the model's applicability for certain downstream tasks. This work presents WDM, a wavelet-based medical image synthesis framework that applies a diffusion model on wavelet decomposed images. The presented approach is a simple yet effective way of scaling 3D diffusion models to high resolutions and can be trained on a single \\SI{40}{\\giga\\byte} GPU. Experimental results on BraTS and LIDC-IDRI unconditional image generation at a resolution of $128 \\times 128 \\times 128$ demonstrate state-of-the-art image fidelity (FID) and sample diversity (MS-SSIM) scores compared to recent GANs, Diffusion Models, and Latent Diffusion Models. Our proposed method is the only one capable of generating high-quality images at a resolution of $256 \\times 256 \\times 256$, outperforming all comparing methods.",
+  "year": "2024",
+  "doi": "",
+  "url": "http://arxiv.org/abs/2402.19043v2",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/2402.19043v2",
+  "paper_key": "p_d5b7b5d6c5127c4dcf37efa6",
+  "aliases": [
+    "arxiv:2402.19043",
+    "title:wdm3dwaveletdiffusionmodelsforhighresolutionmedicalimagesynthesis"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_eb1c1fbae050ae58.json"
+  ],
+  "evidence": []
+}

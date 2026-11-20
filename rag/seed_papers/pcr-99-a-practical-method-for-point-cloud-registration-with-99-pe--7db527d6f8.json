@@ -1,0 +1,20 @@
+{
+  "title": "PCR-99: A Practical Method for Point Cloud Registration with 99 Percent Outliers",
+  "abstract": "We propose a robust method for point cloud registration that can handle both unknown scales and extreme outlier ratios. Our method, dubbed PCR-99, uses a deterministic 3-point sampling approach with two novel mechanisms that significantly boost the speed: (1) an improved ordering of the samples based on pairwise scale consistency, prioritizing the point correspondences that are more likely to be inliers, and (2) an efficient outlier rejection scheme based on triplet scale consistency, prescreening bad samples and reducing the number of hypotheses to be tested. Our evaluation shows that, up to 98% outlier ratio, the proposed method achieves comparable performance to the state of the art. At 99% outlier ratio, however, it outperforms the state of the art for both known-scale and unknown-scale problems. Especially for the latter, we observe a clear superiority in terms of robustness and speed.",
+  "year": "2024",
+  "doi": "",
+  "url": "http://arxiv.org/abs/2402.16598v6",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/2402.16598v6",
+  "paper_key": "p_7db527d6f8ffc9df2efee15b",
+  "aliases": [
+    "arxiv:2402.16598",
+    "title:pcr99apracticalmethodforpointcloudregistrationwith99percentoutliers"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_2c43c5fd735aa0ab.json"
+  ],
+  "evidence": []
+}

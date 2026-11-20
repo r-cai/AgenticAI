@@ -1,0 +1,183 @@
+{
+  "reasoning": "The baseline Random Forest achieved 0.7045 with a high train-test gap (0.1696), indicating overfitting on the small dataset (n=1252, p=49). The previous voting ensemble (iter01_c1) improved CV to 0.7264 but used hard voting and standard scaling without regularization tuning. Evidence from 'ATwo-Stage Ensemble Feature Selection...' supports combining feature selection with ensembles. Candidate 1 refines the best-performing voting ensemble by switching to soft voting, adding L2 regularization to Logistic Regression (to combat overfitting), and increasing Random Forest depth slightly while keeping other hyperparameters consistent to test stability. Candidate 2 shifts architecture to a Pipeline with Recursive Feature Elimination (RFE) as supported by evidence, using Gradient Boosting which is known for handling tabular data well but requires careful regularization via max_depth and learning_rate to avoid the overfitting seen in the baseline. The previous pipeline attempt failed due to a schema validation error requiring a `model` field for pipelines. The history shows that simple Random Forest (0.7045) underperforms slightly compared to the voting ensembles (~0.72-0.73), but with high train-test gaps indicating overfitting risk on this small dataset (n=1252, n_features=49). The literature supports ensemble methods and feature selection for tabular biomedical data. To improve generalization, I will propose: 1) A refined voting ensemble using HistGradientBoosting with stronger regularization (higher C equivalent via l2_regularization or max_leaf_nodes) to combat overfitting, combined with Logistic Regression and Random Forest. 2) A pipeline combining Recursive Feature Elimination (RFE) with a tuned Gradient Boosting classifier, leveraging evidence for RFE in high-dimensional tabular data. The baseline Random Forest (cv=0.7045) suffers from high train/test gap (0.1696), indicating overfitting on the small dataset (n=1252, n_features=49). The previous voting ensemble with Logistic Regression and Gradient Boosting achieved 0.7214 but used standard scaling which may not be optimal for tree-based models in this context. Evidence from 'Weight Predictor Network with Feature Selection' suggests that feature selection improves performance on small sample tabular data. We propose three distinct configurations: 1) A single Random Forest with tuned hyperparameters to reduce overfitting (deeper trees, more leaves allowed). 2) An ensemble using HistGradientBoosting and Logistic Regression with Soft Voting, as HGB often handles tabular data well with fewer features. 3) A pipeline combining Recursive Feature Elimination (RFE) with a Random Forest, directly addressing the high dimensionality issue highlighted in the literature. The baseline Random Forest (cv=0.7045) and the previous voting ensemble with Logistic Regression + Gradient Boosting (cv=0.7264) show moderate performance but suffer from a significant train/CV gap in the baseline (0.17). The previous RFE pipeline underperformed (0.69), likely due to aggressive feature reduction on a small dataset without sufficient regularization. Literature suggests that for small sample, high-dimensional tabular data, simple models with strong regularization or hybrid ensembles are robust. We propose: 1) A refined voting ensemble using Logistic Regression with stronger regularization (lower C) and HistGradientBoosting with early stopping to combat overfitting, addressing the gap issue. 2) A pipeline approach combining a standard scaler with Recursive Feature Elimination (RFE) followed by an Extreme Trees model, leveraging evidence for feature selection in high-dimensional data while using a robust tree variant. 3) A simple Logistic Regression pipeline with standard scaling and balanced class weights to test if a single well-regularized linear model can outperform complex ensembles on this small dataset.",
+  "candidates": [
+    {
+      "rationale": "Test source-grounded select_k_best as a registered Level-2 pipeline; examine CV benefit.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "none",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "pipeline",
+        "transforms": [
+          {
+            "op": "standard_scaler",
+            "params": {}
+          },
+          {
+            "op": "select_k_best",
+            "params": {
+              "k": 15
+            }
+          }
+        ],
+        "branches": [],
+        "model": {
+          "name": "logistic_regression",
+          "hyperparameters": {
+            "max_iter": 1500,
+            "class_weight": "balanced"
+          }
+        },
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "Weight Predictor Network with Feature Selection for Small Sample Tabular Biomedical Data"
+      ],
+      "evidence_ids": [
+        "ev_892146c13f0a85"
+      ]
+    },
+    {
+      "rationale": "Refine the soft voting ensemble by increasing regularization strength on HistGradientBoosting to reduce overfitting, while maintaining LR and RF branches. This tests if stronger constraints improve generalization on small datasets.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 1.0,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "rf",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 200,
+                "max_depth": 10,
+                "min_samples_split": 2,
+                "min_samples_leaf": 1,
+                "max_features": "sqrt",
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "hgb_reg",
+            "transforms": [],
+            "model": {
+              "name": "hist_gradient_boosting",
+              "hyperparameters": {
+                "max_iter": 100,
+                "learning_rate": 0.05,
+                "max_depth": 4,
+                "max_leaf_nodes": 15,
+                "l2_regularization": 0.1,
+                "early_stopping": false
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [],
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ]
+    },
+    {
+      "rationale": "Refine the previous voting ensemble by increasing regularization strength (lower C for LR) and enabling early stopping for HistGradientBoosting to mitigate overfitting, which was a concern in the baseline.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr_strong_reg",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 0.5,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "hgb_early_stop",
+            "transforms": [],
+            "model": {
+              "name": "hist_gradient_boosting",
+              "hyperparameters": {
+                "max_iter": 100,
+                "learning_rate": 0.1,
+                "max_depth": 5,
+                "max_leaf_nodes": 31,
+                "l2_regularization": 0.0,
+                "early_stopping": true
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "http://arxiv.org/abs/2507.04251v1"
+      ],
+      "evidence_ids": []
+    }
+  ],
+  "candidate_origins": {
+    "4da20d985a2c1e459bfa2f5b5b150bd85018a244493822c7e46684efe35d1d1f": "evidence_compiler",
+    "52fdae9f47b2738681c1896c57bb450b008386984acefdcbd786e7c868e790aa": "llm",
+    "0088149306de3bb8cf9eaf18f71b9ed790239da91a47654bfffada07071118e1": "llm"
+  },
+  "candidate_evidence_mapping": {
+    "4da20d985a2c1e459bfa2f5b5b150bd85018a244493822c7e46684efe35d1d1f": {
+      "evidence_id": "ev_892146c13f0a85",
+      "implemented_operation": "select_k_best",
+      "implementation_choices": [
+        "median imputation is an engineering choice, not attributed to source",
+        "SelectKBest is an implementation of generic feature selection, not necessarily paper's selector",
+        "classifier logistic_regression is chosen for test; paper may not specify it"
+      ]
+    }
+  },
+  "generator_error": null
+}

@@ -1,0 +1,239 @@
+[
+  {
+    "candidate_id": "iter01_c1",
+    "iteration": 1,
+    "config": {
+      "rationale": "Test literature-mentioned voting with two diverse registered learners.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "none",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "linear",
+            "transforms": [
+              {
+                "op": "standard_scaler",
+                "params": {}
+              }
+            ],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "max_iter": 1500,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "trees",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 200,
+                "min_samples_leaf": 2,
+                "class_weight": "balanced"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "hard",
+        "passthrough": false
+      },
+      "research_basis": [
+        "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments"
+      ],
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ]
+    },
+    "model_name": "composition:voting",
+    "mean_cv_score": 0.9673,
+    "std_cv_score": 0.018,
+    "fold_scores": [
+      0.9762,
+      0.9393,
+      0.9768,
+      0.9277,
+      0.9762,
+      0.9518,
+      0.9882,
+      0.9518,
+      0.9882,
+      0.9765,
+      0.9882,
+      0.9762,
+      0.9525,
+      0.9641,
+      0.9762
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.5031,
+    "cv_wall_time_seconds": 9.0173,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0254,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "evidence_compiler",
+    "evidence_mapping": {
+      "evidence_id": "ev_5294c787c1645c",
+      "implemented_operation": "voting",
+      "implementation_choices": [
+        "median imputation is an engineering choice, not attributed to source",
+        "base learners are experiment design choices, not claimed paper settings"
+      ]
+    },
+    "error": null
+  },
+  {
+    "candidate_id": "iter01_c2",
+    "iteration": 1,
+    "config": {
+      "rationale": "Test complementary decision boundaries using soft voting as suggested in recent ensemble literature.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 1.0,
+                "solver": "lbfgs"
+              }
+            }
+          },
+          {
+            "name": "rf",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 200,
+                "max_depth": 10,
+                "min_samples_split": 2,
+                "min_samples_leaf": 1,
+                "max_features": "sqrt"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "http://arxiv.org/abs/2507.04251v1"
+      ],
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ]
+    },
+    "model_name": "composition:voting",
+    "mean_cv_score": 0.9811,
+    "std_cv_score": 0.0113,
+    "fold_scores": [
+      0.9762,
+      0.9762,
+      0.9883,
+      0.9646,
+      0.9882,
+      0.9762,
+      1.0,
+      0.9762,
+      0.9883,
+      0.9765,
+      0.9882,
+      0.9882,
+      0.9525,
+      0.9882,
+      0.9883
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.5075,
+    "cv_wall_time_seconds": 8.9979,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0118,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter01_c3",
+    "iteration": 1,
+    "config": {
+      "rationale": "Refine Random Forest with stronger regularization and class balancing to test if reduced overfitting improves generalization on imbalanced data.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": {
+        "name": "random_forest",
+        "hyperparameters": {
+          "n_estimators": 200,
+          "max_depth": 10,
+          "min_samples_split": 2,
+          "min_samples_leaf": 1,
+          "max_features": "sqrt",
+          "class_weight": "balanced"
+        }
+      },
+      "composition": null,
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "random_forest",
+    "mean_cv_score": 0.9613,
+    "std_cv_score": 0.0149,
+    "fold_scores": [
+      0.9765,
+      0.9393,
+      0.9654,
+      0.9525,
+      0.9762,
+      0.9641,
+      0.9765,
+      0.9518,
+      0.965,
+      0.965,
+      0.9882,
+      0.965,
+      0.9525,
+      0.9287,
+      0.953
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.4126,
+    "cv_wall_time_seconds": 7.1021,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0387,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  }
+]

@@ -1,0 +1,76 @@
+[
+  {
+    "evidence_id": "ev_5294c787c1645c",
+    "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+    "status": "rejected",
+    "reason": "duplicate_executable_architecture",
+    "matched_operations": [
+      "voting"
+    ],
+    "extraction_warnings": []
+  },
+  {
+    "evidence_id": "ev_67cadb757a26d2",
+    "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+    "status": "accepted",
+    "reason": null,
+    "matched_operations": [
+      "rfe"
+    ],
+    "extraction_warnings": [],
+    "implemented_operation": "rfe",
+    "implementation_choices": [
+      "median imputation is an engineering choice, not attributed to source",
+      "RFE uses logistic regression as selector; subset size is exploratory",
+      "classifier logistic_regression is chosen for test; paper may not specify it"
+    ],
+    "candidate_fingerprint": "c76aeaab1da09b5c92083fefedd203082838c9db9e273b15340682682502dd0e"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "pipeline_preflight_failed:ValueError:rfe.estimator must be logistic_regression or random_forest",
+    "fingerprint": "96b30ece0442220f36695bbbc364a0391dc50f5ebf34425daa9ceb1091dfae1e"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "generator_schema_validation",
+    "batch_round": 2,
+    "attempt": 1,
+    "candidate_index": null,
+    "error": "response_error: JSONDecodeError: Unterminated string starting at: line 51 column 4413 (char 6707)"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "evidence-linked candidate must be an actual Level-2 composition",
+    "fingerprint": "ad02f3f43c7dbc2df15ef427da6e1981e9f07a8b7f4d8d6f6ef3e0d924130fa8"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "source_does_not_support_used_operations:ev_892146c13f0a85",
+    "fingerprint": "7317028c1ed8d169752646bcea4a9a13b245ad295ae9236cafdf46db3130476e"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "evidence-linked candidate must be an actual Level-2 composition",
+    "fingerprint": "ad02f3f43c7dbc2df15ef427da6e1981e9f07a8b7f4d8d6f6ef3e0d924130fa8"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "pipeline_preflight_failed:ValueError:rfe.n_features_to_select out of range",
+    "fingerprint": "15db17d93bf1de3867a0fc47fe7f53d2356a60e9cf7a99e8766a60e7c7241d69"
+  },
+  {
+    "origin": "batch_budget",
+    "status": "summary",
+    "requested": 3,
+    "proposed_valid": 2,
+    "unfilled": 1,
+    "llm_calls": 5
+  }
+]

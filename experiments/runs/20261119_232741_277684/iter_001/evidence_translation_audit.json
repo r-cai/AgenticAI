@@ -1,0 +1,40 @@
+[
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "evidence-linked candidate must be an actual Level-2 composition",
+    "fingerprint": "ad02f3f43c7dbc2df15ef427da6e1981e9f07a8b7f4d8d6f6ef3e0d924130fa8"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "evidence-linked candidate must be an actual Level-2 composition",
+    "fingerprint": "bdf1cb47b6c3dd2781f08f570c5b3a166a23ad0a9bd050a68c61b3a913324c61"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "pipeline_preflight_failed:ValueError:Unsupported rfe parameters: ['cv']",
+    "fingerprint": "9448d2d62fc6b47c5aeb1e5a2da4613e5a5648afe4494d45a97250dfe497b0d1"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "source_does_not_support_used_operations:ev_67cadb757a26d2",
+    "fingerprint": "c3c3f08750ff792d349e18a6c0f98a37b6ba7052dc2dbfad89963575f861bae6"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "source_does_not_support_used_operations:ev_892146c13f0a85",
+    "fingerprint": "67c6b07271c1b843991124e0f90da12b52de3ac6abffe820b4ae1557385cb5f9"
+  },
+  {
+    "origin": "batch_budget",
+    "status": "summary",
+    "requested": 3,
+    "proposed_valid": 2,
+    "unfilled": 1,
+    "llm_calls": 5
+  }
+]

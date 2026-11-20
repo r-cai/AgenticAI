@@ -1,0 +1,20 @@
+{
+  "title": "Outlier-Robust Bayesian Multivariate Analysis with Correlation-Intact Sandwich Mixture",
+  "abstract": "Handling outliers is a fundamental challenge in multivariate data analysis because outliers may distort the structures of correlation or conditional independence. Although robust Bayesian inference has been extensively studied in univariate settings, theoretical results ensuring posterior robustness in multivariate models are scarce. We propose a novel scale mixture of multivariate normals called correlation-intact sandwich mixtures, in which the scale parameters are real values and follow an unfolded log-Pareto distribution. Our theoretical results on posterior robustness in multivariate settings emphasize that the use of a symmetric, super heavy-tailed distribution for scale parameters is essential for achieving posterior robustness against element-wise contamination. The posterior inference for the proposed model is feasible using the developed efficient Gibbs sampling algorithm. The superiority of the proposed method was further illustrated further in simulation and empirical studies using graphical models and multivariate regression in the presence of complex outlier structures.",
+  "year": "2025",
+  "doi": "",
+  "url": "http://arxiv.org/abs/2508.18004v2",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/2508.18004v2",
+  "paper_key": "p_cb8129e089b4511f8400a761",
+  "aliases": [
+    "arxiv:2508.18004",
+    "title:outlierrobustbayesianmultivariateanalysiswithcorrelationintactsandwichmixture"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_2c43c5fd735aa0ab.json"
+  ],
+  "evidence": []
+}

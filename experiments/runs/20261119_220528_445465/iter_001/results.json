@@ -1,0 +1,198 @@
+[
+  {
+    "candidate_id": "iter01_c1",
+    "iteration": 1,
+    "config": {
+      "rationale": "Refine baseline Random Forest by applying standard scaling to normalize feature distributions and using balanced class weights to address the 1.68 imbalance ratio, potentially reducing the train/CV gap.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": {
+        "name": "random_forest",
+        "hyperparameters": {
+          "n_estimators": 200,
+          "max_depth": 10,
+          "min_samples_split": 2,
+          "min_samples_leaf": 1,
+          "max_features": "sqrt",
+          "class_weight": "balanced"
+        }
+      },
+      "composition": null,
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "random_forest",
+    "mean_cv_score": 0.9526,
+    "std_cv_score": 0.0246,
+    "fold_scores": [
+      0.9525,
+      0.9768,
+      0.9525,
+      0.9416,
+      0.9762,
+      0.9525,
+      0.965,
+      1.0,
+      0.9266,
+      0.9071,
+      0.9646,
+      0.9518,
+      0.9536,
+      0.9036,
+      0.9646
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.3534,
+    "cv_wall_time_seconds": 6.0756,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0474,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter01_c2",
+    "iteration": 1,
+    "config": {
+      "rationale": "Evaluate Logistic Regression with L2 regularization and balanced class weights. This linear model serves as a robust baseline for tabular data; balancing weights helps ensure sensitivity to the minority malignant class.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": {
+        "name": "logistic_regression",
+        "hyperparameters": {
+          "C": 1.0,
+          "solver": "lbfgs",
+          "max_iter": 1000,
+          "class_weight": "balanced"
+        }
+      },
+      "composition": null,
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "logistic_regression",
+    "mean_cv_score": 0.9702,
+    "std_cv_score": 0.0176,
+    "fold_scores": [
+      0.9409,
+      0.965,
+      1.0,
+      0.9762,
+      0.965,
+      0.9409,
+      0.9882,
+      1.0,
+      0.953,
+      0.965,
+      0.9646,
+      0.965,
+      0.9654,
+      0.9762,
+      0.9882
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.0158,
+    "cv_wall_time_seconds": 0.4344,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.016,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter01_c3",
+    "iteration": 1,
+    "config": {
+      "rationale": "Construct a soft voting ensemble combining Random Forest and Logistic Regression. This approach aggregates predictions from two distinct model families (non-linear tree ensembles and linear classifiers) to improve generalization stability.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "rf",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 200,
+                "max_depth": 10,
+                "min_samples_split": 2,
+                "min_samples_leaf": 1,
+                "max_features": "sqrt",
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "lr",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 1.0,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "composition:voting",
+    "mean_cv_score": 0.9773,
+    "std_cv_score": 0.0164,
+    "fold_scores": [
+      0.9525,
+      0.9768,
+      0.9882,
+      0.9882,
+      0.9882,
+      0.9409,
+      1.0,
+      1.0,
+      0.9762,
+      0.965,
+      0.9765,
+      0.9882,
+      0.9654,
+      0.9646,
+      0.9882
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.3803,
+    "cv_wall_time_seconds": 6.6922,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0161,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  }
+]

@@ -1,0 +1,68 @@
+[
+  {
+    "evidence_id": "ev_5294c787c1645c",
+    "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+    "status": "rejected",
+    "reason": "duplicate_executable_architecture",
+    "matched_operations": [
+      "voting"
+    ],
+    "extraction_warnings": []
+  },
+  {
+    "evidence_id": "ev_67cadb757a26d2",
+    "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+    "status": "rejected",
+    "reason": "duplicate_executable_architecture",
+    "matched_operations": [
+      "rfe"
+    ],
+    "extraction_warnings": []
+  },
+  {
+    "evidence_id": "ev_892146c13f0a85",
+    "paper_title": "Weight Predictor Network with Feature Selection for Small Sample Tabular Biomedical Data",
+    "status": "accepted",
+    "reason": null,
+    "matched_operations": [
+      "select_k_best"
+    ],
+    "extraction_warnings": [],
+    "implemented_operation": "select_k_best",
+    "implementation_choices": [
+      "median imputation is an engineering choice, not attributed to source",
+      "SelectKBest is an implementation of generic feature selection, not necessarily paper's selector",
+      "classifier logistic_regression is chosen for test; paper may not specify it"
+    ],
+    "candidate_fingerprint": "4da20d985a2c1e459bfa2f5b5b150bd85018a244493822c7e46684efe35d1d1f"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "generator_schema_validation",
+    "batch_round": 1,
+    "attempt": 1,
+    "candidate_index": 1,
+    "error": "ValidationError: 1 validation error for Candidate\ncomposition\n  Value error, pipeline needs model, no branches/final_estimator [type=value_error, input_value={'kind': 'pipeline', 'tra...', 'passthrough': False}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/value_error"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "source_does_not_support_used_operations:ev_67cadb757a26d2",
+    "fingerprint": "a427128b6b29ab212ea6ee044ed9cf824c8b77e544980551a2532422d285ad0c"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "evidence-linked candidate must be an actual Level-2 composition",
+    "fingerprint": "c4687490faf85d82675e2bba3d8a20f4092d1d9286183575e28c5ca1ab5f026a"
+  },
+  {
+    "origin": "batch_budget",
+    "status": "summary",
+    "requested": 3,
+    "proposed_valid": 3,
+    "unfilled": 0,
+    "llm_calls": 3
+  }
+]

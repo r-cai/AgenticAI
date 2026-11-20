@@ -1,0 +1,213 @@
+[config] Loaded C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\controlled\cbis_repeated_v1\configs\42\D_rag_llm_grounded.yaml
+Run 20261119_215144_801496
+[output] reports will be saved to C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\runs\20261119_215144_801496
+[data] optional excluded columns not present; skipped: ['id']
+Baseline (random_forest): CV 0.6948
+[rag] reusing frozen research/evidence corpus from C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\controlled\cbis_repeated_v1\frozen_corpus
+Research context: 25 item(s)
+Grounded method records: 12; eligible/diverse: 4
+
+=== Iteration 1 ===
+[guided-D] attempt=1 requested=3 choices=3
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] accepted rfe (ev_67cadb757a26d2) 
+[guided-D] accepted select_k_best (ev_892146c13f0a85) 
+  iter01_c1 composition:voting: CV 0.7030 (+/- 0.0211, gap 0.0483)
+  iter01_c2 composition:pipeline: CV 0.6860 (+/- 0.0304, gap 0.0326)
+  iter01_c3 composition:pipeline: CV 0.6777 (+/- 0.0399, gap 0.0140)
+
+=== Iteration 2 ===
+[guided-D] attempt=1 requested=3 choices=3
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] accepted rfe (ev_67cadb757a26d2) 
+[guided-D] accepted select_k_best (ev_892146c13f0a85) 
+[guided-D] attempt=1 requested=3 choices=3
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] accepted rfe (ev_67cadb757a26d2) 
+[guided-D] accepted select_k_best (ev_892146c13f0a85) 
+[guided-D] attempt=1 requested=3 choices=3
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] accepted rfe (ev_67cadb757a26d2) 
+[guided-D] accepted select_k_best (ev_892146c13f0a85) 
+[guided-D] attempt=1 requested=3 choices=3
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] accepted rfe (ev_67cadb757a26d2) 
+[guided-D] accepted select_k_best (ev_892146c13f0a85) 
+[guided-D] attempt=1 requested=3 choices=3
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] accepted rfe (ev_67cadb757a26d2) 
+[guided-D] accepted select_k_best (ev_892146c13f0a85) 
+No valid proposals (1/10)
+
+=== Iteration 3 ===
+[guided-D] attempt=1 requested=3 choices=3
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] accepted rfe (ev_67cadb757a26d2) 
+[guided-D] accepted select_k_best (ev_892146c13f0a85) 
+[guided-D] attempt=1 requested=2 choices=2
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] accepted rfe (ev_67cadb757a26d2) 
+[guided-D] attempt=1 requested=2 choices=2
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] accepted select_k_best (ev_892146c13f0a85) 
+[guided-D] attempt=1 requested=1 choices=1
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] attempt=1 requested=1 choices=2
+[guided-D] accepted voting (ev_5294c787c1645c) 
+  iter03_c1 composition:pipeline: CV 0.6811 (+/- 0.0409, gap 0.0091)
+  iter03_c2 composition:pipeline: CV 0.6845 (+/- 0.0341, gap 0.0121)
+
+=== Iteration 4 ===
+[guided-D] attempt=1 requested=3 choices=3
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] accepted rfe (ev_67cadb757a26d2) 
+[guided-D] accepted select_k_best (ev_892146c13f0a85) 
+[guided-D] attempt=1 requested=3 choices=3
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] accepted rfe (ev_67cadb757a26d2) 
+[guided-D] accepted select_k_best (ev_892146c13f0a85) 
+[guided-D] attempt=1 requested=3 choices=3
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] accepted rfe (ev_67cadb757a26d2) 
+[guided-D] accepted select_k_best (ev_892146c13f0a85) 
+[guided-D] attempt=1 requested=3 choices=3
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] accepted rfe (ev_67cadb757a26d2) 
+[guided-D] accepted select_k_best (ev_892146c13f0a85) 
+[guided-D] attempt=1 requested=3 choices=3
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] accepted rfe (ev_67cadb757a26d2) 
+[guided-D] accepted select_k_best (ev_892146c13f0a85) 
+No valid proposals (1/10)
+
+=== Iteration 5 ===
+[guided-D] attempt=1 requested=3 choices=3
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] accepted rfe (ev_67cadb757a26d2) 
+[guided-D] accepted select_k_best (ev_892146c13f0a85) 
+[guided-D] attempt=1 requested=3 choices=3
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] accepted rfe (ev_67cadb757a26d2) 
+[guided-D] accepted select_k_best (ev_892146c13f0a85) 
+[guided-D] attempt=1 requested=3 choices=3
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] accepted rfe (ev_67cadb757a26d2) 
+[guided-D] accepted select_k_best (ev_892146c13f0a85) 
+[guided-D] attempt=1 requested=3 choices=3
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] accepted rfe (ev_67cadb757a26d2) 
+[guided-D] accepted select_k_best (ev_892146c13f0a85) 
+[guided-D] attempt=1 requested=3 choices=3
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] accepted rfe (ev_67cadb757a26d2) 
+[guided-D] accepted select_k_best (ev_892146c13f0a85) 
+No valid proposals (2/10)
+
+=== Iteration 6 ===
+[guided-D] attempt=1 requested=3 choices=3
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] accepted rfe (ev_67cadb757a26d2) 
+[guided-D] accepted select_k_best (ev_892146c13f0a85) 
+[guided-D] attempt=1 requested=3 choices=3
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] accepted rfe (ev_67cadb757a26d2) 
+[guided-D] accepted select_k_best (ev_892146c13f0a85) 
+[guided-D] attempt=1 requested=3 choices=3
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] accepted rfe (ev_67cadb757a26d2) 
+[guided-D] accepted select_k_best (ev_892146c13f0a85) 
+[guided-D] attempt=1 requested=3 choices=3
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] accepted rfe (ev_67cadb757a26d2) 
+[guided-D] accepted select_k_best (ev_892146c13f0a85) 
+[guided-D] attempt=1 requested=3 choices=3
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] accepted rfe (ev_67cadb757a26d2) 
+[guided-D] accepted select_k_best (ev_892146c13f0a85) 
+No valid proposals (3/10)
+
+=== Iteration 7 ===
+[guided-D] attempt=1 requested=3 choices=3
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] accepted rfe (ev_67cadb757a26d2) 
+[guided-D] accepted select_k_best (ev_892146c13f0a85) 
+[guided-D] attempt=1 requested=3 choices=3
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] accepted rfe (ev_67cadb757a26d2) 
+[guided-D] accepted select_k_best (ev_892146c13f0a85) 
+[guided-D] attempt=1 requested=3 choices=3
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] accepted rfe (ev_67cadb757a26d2) 
+[guided-D] accepted select_k_best (ev_892146c13f0a85) 
+[guided-D] attempt=1 requested=3 choices=3
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] accepted rfe (ev_67cadb757a26d2) 
+[guided-D] accepted select_k_best (ev_892146c13f0a85) 
+[guided-D] attempt=1 requested=3 choices=3
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] accepted rfe (ev_67cadb757a26d2) 
+[guided-D] accepted select_k_best (ev_892146c13f0a85) 
+No valid proposals (4/10)
+
+=== Iteration 8 ===
+[guided-D] attempt=1 requested=3 choices=3
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] accepted rfe (ev_67cadb757a26d2) 
+[guided-D] accepted select_k_best (ev_892146c13f0a85) 
+[guided-D] attempt=1 requested=3 choices=3
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] accepted rfe (ev_67cadb757a26d2) 
+[guided-D] accepted select_k_best (ev_892146c13f0a85) 
+[guided-D] attempt=1 requested=3 choices=3
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] accepted rfe (ev_67cadb757a26d2) 
+[guided-D] accepted select_k_best (ev_892146c13f0a85) 
+[guided-D] attempt=1 requested=3 choices=3
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] accepted rfe (ev_67cadb757a26d2) 
+[guided-D] accepted select_k_best (ev_892146c13f0a85) 
+[guided-D] attempt=1 requested=3 choices=3
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] accepted rfe (ev_67cadb757a26d2) 
+[guided-D] accepted select_k_best (ev_892146c13f0a85) 
+No valid proposals (5/10)
+
+=== Iteration 9 ===
+[guided-D] attempt=1 requested=3 choices=3
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] accepted rfe (ev_67cadb757a26d2) 
+[guided-D] accepted select_k_best (ev_892146c13f0a85) 
+[guided-D] attempt=1 requested=3 choices=3
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] accepted rfe (ev_67cadb757a26d2) 
+[guided-D] accepted select_k_best (ev_892146c13f0a85) 
+[guided-D] attempt=1 requested=3 choices=3
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] accepted rfe (ev_67cadb757a26d2) 
+[guided-D] accepted select_k_best (ev_892146c13f0a85) 
+[guided-D] attempt=1 requested=3 choices=3
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] accepted rfe (ev_67cadb757a26d2) 
+[guided-D] accepted select_k_best (ev_892146c13f0a85) 
+[guided-D] attempt=1 requested=3 choices=3
+[guided-D] accepted voting (ev_5294c787c1645c) 
+[guided-D] accepted rfe (ev_67cadb757a26d2) 
+[guided-D] accepted select_k_best (ev_892146c13f0a85) 
+No valid proposals (6/10)
+[controlled] INCOMPLETE: evaluated 5/6 candidates; exclude this run from matched-budget inference
+
+Selected iter01_c1 (composition:voting), CV 0.7030
+PDF report: experiments\runs\20261119_215144_801496\level2_experiment_report.pdf
+[report] Named latest: C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\reports\final_report_data-cbis-ddsm_D.json
+[report] Run archive:  C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\reports\final_report_data-cbis-ddsm_D_20261119_215144_801496.json
+
+============================================================
+Best: iter01_c1 (composition:voting)
+  CV f1_macro: 0.7030 +/- 0.0211
+  Baseline CV:    0.6948
+  Holdout:        0.7246 (CV-holdout gap -0.0216)
+Stopped: candidate_budget_unfilled after 9 iteration(s)
+Full report: experiments/runs/20261119_215144_801496/final_report.json
+Named report: experiments\reports\final_report_data-cbis-ddsm_D.json
+Archived copy: experiments\reports\final_report_data-cbis-ddsm_D_20261119_215144_801496.json
+PDF report:  experiments\runs\20261119_215144_801496\level2_experiment_report.pdf

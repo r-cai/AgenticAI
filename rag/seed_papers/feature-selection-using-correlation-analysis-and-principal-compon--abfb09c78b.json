@@ -1,0 +1,21 @@
+{
+  "title": "Feature Selection Using Correlation Analysis and Principal Component Analysis for Accurate Breast Cancer Diagnosis.",
+  "abstract": "Breast cancer is one of the leading causes of death among women, more so than all other cancers. The accurate diagnosis of breast cancer is very difficult due to the complexity of the disease, changing treatment procedures and different patient population samples. Diagnostic techniques with better performance are very important for personalized care and treatment and to reduce and control the recurrence of cancer. The main objective of this research was to select feature selection techniques using correlation analysis and variance of input features before passing these significant features to a classification method. We used an ensemble method to improve the classification of breast cancer. The proposed approach was evaluated using the public WBCD dataset (Wisconsin Breast Cancer Dataset). Correlation analysis and principal component analysis were used for dimensionality reduction. Performance was evaluated for well-known machine learning classifiers, and the best seven classifiers were chosen for the next step. Hyper-parameter tuning was performed to improve the performances of the classifiers. The best performing classification algorithms were combined with two different voting techniques. Hard voting predicts the class that gets the majority vote, whereas soft voting predicts the class based on highest probability. The proposed approach performed better than state-of-the-art work, achieving an accuracy of 98.24%, high precision (99.29%) and a recall value of 95.89%.",
+  "year": "2021",
+  "doi": "10.3390/jimaging7110225",
+  "url": "https://pubmed.ncbi.nlm.nih.gov/34821856/",
+  "source": "pubmed",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "pubmed:34821856",
+  "paper_key": "p_abfb09c78b12b939c92b8a58",
+  "aliases": [
+    "doi:10.3390/jimaging7110225",
+    "pubmed:34821856",
+    "title:featureselectionusingcorrelationanalysisandprincipalcomponentanalysisforaccuratebreastcancerdiagnosis"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/pubmed_3db4e0d59427ec9b.json"
+  ],
+  "evidence": []
+}

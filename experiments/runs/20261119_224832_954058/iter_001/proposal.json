@@ -1,0 +1,149 @@
+{
+  "reasoning": "The baseline Random Forest achieved a CV mean of 0.7045 with a significant train/CV gap (0.1696), indicating overfitting or insufficient regularization. Literature suggests ensemble voting can improve robustness on high-dimensional tabular data [ev_5294c787c1645c]. Candidate 1 implements a soft-voting ensemble to aggregate diverse decision boundaries, addressing the gap by combining linear and tree-based models. Candidate 2 refines the baseline by introducing L2 regularization (via C) to combat overfitting, as neural networks and regularized simple models are noted to outperform complex architectures on small tabular datasets when properly regularized [ev_892146c13f0a85]. Candidate 3 explores an ensemble with a Gradient Boosting classifier, which is often more robust to overfitting than Random Forest if tuned correctly (lower max_depth), combined with Logistic Regression. The baseline Random Forest achieved a CV mean of 0.7045 with a significant train-CV gap (0.1696), indicating overfitting or suboptimal regularization. The dataset has 49 features and only 1252 samples, which is relatively small for high-dimensional tabular data. Literature suggests that for small sample sizes, well-regularized simple models or feature selection methods can outperform complex architectures (WPFS paper). To address the overfitting, we propose: 1) A Voting ensemble with Logistic Regression and Gradient Boosting to leverage complementary decision boundaries and reduce variance; 2) A Pipeline applying Recursive Feature Elimination (RFE) followed by a Random Forest, directly addressing the high dimensionality issue highlighted in the microarray classification literature.",
+  "candidates": [
+    {
+      "rationale": "Test complementary decision boundaries using soft voting to reduce variance and improve generalization on small tabular data.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 1.0,
+                "solver": "lbfgs"
+              }
+            }
+          },
+          {
+            "name": "rf",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 150,
+                "max_depth": 8,
+                "min_samples_leaf": 2
+              }
+            }
+          },
+          {
+            "name": "gb",
+            "transforms": [],
+            "model": {
+              "name": "gradient_boosting",
+              "hyperparameters": {
+                "n_estimators": 100,
+                "learning_rate": 0.05,
+                "max_depth": 3,
+                "min_samples_split": 2
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "http://arxiv.org/abs/2507.04251v1"
+      ],
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ]
+    },
+    {
+      "rationale": "Apply stronger L2 regularization to the Random Forest baseline to mitigate overfitting, hypothesizing that reducing model capacity will close the train/CV gap.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": {
+        "name": "random_forest",
+        "hyperparameters": {
+          "n_estimators": 200,
+          "max_depth": 5,
+          "min_samples_split": 2,
+          "min_samples_leaf": 4,
+          "max_features": "sqrt"
+        }
+      },
+      "composition": null,
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    {
+      "rationale": "Test ensemble diversity using soft voting to reduce variance compared to the single Random Forest baseline.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 1.0,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "gb",
+            "transforms": [],
+            "model": {
+              "name": "gradient_boosting",
+              "hyperparameters": {
+                "n_estimators": 100,
+                "learning_rate": 0.1,
+                "max_depth": 3,
+                "subsample": 0.8,
+                "min_samples_split": 2
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "http://arxiv.org/abs/2507.04251v1"
+      ],
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ]
+    }
+  ],
+  "candidate_origins": {
+    "9dd54039ac2465939fd709be08830e8f15b738c25ef68c2d747ba066c07156e6": "llm",
+    "519d6c2fa10b35b4c613ca190083b99abaaddc2b85da481e1ab328d5c50a03a0": "llm",
+    "b49d41adc5b27806675869c88028601793c4b3a681fc5368728efe2aed1125cc": "llm"
+  },
+  "candidate_evidence_mapping": {},
+  "generator_error": null
+}

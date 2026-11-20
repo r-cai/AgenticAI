@@ -1,0 +1,20 @@
+{
+  "title": "Boosting SISSO Performance on Small Sample Datasets by Using Random Forests Prescreening for Complex Feature Selection",
+  "abstract": "In materials science, data-driven methods accelerate material discovery and optimization while reducing costs and improving success rates. Symbolic regression is a key to extracting material descriptors from large datasets, in particular the Sure Independence Screening and Sparsifying Operator (SISSO) method. While SISSO needs to store the entire expression space to impose heavy memory demands, it limits the performance in complex problems. To address this issue, we propose a RF-SISSO algorithm by combining Random Forests (RF) with SISSO. In this algorithm, the Random Forest algorithm is used for prescreening, capturing non-linear relationships and improving feature selection, which may enhance the quality of the input data and boost the accuracy and efficiency on regression and classification tasks. For a testing on the SISSO's verification problem for 299 materials, RF-SISSO demonstrates its robust performance and high accuracy. RF-SISSO can maintain the testing accuracy above 0.9 across all four training sample sizes and significantly enhancing regression efficiency, especially in training subsets with smaller sample sizes. For the training subset with 45 samples, the efficiency of RF-SISSO was 265 times higher than that of original SISSO. As collecting large datasets would be both costly and time-consuming in the practical experiments, it is thus believed that RF-SISSO may benefit scientific researches by offering a high predicting accuracy with limited data efficiently.",
+  "year": "2024",
+  "doi": "",
+  "url": "http://arxiv.org/abs/2409.19209v1",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/2409.19209v1",
+  "paper_key": "p_7a96612df72bcc83201ec908",
+  "aliases": [
+    "arxiv:2409.19209",
+    "title:boostingsissoperformanceonsmallsampledatasetsbyusingrandomforestsprescreeningforcomplexfeatureselection"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_e9932aad7326512c.json"
+  ],
+  "evidence": []
+}

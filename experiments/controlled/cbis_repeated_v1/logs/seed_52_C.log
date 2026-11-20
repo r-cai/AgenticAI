@@ -1,0 +1,58 @@
+[config] Loaded C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\controlled\cbis_repeated_v1\configs\52\C_rag_evidence_compiler.yaml
+Run 20261119_220439_276077
+[output] reports will be saved to C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\runs\20261119_220439_276077
+[data] optional excluded columns not present; skipped: ['id']
+Baseline (random_forest): CV 0.6950
+[rag] reusing frozen research/evidence corpus from C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\controlled\cbis_repeated_v1\frozen_corpus
+Research context: 25 item(s)
+Grounded method records: 12; eligible/diverse: 4
+
+=== Iteration 1 ===
+[generator] attempt=1 prompt_tokens=8050 output_tokens=1168
+[generator] attempt=1 prompt_tokens=8050 output_tokens=1081
+[generator] attempt=1 prompt_tokens=8113 output_tokens=1297
+[generator] attempt=1 prompt_tokens=8113 output_tokens=1084
+[generator] rejected candidate[0]: ValidationError: 1 validation error for Candidate
+composition
+  Value error, pipeline needs model, no branches/final_estimator [type=value_error, input_value={'kind': 'pipeline', 'tra...: 10}}], 'branches': []}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/value_error
+  iter01_c1 composition:voting: CV 0.7092 (+/- 0.0208, gap 0.0639)
+  iter01_c2 composition:voting: CV 0.7018 (+/- 0.0262, gap 0.0460)
+  iter01_c3 logistic_regression: CV 0.6958 (+/- 0.0258, gap 0.0339)
+
+=== Iteration 2 ===
+[generator] attempt=1 prompt_tokens=9001 output_tokens=1295
+[generator] rejected candidate[1]: ValidationError: 1 validation error for Candidate
+composition
+  Value error, pipeline needs model, no branches/final_estimator [type=value_error, input_value={'kind': 'pipeline', 'tra...'final_estimator': None}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/value_error
+[generator] attempt=2 prompt_tokens=9180 output_tokens=830
+[generator] rejected candidate[0]: ValidationError: 1 validation error for Candidate
+composition
+  Value error, pipeline needs model, no branches/final_estimator [type=value_error, input_value={'kind': 'pipeline', 'tra...'final_estimator': None}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/value_error
+[generator] attempt=1 prompt_tokens=9061 output_tokens=1483
+[generator] rejected candidate[0]: ValidationError: 1 validation error for Candidate
+composition
+  Value error, pipeline needs model, no branches/final_estimator [type=value_error, input_value={'kind': 'pipeline', 'tra...'final_estimator': None}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/value_error
+  iter02_c1 composition:pipeline: CV 0.6944 (+/- 0.0226, gap 0.0120)
+  iter02_c2 composition:voting: CV 0.7075 (+/- 0.0272, gap 0.0557)
+  iter02_c3 composition:voting: CV 0.7057 (+/- 0.0277, gap 0.1245)
+[controlled] completed 6 successfully evaluated candidates
+
+Selected iter01_c1 (composition:voting), CV 0.7092
+PDF report: experiments\runs\20261119_220439_276077\level2_experiment_report.pdf
+[report] Named latest: C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\reports\final_report_data-cbis-ddsm_C.json
+[report] Run archive:  C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\reports\final_report_data-cbis-ddsm_C_20261119_220439_276077.json
+
+============================================================
+Best: iter01_c1 (composition:voting)
+  CV f1_macro: 0.7092 +/- 0.0208
+  Baseline CV:    0.6950
+  Holdout:        0.7276 (CV-holdout gap -0.0184)
+Stopped: target_evaluated_candidates_reached after 2 iteration(s)
+Full report: experiments/runs/20261119_220439_276077/final_report.json
+Named report: experiments\reports\final_report_data-cbis-ddsm_C.json
+Archived copy: experiments\reports\final_report_data-cbis-ddsm_C_20261119_220439_276077.json
+PDF report:  experiments\runs\20261119_220439_276077\level2_experiment_report.pdf

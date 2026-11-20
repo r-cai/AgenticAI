@@ -1,0 +1,249 @@
+[
+  {
+    "candidate_id": "iter02_c1",
+    "iteration": 2,
+    "config": {
+      "rationale": "Test source-grounded rfe as a registered Level-2 pipeline; examine CV benefit.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "none",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "pipeline",
+        "transforms": [
+          {
+            "op": "standard_scaler",
+            "params": {}
+          },
+          {
+            "op": "rfe",
+            "params": {
+              "n_features_to_select": 12,
+              "step": 1
+            }
+          }
+        ],
+        "branches": [],
+        "model": {
+          "name": "logistic_regression",
+          "hyperparameters": {
+            "max_iter": 1500,
+            "class_weight": "balanced"
+          }
+        },
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments"
+      ],
+      "evidence_ids": [
+        "ev_67cadb757a26d2"
+      ]
+    },
+    "model_name": "composition:pipeline",
+    "mean_cv_score": 0.9647,
+    "std_cv_score": 0.014,
+    "fold_scores": [
+      0.9654,
+      0.9409,
+      0.9277,
+      0.9762,
+      0.9768,
+      0.9654,
+      0.9646,
+      0.9654,
+      0.9518,
+      0.9768,
+      0.9765,
+      0.9654,
+      0.9765,
+      0.9762,
+      0.9646
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.0871,
+    "cv_wall_time_seconds": 1.5242,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0158,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "evidence_compiler",
+    "evidence_mapping": {
+      "evidence_id": "ev_67cadb757a26d2",
+      "implemented_operation": "rfe",
+      "implementation_choices": [
+        "median imputation is an engineering choice, not attributed to source",
+        "RFE uses logistic regression as selector; subset size is exploratory",
+        "classifier logistic_regression is chosen for test; paper may not specify it"
+      ]
+    },
+    "error": null
+  },
+  {
+    "candidate_id": "iter02_c2",
+    "iteration": 2,
+    "config": {
+      "rationale": "Test feature selection via RFE to reduce dimensionality and prevent overfitting on high-dimensional tabular data, supported by evidence ev_67cadb757a26d2.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "pipeline",
+        "transforms": [
+          {
+            "op": "rfe",
+            "params": {
+              "estimator": "random_forest",
+              "n_features_to_select": 10
+            }
+          },
+          {
+            "op": "standard_scaler",
+            "params": {}
+          }
+        ],
+        "branches": [],
+        "model": {
+          "name": "gradient_boosting",
+          "hyperparameters": {
+            "n_estimators": 150,
+            "learning_rate": 0.05,
+            "max_depth": 4,
+            "min_samples_split": 2,
+            "subsample": 0.8
+          }
+        },
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [],
+      "evidence_ids": [
+        "ev_67cadb757a26d2"
+      ]
+    },
+    "model_name": "composition:pipeline",
+    "mean_cv_score": 0.9371,
+    "std_cv_score": 0.0317,
+    "fold_scores": [
+      0.9883,
+      0.8908,
+      0.895,
+      0.9536,
+      0.9882,
+      0.9536,
+      0.9049,
+      0.9768,
+      0.9393,
+      0.9173,
+      0.9183,
+      0.9173,
+      0.9081,
+      0.9646,
+      0.9409
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 4.4172,
+    "cv_wall_time_seconds": 66.5837,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0629,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter02_c3",
+    "iteration": 2,
+    "config": {
+      "rationale": "Refine the successful soft-voting ensemble by increasing regularization (lower C) in the logistic regression branch to test stability and reduce train/test gap, moving away from the previous C=0.5 setting.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr_strong_reg",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 0.2,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "rf",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 200,
+                "max_depth": 10,
+                "min_samples_split": 2,
+                "min_samples_leaf": 1,
+                "max_features": "sqrt",
+                "class_weight": "balanced"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "composition:voting",
+    "mean_cv_score": 0.9739,
+    "std_cv_score": 0.0191,
+    "fold_scores": [
+      1.0,
+      0.9518,
+      0.9525,
+      0.9765,
+      1.0,
+      0.9654,
+      0.9641,
+      0.9768,
+      0.9518,
+      1.0,
+      0.9765,
+      0.9765,
+      1.0,
+      0.9762,
+      0.9409
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.4208,
+    "cv_wall_time_seconds": 7.4426,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.02,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  }
+]

@@ -1,0 +1,174 @@
+{
+  "reasoning": "The previous best candidate (iter01_c2) achieved 0.9701 CV score using a soft voting ensemble of Logistic Regression and Gradient Boosting with standard scaling. To improve robustness against the class imbalance (62% B, 38% M) and reduce variance, we propose two distinct refinements: 1) A single-model candidate using HistGradientBoosting with stronger regularization (higher C equivalent via l2_regularization or lower learning_rate) to test if a more regularized tree-based model outperforms the ensemble. 2) An ensemble candidate that introduces SoftmaxScaler instead of StandardScaler, which is often more robust for imbalanced datasets, and adds an Extra Trees classifier to increase diversity in the voting branches. The baseline Random Forest achieved 0.9511 CV score with standard preprocessing. The best previous ensemble (iter01_c2) reached 0.9701 using Logistic Regression and Gradient Boosting in a soft voting setup with standard scaling. To improve upon this, we explore two distinct hypotheses: 1) Feature Selection via RFE to reduce dimensionality and prevent overfitting on the 30 features, potentially improving generalization (supported by ev_67cadb757a26d2). 2) A more robust ensemble using HistGradientBoostingClassifier alongside Logistic Regression and Random Forest, as gradient boosting variants often handle tabular data well with fewer hyperparameters than standard GradientBoosting (ev_892146c13f0a85 suggests feature selection mechanisms improve performance in small sample biomedical data). We will use a pipeline for the RFE candidate to ensure features are selected before modeling, and a voting ensemble for the HistGradientBoosting candidate.",
+  "candidates": [
+    {
+      "rationale": "Test source-grounded select_k_best as a registered Level-2 pipeline; examine CV benefit.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "none",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "pipeline",
+        "transforms": [
+          {
+            "op": "standard_scaler",
+            "params": {}
+          },
+          {
+            "op": "select_k_best",
+            "params": {
+              "k": 15
+            }
+          }
+        ],
+        "branches": [],
+        "model": {
+          "name": "logistic_regression",
+          "hyperparameters": {
+            "max_iter": 1500,
+            "class_weight": "balanced"
+          }
+        },
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "Weight Predictor Network with Feature Selection for Small Sample Tabular Biomedical Data"
+      ],
+      "evidence_ids": [
+        "ev_892146c13f0a85"
+      ]
+    },
+    {
+      "rationale": "Improve the voting ensemble by using SoftmaxScaler to better handle class imbalance and adding an Extra Trees classifier to increase model diversity.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr_branch",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 1.0,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "et_branch",
+            "transforms": [],
+            "model": {
+              "name": "extra_trees",
+              "hyperparameters": {
+                "n_estimators": 200,
+                "max_depth": 10,
+                "min_samples_split": 2,
+                "min_samples_leaf": 1,
+                "max_features": "sqrt",
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "gb_branch",
+            "transforms": [],
+            "model": {
+              "name": "gradient_boosting",
+              "hyperparameters": {
+                "n_estimators": 100,
+                "learning_rate": 0.1,
+                "max_depth": 3,
+                "subsample": 0.8,
+                "min_samples_split": 2
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [],
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ]
+    },
+    {
+      "rationale": "Apply Recursive Feature Elimination (RFE) within a pipeline to reduce feature dimensionality from 30 to a smaller subset, aiming to improve generalization on small sample data by removing irrelevant features (supported by ev_67cadb757a26d2).",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "pipeline",
+        "transforms": [
+          {
+            "op": "rfe",
+            "params": {
+              "n_features_to_select": 15,
+              "step": 1,
+              "estimator": "random_forest"
+            }
+          },
+          {
+            "op": "standard_scaler",
+            "params": {}
+          }
+        ],
+        "branches": [],
+        "model": {
+          "name": "logistic_regression",
+          "hyperparameters": {
+            "C": 1.0,
+            "solver": "lbfgs",
+            "max_iter": 1000,
+            "class_weight": "balanced"
+          }
+        },
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [],
+      "evidence_ids": [
+        "ev_67cadb757a26d2"
+      ]
+    }
+  ],
+  "candidate_origins": {
+    "4da20d985a2c1e459bfa2f5b5b150bd85018a244493822c7e46684efe35d1d1f": "evidence_compiler",
+    "8de1b26920b2dd67d3210fae4fbd2745b5cd084d636b06614a67cc6a71951c9c": "llm",
+    "2578e0ddc7d97d1d28d1ea3d9298e9e590422462d9b3e27b88058bf31e5e9dc0": "llm"
+  },
+  "candidate_evidence_mapping": {
+    "4da20d985a2c1e459bfa2f5b5b150bd85018a244493822c7e46684efe35d1d1f": {
+      "evidence_id": "ev_892146c13f0a85",
+      "implemented_operation": "select_k_best",
+      "implementation_choices": [
+        "median imputation is an engineering choice, not attributed to source",
+        "SelectKBest is an implementation of generic feature selection, not necessarily paper's selector",
+        "classifier logistic_regression is chosen for test; paper may not specify it"
+      ]
+    }
+  },
+  "generator_error": null
+}

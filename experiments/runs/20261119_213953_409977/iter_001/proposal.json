@@ -1,0 +1,112 @@
+{
+  "reasoning": "The baseline Random Forest achieved 0.69 CV score with a significant train/CV gap (0.18), indicating overfitting or suboptimal feature usage. Literature suggests ensemble voting (ev_5294c787c1645c) and feature selection via RFE (ev_67cadb757a26d2) improve performance on high-dimensional tabular data. Candidate 1 applies a soft-voting ensemble of Logistic Regression and Random Forest, leveraging the linear boundary of LR and tree-based non-linearity of RF, with balanced class weights to address near-equal imbalance. Candidate 2 refines the baseline by introducing Recursive Feature Elimination (RFE) to reduce dimensionality from 49 features, hypothesizing that removing irrelevant features will close the train/CV gap. Candidate 3 explores Gradient Boosting with a specific regularization strength (C=10 for RF is not applicable here; using C=10 for LR in voting or max_depth tuning). Given the small sample size (n=1252) and high dimensionality, a simpler model like Logistic Regression with strong regularization might be more robust than deep trees. Let's adjust Candidate 3 to use a Pipeline with PCA for dimensionality reduction followed by Logistic Regression, testing if linear projection helps in this specific dataset context. The baseline Random Forest achieved a CV mean of 0.6948 with a significant train/CV gap (0.1789), suggesting overfitting or insufficient regularization. Literature on small-sample tabular data suggests using feature selection to reduce dimensionality and ensemble methods like voting to combine complementary decision boundaries [ev_5294c787c1645c, ev_67cadb757a26d2]. Candidate 1 applies Recursive Feature Elimination (RFE) to the Random Forest to address overfitting by reducing feature count. Candidate 2 constructs a soft-voting ensemble using Logistic Regression and Gradient Boosting with tuned hyperparameters (C for LR, learning_rate/depth for GB) to leverage different inductive biases, supported by evidence of voting classifiers improving accuracy [ev_5294c787c1645c]. The baseline Random Forest with standard preprocessing achieved a CV mean of 0.6948 but suffered from significant overfitting (train_cv_gap: 0.1789). The dataset has 49 features and only 1252 samples, making feature selection critical to reduce dimensionality and prevent overfitting. Literature evidence [ev_5294c787c1645c] supports using ensemble voting with feature selection (RFE) for high-dimensional tabular data. Evidence [ev_892146c13f0a85] suggests Weight Predictor Networks (WPFS) are effective for small sample biomedical data, though WPFS is not in the supported models list; therefore, we will implement a standard RFE pipeline as a proxy for feature selection within the allowed schema. Candidate 1 implements an RFE pipeline with Logistic Regression to test if linear models benefit from aggressive feature reduction. Candidate 2 implements a Voting ensemble (LR + RF) without explicit feature selection first, but with tuned hyperparameters (lower C for LR, fewer trees for RF) to see if regularization alone can mitigate overfitting compared to the baseline. The baseline Random Forest achieved a CV mean of 0.69 with a significant train/test gap (0.18), indicating overfitting on the small dataset (n=1252). Literature suggests that for small sample tabular data, feature selection is critical to reduce parameters and prevent overfitting [ev_892146c13f0a85]. Additionally, ensemble methods using majority voting have shown efficacy in high-dimensional biomedical classification tasks [ev_5294c787c1645c]. To address the gap, we propose: 1) A Voting Ensemble with feature selection to leverage diverse decision boundaries while reducing dimensionality. 2) A Gradient Boosting model with aggressive regularization (high C) and a dedicated RFE pipeline to test if strict feature reduction improves generalization compared to the baseline RF. The baseline Random Forest achieved a CV mean of 0.69 with a significant train/test gap (0.18), suggesting overfitting on the small dataset (n=1252). Literature evidence [ev_892146c13f0a85] supports using Weight Predictor Networks or feature selection for small sample tabular data, while [ev_5294c787c1645c] and [ev_67cadb757a26d2] suggest ensemble voting with feature selection (RFE) improves performance. To address overfitting and leverage the evidence for small datasets, Candidate 1 uses a Pipeline to apply RFE before a Logistic Regression model, which is known for good regularization properties when tuned correctly. Candidate 2 proposes a Voting ensemble combining Random Forest and Gradient Boosting, explicitly applying RFE as a preprocessing step to reduce dimensionality (49 features) before training, addressing the high-dimensional nature mentioned in the task description. Candidate 3 refines the baseline by increasing model capacity (n_estimators) and adjusting regularization (C) for Logistic Regression, testing if stronger regularization helps close the gap. The baseline Random Forest achieved a CV mean of 0.69 with significant overfitting (train_cv_gap: 0.18). The dataset has 49 features and only 1252 samples, making it high-dimensional relative to sample size. Literature suggests that for small-sample tabular data, feature selection is critical to reduce parameters and prevent overfitting (WPFS paper). Additionally, ensemble methods using soft voting have been shown to improve reliability by combining complementary decision boundaries (Voting paper). To address the overfitting, we will introduce a feature selection pipeline before the model. Candidate 1 uses Recursive Feature Elimination (RFE) with Random Forest, leveraging evidence from the micro-array study which successfully combined RFE with ensemble voting. Candidate 2 shifts to Logistic Regression with L2 regularization and balanced class weights, as linear models are less prone to overfitting on small datasets when properly regularized, supported by the general tabular data findings. Candidate 3 creates a soft voting ensemble using Gradient Boosting (which handles non-linear interactions well) and Logistic Regression, combining the strengths of tree-based and linear models.",
+  "candidates": [
+    {
+      "rationale": "Construct a soft-voting ensemble combining Logistic Regression and Gradient Boosting to capture linear and non-linear patterns respectively.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 1.0,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "gb",
+            "transforms": [],
+            "model": {
+              "name": "gradient_boosting",
+              "hyperparameters": {
+                "n_estimators": 100,
+                "learning_rate": 0.1,
+                "max_depth": 3,
+                "subsample": 0.8,
+                "min_samples_split": 2
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [],
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ]
+    },
+    {
+      "rationale": "Test a Voting ensemble with tuned hyperparameters (lower regularization for LR, fewer trees for RF) to see if model complexity reduction alone improves generalization without explicit feature selection.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 0.3,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "rf",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 100,
+                "max_depth": 6,
+                "min_samples_split": 2,
+                "min_samples_leaf": 2,
+                "max_features": "sqrt",
+                "class_weight": "balanced"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [],
+      "evidence_ids": []
+    }
+  ],
+  "candidate_origins": {
+    "b49d41adc5b27806675869c88028601793c4b3a681fc5368728efe2aed1125cc": "llm",
+    "532db9f6780a0765c9da1f91d002ec445df5f76a2f63401b0ceff26c8dc3c536": "llm"
+  },
+  "candidate_evidence_mapping": {},
+  "generator_error": null
+}

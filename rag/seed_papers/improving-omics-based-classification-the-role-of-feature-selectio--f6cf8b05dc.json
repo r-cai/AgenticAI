@@ -1,0 +1,59 @@
+{
+  "title": "Improving Omics-Based Classification: The Role of Feature Selection and Synthetic Data Generation",
+  "abstract": "Given the increasing complexity of omics datasets, a key challenge is not only improving classification performance but also enhancing the transparency and reliability of model decisions. Effective model performance and feature selection are fundamental for explainability and reliability. In many cases, high dimensional omics datasets suffer from limited number of samples due to clinical constraints, patient conditions, phenotypes rarity and others conditions. Current omics based classification models often suffer from narrow interpretability, making it difficult to discern meaningful insights where trust and reproducibility are critical. This study presents a machine learning based classification framework that integrates feature selection with data augmentation techniques to achieve high standard classification accuracy while ensuring better interpretability. Using the publicly available dataset (E MTAB 8026), we explore a bootstrap analysis in six binary classification scenarios to evaluate the proposed model's behaviour. We show that the proposed pipeline yields cross validated perfomance on small dataset that is conserved when the trained classifier is applied to a larger test set. Our findings emphasize the fundamental balance between accuracy and feature selection, highlighting the positive effect of introducing synthetic data for better generalization, even in scenarios with very limited samples availability.",
+  "year": "2025",
+  "doi": "",
+  "url": "http://arxiv.org/abs/2505.03387v1",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/2505.03387v1",
+  "paper_key": "p_f6cf8b05dcd7274f8cbe02b9",
+  "aliases": [
+    "arxiv:2505.03387",
+    "title:improvingomicsbasedclassificationtheroleoffeatureselectionandsyntheticdatageneration"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_e9932aad7326512c.json",
+    "/mnt/data/final_report(2).json",
+    "/mnt/data/final_report(3).json",
+    "/mnt/data/final_report(5).json",
+    "/mnt/data/final_report.json",
+    "/mnt/data/final_report_B.json",
+    "/mnt/data/final_report_C.json",
+    "/mnt/data/final_report_D.json"
+  ],
+  "evidence": [
+    {
+      "evidence_id": "ev_5673d7dcaa4c89",
+      "record": {
+        "evidence_id": "ev_5673d7dcaa4c89",
+        "paper_title": "Improving Omics-Based Classification: The Role of Feature Selection and Synthetic Data Generation",
+        "paper_url": "http://arxiv.org/abs/2505.03387v1",
+        "paper_doi": null,
+        "paper_year": "2025",
+        "method": "feature_selection",
+        "source_excerpt": "We show that the proposed pipeline yields cross validated perfomance on small dataset that is conserved when the trained classifier is applied to a larger test set",
+        "modeling_hypothesis": "The proposed pipeline improves classification accuracy on small omics datasets through feature selection and synthetic data generation",
+        "suggested_operations": [
+          "rfe"
+        ],
+        "limitations": "",
+        "extraction_method": "llm_verified_excerpt",
+        "source_grounded": true
+      },
+      "verified": true,
+      "verification_reason": "excerpt_matches_stored_abstract",
+      "first_seen": "2026-11-20T00:32:32+00:00",
+      "provenance": [
+        "/mnt/data/final_report(2).json",
+        "/mnt/data/final_report(3).json",
+        "/mnt/data/final_report(5).json",
+        "/mnt/data/final_report.json",
+        "/mnt/data/final_report_B.json",
+        "/mnt/data/final_report_C.json",
+        "/mnt/data/final_report_D.json"
+      ]
+    }
+  ]
+}

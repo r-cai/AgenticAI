@@ -1,0 +1,1445 @@
+{
+  "run_id": "20261119_221133_657308",
+  "output_dir": "C:\\Users\\charl\\anaconda3\\AgenticAI\\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\\experiments\\runs\\20261119_221133_657308",
+  "dataset": "C:\\Users\\charl\\anaconda3\\AgenticAI\\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\\data\\data-cbis-ddsm.csv",
+  "target": "diagnosis",
+  "description": "Classify benign and malignant breast lesions using mammographic metadata, feature selection, ensemble learning, and tabular machine learning",
+  "scoring": "f1_macro",
+  "baseline_cv_score": 0.695,
+  "dataset_sha256": "8b2cfb44554f85cf6be6bfa58fae54caea555e88372e1e5f04a2d733e62fa8e5",
+  "split_sha256": "77121d141f1f216029c6dfbc0c82455c88c1cbde8ab85f290d2094531597d196",
+  "predictions_file": "experiments\\runs\\20261119_221133_657308\\holdout_predictions.csv",
+  "controlled_study": {
+    "enabled": true,
+    "target_evaluated_candidates": 6,
+    "successfully_evaluated_candidates": 6,
+    "budget_complete": true,
+    "suite_id": "cbis_repeated_v1",
+    "frozen_corpus_sha256": "4e90d362b26f41200af2dd30448ef7d1e325e878cf887d786368cbf94c94ee3f"
+  },
+  "run_wall_time_seconds_excluding_pdf": 415.3062,
+  "best": {
+    "candidate_id": "iter01_c1",
+    "iteration": 1,
+    "config": {
+      "rationale": "Test complementary linear and nonlinear decision boundaries using soft voting to leverage the dataset's low feature count (49) for ensemble stability.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "none",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "branch_1",
+            "transforms": [
+              {
+                "op": "standard_scaler",
+                "params": {}
+              }
+            ],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 1.0,
+                "max_iter": 1500
+              }
+            }
+          },
+          {
+            "name": "branch_2",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 150,
+                "max_depth": 8,
+                "min_samples_leaf": 2
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "ev_5294c787c1645c"
+      ],
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ]
+    },
+    "cv_mean": 0.7108,
+    "cv_std": 0.02
+  },
+  "holdout": {
+    "score": 0.7251,
+    "scoring": "f1_macro",
+    "precision": 0.7357,
+    "accuracy": 0.7293,
+    "balanced_accuracy": 0.7256,
+    "recall": 0.7256,
+    "f1_score": 0.7251,
+    "f1_macro": 0.7251,
+    "auc": 0.8168,
+    "roc_auc": 0.8168,
+    "n_train": 1252,
+    "n_test": 314,
+    "convergence": {
+      "fit_time_seconds": 0.4651,
+      "iterations_used": null,
+      "convergence_warning": false,
+      "warning_detail": null
+    }
+  },
+  "cv_holdout_gap": -0.0143,
+  "iterations_run": 6,
+  "stop_reason": "target_evaluated_candidates_reached",
+  "research_used": true,
+  "critic_enabled": false,
+  "rag_enabled": true,
+  "research_rounds": 1,
+  "research_source": "frozen_replay",
+  "knowledge_base": {
+    "enabled": false,
+    "note": "frozen replay does not update the shared knowledge base"
+  },
+  "research_evidence_sha256": "b373f8994afe95959bad47a3aa627eb9a86a1cc35c596b13b35b3d52ca0645fc",
+  "evidence_recovery_audit": [],
+  "strict_D_completed": true,
+  "llm_evidence_design_enabled": true,
+  "llm_grounded_strategy": "guided",
+  "evidence_records": [
+    {
+      "evidence_id": "ev_0c8c98024d39cf",
+      "extraction_method": "llm_verified_excerpt",
+      "limitations": "",
+      "method": "multimodal deep learning framework",
+      "modeling_hypothesis": "The dual-branch neural network integrates ultrasound images and clinical data to improve PT classification accuracy.",
+      "paper_doi": null,
+      "paper_title": "Multimodal Deep Learning for Phyllodes Tumor Classification from Ultrasound and Clinical Data",
+      "paper_url": "http://arxiv.org/abs/2509.00213v2",
+      "paper_year": "2025",
+      "source_excerpt": "We developed a dual-branch neural network that extracts and fuses features from ultrasound images and patient metadata from 81 subjects with confirmed PTs.",
+      "source_grounded": true,
+      "suggested_operations": []
+    },
+    {
+      "evidence_id": "ev_e2fcd7f995683e",
+      "extraction_method": "llm_verified_excerpt",
+      "limitations": "",
+      "method": "class-aware sampling and subject-stratified 5-fold cross-validation",
+      "modeling_hypothesis": "Class-aware sampling and subject-stratified 5-fold cross-validation improve model robustness by addressing class imbalance and data leakage.",
+      "paper_doi": null,
+      "paper_title": "Multimodal Deep Learning for Phyllodes Tumor Classification from Ultrasound and Clinical Data",
+      "paper_url": "http://arxiv.org/abs/2509.00213v2",
+      "paper_year": "2025",
+      "source_excerpt": "Class-aware sampling and subject-stratified 5-fold cross-validation were applied to prevent class imbalance and data leakage.",
+      "source_grounded": true,
+      "suggested_operations": []
+    },
+    {
+      "evidence_id": "ev_e934d3147790ed",
+      "extraction_method": "llm_verified_excerpt",
+      "limitations": "",
+      "method": "ConvNeXt and ResNet18 as image encoders",
+      "modeling_hypothesis": "ConvNeXt and ResNet18 are optimal image encoders for multimodal PT classification, achieving high AUC-ROC and F1-scores.",
+      "paper_doi": null,
+      "paper_title": "Multimodal Deep Learning for Phyllodes Tumor Classification from Ultrasound and Clinical Data",
+      "paper_url": "http://arxiv.org/abs/2509.00213v2",
+      "paper_year": "2025",
+      "source_excerpt": "Among six image encoders, ConvNeXt and ResNet18 achieved the best performance in the multimodal setting, with AUC-ROC scores of 0.9427 and 0.9349, and F1-scores of 0.6720 and 0.7294, respectively.",
+      "source_grounded": true,
+      "suggested_operations": []
+    },
+    {
+      "evidence_id": "ev_2d570e2b74da47",
+      "extraction_method": "llm_verified_excerpt",
+      "limitations": "",
+      "method": "Weight Predictor Network with Feature Selection (WPFS)",
+      "modeling_hypothesis": "WPFS reduces the number of learnable parameters and performs feature selection to improve performance on small sample tabular biomedical data.",
+      "paper_doi": null,
+      "paper_title": "Weight Predictor Network with Feature Selection for Small Sample Tabular Biomedical Data",
+      "paper_url": "http://arxiv.org/abs/2211.15616v1",
+      "paper_year": "2022",
+      "source_excerpt": "In addition to the classification network, WPFS uses two small auxiliary networks that together output the weights of the first layer of the classification model.",
+      "source_grounded": true,
+      "suggested_operations": []
+    },
+    {
+      "evidence_id": "ev_42f418e7dab419",
+      "extraction_method": "llm_verified_excerpt",
+      "limitations": "",
+      "method": "Weight Predictor Network with Feature Selection (WPFS)",
+      "modeling_hypothesis": "WPFS achieves better performance than standard and recent methods on tabular biomedical data with small sample sizes.",
+      "paper_doi": null,
+      "paper_title": "Weight Predictor Network with Feature Selection for Small Sample Tabular Biomedical Data",
+      "paper_url": "http://arxiv.org/abs/2211.15616v1",
+      "paper_year": "2022",
+      "source_excerpt": "We evaluate on nine real-world biomedical datasets and demonstrate that WPFS outperforms other standard as well as more recent methods typically applied to tabular data.",
+      "source_grounded": true,
+      "suggested_operations": []
+    },
+    {
+      "evidence_id": "ev_892146c13f0a85",
+      "extraction_method": "llm_verified_excerpt",
+      "limitations": "",
+      "method": "Weight Predictor Network with Feature Selection (WPFS)",
+      "modeling_hypothesis": "The feature selection mechanism in WPFS enhances model performance and offers insights into the learning task.",
+      "paper_doi": null,
+      "paper_title": "Weight Predictor Network with Feature Selection for Small Sample Tabular Biomedical Data",
+      "paper_url": "http://arxiv.org/abs/2211.15616v1",
+      "paper_year": "2022",
+      "source_excerpt": "Furthermore, we investigate the proposed feature selection mechanism and show that it improves performance while providing useful insights into the learning task.",
+      "source_grounded": true,
+      "suggested_operations": []
+    },
+    {
+      "evidence_id": "ev_540bb5b380aef1",
+      "extraction_method": "llm_verified_excerpt",
+      "limitations": "",
+      "method": "nnU-Net",
+      "modeling_hypothesis": "nnU-Net can achieve near-human-level performance for 3D segmentation of the uterus and uterine tumors with fewer than 150 annotated images.",
+      "paper_doi": null,
+      "paper_title": "Developing a Machine Learning-Based Clinical Decision Support Tool for Uterine Tumor Imaging",
+      "paper_url": "http://arxiv.org/abs/2308.10372v1",
+      "paper_year": "2023",
+      "source_excerpt": "We applied nnU-Net and explored the effect of training set size on performance by randomly generating subsets with 25, 45, 65 and 85 training set images.",
+      "source_grounded": true,
+      "suggested_operations": []
+    },
+    {
+      "evidence_id": "ev_24905bb7d707bc",
+      "extraction_method": "llm_verified_excerpt",
+      "limitations": "",
+      "method": "radiomic features",
+      "modeling_hypothesis": "Radiomic features can distinguish between benign and malignant uterine tumors with an F1-score of 0.53 [0.45, 0.61] and between degenerated leiomyoma and leiomyosarcoma with an F1-score of 0.80 [0.80, 0.80].",
+      "paper_doi": null,
+      "paper_title": "Developing a Machine Learning-Based Clinical Decision Support Tool for Uterine Tumor Imaging",
+      "paper_url": "http://arxiv.org/abs/2308.10372v1",
+      "paper_year": "2023",
+      "source_excerpt": "We evaluated the ability of radiomic features to distinguish between types of UT individually and when combined through feature selection and machine learning.",
+      "source_grounded": true,
+      "suggested_operations": []
+    },
+    {
+      "evidence_id": "ev_071d9e0c79d051",
+      "extraction_method": "llm_verified_excerpt",
+      "limitations": "",
+      "method": "machine learning classifiers",
+      "modeling_hypothesis": "Machine learning classifiers using radiomic features can achieve F1-scores of 0.53 [0.45, 0.61] for benign versus malignant classification and 0.80 [0.80, 0.80] for degenerated leiomyoma versus leiomyosarcoma classification.",
+      "paper_doi": null,
+      "paper_title": "Developing a Machine Learning-Based Clinical Decision Support Tool for Uterine Tumor Imaging",
+      "paper_url": "http://arxiv.org/abs/2308.10372v1",
+      "paper_year": "2023",
+      "source_excerpt": "Classifying UTs based on radiomic features we identify classifiers achieving F1-scores of 0.53 [0.45, 0.61] and 0.80 [0.80, 0.80] on the test set for the benign versus malignant, and degenerated LM versus LMS tasks.",
+      "source_grounded": true,
+      "suggested_operations": []
+    },
+    {
+      "evidence_id": "ev_5294c787c1645c",
+      "extraction_method": "llm_verified_excerpt",
+      "limitations": "",
+      "method": "voting",
+      "modeling_hypothesis": "The proposed model uses a Majority Voting Classifier to combine multiple machine learning models for enhanced classification performance.",
+      "paper_doi": null,
+      "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+      "paper_url": "http://arxiv.org/abs/2507.04251v1",
+      "paper_year": "2025",
+      "source_excerpt": "Majority Voting Classifier",
+      "source_grounded": true,
+      "suggested_operations": []
+    },
+    {
+      "evidence_id": "ev_67cadb757a26d2",
+      "extraction_method": "llm_verified_excerpt",
+      "limitations": "",
+      "method": "rfe",
+      "modeling_hypothesis": "The proposed model incorporates Recursive Feature Elimination (RFE) as part of the feature selection process.",
+      "paper_doi": null,
+      "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+      "paper_url": "http://arxiv.org/abs/2507.04251v1",
+      "paper_year": "2025",
+      "source_excerpt": "Recursive Feature Elimination (RFE)",
+      "source_grounded": true,
+      "suggested_operations": []
+    },
+    {
+      "evidence_id": "ev_c4efc324626589",
+      "extraction_method": "llm_verified_excerpt",
+      "limitations": "",
+      "method": "logistic_regression",
+      "modeling_hypothesis": "The proposed model includes Logistic Regression as one of the base classifiers in the ensemble.",
+      "paper_doi": null,
+      "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+      "paper_url": "http://arxiv.org/abs/2507.04251v1",
+      "paper_year": "2025",
+      "source_excerpt": "Logistic Regression (LR)",
+      "source_grounded": true,
+      "suggested_operations": []
+    }
+  ],
+  "eligible_evidence_ids": [
+    "ev_24905bb7d707bc",
+    "ev_5294c787c1645c",
+    "ev_67cadb757a26d2",
+    "ev_892146c13f0a85"
+  ],
+  "evidence_selection_audit": [
+    {
+      "evidence_id": "ev_0c8c98024d39cf",
+      "paper_title": "Multimodal Deep Learning for Phyllodes Tumor Classification from Ultrasound and Clinical Data",
+      "status": "rejected",
+      "reason": "image_modality_not_applicable_to_tabular_modeling"
+    },
+    {
+      "evidence_id": "ev_e2fcd7f995683e",
+      "paper_title": "Multimodal Deep Learning for Phyllodes Tumor Classification from Ultrasound and Clinical Data",
+      "status": "rejected",
+      "reason": "image_modality_not_applicable_to_tabular_modeling"
+    },
+    {
+      "evidence_id": "ev_e934d3147790ed",
+      "paper_title": "Multimodal Deep Learning for Phyllodes Tumor Classification from Ultrasound and Clinical Data",
+      "status": "rejected",
+      "reason": "image_modality_not_applicable_to_tabular_modeling"
+    },
+    {
+      "evidence_id": "ev_2d570e2b74da47",
+      "paper_title": "Weight Predictor Network with Feature Selection for Small Sample Tabular Biomedical Data",
+      "status": "rejected",
+      "reason": "no_supported_composition_operation",
+      "supported_operations": [],
+      "extraction_warnings": []
+    },
+    {
+      "evidence_id": "ev_42f418e7dab419",
+      "paper_title": "Weight Predictor Network with Feature Selection for Small Sample Tabular Biomedical Data",
+      "status": "rejected",
+      "reason": "no_supported_composition_operation",
+      "supported_operations": [],
+      "extraction_warnings": []
+    },
+    {
+      "evidence_id": "ev_540bb5b380aef1",
+      "paper_title": "Developing a Machine Learning-Based Clinical Decision Support Tool for Uterine Tumor Imaging",
+      "status": "rejected",
+      "reason": "image_modality_not_applicable_to_tabular_modeling"
+    },
+    {
+      "evidence_id": "ev_071d9e0c79d051",
+      "paper_title": "Developing a Machine Learning-Based Clinical Decision Support Tool for Uterine Tumor Imaging",
+      "status": "rejected",
+      "reason": "no_supported_composition_operation",
+      "supported_operations": [],
+      "extraction_warnings": []
+    },
+    {
+      "evidence_id": "ev_c4efc324626589",
+      "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+      "status": "rejected",
+      "reason": "no_supported_composition_operation",
+      "supported_operations": [
+        "logistic_regression"
+      ],
+      "extraction_warnings": []
+    },
+    {
+      "evidence_id": "ev_5294c787c1645c",
+      "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+      "status": "selected",
+      "reason": null,
+      "supported_operations": [
+        "voting"
+      ],
+      "extraction_warnings": [],
+      "method_group": "voting"
+    },
+    {
+      "evidence_id": "ev_67cadb757a26d2",
+      "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+      "status": "selected",
+      "reason": null,
+      "supported_operations": [
+        "rfe"
+      ],
+      "extraction_warnings": [],
+      "method_group": "rfe"
+    },
+    {
+      "evidence_id": "ev_892146c13f0a85",
+      "paper_title": "Weight Predictor Network with Feature Selection for Small Sample Tabular Biomedical Data",
+      "status": "selected",
+      "reason": null,
+      "supported_operations": [
+        "select_k_best"
+      ],
+      "extraction_warnings": [],
+      "method_group": "select_k_best"
+    },
+    {
+      "evidence_id": "ev_24905bb7d707bc",
+      "paper_title": "Developing a Machine Learning-Based Clinical Decision Support Tool for Uterine Tumor Imaging",
+      "status": "selected",
+      "reason": null,
+      "supported_operations": [
+        "select_k_best"
+      ],
+      "extraction_warnings": [],
+      "method_group": "select_k_best"
+    }
+  ],
+  "data_exclusion_audit": {
+    "requested": [
+      "id"
+    ],
+    "removed": [],
+    "absent_optional": [
+      "id"
+    ],
+    "missing_policy": "ignore"
+  },
+  "evidence_ids_selected": [
+    "ev_5294c787c1645c"
+  ],
+  "best_candidate_origin": "llm_evidence_design",
+  "best_candidate_evidence_mapping": {
+    "method": "llm_evidence_grounded",
+    "evidence_ids": [
+      "ev_5294c787c1645c"
+    ],
+    "trace": [
+      {
+        "evidence_id": "ev_5294c787c1645c",
+        "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+        "source_excerpt": "Majority Voting Classifier",
+        "supported_operations": [
+          "voting"
+        ],
+        "matched_executable_operations": [
+          "voting"
+        ],
+        "extraction_warnings": [],
+        "claim_scope": "operations_only_not_hyperparameters_or_whole_architecture"
+      }
+    ],
+    "implementation_choices": "Uncited architecture details and hyperparameters are LLM-proposed hypotheses, not proven settings from the cited papers"
+  },
+  "evidence_translation_audit": [
+    {
+      "iteration": 1,
+      "origin": "llm_evidence_design",
+      "status": "accepted",
+      "candidate_fingerprint": "47e13e67f0746131c022ef4131a74bf06e90914e34e00945625fac007e0616f8",
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ]
+    },
+    {
+      "iteration": 1,
+      "origin": "llm_evidence_design",
+      "status": "accepted",
+      "candidate_fingerprint": "3835f727b933e07421337e88c4cc2931bd15b60bba13fa9f30e8eacdf0db667e",
+      "evidence_ids": [
+        "ev_67cadb757a26d2"
+      ]
+    },
+    {
+      "iteration": 1,
+      "origin": "llm_evidence_design",
+      "status": "accepted",
+      "candidate_fingerprint": "04728f826d2397226e89f24a157316b6b242242b98a3940713bde4376d07bfcf",
+      "evidence_ids": [
+        "ev_892146c13f0a85"
+      ]
+    },
+    {
+      "iteration": 1,
+      "origin": "batch_budget",
+      "status": "summary",
+      "requested": 3,
+      "proposed_valid": 3,
+      "unfilled": 0,
+      "llm_calls": 1
+    },
+    {
+      "iteration": 2,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "47e13e67f0746131c022ef4131a74bf06e90914e34e00945625fac007e0616f8"
+    },
+    {
+      "iteration": 2,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "3835f727b933e07421337e88c4cc2931bd15b60bba13fa9f30e8eacdf0db667e"
+    },
+    {
+      "iteration": 2,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "04728f826d2397226e89f24a157316b6b242242b98a3940713bde4376d07bfcf"
+    },
+    {
+      "iteration": 2,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "47e13e67f0746131c022ef4131a74bf06e90914e34e00945625fac007e0616f8"
+    },
+    {
+      "iteration": 2,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "3835f727b933e07421337e88c4cc2931bd15b60bba13fa9f30e8eacdf0db667e"
+    },
+    {
+      "iteration": 2,
+      "origin": "llm_evidence_design",
+      "status": "accepted",
+      "candidate_fingerprint": "0cbc030dcd69d405fdeaad6c41d262fcbd62c78c773b06f81cbd76d8b1f52ae9",
+      "evidence_ids": [
+        "ev_892146c13f0a85"
+      ]
+    },
+    {
+      "iteration": 2,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "47e13e67f0746131c022ef4131a74bf06e90914e34e00945625fac007e0616f8"
+    },
+    {
+      "iteration": 2,
+      "origin": "llm_evidence_design",
+      "status": "accepted",
+      "candidate_fingerprint": "800ff2840af1c481fa1830784a117697fbe552ea38da8998366eafbec76fae2c",
+      "evidence_ids": [
+        "ev_892146c13f0a85"
+      ]
+    },
+    {
+      "iteration": 2,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "47e13e67f0746131c022ef4131a74bf06e90914e34e00945625fac007e0616f8"
+    },
+    {
+      "iteration": 2,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "47e13e67f0746131c022ef4131a74bf06e90914e34e00945625fac007e0616f8"
+    },
+    {
+      "iteration": 2,
+      "origin": "batch_budget",
+      "status": "summary",
+      "requested": 3,
+      "proposed_valid": 2,
+      "unfilled": 1,
+      "llm_calls": 5
+    },
+    {
+      "iteration": 3,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "47e13e67f0746131c022ef4131a74bf06e90914e34e00945625fac007e0616f8"
+    },
+    {
+      "iteration": 3,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "3835f727b933e07421337e88c4cc2931bd15b60bba13fa9f30e8eacdf0db667e"
+    },
+    {
+      "iteration": 3,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "0cbc030dcd69d405fdeaad6c41d262fcbd62c78c773b06f81cbd76d8b1f52ae9"
+    },
+    {
+      "iteration": 3,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "47e13e67f0746131c022ef4131a74bf06e90914e34e00945625fac007e0616f8"
+    },
+    {
+      "iteration": 3,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "3835f727b933e07421337e88c4cc2931bd15b60bba13fa9f30e8eacdf0db667e"
+    },
+    {
+      "iteration": 3,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "0cbc030dcd69d405fdeaad6c41d262fcbd62c78c773b06f81cbd76d8b1f52ae9"
+    },
+    {
+      "iteration": 3,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "47e13e67f0746131c022ef4131a74bf06e90914e34e00945625fac007e0616f8"
+    },
+    {
+      "iteration": 3,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "3835f727b933e07421337e88c4cc2931bd15b60bba13fa9f30e8eacdf0db667e"
+    },
+    {
+      "iteration": 3,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "0cbc030dcd69d405fdeaad6c41d262fcbd62c78c773b06f81cbd76d8b1f52ae9"
+    },
+    {
+      "iteration": 3,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "47e13e67f0746131c022ef4131a74bf06e90914e34e00945625fac007e0616f8"
+    },
+    {
+      "iteration": 3,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "3835f727b933e07421337e88c4cc2931bd15b60bba13fa9f30e8eacdf0db667e"
+    },
+    {
+      "iteration": 3,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "0cbc030dcd69d405fdeaad6c41d262fcbd62c78c773b06f81cbd76d8b1f52ae9"
+    },
+    {
+      "iteration": 3,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "47e13e67f0746131c022ef4131a74bf06e90914e34e00945625fac007e0616f8"
+    },
+    {
+      "iteration": 3,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "3835f727b933e07421337e88c4cc2931bd15b60bba13fa9f30e8eacdf0db667e"
+    },
+    {
+      "iteration": 3,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "0cbc030dcd69d405fdeaad6c41d262fcbd62c78c773b06f81cbd76d8b1f52ae9"
+    },
+    {
+      "iteration": 3,
+      "origin": "batch_budget",
+      "status": "summary",
+      "requested": 3,
+      "proposed_valid": 0,
+      "unfilled": 3,
+      "llm_calls": 5
+    },
+    {
+      "iteration": 4,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "47e13e67f0746131c022ef4131a74bf06e90914e34e00945625fac007e0616f8"
+    },
+    {
+      "iteration": 4,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "3835f727b933e07421337e88c4cc2931bd15b60bba13fa9f30e8eacdf0db667e"
+    },
+    {
+      "iteration": 4,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "04728f826d2397226e89f24a157316b6b242242b98a3940713bde4376d07bfcf"
+    },
+    {
+      "iteration": 4,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "47e13e67f0746131c022ef4131a74bf06e90914e34e00945625fac007e0616f8"
+    },
+    {
+      "iteration": 4,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "3835f727b933e07421337e88c4cc2931bd15b60bba13fa9f30e8eacdf0db667e"
+    },
+    {
+      "iteration": 4,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "04728f826d2397226e89f24a157316b6b242242b98a3940713bde4376d07bfcf"
+    },
+    {
+      "iteration": 4,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "47e13e67f0746131c022ef4131a74bf06e90914e34e00945625fac007e0616f8"
+    },
+    {
+      "iteration": 4,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "3835f727b933e07421337e88c4cc2931bd15b60bba13fa9f30e8eacdf0db667e"
+    },
+    {
+      "iteration": 4,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "0cbc030dcd69d405fdeaad6c41d262fcbd62c78c773b06f81cbd76d8b1f52ae9"
+    },
+    {
+      "iteration": 4,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "47e13e67f0746131c022ef4131a74bf06e90914e34e00945625fac007e0616f8"
+    },
+    {
+      "iteration": 4,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "3835f727b933e07421337e88c4cc2931bd15b60bba13fa9f30e8eacdf0db667e"
+    },
+    {
+      "iteration": 4,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "0cbc030dcd69d405fdeaad6c41d262fcbd62c78c773b06f81cbd76d8b1f52ae9"
+    },
+    {
+      "iteration": 4,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "47e13e67f0746131c022ef4131a74bf06e90914e34e00945625fac007e0616f8"
+    },
+    {
+      "iteration": 4,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "3835f727b933e07421337e88c4cc2931bd15b60bba13fa9f30e8eacdf0db667e"
+    },
+    {
+      "iteration": 4,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "04728f826d2397226e89f24a157316b6b242242b98a3940713bde4376d07bfcf"
+    },
+    {
+      "iteration": 4,
+      "origin": "batch_budget",
+      "status": "summary",
+      "requested": 3,
+      "proposed_valid": 0,
+      "unfilled": 3,
+      "llm_calls": 5
+    },
+    {
+      "iteration": 5,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "47e13e67f0746131c022ef4131a74bf06e90914e34e00945625fac007e0616f8"
+    },
+    {
+      "iteration": 5,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "3835f727b933e07421337e88c4cc2931bd15b60bba13fa9f30e8eacdf0db667e"
+    },
+    {
+      "iteration": 5,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "0cbc030dcd69d405fdeaad6c41d262fcbd62c78c773b06f81cbd76d8b1f52ae9"
+    },
+    {
+      "iteration": 5,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "47e13e67f0746131c022ef4131a74bf06e90914e34e00945625fac007e0616f8"
+    },
+    {
+      "iteration": 5,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "3835f727b933e07421337e88c4cc2931bd15b60bba13fa9f30e8eacdf0db667e"
+    },
+    {
+      "iteration": 5,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "0cbc030dcd69d405fdeaad6c41d262fcbd62c78c773b06f81cbd76d8b1f52ae9"
+    },
+    {
+      "iteration": 5,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "47e13e67f0746131c022ef4131a74bf06e90914e34e00945625fac007e0616f8"
+    },
+    {
+      "iteration": 5,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "3835f727b933e07421337e88c4cc2931bd15b60bba13fa9f30e8eacdf0db667e"
+    },
+    {
+      "iteration": 5,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "0cbc030dcd69d405fdeaad6c41d262fcbd62c78c773b06f81cbd76d8b1f52ae9"
+    },
+    {
+      "iteration": 5,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "47e13e67f0746131c022ef4131a74bf06e90914e34e00945625fac007e0616f8"
+    },
+    {
+      "iteration": 5,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "3835f727b933e07421337e88c4cc2931bd15b60bba13fa9f30e8eacdf0db667e"
+    },
+    {
+      "iteration": 5,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "04728f826d2397226e89f24a157316b6b242242b98a3940713bde4376d07bfcf"
+    },
+    {
+      "iteration": 5,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "47e13e67f0746131c022ef4131a74bf06e90914e34e00945625fac007e0616f8"
+    },
+    {
+      "iteration": 5,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "3835f727b933e07421337e88c4cc2931bd15b60bba13fa9f30e8eacdf0db667e"
+    },
+    {
+      "iteration": 5,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "04728f826d2397226e89f24a157316b6b242242b98a3940713bde4376d07bfcf"
+    },
+    {
+      "iteration": 5,
+      "origin": "batch_budget",
+      "status": "summary",
+      "requested": 3,
+      "proposed_valid": 0,
+      "unfilled": 3,
+      "llm_calls": 5
+    },
+    {
+      "iteration": 6,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "47e13e67f0746131c022ef4131a74bf06e90914e34e00945625fac007e0616f8"
+    },
+    {
+      "iteration": 6,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "3835f727b933e07421337e88c4cc2931bd15b60bba13fa9f30e8eacdf0db667e"
+    },
+    {
+      "iteration": 6,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "04728f826d2397226e89f24a157316b6b242242b98a3940713bde4376d07bfcf"
+    },
+    {
+      "iteration": 6,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "47e13e67f0746131c022ef4131a74bf06e90914e34e00945625fac007e0616f8"
+    },
+    {
+      "iteration": 6,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "3835f727b933e07421337e88c4cc2931bd15b60bba13fa9f30e8eacdf0db667e"
+    },
+    {
+      "iteration": 6,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "0cbc030dcd69d405fdeaad6c41d262fcbd62c78c773b06f81cbd76d8b1f52ae9"
+    },
+    {
+      "iteration": 6,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "47e13e67f0746131c022ef4131a74bf06e90914e34e00945625fac007e0616f8"
+    },
+    {
+      "iteration": 6,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "3835f727b933e07421337e88c4cc2931bd15b60bba13fa9f30e8eacdf0db667e"
+    },
+    {
+      "iteration": 6,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "04728f826d2397226e89f24a157316b6b242242b98a3940713bde4376d07bfcf"
+    },
+    {
+      "iteration": 6,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "47e13e67f0746131c022ef4131a74bf06e90914e34e00945625fac007e0616f8"
+    },
+    {
+      "iteration": 6,
+      "origin": "llm_evidence_design",
+      "status": "accepted",
+      "candidate_fingerprint": "8b6c14e7dd8632a9e0a4cf12aa2d18115711da355bbd6f67a2c32411c8744b42",
+      "evidence_ids": [
+        "ev_67cadb757a26d2"
+      ]
+    },
+    {
+      "iteration": 6,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "800ff2840af1c481fa1830784a117697fbe552ea38da8998366eafbec76fae2c"
+    },
+    {
+      "iteration": 6,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "47e13e67f0746131c022ef4131a74bf06e90914e34e00945625fac007e0616f8"
+    },
+    {
+      "iteration": 6,
+      "origin": "llm",
+      "status": "rejected",
+      "reason": "duplicate_executable_architecture",
+      "fingerprint": "800ff2840af1c481fa1830784a117697fbe552ea38da8998366eafbec76fae2c"
+    },
+    {
+      "iteration": 6,
+      "origin": "batch_budget",
+      "status": "summary",
+      "requested": 3,
+      "proposed_valid": 1,
+      "unfilled": 2,
+      "llm_calls": 5
+    }
+  ],
+  "evidence_composition_enabled": false,
+  "research_influence": {
+    "evidence_records_extracted": 12,
+    "evidence_records_eligible": 4,
+    "accepted_translation_attempts": 6,
+    "rejected_translation_attempts": 66,
+    "accepted_compiler_translations": 0,
+    "rejected_llm_proposals": 66,
+    "generation_calls": 26,
+    "literature_derived_candidates_executed": 0,
+    "literature_cited_candidates_executed": 6,
+    "generated_candidates_evaluated": 6,
+    "successful_generated_candidates": 6,
+    "configured_candidate_budget": 6,
+    "attempted_candidate_slots": 18,
+    "unfilled_candidate_slots": 0,
+    "not_run_due_to_early_stop": 0,
+    "best_is_literature_derived": true,
+    "best_is_composition": true,
+    "best_is_evidence_compiled": false,
+    "best_is_llm_evidence_grounded": true,
+    "llm_grounded_candidates_executed": 6
+  },
+  "history": [
+    {
+      "candidate_id": "baseline",
+      "iteration": 0,
+      "model": "random_forest",
+      "evidence_ids": [],
+      "origin": null,
+      "evidence_mapping": {},
+      "composition": null,
+      "cv_mean": 0.695,
+      "cv_std": 0.029,
+      "train_cv_gap": 0.1791,
+      "cv_wall_time_seconds": 3.6334,
+      "error": null
+    },
+    {
+      "candidate_id": "iter01_c1",
+      "iteration": 1,
+      "model": "composition:voting",
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ],
+      "origin": "llm_evidence_design",
+      "evidence_mapping": {
+        "method": "llm_evidence_grounded",
+        "evidence_ids": [
+          "ev_5294c787c1645c"
+        ],
+        "trace": [
+          {
+            "evidence_id": "ev_5294c787c1645c",
+            "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+            "source_excerpt": "Majority Voting Classifier",
+            "supported_operations": [
+              "voting"
+            ],
+            "matched_executable_operations": [
+              "voting"
+            ],
+            "extraction_warnings": [],
+            "claim_scope": "operations_only_not_hyperparameters_or_whole_architecture"
+          }
+        ],
+        "implementation_choices": "Uncited architecture details and hyperparameters are LLM-proposed hypotheses, not proven settings from the cited papers"
+      },
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "branch_1",
+            "transforms": [
+              {
+                "op": "standard_scaler",
+                "params": {}
+              }
+            ],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 1.0,
+                "max_iter": 1500
+              }
+            }
+          },
+          {
+            "name": "branch_2",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 150,
+                "max_depth": 8,
+                "min_samples_leaf": 2
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "cv_mean": 0.7108,
+      "cv_std": 0.02,
+      "train_cv_gap": 0.0369,
+      "cv_wall_time_seconds": 6.2286,
+      "error": null
+    },
+    {
+      "candidate_id": "iter01_c2",
+      "iteration": 1,
+      "model": "composition:pipeline",
+      "evidence_ids": [
+        "ev_67cadb757a26d2"
+      ],
+      "origin": "llm_evidence_design",
+      "evidence_mapping": {
+        "method": "llm_evidence_grounded",
+        "evidence_ids": [
+          "ev_67cadb757a26d2"
+        ],
+        "trace": [
+          {
+            "evidence_id": "ev_67cadb757a26d2",
+            "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+            "source_excerpt": "Recursive Feature Elimination (RFE)",
+            "supported_operations": [
+              "rfe"
+            ],
+            "matched_executable_operations": [
+              "rfe"
+            ],
+            "extraction_warnings": [],
+            "claim_scope": "operations_only_not_hyperparameters_or_whole_architecture"
+          }
+        ],
+        "implementation_choices": "Uncited architecture details and hyperparameters are LLM-proposed hypotheses, not proven settings from the cited papers"
+      },
+      "composition": {
+        "kind": "pipeline",
+        "transforms": [
+          {
+            "op": "standard_scaler",
+            "params": {}
+          },
+          {
+            "op": "rfe",
+            "params": {
+              "estimator": "logistic_regression",
+              "n_features_to_select": 10
+            }
+          }
+        ],
+        "branches": [],
+        "model": {
+          "name": "gradient_boosting",
+          "hyperparameters": {
+            "n_estimators": 150,
+            "max_depth": 5,
+            "learning_rate": 0.1
+          }
+        },
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "cv_mean": 0.6934,
+      "cv_std": 0.026,
+      "train_cv_gap": 0.0282,
+      "cv_wall_time_seconds": 14.793,
+      "error": null
+    },
+    {
+      "candidate_id": "iter01_c3",
+      "iteration": 1,
+      "model": "composition:pipeline",
+      "evidence_ids": [
+        "ev_892146c13f0a85"
+      ],
+      "origin": "llm_evidence_design",
+      "evidence_mapping": {
+        "method": "llm_evidence_grounded",
+        "evidence_ids": [
+          "ev_892146c13f0a85"
+        ],
+        "trace": [
+          {
+            "evidence_id": "ev_892146c13f0a85",
+            "paper_title": "Weight Predictor Network with Feature Selection for Small Sample Tabular Biomedical Data",
+            "source_excerpt": "Furthermore, we investigate the proposed feature selection mechanism and show that it improves performance while providing useful insights into the learning task.",
+            "supported_operations": [
+              "select_k_best"
+            ],
+            "matched_executable_operations": [
+              "select_k_best"
+            ],
+            "extraction_warnings": [],
+            "claim_scope": "operations_only_not_hyperparameters_or_whole_architecture"
+          }
+        ],
+        "implementation_choices": "Uncited architecture details and hyperparameters are LLM-proposed hypotheses, not proven settings from the cited papers"
+      },
+      "composition": {
+        "kind": "pipeline",
+        "transforms": [
+          {
+            "op": "standard_scaler",
+            "params": {}
+          },
+          {
+            "op": "select_k_best",
+            "params": {
+              "k": 10
+            }
+          }
+        ],
+        "branches": [],
+        "model": {
+          "name": "svc",
+          "hyperparameters": {
+            "kernel": "rbf",
+            "C": 1.0,
+            "probability": false
+          }
+        },
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "cv_mean": 0.6717,
+      "cv_std": 0.0381,
+      "train_cv_gap": 0.0217,
+      "cv_wall_time_seconds": 2.0133,
+      "error": null
+    },
+    {
+      "candidate_id": "iter02_c1",
+      "iteration": 2,
+      "model": "composition:pipeline",
+      "evidence_ids": [
+        "ev_892146c13f0a85"
+      ],
+      "origin": "llm_evidence_design",
+      "evidence_mapping": {
+        "method": "llm_evidence_grounded",
+        "evidence_ids": [
+          "ev_892146c13f0a85"
+        ],
+        "trace": [
+          {
+            "evidence_id": "ev_892146c13f0a85",
+            "paper_title": "Weight Predictor Network with Feature Selection for Small Sample Tabular Biomedical Data",
+            "source_excerpt": "Furthermore, we investigate the proposed feature selection mechanism and show that it improves performance while providing useful insights into the learning task.",
+            "supported_operations": [
+              "select_k_best"
+            ],
+            "matched_executable_operations": [
+              "select_k_best"
+            ],
+            "extraction_warnings": [],
+            "claim_scope": "operations_only_not_hyperparameters_or_whole_architecture"
+          }
+        ],
+        "implementation_choices": "Uncited architecture details and hyperparameters are LLM-proposed hypotheses, not proven settings from the cited papers"
+      },
+      "composition": {
+        "kind": "pipeline",
+        "transforms": [
+          {
+            "op": "standard_scaler",
+            "params": {}
+          },
+          {
+            "op": "select_k_best",
+            "params": {
+              "k": 10
+            }
+          }
+        ],
+        "branches": [],
+        "model": {
+          "name": "extra_trees",
+          "hyperparameters": {
+            "n_estimators": 150,
+            "max_depth": 8,
+            "min_samples_leaf": 2
+          }
+        },
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "cv_mean": 0.6716,
+      "cv_std": 0.0412,
+      "train_cv_gap": 0.0184,
+      "cv_wall_time_seconds": 4.0126,
+      "error": null
+    },
+    {
+      "candidate_id": "iter02_c2",
+      "iteration": 2,
+      "model": "composition:pipeline",
+      "evidence_ids": [
+        "ev_892146c13f0a85"
+      ],
+      "origin": "llm_evidence_design",
+      "evidence_mapping": {
+        "method": "llm_evidence_grounded",
+        "evidence_ids": [
+          "ev_892146c13f0a85"
+        ],
+        "trace": [
+          {
+            "evidence_id": "ev_892146c13f0a85",
+            "paper_title": "Weight Predictor Network with Feature Selection for Small Sample Tabular Biomedical Data",
+            "source_excerpt": "Furthermore, we investigate the proposed feature selection mechanism and show that it improves performance while providing useful insights into the learning task.",
+            "supported_operations": [
+              "select_k_best"
+            ],
+            "matched_executable_operations": [
+              "select_k_best"
+            ],
+            "extraction_warnings": [],
+            "claim_scope": "operations_only_not_hyperparameters_or_whole_architecture"
+          }
+        ],
+        "implementation_choices": "Uncited architecture details and hyperparameters are LLM-proposed hypotheses, not proven settings from the cited papers"
+      },
+      "composition": {
+        "kind": "pipeline",
+        "transforms": [
+          {
+            "op": "standard_scaler",
+            "params": {}
+          },
+          {
+            "op": "select_k_best",
+            "params": {
+              "k": 10
+            }
+          }
+        ],
+        "branches": [],
+        "model": {
+          "name": "gradient_boosting",
+          "hyperparameters": {
+            "n_estimators": 150,
+            "max_depth": 5,
+            "learning_rate": 0.1
+          }
+        },
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "cv_mean": 0.6836,
+      "cv_std": 0.0353,
+      "train_cv_gap": 0.0197,
+      "cv_wall_time_seconds": 5.6584,
+      "error": null
+    },
+    {
+      "candidate_id": "iter06_c1",
+      "iteration": 6,
+      "model": "composition:pipeline",
+      "evidence_ids": [
+        "ev_67cadb757a26d2"
+      ],
+      "origin": "llm_evidence_design",
+      "evidence_mapping": {
+        "method": "llm_evidence_grounded",
+        "evidence_ids": [
+          "ev_67cadb757a26d2"
+        ],
+        "trace": [
+          {
+            "evidence_id": "ev_67cadb757a26d2",
+            "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+            "source_excerpt": "Recursive Feature Elimination (RFE)",
+            "supported_operations": [
+              "rfe"
+            ],
+            "matched_executable_operations": [
+              "rfe"
+            ],
+            "extraction_warnings": [],
+            "claim_scope": "operations_only_not_hyperparameters_or_whole_architecture"
+          }
+        ],
+        "implementation_choices": "Uncited architecture details and hyperparameters are LLM-proposed hypotheses, not proven settings from the cited papers"
+      },
+      "composition": {
+        "kind": "pipeline",
+        "transforms": [
+          {
+            "op": "standard_scaler",
+            "params": {}
+          },
+          {
+            "op": "rfe",
+            "params": {
+              "estimator": "logistic_regression",
+              "n_features_to_select": 10
+            }
+          }
+        ],
+        "branches": [],
+        "model": {
+          "name": "random_forest",
+          "hyperparameters": {
+            "n_estimators": 150,
+            "max_depth": 8,
+            "min_samples_leaf": 2
+          }
+        },
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "cv_mean": 0.6935,
+      "cv_std": 0.0252,
+      "train_cv_gap": 0.0221,
+      "cv_wall_time_seconds": 17.4095,
+      "error": null
+    }
+  ],
+  "pdf_report": "experiments\\runs\\20261119_221133_657308\\level2_experiment_report.pdf",
+  "dataset_id": "data-cbis-ddsm",
+  "experiment_id": "D",
+  "report_paths": {
+    "original": "experiments\\runs\\20261119_221133_657308\\final_report.json",
+    "named_run_copy": "experiments\\runs\\20261119_221133_657308\\final_report_data-cbis-ddsm_D.json",
+    "archived_copy": "experiments\\reports\\final_report_data-cbis-ddsm_D_20261119_221133_657308.json",
+    "latest_copy": "experiments\\reports\\final_report_data-cbis-ddsm_D.json"
+  }
+}

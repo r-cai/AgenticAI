@@ -1,0 +1,20 @@
+{
+  "title": "Fine-Grained Emotion Detection on GoEmotions: Experimental Comparison of Classical Machine Learning, BiLSTM, and Transformer Models",
+  "abstract": "Fine-grained emotion recognition is a challenging multi-label NLP task due to label overlap and class imbalance. In this work, we benchmark three modeling families on the GoEmotions dataset: a TF-IDF-based logistic regression system trained with binary relevance, a BiLSTM with attention, and a BERT model fine-tuned for multi-label classification. Experiments follow the official train/validation/test split, and imbalance is mitigated using inverse-frequency class weights. Across several metrics, namely Micro-F1, Macro-F1, Hamming Loss, and Subset Accuracy, we observe that logistic regression attains the highest Micro-F1 of 0.51, while BERT achieves the best overall balance surpassing the official paper's reported results, reaching Macro-F1 0.49, Hamming Loss 0.036, and Subset Accuracy 0.36. This suggests that frequent emotions often rely on surface lexical cues, whereas contextual representations improve performance on rarer emotions and more ambiguous examples.",
+  "year": "2026",
+  "doi": "",
+  "url": "http://arxiv.org/abs/2601.18162v1",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/2601.18162v1",
+  "paper_key": "p_dec55437055a24a0a69d87a3",
+  "aliases": [
+    "arxiv:2601.18162",
+    "title:finegrainedemotiondetectionongoemotionsexperimentalcomparisonofclassicalmachinelearningbilstmandtransformermodels"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_1977335c05dfe5ea.json"
+  ],
+  "evidence": []
+}

@@ -1,0 +1,62 @@
+[config] Loaded C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\controlled\cbis_repeated_v1\configs\52\B_rag_context_only.yaml
+Run 20261119_215802_522224
+[output] reports will be saved to C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\runs\20261119_215802_522224
+[data] optional excluded columns not present; skipped: ['id']
+Baseline (random_forest): CV 0.6950
+[rag] reusing frozen research/evidence corpus from C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\controlled\cbis_repeated_v1\frozen_corpus
+Research context: 25 item(s)
+Grounded method records: 12; eligible/diverse: 4
+
+=== Iteration 1 ===
+[generator] attempt=1 prompt_tokens=7935 output_tokens=1137
+[generator] attempt=1 prompt_tokens=8047 output_tokens=1003
+[generator] attempt=1 prompt_tokens=8112 output_tokens=987
+[generator] attempt=1 prompt_tokens=8112 output_tokens=1115
+[generator] attempt=1 prompt_tokens=8112 output_tokens=1277
+  iter01_c1 hist_gradient_boosting: CV 0.7151 (+/- 0.0251, gap 0.0303)
+  iter01_c2 gradient_boosting: CV 0.7141 (+/- 0.0265, gap 0.0561)
+
+=== Iteration 2 ===
+[generator] attempt=1 prompt_tokens=8396 output_tokens=1083
+[generator] attempt=1 prompt_tokens=8509 output_tokens=1056
+[generator] attempt=1 prompt_tokens=8568 output_tokens=1050
+[generator] attempt=1 prompt_tokens=8568 output_tokens=1509
+[generator] attempt=1 prompt_tokens=8568 output_tokens=1156
+  iter02_c1 composition:voting: CV 0.6972 (+/- 0.0237, gap 0.0583)
+  iter02_c2 logistic_regression: CV 0.6958 (+/- 0.0258, gap 0.0339)
+
+=== Iteration 3 ===
+[generator] attempt=1 prompt_tokens=8953 output_tokens=1015
+[generator] rejected candidate[1]: ValidationError: 1 validation error for Candidate
+composition
+  Value error, pipeline needs model, no branches/final_estimator [type=value_error, input_value={'kind': 'pipeline', 'tra...False}}], 'model': None}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/value_error
+[generator] attempt=2 prompt_tokens=9200 output_tokens=871
+[generator] attempt=1 prompt_tokens=9067 output_tokens=1372
+[generator] rejected candidate[0]: ValidationError: 1 validation error for Candidate
+composition
+  Value error, pipeline needs model, no branches/final_estimator [type=value_error, input_value={'kind': 'pipeline', 'tra...False}}], 'model': None}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/value_error
+[generator] attempt=2 prompt_tokens=9249 output_tokens=1047
+[generator] attempt=1 prompt_tokens=9132 output_tokens=1277
+[generator] attempt=1 prompt_tokens=9132 output_tokens=1222
+[generator] attempt=1 prompt_tokens=9132 output_tokens=1239
+  iter03_c1 composition:voting: CV 0.6962 (+/- 0.0253, gap 0.0799)
+  iter03_c2 composition:voting: CV 0.7018 (+/- 0.0217, gap 0.0624)
+[controlled] completed 6 successfully evaluated candidates
+
+Selected iter01_c1 (hist_gradient_boosting), CV 0.7151
+PDF report: experiments\runs\20261119_215802_522224\level2_experiment_report.pdf
+[report] Named latest: C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\reports\final_report_data-cbis-ddsm_B.json
+[report] Run archive:  C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\reports\final_report_data-cbis-ddsm_B_20261119_215802_522224.json
+
+============================================================
+Best: iter01_c1 (hist_gradient_boosting)
+  CV f1_macro: 0.7151 +/- 0.0251
+  Baseline CV:    0.6950
+  Holdout:        0.7276 (CV-holdout gap -0.0125)
+Stopped: target_evaluated_candidates_reached after 3 iteration(s)
+Full report: experiments/runs/20261119_215802_522224/final_report.json
+Named report: experiments\reports\final_report_data-cbis-ddsm_B.json
+Archived copy: experiments\reports\final_report_data-cbis-ddsm_B_20261119_215802_522224.json
+PDF report:  experiments\runs\20261119_215802_522224\level2_experiment_report.pdf

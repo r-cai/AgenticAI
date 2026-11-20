@@ -1,0 +1,20 @@
+{
+  "title": "TabOmics: A Small, Open Tabular Foundation Model for Wide Omics Data",
+  "abstract": "Omics studies often produce tables with thousands to tens of thousands of molecular features and few samples. Tabular foundation models use diverse strategies to predict labels for such tables, with some relying on in-context learning, while approaches to wide tables may involve subsampling, grouping, or compressing features. We present TabOmics, a small, open family of tabular foundation models with 7.3M parameters, pretrained exclusively on synthetic tables. TabOmics processes all features retained after preprocessing jointly and derives predictions, attention-derived feature-importance scores, and test sample embeddings from the same forward pass. On 46 classification tasks from three benchmarks of high-dimensional, low-sample-size tables, TabOmics v2.5 with eight ensemble members achieves the highest mean area under the receiver operating characteristic curve (AUROC) among the evaluated models (0.943), outperforming TabPFN-3.5 with eight members on 32 tasks despite having about 30 times fewer parameters. With a single member, TabOmics v2.5 reaches a mean AUROC of 0.941, versus 0.942 for TabPFN-3.5 with eight members, with no significant paired difference under the reported task-level analysis. On synthetic tables, its feature-importance scores achieve feature recovery similar to that of TabPFN-Wide, and its predictions remain above chance at 30,000 features. On breast cancer tasks, the top ranked genes include PAM50 genes, which define the subtype labels, indicating concordance with the label definition rather than independent biological validation. The code, model weights, training recipes, and experimental artifacts are publicly available.",
+  "year": "2026",
+  "doi": "",
+  "url": "http://arxiv.org/abs/2611.15329v1",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/2611.15329v1",
+  "paper_key": "p_e4b9a0454930a21e4a7366be",
+  "aliases": [
+    "arxiv:2611.15329",
+    "title:tabomicsasmallopentabularfoundationmodelforwideomicsdata"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_2287dcd19a001ea2.json"
+  ],
+  "evidence": []
+}

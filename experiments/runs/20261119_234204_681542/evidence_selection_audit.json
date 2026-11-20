@@ -1,0 +1,176 @@
+[
+  {
+    "evidence_id": "ev_2d570e2b74da47",
+    "paper_title": "Weight Predictor Network with Feature Selection for Small Sample Tabular Biomedical Data",
+    "status": "rejected",
+    "reason": "no_supported_composition_operation",
+    "supported_operations": [],
+    "extraction_warnings": []
+  },
+  {
+    "evidence_id": "ev_42f418e7dab419",
+    "paper_title": "Weight Predictor Network with Feature Selection for Small Sample Tabular Biomedical Data",
+    "status": "rejected",
+    "reason": "no_supported_composition_operation",
+    "supported_operations": [],
+    "extraction_warnings": []
+  },
+  {
+    "evidence_id": "ev_90adf32ea28f24",
+    "paper_title": "Predicting breast cancer with AI for individual risk-adjusted MRI screening and early detection",
+    "status": "rejected",
+    "reason": "image_modality_not_applicable_to_tabular_modeling"
+  },
+  {
+    "evidence_id": "ev_f530a0b74e9320",
+    "paper_title": "Predicting breast cancer with AI for individual risk-adjusted MRI screening and early detection",
+    "status": "rejected",
+    "reason": "image_modality_not_applicable_to_tabular_modeling"
+  },
+  {
+    "evidence_id": "ev_0c8c98024d39cf",
+    "paper_title": "Multimodal Deep Learning for Phyllodes Tumor Classification from Ultrasound and Clinical Data",
+    "status": "rejected",
+    "reason": "image_modality_not_applicable_to_tabular_modeling"
+  },
+  {
+    "evidence_id": "ev_e2fcd7f995683e",
+    "paper_title": "Multimodal Deep Learning for Phyllodes Tumor Classification from Ultrasound and Clinical Data",
+    "status": "rejected",
+    "reason": "image_modality_not_applicable_to_tabular_modeling"
+  },
+  {
+    "evidence_id": "ev_e934d3147790ed",
+    "paper_title": "Multimodal Deep Learning for Phyllodes Tumor Classification from Ultrasound and Clinical Data",
+    "status": "rejected",
+    "reason": "image_modality_not_applicable_to_tabular_modeling"
+  },
+  {
+    "evidence_id": "ev_540bb5b380aef1",
+    "paper_title": "Developing a Machine Learning-Based Clinical Decision Support Tool for Uterine Tumor Imaging",
+    "status": "rejected",
+    "reason": "image_modality_not_applicable_to_tabular_modeling"
+  },
+  {
+    "evidence_id": "ev_071d9e0c79d051",
+    "paper_title": "Developing a Machine Learning-Based Clinical Decision Support Tool for Uterine Tumor Imaging",
+    "status": "rejected",
+    "reason": "no_supported_composition_operation",
+    "supported_operations": [],
+    "extraction_warnings": []
+  },
+  {
+    "evidence_id": "ev_c4efc324626589",
+    "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+    "status": "rejected",
+    "reason": "no_supported_composition_operation",
+    "supported_operations": [
+      "logistic_regression"
+    ],
+    "extraction_warnings": []
+  },
+  {
+    "evidence_id": "ev_19c0392282e5ac",
+    "paper_title": "Elastic Net based Feature Ranking and Selection",
+    "status": "rejected",
+    "reason": "no_supported_composition_operation",
+    "supported_operations": [
+      "svc"
+    ],
+    "extraction_warnings": []
+  },
+  {
+    "evidence_id": "ev_5673d7dcaa4c89",
+    "paper_title": "Improving Omics-Based Classification: The Role of Feature Selection and Synthetic Data Generation",
+    "status": "rejected",
+    "reason": "no_supported_composition_operation",
+    "supported_operations": [],
+    "extraction_warnings": [
+      "suggested_operations_unsupported_by_excerpt"
+    ]
+  },
+  {
+    "evidence_id": "ev_05886b4388e244",
+    "paper_title": "Feature Selection from High-Dimensional Data with Very Low Sample Size: A Cautionary Tale",
+    "status": "rejected",
+    "reason": "cautionary_not_positive_method_support"
+  },
+  {
+    "evidence_id": "ev_00c216d7c25069",
+    "paper_title": "Feature Selection from High-Dimensional Data with Very Low Sample Size: A Cautionary Tale",
+    "status": "rejected",
+    "reason": "cautionary_not_positive_method_support"
+  },
+  {
+    "evidence_id": "ev_cd3a55e85929ec",
+    "paper_title": "Feature Selection from High-Dimensional Data with Very Low Sample Size: A Cautionary Tale",
+    "status": "rejected",
+    "reason": "cautionary_not_positive_method_support"
+  },
+  {
+    "evidence_id": "ev_5294c787c1645c",
+    "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+    "status": "selected",
+    "reason": null,
+    "supported_operations": [
+      "voting"
+    ],
+    "extraction_warnings": [],
+    "method_group": "voting"
+  },
+  {
+    "evidence_id": "ev_67cadb757a26d2",
+    "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+    "status": "selected",
+    "reason": null,
+    "supported_operations": [
+      "rfe"
+    ],
+    "extraction_warnings": [],
+    "method_group": "rfe"
+  },
+  {
+    "evidence_id": "ev_892146c13f0a85",
+    "paper_title": "Weight Predictor Network with Feature Selection for Small Sample Tabular Biomedical Data",
+    "status": "selected",
+    "reason": null,
+    "supported_operations": [
+      "select_k_best"
+    ],
+    "extraction_warnings": [],
+    "method_group": "select_k_best"
+  },
+  {
+    "evidence_id": "ev_24905bb7d707bc",
+    "paper_title": "Developing a Machine Learning-Based Clinical Decision Support Tool for Uterine Tumor Imaging",
+    "status": "selected",
+    "reason": null,
+    "supported_operations": [
+      "select_k_best"
+    ],
+    "extraction_warnings": [],
+    "method_group": "select_k_best"
+  },
+  {
+    "evidence_id": "ev_9a02e9ab301eac",
+    "paper_title": "Review on Feature Selection Techniques and the Impact of SVM for Cancer Classification using Gene Expression Profile",
+    "status": "rejected",
+    "reason": "method_quota_or_global_limit",
+    "supported_operations": [
+      "select_k_best"
+    ],
+    "extraction_warnings": [],
+    "method_group": "select_k_best"
+  },
+  {
+    "evidence_id": "ev_3451fb0a22544b",
+    "paper_title": "Elastic Net based Feature Ranking and Selection",
+    "status": "rejected",
+    "reason": "method_quota_or_global_limit",
+    "supported_operations": [
+      "select_k_best"
+    ],
+    "extraction_warnings": [],
+    "method_group": "select_k_best"
+  }
+]

@@ -1,0 +1,25 @@
+[
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "evidence-linked candidate must be an actual Level-2 composition",
+    "fingerprint": "dbf2c0620793ecf082631140916b00fba280a33bb1ed7defe7d83843f40640cf"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "generator_schema_validation",
+    "batch_round": 2,
+    "attempt": 1,
+    "candidate_index": 0,
+    "error": "ValueError: Candidate references non-retrieved evidence: ['http://arxiv.org/abs/2211.15616v1']"
+  },
+  {
+    "origin": "batch_budget",
+    "status": "summary",
+    "requested": 3,
+    "proposed_valid": 3,
+    "unfilled": 0,
+    "llm_calls": 2
+  }
+]

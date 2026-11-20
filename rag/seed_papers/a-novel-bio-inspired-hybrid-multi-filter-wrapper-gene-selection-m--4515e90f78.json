@@ -1,0 +1,20 @@
+{
+  "title": "A Novel Bio-Inspired Hybrid Multi-Filter Wrapper Gene Selection Method with Ensemble Classifier for Microarray Data",
+  "abstract": "Microarray technology is known as one of the most important tools for collecting DNA expression data. This technology allows researchers to investigate and examine types of diseases and their origins. However, microarray data are often associated with challenges such as small sample size, a significant number of genes, imbalanced data, etc. that make classification models inefficient. Thus, a new hybrid solution based on multi-filter and adaptive chaotic multi-objective forest optimization algorithm (AC-MOFOA) is presented to solve the gene selection problem and construct the Ensemble Classifier. In the proposed solution, to reduce the dataset's dimensions, a multi-filter model uses a combination of five filter methods to remove redundant and irrelevant genes. Then, an AC-MOFOA based on the concepts of non-dominated sorting, crowding distance, chaos theory, and adaptive operators is presented. AC-MOFOA as a wrapper method aimed at reducing dataset dimensions, optimizing KELM, and increasing the accuracy of the classification, simultaneously. Next, in this method, an ensemble classifier model is presented using AC-MOFOA results to classify microarray data. The performance of the proposed algorithm was evaluated on nine public microarray datasets, and its results were compared in terms of the number of selected genes, classification efficiency, execution time, time complexity, and hypervolume indicator criterion with five hybrid multi-objective methods. According to the results, the proposed hybrid method could increase the accuracy of the KELM in most datasets by reducing the dataset's dimensions and achieve similar or superior performance compared to other multi-objective methods. Furthermore, the proposed Ensemble Classifier model could provide better classification accuracy and generalizability in microarray data compared to conventional ensemble methods.",
+  "year": "2021",
+  "doi": "",
+  "url": "http://arxiv.org/abs/2101.00819v1",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/2101.00819v1",
+  "paper_key": "p_4515e90f78de58fae8b96c7c",
+  "aliases": [
+    "arxiv:2101.00819",
+    "title:anovelbioinspiredhybridmultifilterwrappergeneselectionmethodwithensembleclassifierformicroarraydata"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_27a0cc576890c91f.json"
+  ],
+  "evidence": []
+}

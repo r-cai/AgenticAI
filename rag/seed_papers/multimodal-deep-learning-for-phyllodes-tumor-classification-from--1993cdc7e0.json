@@ -1,0 +1,91 @@
+{
+  "title": "Multimodal Deep Learning for Phyllodes Tumor Classification from Ultrasound and Clinical Data",
+  "abstract": "Phyllodes tumors (PTs) are rare fibroepithelial breast lesions that are difficult to classify preoperatively due to their radiological similarity to benign fibroadenomas. This often leads to unnecessary surgical excisions. To address this, we propose a multimodal deep learning framework that integrates breast ultrasound (BUS) images with structured clinical data to improve diagnostic accuracy. We developed a dual-branch neural network that extracts and fuses features from ultrasound images and patient metadata from 81 subjects with confirmed PTs. Class-aware sampling and subject-stratified 5-fold cross-validation were applied to prevent class imbalance and data leakage. The results show that our proposed multimodal method outperforms unimodal baselines in classifying benign versus borderline/malignant PTs. Among six image encoders, ConvNeXt and ResNet18 achieved the best performance in the multimodal setting, with AUC-ROC scores of 0.9427 and 0.9349, and F1-scores of 0.6720 and 0.7294, respectively. This study demonstrates the potential of multimodal AI to serve as a non-invasive diagnostic tool, reducing unnecessary biopsies and improving clinical decision-making in breast tumor management.",
+  "year": "2025",
+  "doi": "",
+  "url": "http://arxiv.org/abs/2509.00213v2",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/2509.00213v2",
+  "paper_key": "p_1993cdc7e0d8b11d097a33ec",
+  "aliases": [
+    "arxiv:2509.00213",
+    "title:multimodaldeeplearningforphyllodestumorclassificationfromultrasoundandclinicaldata"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_b0beb0c1b6bad18a.json",
+    "/mnt/data/final_report.json"
+  ],
+  "evidence": [
+    {
+      "evidence_id": "ev_0c8c98024d39cf",
+      "record": {
+        "evidence_id": "ev_0c8c98024d39cf",
+        "paper_title": "Multimodal Deep Learning for Phyllodes Tumor Classification from Ultrasound and Clinical Data",
+        "paper_url": "http://arxiv.org/abs/2509.00213v2",
+        "paper_doi": null,
+        "paper_year": "2025",
+        "method": "multimodal deep learning framework",
+        "source_excerpt": "We developed a dual-branch neural network that extracts and fuses features from ultrasound images and patient metadata from 81 subjects with confirmed PTs.",
+        "modeling_hypothesis": "The dual-branch neural network integrates ultrasound images and clinical data to improve PT classification accuracy.",
+        "suggested_operations": [],
+        "limitations": "",
+        "extraction_method": "llm_verified_excerpt",
+        "source_grounded": true
+      },
+      "verified": true,
+      "verification_reason": "excerpt_matches_stored_abstract",
+      "first_seen": "2026-11-20T00:32:32+00:00",
+      "provenance": [
+        "/mnt/data/final_report.json"
+      ]
+    },
+    {
+      "evidence_id": "ev_e2fcd7f995683e",
+      "record": {
+        "evidence_id": "ev_e2fcd7f995683e",
+        "paper_title": "Multimodal Deep Learning for Phyllodes Tumor Classification from Ultrasound and Clinical Data",
+        "paper_url": "http://arxiv.org/abs/2509.00213v2",
+        "paper_doi": null,
+        "paper_year": "2025",
+        "method": "class-aware sampling and subject-stratified 5-fold cross-validation",
+        "source_excerpt": "Class-aware sampling and subject-stratified 5-fold cross-validation were applied to prevent class imbalance and data leakage.",
+        "modeling_hypothesis": "Class-aware sampling and subject-stratified 5-fold cross-validation improve model robustness by addressing class imbalance and data leakage.",
+        "suggested_operations": [],
+        "limitations": "",
+        "extraction_method": "llm_verified_excerpt",
+        "source_grounded": true
+      },
+      "verified": true,
+      "verification_reason": "excerpt_matches_stored_abstract",
+      "first_seen": "2026-11-20T00:32:32+00:00",
+      "provenance": [
+        "/mnt/data/final_report.json"
+      ]
+    },
+    {
+      "evidence_id": "ev_e934d3147790ed",
+      "record": {
+        "evidence_id": "ev_e934d3147790ed",
+        "paper_title": "Multimodal Deep Learning for Phyllodes Tumor Classification from Ultrasound and Clinical Data",
+        "paper_url": "http://arxiv.org/abs/2509.00213v2",
+        "paper_doi": null,
+        "paper_year": "2025",
+        "method": "ConvNeXt and ResNet18 as image encoders",
+        "source_excerpt": "Among six image encoders, ConvNeXt and ResNet18 achieved the best performance in the multimodal setting, with AUC-ROC scores of 0.9427 and 0.9349, and F1-scores of 0.6720 and 0.7294, respectively.",
+        "modeling_hypothesis": "ConvNeXt and ResNet18 are optimal image encoders for multimodal PT classification, achieving high AUC-ROC and F1-scores.",
+        "suggested_operations": [],
+        "limitations": "",
+        "extraction_method": "llm_verified_excerpt",
+        "source_grounded": true
+      },
+      "verified": true,
+      "verification_reason": "excerpt_matches_stored_abstract",
+      "first_seen": "2026-11-20T00:32:32+00:00",
+      "provenance": [
+        "/mnt/data/final_report.json"
+      ]
+    }
+  ]
+}

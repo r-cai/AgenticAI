@@ -1,0 +1,196 @@
+[
+  {
+    "candidate_id": "iter01_c1",
+    "iteration": 1,
+    "config": {
+      "rationale": "Test stronger regularization in logistic regression to mitigate overfitting on the slightly imbalanced dataset (62.6% benign), combined with standard scaling which is often optimal for linear models.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": {
+        "name": "logistic_regression",
+        "hyperparameters": {
+          "C": 0.5,
+          "solver": "lbfgs",
+          "max_iter": 1000,
+          "class_weight": "balanced"
+        }
+      },
+      "composition": null,
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "logistic_regression",
+    "mean_cv_score": 0.9679,
+    "std_cv_score": 0.0164,
+    "fold_scores": [
+      0.9768,
+      0.965,
+      0.965,
+      0.9173,
+      0.9883,
+      0.9641,
+      0.9654,
+      0.9641,
+      0.9768,
+      0.9765,
+      0.9765,
+      0.9768,
+      0.9646,
+      0.9882,
+      0.953
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.0198,
+    "cv_wall_time_seconds": 0.5724,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0119,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter01_c2",
+    "iteration": 1,
+    "config": {
+      "rationale": "Refine the Gradient Boosting configuration from the supported list by reducing learning rate and increasing depth to balance bias-variance tradeoff, potentially outperforming the baseline RF.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": {
+        "name": "gradient_boosting",
+        "hyperparameters": {
+          "n_estimators": 150,
+          "learning_rate": 0.05,
+          "max_depth": 4,
+          "subsample": 0.8,
+          "min_samples_split": 2
+        }
+      },
+      "composition": null,
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "gradient_boosting",
+    "mean_cv_score": 0.9456,
+    "std_cv_score": 0.0277,
+    "fold_scores": [
+      0.965,
+      0.9162,
+      0.9646,
+      0.9162,
+      0.9525,
+      0.9296,
+      0.9883,
+      0.9036,
+      0.9768,
+      0.953,
+      0.9536,
+      0.9762,
+      0.895,
+      0.9641,
+      0.9296
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.6612,
+    "cv_wall_time_seconds": 10.1455,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0544,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter01_c3",
+    "iteration": 1,
+    "config": {
+      "rationale": "Construct a Stacking ensemble to leverage the low bias of Logistic Regression and the high variance reduction of Extra Trees. This tests if combining distinct model families improves robustness over single estimators.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "stacking",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "et",
+            "transforms": [],
+            "model": {
+              "name": "extra_trees",
+              "hyperparameters": {
+                "n_estimators": 200,
+                "max_depth": 10,
+                "min_samples_split": 2,
+                "min_samples_leaf": 1,
+                "max_features": "sqrt"
+              }
+            }
+          },
+          {
+            "name": "lr",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 1.0,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "composition:stacking",
+    "mean_cv_score": 0.9717,
+    "std_cv_score": 0.0193,
+    "fold_scores": [
+      0.965,
+      0.953,
+      0.9882,
+      0.9287,
+      1.0,
+      0.9641,
+      0.9768,
+      0.9518,
+      0.9883,
+      0.9765,
+      0.965,
+      1.0,
+      0.9762,
+      0.9882,
+      0.953
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.7462,
+    "cv_wall_time_seconds": 12.1248,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0193,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  }
+]

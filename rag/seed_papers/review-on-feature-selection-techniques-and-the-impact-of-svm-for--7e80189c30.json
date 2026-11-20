@@ -1,0 +1,57 @@
+{
+  "title": "Review on Feature Selection Techniques and the Impact of SVM for Cancer Classification using Gene Expression Profile",
+  "abstract": "The DNA microarray technology has modernized the approach of biology research in such a way that scientists can now measure the expression levels of thousands of genes simultaneously in a single experiment. Gene expression profiles, which represent the state of a cell at a molecular level, have great potential as a medical diagnosis tool. But compared to the number of genes involved, available training data sets generally have a fairly small sample size for classification. These training data limitations constitute a challenge to certain classification methodologies. Feature selection techniques can be used to extract the marker genes which influence the classification accuracy effectively by eliminating the un wanted noisy and redundant genes This paper presents a review of feature selection techniques that have been employed in micro array data based cancer classification and also the predominant role of SVM for cancer classification.",
+  "year": "2011",
+  "doi": "",
+  "url": "http://arxiv.org/abs/1109.1062v1",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/1109.1062v1",
+  "paper_key": "p_7e80189c3050c607616d0ee4",
+  "aliases": [
+    "arxiv:1109.1062",
+    "title:reviewonfeatureselectiontechniquesandtheimpactofsvmforcancerclassificationusinggeneexpressionprofile"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_e9932aad7326512c.json",
+    "/mnt/data/final_report(2).json",
+    "/mnt/data/final_report(3).json",
+    "/mnt/data/final_report(4).json",
+    "/mnt/data/final_report(5).json",
+    "/mnt/data/final_report_B.json",
+    "/mnt/data/final_report_C.json",
+    "/mnt/data/final_report_D.json"
+  ],
+  "evidence": [
+    {
+      "evidence_id": "ev_9a02e9ab301eac",
+      "record": {
+        "evidence_id": "ev_9a02e9ab301eac",
+        "paper_title": "Review on Feature Selection Techniques and the Impact of SVM for Cancer Classification using Gene Expression Profile",
+        "paper_url": "http://arxiv.org/abs/1109.1062v1",
+        "paper_doi": null,
+        "paper_year": "2011",
+        "method": "svc",
+        "source_excerpt": "This paper presents a review of feature selection techniques that have been employed in micro array data based cancer classification",
+        "modeling_hypothesis": "The predominant role of SVM for cancer classification",
+        "suggested_operations": [],
+        "limitations": "",
+        "extraction_method": "llm_verified_excerpt",
+        "source_grounded": true
+      },
+      "verified": true,
+      "verification_reason": "excerpt_matches_stored_abstract",
+      "first_seen": "2026-11-20T00:32:32+00:00",
+      "provenance": [
+        "/mnt/data/final_report(2).json",
+        "/mnt/data/final_report(3).json",
+        "/mnt/data/final_report(4).json",
+        "/mnt/data/final_report(5).json",
+        "/mnt/data/final_report_B.json",
+        "/mnt/data/final_report_C.json",
+        "/mnt/data/final_report_D.json"
+      ]
+    }
+  ]
+}

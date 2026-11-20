@@ -1,0 +1,63 @@
+[
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "evidence-linked candidate must be an actual Level-2 composition",
+    "fingerprint": "bdf1cb47b6c3dd2781f08f570c5b3a166a23ad0a9bd050a68c61b3a913324c61"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "source_does_not_support_used_operations:ev_892146c13f0a85",
+    "fingerprint": "2c8e60b6de5026c8311c58d5183ff333e024d821d5d3c2386470d3eca1c2de7d"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "pipeline_preflight_failed:ValueError:Unsupported rfe parameters: ['n_iter', 'verbose']",
+    "fingerprint": "d453a13d121c48409ab11f7b23b9c33e492846546a373432a12b0f21f83f8f5f"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "generator_schema_validation",
+    "batch_round": 3,
+    "attempt": 1,
+    "candidate_index": 0,
+    "error": "ValidationError: 1 validation error for Candidate\ncomposition\n  Value error, pipeline needs model, no branches/final_estimator [type=value_error, input_value={'kind': 'pipeline', 'tra...', 'passthrough': False}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/value_error"
+  },
+  {
+    "origin": "llm",
+    "status": "deferred",
+    "reason": "architecture_kind_diversity",
+    "kind": "voting",
+    "fingerprint": "c98578cf70563791cb9496cb40cadffbbee5572e8407141d44e572bf4076cd67"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "evidence-linked candidate must be an actual Level-2 composition",
+    "fingerprint": "4e9b1aadc2d3353b30a2935ad2b6c249d981b477a491dcabb6ac525ef673340a"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "evidence-linked candidate must be an actual Level-2 composition",
+    "fingerprint": "da62cfea54ab2984d0be00bd115c575ce5b70812e9f46c60b1234ed81e340dea"
+  },
+  {
+    "origin": "llm",
+    "status": "accepted",
+    "reason": "diversity_fallback",
+    "fingerprint": "c98578cf70563791cb9496cb40cadffbbee5572e8407141d44e572bf4076cd67",
+    "kind": "voting"
+  },
+  {
+    "origin": "batch_budget",
+    "status": "summary",
+    "requested": 3,
+    "proposed_valid": 3,
+    "unfilled": 0,
+    "llm_calls": 5
+  }
+]

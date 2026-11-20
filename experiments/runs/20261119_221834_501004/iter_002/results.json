@@ -1,0 +1,212 @@
+[
+  {
+    "candidate_id": "iter02_c1",
+    "iteration": 2,
+    "config": {
+      "rationale": "Refine the top-performing voting ensemble by increasing regularization on Logistic Regression and reducing Random Forest depth to lower variance and close the train-CV gap.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr_reg",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 0.3,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "rf_shallow",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 200,
+                "max_depth": 6,
+                "min_samples_split": 2,
+                "min_samples_leaf": 1,
+                "max_features": "sqrt",
+                "class_weight": "balanced"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "composition:voting",
+    "mean_cv_score": 0.7097,
+    "std_cv_score": 0.0169,
+    "fold_scores": [
+      0.7416,
+      0.6968,
+      0.7185,
+      0.6757,
+      0.6992,
+      0.7131,
+      0.7,
+      0.7269,
+      0.7022,
+      0.7076,
+      0.7272,
+      0.7075,
+      0.7028,
+      0.6918,
+      0.7346
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.4587,
+    "cv_wall_time_seconds": 8.4916,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0466,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter02_c2",
+    "iteration": 2,
+    "config": {
+      "rationale": "Test HistGradientBoosting as a single estimator with strong regularization (low learning rate) to see if it generalizes better than the previous ensemble, addressing the high train-CV gap.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "none",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": {
+        "name": "hist_gradient_boosting",
+        "hyperparameters": {
+          "max_iter": 100,
+          "learning_rate": 0.05,
+          "max_depth": 4,
+          "max_leaf_nodes": 15,
+          "l2_regularization": 0.1,
+          "early_stopping": true
+        }
+      },
+      "composition": null,
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "hist_gradient_boosting",
+    "mean_cv_score": 0.7156,
+    "std_cv_score": 0.0163,
+    "fold_scores": [
+      0.7264,
+      0.7087,
+      0.722,
+      0.6965,
+      0.7008,
+      0.7281,
+      0.7168,
+      0.7246,
+      0.6945,
+      0.7561,
+      0.7275,
+      0.6971,
+      0.7093,
+      0.6998,
+      0.726
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.1235,
+    "cv_wall_time_seconds": 2.2964,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0344,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter02_c3",
+    "iteration": 2,
+    "config": {
+      "rationale": "Evaluate if standard scaling improves Gradient Boosting performance compared to median imputation only, using a pipeline to test feature preprocessing impact.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "pipeline",
+        "transforms": [
+          {
+            "op": "standard_scaler",
+            "params": {}
+          }
+        ],
+        "branches": [],
+        "model": {
+          "name": "gradient_boosting",
+          "hyperparameters": {
+            "n_estimators": 150,
+            "learning_rate": 0.08,
+            "max_depth": 3,
+            "subsample": 0.7,
+            "min_samples_split": 2
+          }
+        },
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "composition:pipeline",
+    "mean_cv_score": 0.7098,
+    "std_cv_score": 0.0159,
+    "fold_scores": [
+      0.7292,
+      0.717,
+      0.7059,
+      0.7008,
+      0.7207,
+      0.6972,
+      0.7458,
+      0.7178,
+      0.6916,
+      0.7055,
+      0.7173,
+      0.7173,
+      0.6787,
+      0.6959,
+      0.7066
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.3956,
+    "cv_wall_time_seconds": 6.4115,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0891,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  }
+]

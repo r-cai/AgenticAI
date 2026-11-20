@@ -1,0 +1,22 @@
+[
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "pipeline_preflight_failed:ValueError:Soft voting with SVC requires probability=True",
+    "fingerprint": "0bd88a4a78ee6ef837255476d5c01027531bdef4d38955026504d5e353d19b00"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "source_does_not_support_used_operations:ev_892146c13f0a85",
+    "fingerprint": "1f89c3e102c2ba4fd8f0c4feef8b9be45b3a5b832b3bef750e2ac4df94724bf3"
+  },
+  {
+    "origin": "batch_budget",
+    "status": "summary",
+    "requested": 3,
+    "proposed_valid": 3,
+    "unfilled": 0,
+    "llm_calls": 3
+  }
+]

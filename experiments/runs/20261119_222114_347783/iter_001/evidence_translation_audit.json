@@ -1,0 +1,79 @@
+[
+  {
+    "origin": "llm",
+    "status": "deferred",
+    "reason": "architecture_kind_diversity",
+    "kind": "standalone",
+    "fingerprint": "5f7f672bdc141bab177f32dc339553f566c8dd4348c053831bfd63703e53620c"
+  },
+  {
+    "origin": "llm",
+    "status": "deferred",
+    "reason": "architecture_kind_diversity",
+    "kind": "standalone",
+    "fingerprint": "1499cd1f3802b5f10c2da243077ab31a036572d4c3631edd8b713e466261ca41"
+  },
+  {
+    "origin": "llm",
+    "status": "deferred",
+    "reason": "architecture_kind_diversity",
+    "kind": "standalone",
+    "fingerprint": "cf90c014773037f3faf147f5430d3311633fd15ddde49fb9090b52f43cd5b387"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "generator_schema_validation",
+    "batch_round": 4,
+    "attempt": 1,
+    "candidate_index": 0,
+    "error": "ValueError: Candidate references non-retrieved evidence: ['Wolfe2009:LogisticRegression is robust for high-dimensional data with many features relative to samples.']"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "generator_schema_validation",
+    "batch_round": 4,
+    "attempt": 1,
+    "candidate_index": 1,
+    "error": "ValueError: Candidate references non-retrieved evidence: ['Chen2016:Gradient Boosting often outperforms Random Forest when tuned with lower learning rates to reduce overfitting.']"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "generator_schema_validation",
+    "batch_round": 4,
+    "attempt": 1,
+    "candidate_index": 2,
+    "error": "ValueError: Candidate references non-retrieved evidence: ['Lundberg2016:Extra Trees provides a robust baseline for tabular data with consistent performance across datasets.']"
+  },
+  {
+    "origin": "llm",
+    "status": "deferred",
+    "reason": "architecture_kind_diversity",
+    "kind": "standalone",
+    "fingerprint": "537b462286a42fe8e8aec42b47fe9ed8e8b4b7305df658b4699dc53315372f88"
+  },
+  {
+    "origin": "llm",
+    "status": "deferred",
+    "reason": "architecture_kind_diversity",
+    "kind": "standalone",
+    "fingerprint": "bdf1cb47b6c3dd2781f08f570c5b3a166a23ad0a9bd050a68c61b3a913324c61"
+  },
+  {
+    "origin": "llm",
+    "status": "accepted",
+    "reason": "diversity_fallback",
+    "fingerprint": "5f7f672bdc141bab177f32dc339553f566c8dd4348c053831bfd63703e53620c",
+    "kind": "standalone"
+  },
+  {
+    "origin": "batch_budget",
+    "status": "summary",
+    "requested": 3,
+    "proposed_valid": 3,
+    "unfilled": 0,
+    "llm_calls": 5
+  }
+]

@@ -1,0 +1,77 @@
+{
+  "title": "Utility of apparent diffusion coefficient values in preoperative MRI for sinonasal tumors: Categorization of benign tumors excluding Papillomas, Papillomas, and malignant tumors.",
+  "abstract": "",
+  "year": "2025",
+  "doi": "10.1016/j.amjoto.2025.104738",
+  "url": "https://www.semanticscholar.org/paper/7c5f9459e528ec2a00378dc02942c655fe4c8efa",
+  "source": "legacy_report",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "",
+  "paper_key": "p_bc04d677c95ebcbda477d545",
+  "aliases": [
+    "doi:10.1016/j.amjoto.2025.104738",
+    "url:https://www.semanticscholar.org/paper/7c5f9459e528ec2a00378dc02942c655fe4c8efa",
+    "title:utilityofapparentdiffusioncoefficientvaluesinpreoperativemriforsinonasaltumorscategorizationofbenigntumorsexcludingpapillomaspapillomasandmalignanttumors"
+  ],
+  "provenance": [
+    "/mnt/data/final_report(5).json",
+    "/mnt/data/final_report_B.json",
+    "/mnt/data/final_report_C.json",
+    "/mnt/data/final_report_D.json"
+  ],
+  "evidence": [
+    {
+      "evidence_id": "ev_7f815d0f2fb05f",
+      "record": {
+        "evidence_id": "ev_7f815d0f2fb05f",
+        "paper_title": "Utility of apparent diffusion coefficient values in preoperative MRI for sinonasal tumors: Categorization of benign tumors excluding Papillomas, Papillomas, and malignant tumors.",
+        "paper_url": "https://www.semanticscholar.org/paper/7c5f9459e528ec2a00378dc02942c655fe4c8efa",
+        "paper_doi": "10.1016/j.amjoto.2025.104738",
+        "paper_year": 2025,
+        "method": "ROC analysis",
+        "source_excerpt": "ROC analysis yielded optimal cutoff values: >1.57 for benign tumors excluding papillomas, 1.23-1.57 for papillomas, and < 1.23 for malignant tumors.",
+        "modeling_hypothesis": "ADCmean values can be categorized into three distinct groups based on cutoff values derived from ROC analysis to differentiate between benign tumors (excluding papillomas), papillomas, and malignant tumors.",
+        "suggested_operations": [],
+        "limitations": "",
+        "extraction_method": "llm_verified_excerpt",
+        "source_grounded": true
+      },
+      "verified": false,
+      "verification_reason": "no_matching_source_abstract",
+      "first_seen": "2026-11-20T00:32:32+00:00",
+      "provenance": [
+        "/mnt/data/final_report(5).json",
+        "/mnt/data/final_report_B.json",
+        "/mnt/data/final_report_C.json",
+        "/mnt/data/final_report_D.json"
+      ]
+    },
+    {
+      "evidence_id": "ev_7ee7ed0f077979",
+      "record": {
+        "evidence_id": "ev_7ee7ed0f077979",
+        "paper_title": "Utility of apparent diffusion coefficient values in preoperative MRI for sinonasal tumors: Categorization of benign tumors excluding Papillomas, Papillomas, and malignant tumors.",
+        "paper_url": "https://www.semanticscholar.org/paper/7c5f9459e528ec2a00378dc02942c655fe4c8efa",
+        "paper_doi": "10.1016/j.amjoto.2025.104738",
+        "paper_year": 2025,
+        "method": "ADC-based classification",
+        "source_excerpt": "ADC-based classification achieved 68.9 % accuracy (51/74), lower than biopsy (95.4 %, 63/66), but correctly predicted tumor categories in all three cases where biopsy results were discordant with final pathology.",
+        "modeling_hypothesis": "ADC-based classification provides a supplementary diagnostic tool that can resolve diagnostic discrepancies when biopsy results conflict with final pathology.",
+        "suggested_operations": [],
+        "limitations": "",
+        "extraction_method": "llm_verified_excerpt",
+        "source_grounded": true
+      },
+      "verified": false,
+      "verification_reason": "no_matching_source_abstract",
+      "first_seen": "2026-11-20T00:32:32+00:00",
+      "provenance": [
+        "/mnt/data/final_report(5).json",
+        "/mnt/data/final_report_B.json",
+        "/mnt/data/final_report_C.json",
+        "/mnt/data/final_report_D.json"
+      ]
+    }
+  ]
+}

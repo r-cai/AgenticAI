@@ -1,0 +1,79 @@
+[config] Loaded C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\controlled\cbis_repeated_v1\configs\42\B_rag_context_only.yaml
+Run 20261119_213953_409977
+[output] reports will be saved to C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\runs\20261119_213953_409977
+[data] optional excluded columns not present; skipped: ['id']
+Baseline (random_forest): CV 0.6948
+[rag] reusing frozen research/evidence corpus from C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\controlled\cbis_repeated_v1\frozen_corpus
+Research context: 25 item(s)
+Grounded method records: 12; eligible/diverse: 4
+
+=== Iteration 1 ===
+[generator] attempt=1 prompt_tokens=7956 output_tokens=1216
+[generator] rejected candidate[2]: ValidationError: 1 validation error for Candidate
+composition
+  Value error, pipeline needs model, no branches/final_estimator [type=value_error, input_value={'kind': 'pipeline', 'tra...'final_estimator': None}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/value_error
+[generator] attempt=2 prompt_tokens=8198 output_tokens=945
+[generator] rejected candidate[0]: ValidationError: 1 validation error for Candidate
+  Value error, Specify exactly one of model or composition [type=value_error, input_value={'rationale': 'Apply Recu...: ['ev_67cadb757a26d2']}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/value_error
+[generator] attempt=1 prompt_tokens=8067 output_tokens=1017
+[generator] attempt=1 prompt_tokens=8130 output_tokens=1218
+[generator] attempt=1 prompt_tokens=8130 output_tokens=1255
+[generator] attempt=1 prompt_tokens=8130 output_tokens=1236
+  iter01_c1 composition:voting: CV 0.7069 (+/- 0.0177, gap 0.0629)
+  iter01_c2 composition:voting: CV 0.6996 (+/- 0.0222, gap 0.0454)
+
+=== Iteration 2 ===
+[generator] attempt=1 prompt_tokens=8634 output_tokens=1141
+[generator] attempt=1 prompt_tokens=8741 output_tokens=1026
+[generator] attempt=1 prompt_tokens=8806 output_tokens=792
+  iter02_c1 composition:voting: CV 0.7057 (+/- 0.0237, gap 0.0342)
+  iter02_c2 composition:voting: CV 0.7021 (+/- 0.0165, gap 0.0627)
+  iter02_c3 random_forest: CV 0.7145 (+/- 0.0165, gap 0.0557)
+
+=== Iteration 3 ===
+[generator] attempt=1 prompt_tokens=9546 output_tokens=1190
+[generator] rejected candidate[2]: ValidationError: 1 validation error for Candidate
+composition
+  Value error, pipeline needs model, no branches/final_estimator [type=value_error, input_value={'kind': 'pipeline', 'tra...'final_estimator': None}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/value_error
+[generator] attempt=2 prompt_tokens=9790 output_tokens=1174
+[generator] attempt=1 prompt_tokens=9724 output_tokens=1355
+[generator] attempt=1 prompt_tokens=9724 output_tokens=1137
+[generator] rejected candidate[0]: ValidationError: 1 validation error for Candidate
+composition
+  Value error, pipeline needs model, no branches/final_estimator [type=value_error, input_value={'kind': 'pipeline', 'tra...'final_estimator': None}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/value_error
+[generator] rejected candidate[1]: ValidationError: 1 validation error for Candidate
+composition
+  Value error, pipeline needs model, no branches/final_estimator [type=value_error, input_value={'kind': 'pipeline', 'tra...'final_estimator': None}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/value_error
+[generator] attempt=1 prompt_tokens=9783 output_tokens=1149
+[generator] attempt=1 prompt_tokens=9783 output_tokens=953
+[generator] rejected candidate[0]: ValidationError: 1 validation error for Candidate
+composition
+  Value error, pipeline needs model, no branches/final_estimator [type=value_error, input_value={'kind': 'pipeline', 'tra...'final_estimator': None}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/value_error
+[generator] rejected candidate[1]: ValidationError: 1 validation error for Candidate
+composition
+  Value error, pipeline needs model, no branches/final_estimator [type=value_error, input_value={'kind': 'pipeline', 'tra...'final_estimator': None}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/value_error
+  iter03_c1 composition:voting: CV 0.7179 (+/- 0.0198, gap 0.0681)
+[controlled] completed 6 successfully evaluated candidates
+
+Selected iter03_c1 (composition:voting), CV 0.7179
+PDF report: experiments\runs\20261119_213953_409977\level2_experiment_report.pdf
+[report] Named latest: C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\reports\final_report_data-cbis-ddsm_B.json
+[report] Run archive:  C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\reports\final_report_data-cbis-ddsm_B_20261119_213953_409977.json
+
+============================================================
+Best: iter03_c1 (composition:voting)
+  CV f1_macro: 0.7179 +/- 0.0198
+  Baseline CV:    0.6948
+  Holdout:        0.7091 (CV-holdout gap +0.0088)
+Stopped: target_evaluated_candidates_reached after 3 iteration(s)
+Full report: experiments/runs/20261119_213953_409977/final_report.json
+Named report: experiments\reports\final_report_data-cbis-ddsm_B.json
+Archived copy: experiments\reports\final_report_data-cbis-ddsm_B_20261119_213953_409977.json
+PDF report:  experiments\runs\20261119_213953_409977\level2_experiment_report.pdf

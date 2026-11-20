@@ -1,0 +1,119 @@
+{
+  "title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+  "abstract": "High dimensionality in datasets produced by microarray technology presents a challenge for Machine Learning (ML) algorithms, particularly in terms of dimensionality reduction and handling imbalanced sample sizes. To mitigate the explained problems, we have proposedhybrid ensemble feature selection techniques with majority voting classifier for micro array classi f ication. Here we have considered both filter and wrapper-based feature selection techniques including Mutual Information (MI), Chi-Square, Variance Threshold (VT), Least Absolute Shrinkage and Selection Operator (LASSO), Analysis of Variance (ANOVA), and Recursive Feature Elimination (RFE), followed by Particle Swarm Optimization (PSO) for selecting the optimal features. This Artificial Intelligence (AI) approach leverages a Majority Voting Classifier that combines multiple machine learning models, such as Logistic Regression (LR), Random Forest (RF), and Extreme Gradient Boosting (XGBoost), to enhance overall performance and accuracy. By leveraging the strengths of each model, the ensemble approach aims to provide more reliable and effective diagnostic predictions. The efficacy of the proposed model has been tested in both local and cloud environments. In the cloud environment, three virtual machines virtual Central Processing Unit (vCPU) with size 8,16 and 64 bits, have been used to demonstrate the model performance. From the experiment it has been observed that, virtual Central Processing Unit (vCPU)-64 bits provides better classification accuracies of 95.89%, 97.50%, 99.13%, 99.58%, 99.11%, and 94.60% with six microarray datasets, Mixed Lineage Leukemia (MLL), Leukemia, Small Round Blue Cell Tumors (SRBCT), Lymphoma, Ovarian, andLung,respectively, validating the effectiveness of the proposed modelin bothlocalandcloud environments.",
+  "year": "2025",
+  "doi": "",
+  "url": "http://arxiv.org/abs/2507.04251v1",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/2507.04251v1",
+  "paper_key": "p_0d901945b60fb00c60900dfa",
+  "aliases": [
+    "arxiv:2507.04251",
+    "title:atwostageensemblefeatureselectionandparticleswarmoptimizationapproachformicroarraydataclassificationindistributedcomputingenvironments"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_e9932aad7326512c.json",
+    "/mnt/data/final_report(2).json",
+    "/mnt/data/final_report(3).json",
+    "/mnt/data/final_report(4).json",
+    "/mnt/data/final_report(5).json",
+    "/mnt/data/final_report.json",
+    "/mnt/data/final_report_B.json",
+    "/mnt/data/final_report_C.json",
+    "/mnt/data/final_report_D.json"
+  ],
+  "evidence": [
+    {
+      "evidence_id": "ev_5294c787c1645c",
+      "record": {
+        "evidence_id": "ev_5294c787c1645c",
+        "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+        "paper_url": "http://arxiv.org/abs/2507.04251v1",
+        "paper_doi": null,
+        "paper_year": "2025",
+        "method": "voting",
+        "source_excerpt": "Majority Voting Classifier",
+        "modeling_hypothesis": "The proposed model uses a Majority Voting Classifier to combine multiple machine learning models for enhanced classification performance.",
+        "suggested_operations": [],
+        "limitations": "",
+        "extraction_method": "llm_verified_excerpt",
+        "source_grounded": true
+      },
+      "verified": true,
+      "verification_reason": "excerpt_matches_stored_abstract",
+      "first_seen": "2026-11-20T00:32:32+00:00",
+      "provenance": [
+        "/mnt/data/final_report(2).json",
+        "/mnt/data/final_report(3).json",
+        "/mnt/data/final_report(4).json",
+        "/mnt/data/final_report(5).json",
+        "/mnt/data/final_report.json",
+        "/mnt/data/final_report_B.json",
+        "/mnt/data/final_report_C.json",
+        "/mnt/data/final_report_D.json"
+      ]
+    },
+    {
+      "evidence_id": "ev_67cadb757a26d2",
+      "record": {
+        "evidence_id": "ev_67cadb757a26d2",
+        "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+        "paper_url": "http://arxiv.org/abs/2507.04251v1",
+        "paper_doi": null,
+        "paper_year": "2025",
+        "method": "rfe",
+        "source_excerpt": "Recursive Feature Elimination (RFE)",
+        "modeling_hypothesis": "The proposed model incorporates Recursive Feature Elimination (RFE) as part of the feature selection process.",
+        "suggested_operations": [],
+        "limitations": "",
+        "extraction_method": "llm_verified_excerpt",
+        "source_grounded": true
+      },
+      "verified": true,
+      "verification_reason": "excerpt_matches_stored_abstract",
+      "first_seen": "2026-11-20T00:32:32+00:00",
+      "provenance": [
+        "/mnt/data/final_report(2).json",
+        "/mnt/data/final_report(3).json",
+        "/mnt/data/final_report(4).json",
+        "/mnt/data/final_report(5).json",
+        "/mnt/data/final_report.json",
+        "/mnt/data/final_report_B.json",
+        "/mnt/data/final_report_C.json",
+        "/mnt/data/final_report_D.json"
+      ]
+    },
+    {
+      "evidence_id": "ev_c4efc324626589",
+      "record": {
+        "evidence_id": "ev_c4efc324626589",
+        "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+        "paper_url": "http://arxiv.org/abs/2507.04251v1",
+        "paper_doi": null,
+        "paper_year": "2025",
+        "method": "logistic_regression",
+        "source_excerpt": "Logistic Regression (LR)",
+        "modeling_hypothesis": "The proposed model includes Logistic Regression as one of the base classifiers in the ensemble.",
+        "suggested_operations": [],
+        "limitations": "",
+        "extraction_method": "llm_verified_excerpt",
+        "source_grounded": true
+      },
+      "verified": true,
+      "verification_reason": "excerpt_matches_stored_abstract",
+      "first_seen": "2026-11-20T00:32:32+00:00",
+      "provenance": [
+        "/mnt/data/final_report(2).json",
+        "/mnt/data/final_report(3).json",
+        "/mnt/data/final_report(4).json",
+        "/mnt/data/final_report(5).json",
+        "/mnt/data/final_report.json",
+        "/mnt/data/final_report_B.json",
+        "/mnt/data/final_report_C.json",
+        "/mnt/data/final_report_D.json"
+      ]
+    }
+  ]
+}

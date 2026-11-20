@@ -1,0 +1,34 @@
+[
+  {
+    "origin": "llm_evidence_design",
+    "status": "accepted",
+    "candidate_fingerprint": "47e13e67f0746131c022ef4131a74bf06e90914e34e00945625fac007e0616f8",
+    "evidence_ids": [
+      "ev_5294c787c1645c"
+    ]
+  },
+  {
+    "origin": "llm_evidence_design",
+    "status": "accepted",
+    "candidate_fingerprint": "3835f727b933e07421337e88c4cc2931bd15b60bba13fa9f30e8eacdf0db667e",
+    "evidence_ids": [
+      "ev_67cadb757a26d2"
+    ]
+  },
+  {
+    "origin": "llm_evidence_design",
+    "status": "accepted",
+    "candidate_fingerprint": "04728f826d2397226e89f24a157316b6b242242b98a3940713bde4376d07bfcf",
+    "evidence_ids": [
+      "ev_892146c13f0a85"
+    ]
+  },
+  {
+    "origin": "batch_budget",
+    "status": "summary",
+    "requested": 3,
+    "proposed_valid": 3,
+    "unfilled": 0,
+    "llm_calls": 1
+  }
+]

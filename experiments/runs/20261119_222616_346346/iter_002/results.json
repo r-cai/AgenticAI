@@ -1,0 +1,231 @@
+[
+  {
+    "candidate_id": "iter02_c1",
+    "iteration": 2,
+    "config": {
+      "rationale": "Explore the impact of class imbalance on Logistic Regression performance. The dataset has a 1.68 imbalance ratio. Using 'balanced' class weight is standard, but testing with null (no weighting) or explicit 'balanced_scale_pos_weight' logic via hyperparameters might reveal if the current regularization strategy is optimal. Here we test C=10 (weaker regularization) to see if the model can fit the majority class better without over-penalizing the minority class.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": {
+        "name": "logistic_regression",
+        "hyperparameters": {
+          "C": 10.0,
+          "solver": "lbfgs",
+          "max_iter": 1000,
+          "class_weight": "balanced"
+        }
+      },
+      "composition": null,
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "logistic_regression",
+    "mean_cv_score": 0.96,
+    "std_cv_score": 0.0167,
+    "fold_scores": [
+      0.953,
+      0.953,
+      0.953,
+      0.9646,
+      0.9883,
+      0.9296,
+      0.953,
+      0.9765,
+      0.9768,
+      0.9762,
+      0.9765,
+      0.9277,
+      0.9536,
+      0.954,
+      0.9646
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.028,
+    "cv_wall_time_seconds": 0.6808,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0239,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter02_c2",
+    "iteration": 2,
+    "config": {
+      "rationale": "Refine the successful soft-voting ensemble by applying stronger regularization to the Logistic Regression branch. In imbalanced datasets with high dimensionality, LR can overfit; reducing C tests if this stabilizes the ensemble performance.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr_strong_reg",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 0.5,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "rf_tuned",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 200,
+                "max_depth": 10,
+                "min_samples_split": 2,
+                "min_samples_leaf": 1,
+                "max_features": "sqrt",
+                "class_weight": "balanced"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "http://arxiv.org/abs/2507.04251v1"
+      ],
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ]
+    },
+    "model_name": "composition:voting",
+    "mean_cv_score": 0.9693,
+    "std_cv_score": 0.0141,
+    "fold_scores": [
+      0.9765,
+      0.9646,
+      0.9646,
+      0.9765,
+      0.9641,
+      0.9416,
+      0.9646,
+      0.9762,
+      0.9882,
+      0.9762,
+      0.9765,
+      0.9525,
+      1.0,
+      0.9536,
+      0.9641
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.5256,
+    "cv_wall_time_seconds": 9.2388,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.022,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter02_c3",
+    "iteration": 2,
+    "config": {
+      "rationale": "Refine the successful LR-RF voting ensemble by applying stronger regularization (lower C) to the Logistic Regression branch. This tests the hypothesis that tighter constraints on the linear model prevent overfitting in the small-sample regime, potentially stabilizing the soft voting output.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr_strong_reg",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 0.5,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "rf_base",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 200,
+                "max_depth": 10,
+                "min_samples_split": 2,
+                "min_samples_leaf": 1,
+                "max_features": "sqrt",
+                "class_weight": "balanced"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "ev_5294c787c1645c"
+      ],
+      "evidence_ids": []
+    },
+    "model_name": "composition:voting",
+    "mean_cv_score": 0.9693,
+    "std_cv_score": 0.0141,
+    "fold_scores": [
+      0.9765,
+      0.9646,
+      0.9646,
+      0.9765,
+      0.9641,
+      0.9416,
+      0.9646,
+      0.9762,
+      0.9882,
+      0.9762,
+      0.9765,
+      0.9525,
+      1.0,
+      0.9536,
+      0.9641
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.5241,
+    "cv_wall_time_seconds": 9.2464,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.022,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  }
+]

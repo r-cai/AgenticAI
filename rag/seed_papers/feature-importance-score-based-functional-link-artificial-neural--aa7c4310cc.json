@@ -1,0 +1,21 @@
+{
+  "title": "Feature Importance Score-Based Functional Link Artificial Neural Networks for Breast Cancer Classification.",
+  "abstract": "Growth of malignant tumors in the breast results in breast cancer. It is a cause of death of many women across the world. As a part of treatment, a woman might have to go through painful surgery and chemotherapy that may further lead to severe side effects. However, it is possible to cure it if it is diagnosed in the initial stage. Recently, many researchers have leveraged machine learning (ML) techniques to classify breast cancer. However, these methods are computationally expensive and prone to the overfitting problem. A simple single-layer neural network, i.e., functional link artificial neural network (FLANN), is proposed to overcome this problem. Further, the F-score is used to reduce the issue of overfitting by selecting features having a higher significance level. In this paper, FLANN is proposed to classify breast cancer using Wisconsin Breast Cancer Dataset (WBCD) (with 699 samples) and Wisconsin Diagnostic Breast Cancer (WDBC) (with 569 samples) datasets. Experimental results reveal that the proposed models can diagnose breast cancer with higher performance. The proposed model can be used in the early breast cancer diagnosis with 99.41% accuracy.",
+  "year": "2022",
+  "doi": "10.1155/2022/2696916",
+  "url": "https://pubmed.ncbi.nlm.nih.gov/35411308/",
+  "source": "pubmed",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "pubmed:35411308",
+  "paper_key": "p_aa7c4310ccf0066bdfdaef8d",
+  "aliases": [
+    "doi:10.1155/2022/2696916",
+    "pubmed:35411308",
+    "title:featureimportancescorebasedfunctionallinkartificialneuralnetworksforbreastcancerclassification"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/pubmed_3db4e0d59427ec9b.json"
+  ],
+  "evidence": []
+}

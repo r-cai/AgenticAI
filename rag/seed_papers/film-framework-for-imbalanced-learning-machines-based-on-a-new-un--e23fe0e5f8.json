@@ -1,0 +1,20 @@
+{
+  "title": "FILM: Framework for Imbalanced Learning Machines based on a new unbiased performance measure and a new ensemble-based technique",
+  "abstract": "This research addresses the challenges of handling unbalanced datasets for binary classification tasks. In such scenarios, standard evaluation metrics are often biased by the disproportionate representation of the minority class. Conducting experiments across seven datasets, we uncovered inconsistencies in evaluation metrics when determining the model that outperforms others for each binary classification problem. This justifies the need for a metric that provides a more consistent and unbiased evaluation across unbalanced datasets, thereby supporting robust model selection. To mitigate this problem, we propose a novel metric, the Unbiased Integration Coefficients (UIC), which exhibits significantly reduced bias ($p < 10^{-4}$) towards the minority class compared to conventional metrics. The UIC is constructed by aggregating existing metrics while penalising those more prone to imbalance. In addition, we introduce the Identical Partitions for Imbalance Problems (IPIP) algorithm for imbalanced ML problems, an ensemble-based approach. Our experimental results show that IPIP outperforms other baseline imbalance-aware approaches using Random Forest and Logistic Regression models in three out of seven datasets as assessed by the UIC metric, demonstrating its effectiveness in addressing imbalanced data challenges in binary classification tasks. This new framework for dealing with imbalanced datasets is materialized in the FILM (Framework for Imbalanced Learning Machines) R Package, accessible at https://github.com/antoniogt/FILM.",
+  "year": "2025",
+  "doi": "",
+  "url": "http://arxiv.org/abs/2503.04370v1",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/2503.04370v1",
+  "paper_key": "p_e23fe0e5f8d9a4dc90ee24bc",
+  "aliases": [
+    "arxiv:2503.04370",
+    "title:filmframeworkforimbalancedlearningmachinesbasedonanewunbiasedperformancemeasureandanewensemblebasedtechnique"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_1977335c05dfe5ea.json"
+  ],
+  "evidence": []
+}

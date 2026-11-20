@@ -1,0 +1,20 @@
+{
+  "title": "Application of Medical Imaging Software to 3D Visualization of Astronomical Data",
+  "abstract": "The AstroMed project at Harvard University's Initiative in Innovative Computing (IIC) is working on improved visualization and data sharing solutions applicable to the fields of both astronomy and medicine. The current focus is on the application of medical imaging visualization and analysis techniques to three-dimensional astronomical data. The 3D Slicer and OsiriX medical imaging tools have been used to make isosurface and volumetric models in RA-DEC-velocity space of the Perseus star forming region from the COMPLETE Survey of Star Forming Region's spectral line maps. 3D Slicer, a brain imaging and visualization computer application developed at Brigham and Women's Hospital's Surgical Planning Lab, is capable of displaying volumes (i.e. data cubes), displaying slices in any direction through the volume, generating 3D isosurface models from the volume which can be viewed and rotated in 3D space, and making 3D models of label maps (for example CLUMPFIND output). OsiriX is able to generate volumetric models from data cubes and allows the user in real time to change the displayed intensity level, crop the models without losing the data, manipulate the model and viewing angle, and use a variety of projections. In applying 3D Slicer to 12CO and 13CO spectral line data cubes of Perseus, the visualization allowed for a rapid review of over 8 square degrees and 150,000 spectra, and the cataloging of 217 high velocity points. These points were further investigated in half of Perseus and all known outflows were detected, and 20 points were identified in these regions as possibly being associated with undocumented outflows. All IIC developed tools, as well as 3D Slicer and OsiriX, are freely available.",
+  "year": "2006",
+  "doi": "",
+  "url": "http://arxiv.org/abs/astro-ph/0611400v1",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/astro-ph/0611400v1",
+  "paper_key": "p_d9df07a9fc2c8e3644d830c8",
+  "aliases": [
+    "arxiv:astro-ph/0611400",
+    "title:applicationofmedicalimagingsoftwareto3dvisualizationofastronomicaldata"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_eb1c1fbae050ae58.json"
+  ],
+  "evidence": []
+}

@@ -1,0 +1,49 @@
+[config] Loaded C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\controlled\wdbc_repeated_v1\configs\62\B_rag_context_only.yaml
+Run 20261119_225001_381481
+[output] reports will be saved to C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\runs\20261119_225001_381481
+[data] optional excluded columns not present; skipped: ['id']
+Baseline (random_forest): CV 0.9596
+[rag] reusing frozen research/evidence corpus from C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\controlled\wdbc_repeated_v1\frozen_corpus
+Research context: 25 item(s)
+Grounded method records: 21; eligible/diverse: 4
+
+=== Iteration 1 ===
+[generator] attempt=1 prompt_tokens=7944 output_tokens=1063
+[generator] attempt=1 prompt_tokens=8053 output_tokens=1095
+[generator] attempt=1 prompt_tokens=8111 output_tokens=803
+[generator] attempt=1 prompt_tokens=8111 output_tokens=926
+[generator] attempt=1 prompt_tokens=8111 output_tokens=1552
+  iter01_c1 composition:voting: CV 0.9804 (+/- 0.0119, gap 0.0129)
+  iter01_c2 composition:voting: CV 0.9694 (+/- 0.0141, gap 0.0304)
+  iter01_c3 composition:voting: CV 0.9804 (+/- 0.0153, gap 0.0128)
+
+=== Iteration 2 ===
+[generator] attempt=1 prompt_tokens=9009 output_tokens=1145
+[generator] attempt=1 prompt_tokens=9120 output_tokens=1615
+[generator] attempt=1 prompt_tokens=9181 output_tokens=1442
+[generator] rejected candidate[0]: ValidationError: 1 validation error for Candidate
+composition
+  Value error, pipeline needs model, no branches/final_estimator [type=value_error, input_value={'kind': 'pipeline', 'tra...', 'passthrough': False}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/value_error
+[generator] attempt=1 prompt_tokens=9236 output_tokens=1181
+[generator] attempt=1 prompt_tokens=9236 output_tokens=1219
+  iter02_c1 composition:voting: CV 0.9772 (+/- 0.0133, gap 0.0228)
+  iter02_c2 composition:voting: CV 0.9756 (+/- 0.0159, gap 0.0187)
+  iter02_c3 composition:voting: CV 0.9780 (+/- 0.0155, gap 0.0157)
+[controlled] completed 6 successfully evaluated candidates
+
+Selected iter01_c1 (composition:voting), CV 0.9804
+PDF report: experiments\runs\20261119_225001_381481\level2_experiment_report.pdf
+[report] Named latest: C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\reports\final_report_data-3_B.json
+[report] Run archive:  C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\reports\final_report_data-3_B_20261119_225001_381481.json
+
+============================================================
+Best: iter01_c1 (composition:voting)
+  CV f1_macro: 0.9804 +/- 0.0119
+  Baseline CV:    0.9596
+  Holdout:        0.9623 (CV-holdout gap +0.0181)
+Stopped: target_evaluated_candidates_reached after 2 iteration(s)
+Full report: experiments/runs/20261119_225001_381481/final_report.json
+Named report: experiments\reports\final_report_data-3_B.json
+Archived copy: experiments\reports\final_report_data-3_B_20261119_225001_381481.json
+PDF report:  experiments\runs\20261119_225001_381481\level2_experiment_report.pdf

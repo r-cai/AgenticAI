@@ -1,0 +1,239 @@
+[
+  {
+    "candidate_id": "iter01_c1",
+    "iteration": 1,
+    "config": {
+      "rationale": "Test literature-mentioned voting with two diverse registered learners.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "none",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "linear",
+            "transforms": [
+              {
+                "op": "standard_scaler",
+                "params": {}
+              }
+            ],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "max_iter": 1500,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "trees",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 200,
+                "min_samples_leaf": 2,
+                "class_weight": "balanced"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "hard",
+        "passthrough": false
+      },
+      "research_basis": [
+        "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments"
+      ],
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ]
+    },
+    "model_name": "composition:voting",
+    "mean_cv_score": 0.7071,
+    "std_cv_score": 0.0105,
+    "fold_scores": [
+      0.7008,
+      0.6923,
+      0.7171,
+      0.7121,
+      0.7046,
+      0.7085,
+      0.7012,
+      0.7096,
+      0.7044,
+      0.7259,
+      0.6949,
+      0.6862,
+      0.7131,
+      0.7178,
+      0.7178
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.4224,
+    "cv_wall_time_seconds": 7.8815,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0748,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "evidence_compiler",
+    "evidence_mapping": {
+      "evidence_id": "ev_5294c787c1645c",
+      "implemented_operation": "voting",
+      "implementation_choices": [
+        "median imputation is an engineering choice, not attributed to source",
+        "base learners are experiment design choices, not claimed paper settings"
+      ]
+    },
+    "error": null
+  },
+  {
+    "candidate_id": "iter01_c2",
+    "iteration": 1,
+    "config": {
+      "rationale": "Test soft voting ensemble combining Logistic Regression and Gradient Boosting to leverage complementary decision boundaries, addressing overfitting via regularization and model diversity.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 1.0,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "gb",
+            "transforms": [],
+            "model": {
+              "name": "gradient_boosting",
+              "hyperparameters": {
+                "n_estimators": 100,
+                "learning_rate": 0.1,
+                "max_depth": 3,
+                "subsample": 0.8,
+                "min_samples_split": 2
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "http://arxiv.org/abs/2507.04251v1"
+      ],
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ]
+    },
+    "model_name": "composition:voting",
+    "mean_cv_score": 0.7059,
+    "std_cv_score": 0.0232,
+    "fold_scores": [
+      0.7425,
+      0.6852,
+      0.7038,
+      0.6875,
+      0.7115,
+      0.6932,
+      0.7121,
+      0.7216,
+      0.7066,
+      0.7276,
+      0.7233,
+      0.713,
+      0.6439,
+      0.6879,
+      0.728
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.2697,
+    "cv_wall_time_seconds": 4.6411,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0679,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter01_c3",
+    "iteration": 1,
+    "config": {
+      "rationale": "Test Logistic Regression with stronger regularization (lower C) to combat overfitting on small samples, as linear models are theoretically robust for tabular data.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": {
+        "name": "logistic_regression",
+        "hyperparameters": {
+          "C": 0.5,
+          "solver": "lbfgs",
+          "max_iter": 1000,
+          "class_weight": "balanced"
+        }
+      },
+      "composition": null,
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "logistic_regression",
+    "mean_cv_score": 0.7088,
+    "std_cv_score": 0.0189,
+    "fold_scores": [
+      0.7518,
+      0.6931,
+      0.7158,
+      0.676,
+      0.6996,
+      0.7247,
+      0.7124,
+      0.7271,
+      0.7046,
+      0.716,
+      0.7124,
+      0.7103,
+      0.684,
+      0.684,
+      0.7197
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.0316,
+    "cv_wall_time_seconds": 0.7994,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0381,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  }
+]

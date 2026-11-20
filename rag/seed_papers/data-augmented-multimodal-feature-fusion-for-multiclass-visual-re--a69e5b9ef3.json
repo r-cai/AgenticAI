@@ -1,0 +1,20 @@
+{
+  "title": "Data-Augmented Multimodal Feature Fusion for Multiclass Visual Recognition of Oral Cancer Lesions",
+  "abstract": "Oral cancer is frequently diagnosed at later stages due to its similarity to other lesions. Existing research on computer aided diagnosis has made progress using deep learning; however, most approaches remain limited by small, imbalanced datasets and a dependence on single-modality features, which restricts model generalization in real-world clinical settings. To address these limitations, this study proposes a novel data-augmentation driven multimodal feature-fusion framework integrated within a (Vision Recognition)VR assisted oral cancer recognition system. Our method combines extensive data centric augmentation with fused clinical and image-based representations to enhance model robustness and reduce diagnostic ambiguity. Using a stratified training pipeline and an EfficientNetV2 B1 backbone, the system improves feature diversity, mitigates imbalance, and strengthens the learned multimodal embeddings. Experimental evaluation demonstrates that the proposed framework achieves an overall accuracy of 82.57 percent on 2 classes, 65.13 percent on 3 classes, and 54.97 percent on 4 classes, outperforming traditional single stream CNN models. These results highlight the effectiveness of multimodal feature fusion combined with strategic augmentation for reliable early oral cancer lesion recognition and serve as a foundation for immersive VR based clinical decision support tools.",
+  "year": "2025",
+  "doi": "",
+  "url": "http://arxiv.org/abs/2511.21582v3",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/2511.21582v3",
+  "paper_key": "p_a69e5b9ef381c61c78f3c5b3",
+  "aliases": [
+    "arxiv:2511.21582",
+    "title:dataaugmentedmultimodalfeaturefusionformulticlassvisualrecognitionoforalcancerlesions"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_45fafa7930d33409.json"
+  ],
+  "evidence": []
+}

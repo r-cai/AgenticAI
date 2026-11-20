@@ -1,0 +1,54 @@
+[
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "evidence-linked candidate must be an actual Level-2 composition",
+    "fingerprint": "da536c006d2789eb5b3e92827db5c3bdd0f0bed4699fa01d85bb3c19f957d434"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "evidence-linked candidate must be an actual Level-2 composition",
+    "fingerprint": "4297f88b580b32b08a9c0d14304704669af7153732f0556d4491c8b2f31f95cf"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "pipeline_preflight_failed:ValueError:Unsupported rfe parameters: ['verbose']",
+    "fingerprint": "5829202bd578ac4637cc6b63d2fe070e8c489b680dcb1e2ce5562f64f4c7be3f"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "evidence-linked candidate must be an actual Level-2 composition",
+    "fingerprint": "3c2a534afe700db75837810e026c21415e36fe1d54294e040ceeb8e7b418d812"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "evidence-linked candidate must be an actual Level-2 composition",
+    "fingerprint": "cf90c014773037f3faf147f5430d3311633fd15ddde49fb9090b52f43cd5b387"
+  },
+  {
+    "origin": "llm",
+    "status": "deferred",
+    "reason": "architecture_kind_diversity",
+    "kind": "voting",
+    "fingerprint": "4cdb109af671b0b4b914107adefada03a36271fd78028651b11d7d696fa25cf8"
+  },
+  {
+    "origin": "llm",
+    "status": "accepted",
+    "reason": "diversity_fallback",
+    "fingerprint": "4cdb109af671b0b4b914107adefada03a36271fd78028651b11d7d696fa25cf8",
+    "kind": "voting"
+  },
+  {
+    "origin": "batch_budget",
+    "status": "summary",
+    "requested": 3,
+    "proposed_valid": 3,
+    "unfilled": 0,
+    "llm_calls": 5
+  }
+]

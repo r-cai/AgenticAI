@@ -1,0 +1,116 @@
+[
+  {
+    "candidate_id": "iter01_c1",
+    "iteration": 1,
+    "config": {
+      "rationale": "Refine the baseline with HistGradientBoosting and regularization to improve stability.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "robust",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": {
+        "name": "hist_gradient_boosting",
+        "hyperparameters": {
+          "max_iter": 100,
+          "learning_rate": 0.05,
+          "max_depth": 4,
+          "max_leaf_nodes": 15,
+          "l2_regularization": 0.1,
+          "early_stopping": true
+        }
+      },
+      "composition": null,
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "hist_gradient_boosting",
+    "mean_cv_score": 0.7151,
+    "std_cv_score": 0.0251,
+    "fold_scores": [
+      0.6756,
+      0.7658,
+      0.7315,
+      0.6906,
+      0.7156,
+      0.7118,
+      0.6743,
+      0.7397,
+      0.6916,
+      0.7096,
+      0.7292,
+      0.7174,
+      0.7066,
+      0.7517,
+      0.7147
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.1061,
+    "cv_wall_time_seconds": 1.9397,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0303,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter01_c2",
+    "iteration": 1,
+    "config": {
+      "rationale": "Test a Gradient Boosting classifier with aggressive regularization (low learning rate, shallow depth) to combat overfitting. Unlike the baseline which used default RF settings, this configuration explicitly tunes hyperparameters to reduce variance on the small sample size.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "robust",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": {
+        "name": "gradient_boosting",
+        "hyperparameters": {
+          "n_estimators": 150,
+          "learning_rate": 0.05,
+          "max_depth": 3,
+          "subsample": 0.7,
+          "min_samples_split": 4,
+          "min_samples_leaf": 2
+        }
+      },
+      "composition": null,
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "gradient_boosting",
+    "mean_cv_score": 0.7141,
+    "std_cv_score": 0.0265,
+    "fold_scores": [
+      0.6886,
+      0.7792,
+      0.7,
+      0.6817,
+      0.6865,
+      0.7044,
+      0.7061,
+      0.7266,
+      0.68,
+      0.7224,
+      0.7037,
+      0.7312,
+      0.7331,
+      0.7507,
+      0.7178
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.2571,
+    "cv_wall_time_seconds": 4.1528,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0561,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  }
+]

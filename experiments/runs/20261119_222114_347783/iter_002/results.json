@@ -1,0 +1,213 @@
+[
+  {
+    "candidate_id": "iter02_c1",
+    "iteration": 2,
+    "config": {
+      "rationale": "Increase Random Forest capacity to test if deeper trees capture more complex tumor boundary patterns without significant overfitting on the small dataset.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "none",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": {
+        "name": "random_forest",
+        "hyperparameters": {
+          "n_estimators": 200,
+          "max_depth": 10,
+          "min_samples_split": 2,
+          "min_samples_leaf": 1,
+          "max_features": "sqrt",
+          "class_weight": "balanced"
+        }
+      },
+      "composition": null,
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "random_forest",
+    "mean_cv_score": 0.9535,
+    "std_cv_score": 0.0186,
+    "fold_scores": [
+      0.9416,
+      0.9646,
+      0.953,
+      0.9765,
+      0.9393,
+      0.9536,
+      0.953,
+      0.9525,
+      0.953,
+      0.9402,
+      0.9765,
+      0.9296,
+      1.0,
+      0.9296,
+      0.9393
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.5027,
+    "cv_wall_time_seconds": 8.5932,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0465,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter02_c2",
+    "iteration": 2,
+    "config": {
+      "rationale": "Test weaker regularization on Logistic Regression (higher C) to determine if the previous optimal configuration was overly conservative.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": {
+        "name": "logistic_regression",
+        "hyperparameters": {
+          "C": 5.0,
+          "solver": "lbfgs",
+          "max_iter": 1000,
+          "class_weight": "balanced"
+        }
+      },
+      "composition": null,
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "logistic_regression",
+    "mean_cv_score": 0.9609,
+    "std_cv_score": 0.0141,
+    "fold_scores": [
+      0.953,
+      0.953,
+      0.953,
+      0.9646,
+      0.9765,
+      0.9296,
+      0.953,
+      0.9765,
+      0.9768,
+      0.9762,
+      0.9765,
+      0.9402,
+      0.9654,
+      0.954,
+      0.9646
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.0293,
+    "cv_wall_time_seconds": 0.7366,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0231,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter02_c3",
+    "iteration": 2,
+    "config": {
+      "rationale": "Construct a Stacking ensemble using the top-performing base models (RF and LR) to leverage their complementary decision boundaries.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "stacking",
+        "transforms": [
+          {
+            "op": "pca",
+            "params": {
+              "n_components": 10
+            }
+          }
+        ],
+        "branches": [
+          {
+            "name": "rf_base",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 200,
+                "max_depth": 5,
+                "min_samples_split": 2,
+                "min_samples_leaf": 1,
+                "max_features": "sqrt",
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "lr_base",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 1.0,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": {
+          "name": "logistic_regression",
+          "hyperparameters": {
+            "C": 1.0,
+            "solver": "lbfgs",
+            "max_iter": 1000,
+            "class_weight": "balanced"
+          }
+        },
+        "voting": "soft",
+        "passthrough": true
+      },
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "composition:stacking",
+    "mean_cv_score": 0.9694,
+    "std_cv_score": 0.017,
+    "fold_scores": [
+      0.9536,
+      0.9525,
+      0.953,
+      0.9882,
+      0.9882,
+      0.9416,
+      0.9646,
+      0.9646,
+      0.9883,
+      0.9762,
+      0.9882,
+      0.9525,
+      1.0,
+      0.9654,
+      0.9646
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 1.7536,
+    "cv_wall_time_seconds": 27.6309,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0133,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  }
+]

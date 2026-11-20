@@ -1,0 +1,308 @@
+[
+  {
+    "candidate_id": "iter01_c1",
+    "iteration": 1,
+    "config": {
+      "rationale": "Test complementary linear and nonlinear decision boundaries via majority voting to improve classification stability.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "none",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "branch_1",
+            "transforms": [
+              {
+                "op": "standard_scaler",
+                "params": {}
+              }
+            ],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 1.0,
+                "max_iter": 1500
+              }
+            }
+          },
+          {
+            "name": "branch_2",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 150,
+                "max_depth": 8,
+                "min_samples_leaf": 2
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "ev_5294c787c1645c"
+      ],
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ]
+    },
+    "model_name": "composition:voting",
+    "mean_cv_score": 0.7293,
+    "std_cv_score": 0.0265,
+    "fold_scores": [
+      0.6925,
+      0.7378,
+      0.7051,
+      0.777,
+      0.7808,
+      0.7386,
+      0.7081,
+      0.6962,
+      0.7407,
+      0.722,
+      0.7562,
+      0.7179,
+      0.7288,
+      0.7002,
+      0.7374
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.3249,
+    "cv_wall_time_seconds": 6.1071,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0307,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm_evidence_design",
+    "evidence_mapping": {
+      "method": "llm_evidence_grounded",
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ],
+      "trace": [
+        {
+          "evidence_id": "ev_5294c787c1645c",
+          "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+          "source_excerpt": "Majority Voting Classifier",
+          "supported_operations": [
+            "voting"
+          ],
+          "matched_executable_operations": [
+            "voting"
+          ],
+          "extraction_warnings": [],
+          "claim_scope": "operations_only_not_hyperparameters_or_whole_architecture"
+        }
+      ],
+      "implementation_choices": "Uncited architecture details and hyperparameters are LLM-proposed hypotheses, not proven settings from the cited papers"
+    },
+    "error": null
+  },
+  {
+    "candidate_id": "iter01_c2",
+    "iteration": 1,
+    "config": {
+      "rationale": "Apply Recursive Feature Elimination to identify the most discriminative features before final model training.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "none",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "pipeline",
+        "transforms": [
+          {
+            "op": "standard_scaler",
+            "params": {}
+          },
+          {
+            "op": "rfe",
+            "params": {
+              "estimator": "logistic_regression",
+              "n_features_to_select": 10
+            }
+          }
+        ],
+        "branches": [],
+        "model": {
+          "name": "gradient_boosting",
+          "hyperparameters": {
+            "n_estimators": 150,
+            "max_depth": 5,
+            "learning_rate": 0.1
+          }
+        },
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "ev_67cadb757a26d2"
+      ],
+      "evidence_ids": [
+        "ev_67cadb757a26d2"
+      ]
+    },
+    "model_name": "composition:pipeline",
+    "mean_cv_score": 0.693,
+    "std_cv_score": 0.0218,
+    "fold_scores": [
+      0.6892,
+      0.7017,
+      0.656,
+      0.704,
+      0.7318,
+      0.6856,
+      0.7275,
+      0.6838,
+      0.69,
+      0.6632,
+      0.6812,
+      0.6721,
+      0.7102,
+      0.678,
+      0.7202
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 1.0771,
+    "cv_wall_time_seconds": 16.6703,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0279,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm_evidence_design",
+    "evidence_mapping": {
+      "method": "llm_evidence_grounded",
+      "evidence_ids": [
+        "ev_67cadb757a26d2"
+      ],
+      "trace": [
+        {
+          "evidence_id": "ev_67cadb757a26d2",
+          "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+          "source_excerpt": "Recursive Feature Elimination (RFE)",
+          "supported_operations": [
+            "rfe"
+          ],
+          "matched_executable_operations": [
+            "rfe"
+          ],
+          "extraction_warnings": [],
+          "claim_scope": "operations_only_not_hyperparameters_or_whole_architecture"
+        }
+      ],
+      "implementation_choices": "Uncited architecture details and hyperparameters are LLM-proposed hypotheses, not proven settings from the cited papers"
+    },
+    "error": null
+  },
+  {
+    "candidate_id": "iter01_c3",
+    "iteration": 1,
+    "config": {
+      "rationale": "Select the top K features using a feature selection mechanism to enhance performance on small sample tabular data.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "none",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "pipeline",
+        "transforms": [
+          {
+            "op": "standard_scaler",
+            "params": {}
+          },
+          {
+            "op": "select_k_best",
+            "params": {
+              "k": 10
+            }
+          }
+        ],
+        "branches": [],
+        "model": {
+          "name": "svc",
+          "hyperparameters": {
+            "kernel": "rbf",
+            "C": 1.0,
+            "probability": false
+          }
+        },
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "ev_892146c13f0a85"
+      ],
+      "evidence_ids": [
+        "ev_892146c13f0a85"
+      ]
+    },
+    "model_name": "composition:pipeline",
+    "mean_cv_score": 0.6617,
+    "std_cv_score": 0.0296,
+    "fold_scores": [
+      0.6733,
+      0.6534,
+      0.6155,
+      0.6768,
+      0.698,
+      0.6462,
+      0.6711,
+      0.6569,
+      0.7016,
+      0.6146,
+      0.6987,
+      0.6652,
+      0.6264,
+      0.6285,
+      0.6991
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.0469,
+    "cv_wall_time_seconds": 2.487,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0265,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm_evidence_design",
+    "evidence_mapping": {
+      "method": "llm_evidence_grounded",
+      "evidence_ids": [
+        "ev_892146c13f0a85"
+      ],
+      "trace": [
+        {
+          "evidence_id": "ev_892146c13f0a85",
+          "paper_title": "Weight Predictor Network with Feature Selection for Small Sample Tabular Biomedical Data",
+          "source_excerpt": "Furthermore, we investigate the proposed feature selection mechanism and show that it improves performance while providing useful insights into the learning task.",
+          "supported_operations": [
+            "select_k_best"
+          ],
+          "matched_executable_operations": [
+            "select_k_best"
+          ],
+          "extraction_warnings": [],
+          "claim_scope": "operations_only_not_hyperparameters_or_whole_architecture"
+        }
+      ],
+      "implementation_choices": "Uncited architecture details and hyperparameters are LLM-proposed hypotheses, not proven settings from the cited papers"
+    },
+    "error": null
+  }
+]

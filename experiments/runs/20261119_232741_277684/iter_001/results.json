@@ -1,0 +1,147 @@
+[
+  {
+    "candidate_id": "iter01_c1",
+    "iteration": 1,
+    "config": {
+      "rationale": "Apply aggressive pruning to Extreme Gradient Boosting to reduce model complexity and variance, contrasting with the baseline RF.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "robust",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": {
+        "name": "extra_trees",
+        "hyperparameters": {
+          "n_estimators": 200,
+          "max_depth": 10,
+          "min_samples_split": 2,
+          "min_samples_leaf": 1,
+          "max_features": "sqrt",
+          "class_weight": "balanced"
+        }
+      },
+      "composition": null,
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "extra_trees",
+    "mean_cv_score": 0.9565,
+    "std_cv_score": 0.0246,
+    "fold_scores": [
+      0.953,
+      0.9409,
+      0.9765,
+      0.9162,
+      0.9882,
+      0.9525,
+      0.9883,
+      0.915,
+      0.9883,
+      0.9646,
+      0.9409,
+      0.9762,
+      0.9409,
+      0.9762,
+      0.9296
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.2105,
+    "cv_wall_time_seconds": 3.9352,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0435,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter01_c2",
+    "iteration": 1,
+    "config": {
+      "rationale": "Construct a soft-voting ensemble combining Random Forest and Logistic Regression to leverage complementary decision boundaries, supported by voting classifier literature.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "rf",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 150,
+                "max_depth": 8,
+                "min_samples_split": 2,
+                "min_samples_leaf": 1,
+                "max_features": "sqrt",
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "lr",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 0.5,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments"
+      ],
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ]
+    },
+    "model_name": "composition:voting",
+    "mean_cv_score": 0.9692,
+    "std_cv_score": 0.0229,
+    "fold_scores": [
+      0.965,
+      0.965,
+      0.9882,
+      0.9173,
+      1.0,
+      0.9641,
+      0.9883,
+      0.9393,
+      0.9883,
+      0.9765,
+      0.9536,
+      1.0,
+      0.9518,
+      0.9882,
+      0.953
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.2524,
+    "cv_wall_time_seconds": 4.576,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0227,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  }
+]

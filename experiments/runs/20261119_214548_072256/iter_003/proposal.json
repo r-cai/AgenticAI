@@ -1,0 +1,157 @@
+{
+  "reasoning": "The baseline Random Forest (cv=0.69) and the previous voting ensemble (iter01_c1, cv=0.71) showed promise but suffered from high train/test gaps or suboptimal regularization. Evidence 'ev_5294c787c1645c' supports combining LR and RF with soft voting. Evidence 'ev_67cadb757a26d2' suggests RFE for feature selection in high-dimensional tabular data. To improve generalization on this small dataset (n=1252, n_features=49), we propose: 1) A refined Soft Voting ensemble using Gradient Boosting and Logistic Regression with tuned regularization (C=0.1) to combat overfitting, addressing the gap seen in iter01_c2. 2) An RFE-based Pipeline using a single Random Forest model to reduce dimensionality before prediction, leveraging evidence 'ev_67cadb757a26d2' and the known benefit of feature selection on small samples.",
+  "candidates": [
+    {
+      "rationale": "Test source-grounded select_k_best as a registered Level-2 pipeline; examine CV benefit.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "none",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "pipeline",
+        "transforms": [
+          {
+            "op": "standard_scaler",
+            "params": {}
+          },
+          {
+            "op": "select_k_best",
+            "params": {
+              "k": 15
+            }
+          }
+        ],
+        "branches": [],
+        "model": {
+          "name": "logistic_regression",
+          "hyperparameters": {
+            "max_iter": 1500,
+            "class_weight": "balanced"
+          }
+        },
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "Weight Predictor Network with Feature Selection for Small Sample Tabular Biomedical Data"
+      ],
+      "evidence_ids": [
+        "ev_892146c13f0a85"
+      ]
+    },
+    {
+      "rationale": "Refine the soft voting ensemble by introducing Gradient Boosting (which handles non-linear interactions well) alongside Logistic Regression with stronger regularization (C=0.1). This tests if boosting complements linear models better than previous attempts and reduces overfitting risks on small data.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "gb",
+            "transforms": [],
+            "model": {
+              "name": "gradient_boosting",
+              "hyperparameters": {
+                "n_estimators": 150,
+                "learning_rate": 0.05,
+                "max_depth": 4,
+                "subsample": 0.8,
+                "min_samples_split": 2
+              }
+            }
+          },
+          {
+            "name": "lr",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 0.1,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [],
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ]
+    },
+    {
+      "rationale": "Implement Recursive Feature Elimination (RFE) within a pipeline to reduce the 49 features, addressing the high dimensionality challenge noted in evidence 'ev_67cadb757a26d2'. Using a single Random Forest with tuned depth and leaf size after selection aims to minimize overfitting compared to the baseline.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "none",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "pipeline",
+        "transforms": [
+          {
+            "op": "rfe",
+            "params": {
+              "n_features_to_select": 20,
+              "step": 1,
+              "estimator": "random_forest"
+            }
+          }
+        ],
+        "branches": [],
+        "model": {
+          "name": "random_forest",
+          "hyperparameters": {
+            "n_estimators": 200,
+            "max_depth": 8,
+            "min_samples_split": 2,
+            "min_samples_leaf": 2,
+            "max_features": "sqrt",
+            "class_weight": "balanced"
+          }
+        },
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [],
+      "evidence_ids": [
+        "ev_67cadb757a26d2"
+      ]
+    }
+  ],
+  "candidate_origins": {
+    "4da20d985a2c1e459bfa2f5b5b150bd85018a244493822c7e46684efe35d1d1f": "evidence_compiler",
+    "336240067d182fd4d44d9c712db45d439b026ed19299fe3c7546fc19e6d1989f": "llm",
+    "82cc6c649f380a68fa95fa298d558570d9e64195b5338af577f1e73c8157f5d3": "llm"
+  },
+  "candidate_evidence_mapping": {
+    "4da20d985a2c1e459bfa2f5b5b150bd85018a244493822c7e46684efe35d1d1f": {
+      "evidence_id": "ev_892146c13f0a85",
+      "implemented_operation": "select_k_best",
+      "implementation_choices": [
+        "median imputation is an engineering choice, not attributed to source",
+        "SelectKBest is an implementation of generic feature selection, not necessarily paper's selector",
+        "classifier logistic_regression is chosen for test; paper may not specify it"
+      ]
+    }
+  },
+  "generator_error": null
+}

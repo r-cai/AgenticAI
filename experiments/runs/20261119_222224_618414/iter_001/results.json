@@ -1,0 +1,183 @@
+[
+  {
+    "candidate_id": "iter01_c1",
+    "iteration": 1,
+    "config": {
+      "rationale": "Address overfitting indicated by high train/CV gap by adding Recursive Feature Elimination (RFE) to reduce dimensionality and using a lower C regularization in Logistic Regression within a soft voting ensemble, complemented by a pruned Random Forest.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr_rfe",
+            "transforms": [
+              {
+                "op": "rfe",
+                "params": {
+                  "n_features_to_select": 20,
+                  "estimator": "logistic_regression"
+                }
+              }
+            ],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 0.5,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "rf_pruned",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 150,
+                "max_depth": 6,
+                "min_samples_split": 4,
+                "min_samples_leaf": 2,
+                "max_features": "sqrt"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "http://arxiv.org/abs/2507.04251v1",
+        "http://arxiv.org/abs/2211.15616v1"
+      ],
+      "evidence_ids": [
+        "ev_5294c787c1645c",
+        "ev_67cadb757a26d2"
+      ]
+    },
+    "model_name": "composition:voting",
+    "mean_cv_score": 0.7024,
+    "std_cv_score": 0.017,
+    "fold_scores": [
+      0.7217,
+      0.689,
+      0.6965,
+      0.6646,
+      0.6896,
+      0.7087,
+      0.72,
+      0.7148,
+      0.6698,
+      0.7098,
+      0.7135,
+      0.7192,
+      0.7066,
+      0.7,
+      0.7121
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.8888,
+    "cv_wall_time_seconds": 14.6823,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0431,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter01_c2",
+    "iteration": 1,
+    "config": {
+      "rationale": "Test the hypothesis that Gradient Boosting with aggressive pruning (low max_depth, high min_samples_leaf) combined with standard scaling and a lower C logistic regression branch yields better generalization than the baseline RF.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "gb_pruned",
+            "transforms": [],
+            "model": {
+              "name": "gradient_boosting",
+              "hyperparameters": {
+                "n_estimators": 80,
+                "learning_rate": 0.15,
+                "max_depth": 3,
+                "subsample": 0.7,
+                "min_samples_split": 4,
+                "min_samples_leaf": 3
+              }
+            }
+          },
+          {
+            "name": "lr_weak",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 0.3,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "composition:voting",
+    "mean_cv_score": 0.7064,
+    "std_cv_score": 0.0202,
+    "fold_scores": [
+      0.7416,
+      0.6931,
+      0.7111,
+      0.6757,
+      0.714,
+      0.6892,
+      0.7007,
+      0.7316,
+      0.7059,
+      0.723,
+      0.7145,
+      0.7049,
+      0.6674,
+      0.692,
+      0.7315
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.1833,
+    "cv_wall_time_seconds": 3.2662,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0691,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  }
+]

@@ -1,0 +1,64 @@
+[
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "generator_schema_validation",
+    "batch_round": 1,
+    "attempt": 1,
+    "candidate_index": 2,
+    "error": "ValidationError: 1 validation error for Candidate\ncomposition\n  Value error, pipeline needs model, no branches/final_estimator [type=value_error, input_value={'kind': 'pipeline', 'tra...'final_estimator': None}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/value_error"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "generator_schema_validation",
+    "batch_round": 1,
+    "attempt": 2,
+    "candidate_index": 0,
+    "error": "ValidationError: 1 validation error for Candidate\n  Value error, Specify exactly one of model or composition [type=value_error, input_value={'rationale': 'Apply Recu...: ['ev_67cadb757a26d2']}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/value_error"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "source_does_not_support_used_operations:ev_67cadb757a26d2",
+    "fingerprint": "dde3f0086e122fdb0c11e34787a95b8d1ae79e7df3edf73eb4fceb873d81e115"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "evidence-linked candidate must be an actual Level-2 composition",
+    "fingerprint": "0c30c71360b90a752400fcb70418b619ed54402b0bd54c375dc0603812d71b85"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "source_does_not_support_used_operations:ev_5294c787c1645c;source_does_not_support_used_operations:ev_892146c13f0a85",
+    "fingerprint": "1e8cb9dc00eb97e06a6da11d15b5e1fa4d7c59c7fa3c3a18597fc1a1bf320648"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "source_does_not_support_used_operations:ev_67cadb757a26d2",
+    "fingerprint": "e7992888c4777cbf9eb6988141f9d84d4df0c2207c41099d16ffb00491752700"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "source_does_not_support_used_operations:ev_892146c13f0a85",
+    "fingerprint": "15d04de2fcbebdf6e653499180bb443058b8c157dacb596d6093a7c58883a469"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "source_does_not_support_used_operations:ev_892146c13f0a85",
+    "fingerprint": "f158af67cb2bf9036b40274d36fea05d8de680b799107ce5e695f307b836c5a0"
+  },
+  {
+    "origin": "batch_budget",
+    "status": "summary",
+    "requested": 3,
+    "proposed_valid": 2,
+    "unfilled": 1,
+    "llm_calls": 5
+  }
+]

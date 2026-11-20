@@ -1,0 +1,766 @@
+{
+  "n_rows": 1252,
+  "n_features": 49,
+  "target": "diagnosis",
+  "n_classes": 2,
+  "class_distribution": {
+    "B": 0.52,
+    "M": 0.48
+  },
+  "imbalance_ratio": 1.08,
+  "columns": {
+    "n_annotations": {
+      "dtype": "int64",
+      "missing_pct": 0.0,
+      "n_unique": 17,
+      "unique_ratio": 0.014,
+      "sample_values": [
+        "1",
+        "2",
+        "4",
+        "6",
+        "11"
+      ],
+      "type": "numeric",
+      "stats": {
+        "mean": 2.274,
+        "std": 1.806,
+        "min": 1.0,
+        "max": 24.0,
+        "median": 2.0
+      }
+    },
+    "n_findings": {
+      "dtype": "int64",
+      "missing_pct": 0.0,
+      "n_unique": 12,
+      "unique_ratio": 0.01,
+      "sample_values": [
+        "1",
+        "2",
+        "3",
+        "7",
+        "4"
+      ],
+      "type": "numeric",
+      "stats": {
+        "mean": 1.308,
+        "std": 1.013,
+        "min": 1.0,
+        "max": 13.0,
+        "median": 1.0
+      }
+    },
+    "n_mass_findings": {
+      "dtype": "int64",
+      "missing_pct": 0.0,
+      "n_unique": 8,
+      "unique_ratio": 0.006,
+      "sample_values": [
+        "1",
+        "0",
+        "3",
+        "2",
+        "7"
+      ],
+      "type": "numeric",
+      "stats": {
+        "mean": 0.655,
+        "std": 0.709,
+        "min": 0.0,
+        "max": 9.0,
+        "median": 1.0
+      }
+    },
+    "n_calc_findings": {
+      "dtype": "int64",
+      "missing_pct": 0.0,
+      "n_unique": 11,
+      "unique_ratio": 0.009,
+      "sample_values": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "7"
+      ],
+      "type": "numeric",
+      "stats": {
+        "mean": 0.653,
+        "std": 1.079,
+        "min": 0.0,
+        "max": 13.0,
+        "median": 0.0
+      }
+    },
+    "n_mass_annotations": {
+      "dtype": "int64",
+      "missing_pct": 0.0,
+      "n_unique": 10,
+      "unique_ratio": 0.008,
+      "sample_values": [
+        "1",
+        "2",
+        "0",
+        "6",
+        "4"
+      ],
+      "type": "numeric",
+      "stats": {
+        "mean": 1.113,
+        "std": 1.243,
+        "min": 0.0,
+        "max": 14.0,
+        "median": 1.0
+      }
+    },
+    "n_calc_annotations": {
+      "dtype": "int64",
+      "missing_pct": 0.0,
+      "n_unique": 18,
+      "unique_ratio": 0.014,
+      "sample_values": [
+        "0",
+        "2",
+        "4",
+        "6",
+        "11"
+      ],
+      "type": "numeric",
+      "stats": {
+        "mean": 1.161,
+        "std": 1.954,
+        "min": 0.0,
+        "max": 24.0,
+        "median": 0.0
+      }
+    },
+    "n_cc_views": {
+      "dtype": "int64",
+      "missing_pct": 0.0,
+      "n_unique": 11,
+      "unique_ratio": 0.009,
+      "sample_values": [
+        "1",
+        "0",
+        "2",
+        "3",
+        "4"
+      ],
+      "type": "numeric",
+      "stats": {
+        "mean": 1.069,
+        "std": 0.952,
+        "min": 0.0,
+        "max": 12.0,
+        "median": 1.0
+      }
+    },
+    "n_mlo_views": {
+      "dtype": "int64",
+      "missing_pct": 0.0,
+      "n_unique": 11,
+      "unique_ratio": 0.009,
+      "sample_values": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "7"
+      ],
+      "type": "numeric",
+      "stats": {
+        "mean": 1.205,
+        "std": 0.956,
+        "min": 0.0,
+        "max": 13.0,
+        "median": 1.0
+      }
+    },
+    "has_left_breast": {
+      "dtype": "int64",
+      "missing_pct": 0.0,
+      "n_unique": 2,
+      "unique_ratio": 0.002,
+      "sample_values": [
+        "0",
+        "1"
+      ],
+      "type": "numeric",
+      "stats": {
+        "mean": 0.553,
+        "std": 0.497,
+        "min": 0.0,
+        "max": 1.0,
+        "median": 1.0
+      }
+    },
+    "has_right_breast": {
+      "dtype": "int64",
+      "missing_pct": 0.0,
+      "n_unique": 2,
+      "unique_ratio": 0.002,
+      "sample_values": [
+        "1",
+        "0"
+      ],
+      "type": "numeric",
+      "stats": {
+        "mean": 0.538,
+        "std": 0.499,
+        "min": 0.0,
+        "max": 1.0,
+        "median": 1.0
+      }
+    },
+    "breast_density_mean": {
+      "dtype": "float64",
+      "missing_pct": 0.0,
+      "n_unique": 5,
+      "unique_ratio": 0.004,
+      "sample_values": [
+        "3.0",
+        "2.0",
+        "1.0",
+        "4.0",
+        "0.0"
+      ],
+      "type": "numeric",
+      "stats": {
+        "mean": 2.548,
+        "std": 0.942,
+        "min": 0.0,
+        "max": 4.0,
+        "median": 2.0
+      }
+    },
+    "breast_density_min": {
+      "dtype": "float64",
+      "missing_pct": 0.0,
+      "n_unique": 5,
+      "unique_ratio": 0.004,
+      "sample_values": [
+        "3.0",
+        "2.0",
+        "1.0",
+        "4.0",
+        "0.0"
+      ],
+      "type": "numeric",
+      "stats": {
+        "mean": 2.548,
+        "std": 0.942,
+        "min": 0.0,
+        "max": 4.0,
+        "median": 2.0
+      }
+    },
+    "breast_density_max": {
+      "dtype": "float64",
+      "missing_pct": 0.0,
+      "n_unique": 5,
+      "unique_ratio": 0.004,
+      "sample_values": [
+        "3.0",
+        "2.0",
+        "1.0",
+        "4.0",
+        "0.0"
+      ],
+      "type": "numeric",
+      "stats": {
+        "mean": 2.548,
+        "std": 0.942,
+        "min": 0.0,
+        "max": 4.0,
+        "median": 2.0
+      }
+    },
+    "mass_shape_missing": {
+      "dtype": "int64",
+      "missing_pct": 0.0,
+      "n_unique": 2,
+      "unique_ratio": 0.002,
+      "sample_values": [
+        "0",
+        "1"
+      ],
+      "type": "numeric",
+      "stats": {
+        "mean": 0.002,
+        "std": 0.04,
+        "min": 0.0,
+        "max": 1.0,
+        "median": 0.0
+      }
+    },
+    "mass_margins_missing": {
+      "dtype": "int64",
+      "missing_pct": 0.0,
+      "n_unique": 2,
+      "unique_ratio": 0.002,
+      "sample_values": [
+        "0",
+        "1"
+      ],
+      "type": "numeric",
+      "stats": {
+        "mean": 0.021,
+        "std": 0.143,
+        "min": 0.0,
+        "max": 1.0,
+        "median": 0.0
+      }
+    },
+    "calc_type_missing": {
+      "dtype": "int64",
+      "missing_pct": 0.0,
+      "n_unique": 2,
+      "unique_ratio": 0.002,
+      "sample_values": [
+        "0",
+        "1"
+      ],
+      "type": "numeric",
+      "stats": {
+        "mean": 0.002,
+        "std": 0.049,
+        "min": 0.0,
+        "max": 1.0,
+        "median": 0.0
+      }
+    },
+    "calc_distribution_missing": {
+      "dtype": "int64",
+      "missing_pct": 0.0,
+      "n_unique": 2,
+      "unique_ratio": 0.002,
+      "sample_values": [
+        "0",
+        "1"
+      ],
+      "type": "numeric",
+      "stats": {
+        "mean": 0.053,
+        "std": 0.224,
+        "min": 0.0,
+        "max": 1.0,
+        "median": 0.0
+      }
+    },
+    "mass_shape__architectural_distortion": {
+      "dtype": "int64",
+      "missing_pct": 0.0,
+      "n_unique": 2,
+      "unique_ratio": 0.002,
+      "sample_values": [
+        "0",
+        "1"
+      ],
+      "type": "numeric",
+      "stats": {
+        "mean": 0.058,
+        "std": 0.233,
+        "min": 0.0,
+        "max": 1.0,
+        "median": 0.0
+      }
+    },
+    "mass_shape__asymmetric_breast_tissue": {
+      "dtype": "int64",
+      "missing_pct": 0.0,
+      "n_unique": 2,
+      "unique_ratio": 0.002,
+      "sample_values": [
+        "0",
+        "1"
+      ],
+      "type": "numeric",
+      "stats": {
+        "mean": 0.008,
+        "std": 0.089,
+        "min": 0.0,
+        "max": 1.0,
+        "median": 0.0
+      }
+    },
+    "mass_shape__focal_asymmetric_density": {
+      "dtype": "int64",
+      "missing_pct": 0.0,
+      "n_unique": 2,
+      "unique_ratio": 0.002,
+      "sample_values": [
+        "0",
+        "1"
+      ],
+      "type": "numeric",
+      "stats": {
+        "mean": 0.011,
+        "std": 0.105,
+        "min": 0.0,
+        "max": 1.0,
+        "median": 0.0
+      }
+    },
+    "mass_shape__irregular": {
+      "dtype": "int64",
+      "missing_pct": 0.0,
+      "n_unique": 2,
+      "unique_ratio": 0.002,
+      "sample_values": [
+        "1",
+        "0"
+      ],
+      "type": "numeric",
+      "stats": {
+        "mean": 0.202,
+        "std": 0.402,
+        "min": 0.0,
+        "max": 1.0,
+        "median": 0.0
+      }
+    },
+    "mass_shape__lobulated": {
+      "dtype": "int64",
+      "missing_pct": 0.0,
+      "n_unique": 2,
+      "unique_ratio": 0.002,
+      "sample_values": [
+        "0",
+        "1"
+      ],
+      "type": "numeric",
+      "stats": {
+        "mean": 0.163,
+        "std": 0.369,
+        "min": 0.0,
+        "max": 1.0,
+        "median": 0.0
+      }
+    },
+    "mass_shape__lymph_node": {
+      "dtype": "int64",
+      "missing_pct": 0.0,
+      "n_unique": 2,
+      "unique_ratio": 0.002,
+      "sample_values": [
+        "0",
+        "1"
+      ],
+      "type": "numeric",
+      "stats": {
+        "mean": 0.008,
+        "std": 0.089,
+        "min": 0.0,
+        "max": 1.0,
+        "median": 0.0
+      }
+    },
+    "mass_shape__oval": {
+      "dtype": "int64",
+      "missing_pct": 0.0,
+      "n_unique": 2,
+      "unique_ratio": 0.002,
+      "sample_values": [
+        "0",
+        "1"
+      ],
+      "type": "numeric",
+      "stats": {
+        "mean": 0.173,
+        "std": 0.379,
+        "min": 0.0,
+        "max": 1.0,
+        "median": 0.0
+      }
+    },
+    "mass_shape__round": {
+      "dtype": "int64",
+      "missing_pct": 0.0,
+      "n_unique": 2,
+      "unique_ratio": 0.002,
+      "sample_values": [
+        "0",
+        "1"
+      ],
+      "type": "numeric",
+      "stats": {
+        "mean": 0.068,
+        "std": 0.252,
+        "min": 0.0,
+        "max": 1.0,
+        "median": 0.0
+      }
+    },
+    "mass_margin__circumscribed": {
+      "dtype": "int64",
+      "missing_pct": 0.0,
+      "n_unique": 2,
+      "unique_ratio": 0.002,
+      "sample_values": [
+        "0",
+        "1"
+      ],
+      "type": "numeric",
+      "stats": {
+        "mean": 0.154,
+        "std": 0.361,
+        "min": 0.0,
+        "max": 1.0,
+        "median": 0.0
+      }
+    },
+    "mass_margin__ill_defined": {
+      "dtype": "int64",
+      "missing_pct": 0.0,
+      "n_unique": 2,
+      "unique_ratio": 0.002,
+      "sample_values": [
+        "1",
+        "0"
+      ],
+      "type": "numeric",
+      "stats": {
+        "mean": 0.195,
+        "std": 0.396,
+        "min": 0.0,
+        "max": 1.0,
+        "median": 0.0
+      }
+    },
+    "mass_margin__microlobulated": {
+      "dtype": "int64",
+      "missing_pct": 0.0,
+      "n_unique": 2,
+      "unique_ratio": 0.002,
+      "sample_values": [
+        "0",
+        "1"
+      ],
+      "type": "numeric",
+      "stats": {
+        "mean": 0.065,
+        "std": 0.246,
+        "min": 0.0,
+        "max": 1.0,
+        "median": 0.0
+      }
+    },
+    "mass_margin__obscured": {
+      "dtype": "int64",
+      "missing_pct": 0.0,
+      "n_unique": 2,
+      "unique_ratio": 0.002,
+      "sample_values": [
+        "1",
+        "0"
+      ],
+      "type": "numeric",
+      "stats": {
+        "mean": 0.117,
+        "std": 0.322,
+        "min": 0.0,
+        "max": 1.0,
+        "median": 0.0
+      }
+    },
+    "mass_margin__spiculated": {
+      "dtype": "int64",
+      "missing_pct": 0.0,
+      "n_unique": 2,
+      "unique_ratio": 0.002,
+      "sample_values": [
+        "0",
+        "1"
+      ],
+      "type": "numeric",
+      "stats": {
+        "mean": 0.161,
+        "std": 0.367,
+        "min": 0.0,
+        "max": 1.0,
+        "median": 0.0
+      }
+    },
+    "calc_type__amorphous": {
+      "dtype": "int64",
+      "missing_pct": 0.0,
+      "n_unique": 2,
+      "unique_ratio": 0.002,
+      "sample_values": [
+        "0",
+        "1"
+      ],
+      "type": "numeric",
+      "stats": {
+        "mean": 0.073,
+        "std": 0.261,
+        "min": 0.0,
+        "max": 1.0,
+        "median": 0.0
+      }
+    },
+    "calc_type__coarse": {
+      "dtype": "int64",
+      "missing_pct": 0.0,
+      "n_unique": 2,
+      "unique_ratio": 0.002,
+      "sample_values": [
+        "0",
+        "1"
+      ],
+      "type": "numeric",
+      "stats": {
+        "mean": 0.017,
+        "std": 0.128,
+        "min": 0.0,
+        "max": 1.0,
+        "median": 0.0
+      }
+    },
+    "calc_type__dystrophic": {
+      "dtype": "int64",
+      "missing_pct": 0.0,
+      "n_unique": 2,
+      "unique_ratio": 0.002,
+      "sample_values": [
+        "0",
+        "1"
+      ],
+      "type": "numeric",
+      "stats": {
+        "mean": 0.006,
+        "std": 0.075,
+        "min": 0.0,
+        "max": 1.0,
+        "median": 0.0
+      }
+    },
+    "calc_type__eggshell": {
+      "dtype": "int64",
+      "missing_pct": 0.0,
+      "n_unique": 2,
+      "unique_ratio": 0.002,
+      "sample_values": [
+        "0",
+        "1"
+      ],
+      "type": "numeric",
+      "stats": {
+        "mean": 0.003,
+        "std": 0.056,
+        "min": 0.0,
+        "max": 1.0,
+        "median": 0.0
+      }
+    },
+    "calc_type__fine_linear_branching": {
+      "dtype": "int64",
+      "missing_pct": 0.0,
+      "n_unique": 2,
+      "unique_ratio": 0.002,
+      "sample_values": [
+        "0",
+        "1"
+      ],
+      "type": "numeric",
+      "stats": {
+        "mean": 0.041,
+        "std": 0.198,
+        "min": 0.0,
+        "max": 1.0,
+        "median": 0.0
+      }
+    },
+    "calc_type__large_rodlike": {
+      "dtype": "int64",
+      "missing_pct": 0.0,
+      "n_unique": 2,
+      "unique_ratio": 0.002,
+      "sample_values": [
+        "0",
+        "1"
+      ],
+      "type": "numeric",
+      "stats": {
+        "mean": 0.002,
+        "std": 0.04,
+        "min": 0.0,
+        "max": 1.0,
+        "median": 0.0
+      }
+    },
+    "calc_type__lucent_center": {
+      "dtype": "int64",
+      "missing_pct": 0.0,
+      "n_unique": 2,
+      "unique_ratio": 0.002,
+      "sample_values": [
+        "0",
+        "1"
+      ],
+      "type": "numeric",
+      "stats": {
+        "mean": 0.029,
+        "std": 0.167,
+        "min": 0.0,
+        "max": 1.0,
+        "median": 0.0
+      }
+    },
+    "calc_type__lucent_centered": {
+      "dtype": "int64",
+      "missing_pct": 0.0,
+      "n_unique": 2,
+      "unique_ratio": 0.002,
+      "sample_values": [
+        "0",
+        "1"
+      ],
+      "type": "numeric",
+      "stats": {
+        "mean": 0.005,
+        "std": 0.069,
+        "min": 0.0,
+        "max": 1.0,
+        "median": 0.0
+      }
+    },
+    "calc_type__milk_of_calcium": {
+      "dtype": "int64",
+      "missing_pct": 0.0,
+      "n_unique": 1,
+      "unique_ratio": 0.001,
+      "sample_values": [
+        "0"
+      ],
+      "type": "numeric",
+      "stats": {
+        "mean": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "median": 0.0
+      }
+    },
+    "calc_type__pleomorphic": {
+      "dtype": "int64",
+      "missing_pct": 0.0,
+      "n_unique": 2,
+      "unique_ratio": 0.002,
+      "sample_values": [
+        "0",
+        "1"
+      ],
+      "type": "numeric",
+      "stats": {
+        "mean": 0.289,
+        "std": 0.454,
+        "min": 0.0,
+        "max": 1.0,
+        "median": 0.0
+      }
+    }
+  },
+  "n_columns_omitted": 9
+}

@@ -1,0 +1,20 @@
+{
+  "title": "Robust self-healing prediction model for high dimensional data",
+  "abstract": "Owing to the advantages of increased accuracy and the potential to detect unseen patterns, provided by data mining techniques they have been widely incorporated for standard classification problems. They have often been used for high precision disease prediction in the medical field, and several hybrid prediction models capable of achieving high accuracies have been proposed. Though this stands true most of the previous models fail to efficiently address the recurring issue of bad data quality which plagues most high dimensional data, and especially proves troublesome in the highly sensitive medical data. This work proposes a robust self healing (RSH) hybrid prediction model which functions by using the data in its entirety by removing errors and inconsistencies from it rather than discarding any data. Initial processing involves data preparation followed by cleansing or scrubbing through context-dependent attribute correction, which ensures that there is no significant loss of relevant information before the feature selection and prediction phases. An ensemble of heterogeneous classifiers, subjected to local boosting, is utilized to build the prediction model and genetic algorithm based wrapper feature selection technique wrapped on the respective classifiers is employed to select the corresponding optimal set of features, which warrant higher accuracy. The proposed method is compared with some of the existing high performing models and the results are analyzed.",
+  "year": "2022",
+  "doi": "",
+  "url": "http://arxiv.org/abs/2210.01788v1",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/2210.01788v1",
+  "paper_key": "p_33f48d69a78f2c55812faa3b",
+  "aliases": [
+    "arxiv:2210.01788",
+    "title:robustselfhealingpredictionmodelforhighdimensionaldata"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_eb1c1fbae050ae58.json"
+  ],
+  "evidence": []
+}

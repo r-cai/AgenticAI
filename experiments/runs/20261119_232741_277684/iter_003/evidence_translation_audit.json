@@ -1,0 +1,52 @@
+[
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "pipeline_preflight_failed:ValueError:Unsupported rfe parameters: ['verbose']",
+    "fingerprint": "47200fa29f7ee2836beac2c7ff8ce381eaf6ee9ec88ffc0ba47f2e1bfde715ce"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "pipeline_preflight_failed:ValueError:Unsupported variance_threshold parameters: ['variance_threshold']",
+    "fingerprint": "45385e499a24039e81a7aedde3729a0435d9bb193f5da1cba4e2e07376bbdace"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "generator_schema_validation",
+    "batch_round": 2,
+    "attempt": 1,
+    "candidate_index": 1,
+    "error": "ValidationError: 1 validation error for Candidate\ncomposition\n  Value error, pipeline needs model, no branches/final_estimator [type=value_error, input_value={'kind': 'pipeline', 'tra...', 'passthrough': False}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/value_error"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "source_does_not_support_used_operations:ev_892146c13f0a85",
+    "fingerprint": "fb9b17dee897a295491f3f74e7d1b302f4c019f7a3cad27541c0c0d53f3c23f2"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "duplicate_executable_architecture",
+    "fingerprint": "fd800316cdb281da7ddf0479b8f29e4ba896c45b8e39e4fbaac8259db6bf659c"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "generator_schema_validation",
+    "batch_round": 3,
+    "attempt": 1,
+    "candidate_index": 0,
+    "error": "ValidationError: 1 validation error for Candidate\n  Value error, Specify exactly one of model or composition [type=value_error, input_value={'rationale': 'Apply Recu...: ['ev_67cadb757a26d2']}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/value_error"
+  },
+  {
+    "origin": "batch_budget",
+    "status": "summary",
+    "requested": 3,
+    "proposed_valid": 3,
+    "unfilled": 0,
+    "llm_calls": 3
+  }
+]

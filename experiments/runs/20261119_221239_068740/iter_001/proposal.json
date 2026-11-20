@@ -1,0 +1,151 @@
+{
+  "reasoning": "The baseline Random Forest achieved 95.41% CV accuracy with minimal overfitting (train/test gap ~0.046), suggesting the current feature set is sufficient and complex models are not strictly necessary. However, to explore regularization effects on small sample tabular data (n=455) as suggested by literature [ev_892146c13f0a85], a Logistic Regression with strong L2 regularization (low C) is proposed to test if simpler linear boundaries generalize better. Additionally, the literature [ev_67cadb757a26d2] supports Recursive Feature Elimination (RFE) for high-dimensional tabular data; thus, a second candidate applies RFE to reduce dimensionality before feeding data into an Extreme Gradient Boosting model, which is known for handling non-linear interactions in medical imaging contexts [ev_24905bb7d707bc]. Both candidates differ from the baseline in model family and/or preprocessing pipeline. The previous attempt failed due to a structural error in the pipeline definition (missing 'model' field). The current batch includes a voting ensemble, so we must ensure diversity by proposing distinct architectures. Candidate 1 is a refined Random Forest with specific hyperparameters to test regularization depth. Candidate 2 is a Voting ensemble combining Logistic Regression and Gradient Boosting to leverage different decision boundaries, supported by evidence on ensemble feature selection. Candidate 3 is a Pipeline applying Recursive Feature Elimination (RFE) based on the provided literature regarding high-dimensional tabular data. The baseline Random Forest achieved 0.9541 CV score with no regularization or feature selection, indicating potential overfitting given the small sample size (n=455) and high dimensionality (n=30). Critic feedback suggests testing regularization and feature selection to combat overfitting. Evidence from 'Weight Predictor Network with Feature Selection' supports using feature selection mechanisms for small-sample tabular data. Evidence from 'Two-Stage Ensemble Feature Selection' supports combining multiple models via voting after feature selection. We propose: 1) A regularized Logistic Regression with L2 penalty (C=0.5) to test if simple linear boundaries generalize better on this dataset; 2) An ensemble approach using Soft Voting with Random Forest and Gradient Boosting, preceded by Recursive Feature Elimination (RFE) to reduce dimensionality as suggested by the literature; 3) A pipeline combining PCA for dimensionality reduction followed by a tuned Random Forest (increased max_depth, adjusted min_samples_leaf) to test if explicit dimensionality reduction improves performance over implicit selection. The baseline Random Forest achieved 95.41% CV accuracy with a small train/test gap (4.6%), suggesting good generalization but potentially suboptimal feature utilization given the high dimensionality (30 features) relative to samples (455). Literature evidence [ev_892146c13f0a85] suggests Weight Predictor Networks can improve performance on small sample tabular data via feature selection, though implementing a full neural network is outside the supported model list. Evidence [ev_5294c787c1645c] and [ev_67cadb757a26d2] supports ensemble voting and Recursive Feature Elimination (RFE) for high-dimensional biomedical data. To address potential overfitting or suboptimal feature selection in the baseline, we propose: 1) A Voting Ensemble combining Logistic Regression and Gradient Boosting with soft voting to leverage different decision boundaries, as supported by [ev_5294c787c1645c]. 2) An RFE-based pipeline using a Random Forest to select top features before applying a Gradient Boosting classifier, addressing the high dimensionality concern raised in [ev_67cadb757a26d2] and [ev_892146c13f0a85]. 3) A refined baseline using Logistic Regression with balanced class weights (to handle 1.68 imbalance ratio) and L2 regularization, as per the rule for logistic_regression, to test if linear models can compete or outperform tree-based methods on this specific dataset.",
+  "candidates": [
+    {
+      "rationale": "Test literature-mentioned voting with two diverse registered learners.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "none",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "linear",
+            "transforms": [
+              {
+                "op": "standard_scaler",
+                "params": {}
+              }
+            ],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "max_iter": 1500,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "trees",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 200,
+                "min_samples_leaf": 2,
+                "class_weight": "balanced"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "hard",
+        "passthrough": false
+      },
+      "research_basis": [
+        "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments"
+      ],
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ]
+    },
+    {
+      "rationale": "Refine Random Forest with stronger regularization constraints to test robustness against overfitting, given the small sample size relative to features.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": {
+        "name": "random_forest",
+        "hyperparameters": {
+          "n_estimators": 150,
+          "max_depth": 6,
+          "min_samples_split": 3,
+          "min_samples_leaf": 2,
+          "max_features": "sqrt",
+          "class_weight": "balanced"
+        }
+      },
+      "composition": null,
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    {
+      "rationale": "Test complementary decision boundaries using soft voting between a linear model and a gradient boosting model, supported by evidence of ensemble feature selection improving micro-array classification accuracy.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 1.0,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "gb",
+            "transforms": [],
+            "model": {
+              "name": "gradient_boosting",
+              "hyperparameters": {
+                "n_estimators": 100,
+                "learning_rate": 0.1,
+                "max_depth": 3,
+                "subsample": 0.8,
+                "min_samples_split": 2
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "http://arxiv.org/abs/2507.04251v1"
+      ],
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ]
+    }
+  ],
+  "candidate_origins": {
+    "7e9e6747ce97d1d3d2f26c71b8f1d98b1ca5088d8667b01cf818fa98d898a3d9": "evidence_compiler",
+    "8843d495307a6d846c110c34805a16148f3fce331b0c538c8d7c7555297e1245": "llm",
+    "b49d41adc5b27806675869c88028601793c4b3a681fc5368728efe2aed1125cc": "llm"
+  },
+  "candidate_evidence_mapping": {
+    "7e9e6747ce97d1d3d2f26c71b8f1d98b1ca5088d8667b01cf818fa98d898a3d9": {
+      "evidence_id": "ev_5294c787c1645c",
+      "implemented_operation": "voting",
+      "implementation_choices": [
+        "median imputation is an engineering choice, not attributed to source",
+        "base learners are experiment design choices, not claimed paper settings"
+      ]
+    }
+  },
+  "generator_error": null
+}

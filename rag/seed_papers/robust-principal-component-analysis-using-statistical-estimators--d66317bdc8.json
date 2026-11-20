@@ -1,0 +1,20 @@
+{
+  "title": "Robust Principal Component Analysis Using Statistical Estimators",
+  "abstract": "Principal Component Analysis (PCA) finds a linear mapping and maximizes the variance of the data which makes PCA sensitive to outliers and may cause wrong eigendirection. In this paper, we propose techniques to solve this problem; we use the data-centering method and reestimate the covariance matrix using robust statistic techniques such as median, robust scaling which is a booster to data-centering and Huber M-estimator which measures the presentation of outliers and reweight them with small values. The results on several real world data sets show that our proposed method handles outliers and gains better results than the original PCA and provides the same accuracy with lower computation cost than the Kernel PCA using the polynomial kernel in classification tasks.",
+  "year": "2012",
+  "doi": "",
+  "url": "http://arxiv.org/abs/1207.0403v1",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/1207.0403v1",
+  "paper_key": "p_d66317bdc8af94290714a0d0",
+  "aliases": [
+    "arxiv:1207.0403",
+    "title:robustprincipalcomponentanalysisusingstatisticalestimators"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_2c43c5fd735aa0ab.json"
+  ],
+  "evidence": []
+}

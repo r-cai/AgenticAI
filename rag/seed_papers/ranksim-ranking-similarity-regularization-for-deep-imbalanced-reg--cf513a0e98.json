@@ -1,0 +1,20 @@
+{
+  "title": "RankSim: Ranking Similarity Regularization for Deep Imbalanced Regression",
+  "abstract": "Data imbalance, in which a plurality of the data samples come from a small proportion of labels, poses a challenge in training deep neural networks. Unlike classification, in regression the labels are continuous, potentially boundless, and form a natural ordering. These distinct features of regression call for new techniques that leverage the additional information encoded in label-space relationships. This paper presents the RankSim (ranking similarity) regularizer for deep imbalanced regression, which encodes an inductive bias that samples that are closer in label space should also be closer in feature space. In contrast to recent distribution smoothing based approaches, RankSim captures both nearby and distant relationships: for a given data sample, RankSim encourages the sorted list of its neighbors in label space to match the sorted list of its neighbors in feature space. RankSim is complementary to conventional imbalanced learning techniques, including re-weighting, two-stage training, and distribution smoothing, and lifts the state-of-the-art performance on three imbalanced regression benchmarks: IMDB-WIKI-DIR, AgeDB-DIR, and STS-B-DIR.",
+  "year": "2022",
+  "doi": "",
+  "url": "http://arxiv.org/abs/2205.15236v2",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/2205.15236v2",
+  "paper_key": "p_cf513a0e98bf32b6ca5da9b5",
+  "aliases": [
+    "arxiv:2205.15236",
+    "title:ranksimrankingsimilarityregularizationfordeepimbalancedregression"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_782616f4558be395.json"
+  ],
+  "evidence": []
+}

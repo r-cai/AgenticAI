@@ -1,0 +1,20 @@
+{
+  "title": "Optimizing MCMC-Driven Bayesian Neural Networks for High-Precision Medical Image Classification in Small Sample Sizes",
+  "abstract": "This paper discusses the application of a Bayesian neural network based on the Markov Chain Monte Carlo method in medical image classification with small samples. Experimental results on two medical image datasets, including lung X-ray images and breast tissue slice images, show that this MCMC-based BNN model works very well on small-sample data and greatly improves the robustness and accuracy of classification. Model accuracy reached 85% for the lung X-ray dataset and 88% for the breast tissue slice dataset. To this end, we combine data augmentation techniques such as rotation, flipping, and scaling with regularization methods like dropout and weight decay to improve effectively the diversity of the training data and the generalization ability of the model. The performance of the model was evaluated by many indicators of the results, including accuracy, precision, recall, and the F1 score. All of these have proven the advantages of BNN in small-sample medical image classification. This study not only enriches the application of BNN in the field of medical image classification, but also provides specific implementation paths and optimization methods, providing new solutions for future medical image analysis.",
+  "year": "2024",
+  "doi": "",
+  "url": "http://arxiv.org/abs/2409.12355v1",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/2409.12355v1",
+  "paper_key": "p_430a15f69a4158ce6e728ba3",
+  "aliases": [
+    "arxiv:2409.12355",
+    "title:optimizingmcmcdrivenbayesianneuralnetworksforhighprecisionmedicalimageclassificationinsmallsamplesizes"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_782616f4558be395.json"
+  ],
+  "evidence": []
+}

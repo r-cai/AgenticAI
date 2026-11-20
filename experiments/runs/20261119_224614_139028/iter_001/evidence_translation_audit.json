@@ -1,0 +1,54 @@
+[
+  {
+    "origin": "llm",
+    "status": "deferred",
+    "reason": "architecture_kind_diversity",
+    "kind": "standalone",
+    "fingerprint": "5f7f672bdc141bab177f32dc339553f566c8dd4348c053831bfd63703e53620c"
+  },
+  {
+    "origin": "llm",
+    "status": "deferred",
+    "reason": "architecture_kind_diversity",
+    "kind": "standalone",
+    "fingerprint": "cf90c014773037f3faf147f5430d3311633fd15ddde49fb9090b52f43cd5b387"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "duplicate_executable_architecture",
+    "fingerprint": "cf90c014773037f3faf147f5430d3311633fd15ddde49fb9090b52f43cd5b387"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "generator_schema_validation",
+    "batch_round": 4,
+    "attempt": 1,
+    "candidate_index": 0,
+    "error": "ValueError: Candidate references non-retrieved evidence: ['logistic_regression_with_class_weight_balanced_improves_sensitivity_on_imbalanced_datasets']"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "generator_schema_validation",
+    "batch_round": 4,
+    "attempt": 1,
+    "candidate_index": 1,
+    "error": "ValueError: Candidate references non-retrieved evidence: ['extra_trees_with_min_samples_leaf_reduces_overfitting_on_small_mediated_datasets']"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "duplicate_executable_architecture",
+    "fingerprint": "da536c006d2789eb5b3e92827db5c3bdd0f0bed4699fa01d85bb3c19f957d434"
+  },
+  {
+    "origin": "batch_budget",
+    "status": "summary",
+    "requested": 3,
+    "proposed_valid": 3,
+    "unfilled": 0,
+    "llm_calls": 5
+  }
+]

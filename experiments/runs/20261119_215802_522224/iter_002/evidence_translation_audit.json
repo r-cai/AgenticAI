@@ -1,0 +1,46 @@
+[
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "evidence-linked candidate must be an actual Level-2 composition",
+    "fingerprint": "2dbab91436f4da5337028c89f20c959f060d027b48b5e9c484fe6287adb3a6ce"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "evidence-linked candidate must be an actual Level-2 composition",
+    "fingerprint": "c46b10919775417fa6ea238b0489a94503167ff784c20328d5f4bd7f1634e5ba"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "evidence-linked candidate must be an actual Level-2 composition",
+    "fingerprint": "f1816721b5b59ff82e06c94004fb5dc2889444a85564142f4bff73f2bd20fb87"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "source_does_not_support_used_operations:ev_67cadb757a26d2",
+    "fingerprint": "e238f30effb9a55a141e3e2fcfa5cb7a1161edf7f7a98b2e7bee8a0d8eeac908"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "pipeline_preflight_failed:ValueError:Unsupported rfe parameters: ['cv']",
+    "fingerprint": "9094801c3c2905260610ae77eeed75e3c0ca1accc57c8dcdfdccd84f3debd653"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "source_does_not_support_used_operations:ev_892146c13f0a85",
+    "fingerprint": "9830bc2c1433010924bc68d9219f1214bf3b013448a4552f2351e3eec0b48dcc"
+  },
+  {
+    "origin": "batch_budget",
+    "status": "summary",
+    "requested": 3,
+    "proposed_valid": 2,
+    "unfilled": 1,
+    "llm_calls": 5
+  }
+]

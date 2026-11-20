@@ -1,0 +1,58 @@
+[config] Loaded C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\controlled\wdbc_repeated_v1\configs\82\B_rag_context_only.yaml
+Run 20261119_232741_277684
+[output] reports will be saved to C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\runs\20261119_232741_277684
+[data] optional excluded columns not present; skipped: ['id']
+Baseline (random_forest): CV 0.9471
+[rag] reusing frozen research/evidence corpus from C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\controlled\wdbc_repeated_v1\frozen_corpus
+Research context: 25 item(s)
+Grounded method records: 21; eligible/diverse: 4
+
+=== Iteration 1 ===
+[generator] attempt=1 prompt_tokens=7962 output_tokens=1076
+[generator] attempt=1 prompt_tokens=8138 output_tokens=1074
+[generator] attempt=1 prompt_tokens=8138 output_tokens=1206
+[generator] attempt=1 prompt_tokens=8138 output_tokens=1224
+[generator] attempt=1 prompt_tokens=8138 output_tokens=1336
+  iter01_c1 extra_trees: CV 0.9565 (+/- 0.0246, gap 0.0435)
+  iter01_c2 composition:voting: CV 0.9692 (+/- 0.0229, gap 0.0227)
+
+=== Iteration 2 ===
+[generator] attempt=1 prompt_tokens=8537 output_tokens=1148
+[generator] attempt=1 prompt_tokens=8710 output_tokens=1159
+[generator] attempt=1 prompt_tokens=8710 output_tokens=1097
+[generator] attempt=1 prompt_tokens=8710 output_tokens=884
+[generator] attempt=1 prompt_tokens=8710 output_tokens=1142
+  iter02_c1 composition:voting: CV 0.9575 (+/- 0.0229, gap 0.0395)
+  iter02_c2 hist_gradient_boosting: CV 0.9510 (+/- 0.0245, gap 0.0433)
+  iter02_c3 composition:voting: CV 0.9591 (+/- 0.0260, gap 0.0409)
+
+=== Iteration 3 ===
+[generator] attempt=1 prompt_tokens=9447 output_tokens=1369
+[generator] attempt=1 prompt_tokens=9555 output_tokens=1305
+[generator] rejected candidate[1]: ValidationError: 1 validation error for Candidate
+composition
+  Value error, pipeline needs model, no branches/final_estimator [type=value_error, input_value={'kind': 'pipeline', 'tra...', 'passthrough': False}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/value_error
+[generator] attempt=1 prompt_tokens=9555 output_tokens=1029
+[generator] rejected candidate[0]: ValidationError: 1 validation error for Candidate
+  Value error, Specify exactly one of model or composition [type=value_error, input_value={'rationale': 'Apply Recu...: ['ev_67cadb757a26d2']}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/value_error
+[generator] attempt=2 prompt_tokens=9744 output_tokens=1082
+  iter03_c1 hist_gradient_boosting: CV 0.9429 (+/- 0.0230, gap 0.0508)
+[controlled] completed 6 successfully evaluated candidates
+
+Selected iter01_c2 (composition:voting), CV 0.9692
+PDF report: experiments\runs\20261119_232741_277684\level2_experiment_report.pdf
+[report] Named latest: C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\reports\final_report_data-3_B.json
+[report] Run archive:  C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\reports\final_report_data-3_B_20261119_232741_277684.json
+
+============================================================
+Best: iter01_c2 (composition:voting)
+  CV f1_macro: 0.9692 +/- 0.0229
+  Baseline CV:    0.9471
+  Holdout:        1.0000 (CV-holdout gap -0.0308)
+Stopped: target_evaluated_candidates_reached after 3 iteration(s)
+Full report: experiments/runs/20261119_232741_277684/final_report.json
+Named report: experiments\reports\final_report_data-3_B.json
+Archived copy: experiments\reports\final_report_data-3_B_20261119_232741_277684.json
+PDF report:  experiments\runs\20261119_232741_277684\level2_experiment_report.pdf

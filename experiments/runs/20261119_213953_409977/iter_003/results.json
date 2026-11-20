@@ -1,0 +1,89 @@
+[
+  {
+    "candidate_id": "iter03_c1",
+    "iteration": 3,
+    "config": {
+      "rationale": "Test a soft voting ensemble combining Random Forest and HistGradientBoosting with tuned regularization (L2) to see if the HGB model can compete better than the previous underperforming iteration.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "rf",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 200,
+                "max_depth": 10,
+                "min_samples_split": 2,
+                "min_samples_leaf": 1,
+                "max_features": "sqrt"
+              }
+            }
+          },
+          {
+            "name": "hgb",
+            "transforms": [],
+            "model": {
+              "name": "hist_gradient_boosting",
+              "hyperparameters": {
+                "max_iter": 150,
+                "learning_rate": 0.05,
+                "max_depth": 6,
+                "max_leaf_nodes": 20,
+                "l2_regularization": 0.01,
+                "early_stopping": true
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [],
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ]
+    },
+    "model_name": "composition:voting",
+    "mean_cv_score": 0.7179,
+    "std_cv_score": 0.0198,
+    "fold_scores": [
+      0.7386,
+      0.7335,
+      0.7291,
+      0.6903,
+      0.7202,
+      0.7115,
+      0.7049,
+      0.6963,
+      0.7435,
+      0.7233,
+      0.7098,
+      0.6818,
+      0.6997,
+      0.7382,
+      0.7473
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.3975,
+    "cv_wall_time_seconds": 7.3906,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0681,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  }
+]

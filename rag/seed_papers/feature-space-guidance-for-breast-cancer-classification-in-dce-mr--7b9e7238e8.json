@@ -1,0 +1,20 @@
+{
+  "title": "Feature Space Guidance for Breast Cancer Classification in DCE-MRI",
+  "abstract": "Dynamic contrast enhanced breast MRI (DCE-MRI) is a powerful clinical tool for breast cancer detection, providing high resolution anatomical detail together with rich temporal contrast information. However, high dimensional 4D inputs, small lesions, and heterogeneous acquisition protocols across clinical sites hinder robust automated classification of healthy, benign, and malignant cases. To address these challenges, we propose a framework that dynamically analyzes latent representations to adapt to protocol-specific characteristics. Spatial variability is mitigated by reducing confounding background uptake and compensating for misalignment caused by deformable soft tissue. Additionally, relationships in the latent space across phases are leveraged to select the most informative temporal features, improving robustness to protocol-specific temporal variability. Finally, task specific discriminative features are promoted through large scale supervised lesion segmentation pretraining, which substantially enhances downstream finetuning. Evaluated under leave-one-center-out validation on the ODELIA dataset and the held-out AMBL cohort, the proposed framework substantially outperforms finetuned radiology foundation models and prior methods, improving mean AUROC by nearly 8 points and balanced accuracy by 4 points over the strongest baseline. Additionally, our method achieved first place in the MICCAI ODELIA Breast MRI Challenge 2025, further demonstrating its effectiveness for robust breast cancer classification. We publicly release our codebase under https://github.com/MIC-DKFZ/CURIAtor.",
+  "year": "2026",
+  "doi": "",
+  "url": "http://arxiv.org/abs/2609.32555v1",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/2609.32555v1",
+  "paper_key": "p_7b9e7238e83ab9dd53ef7093",
+  "aliases": [
+    "arxiv:2609.32555",
+    "title:featurespaceguidanceforbreastcancerclassificationindcemri"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_2664bc65ed6f77c7.json"
+  ],
+  "evidence": []
+}

@@ -1,0 +1,35 @@
+[
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "pipeline_preflight_failed:ValueError:Unsupported rfe parameters: ['verbose']",
+    "fingerprint": "c54210edf0a6979d8580f6b10bb6a8aa58b16f31a79d3c6fbaf03635a9ecae4c"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "source_does_not_support_used_operations:ev_892146c13f0a85",
+    "fingerprint": "4d369863d5ad54f3e0492f8a25a3636fc119ae529be4c044e5de2b616228731c"
+  },
+  {
+    "origin": "llm",
+    "status": "deferred",
+    "reason": "architecture_kind_diversity",
+    "kind": "voting",
+    "fingerprint": "8cd967ed959c18935dd2365998a218db478fdf72089936896fa877ab76bbe946"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "source_does_not_support_used_operations:ev_5294c787c1645c",
+    "fingerprint": "af5f42ccf78d1ce53596cf8d512c59bc5cba8f1b8388d6b6cf30c579614b0671"
+  },
+  {
+    "origin": "batch_budget",
+    "status": "summary",
+    "requested": 3,
+    "proposed_valid": 3,
+    "unfilled": 0,
+    "llm_calls": 5
+  }
+]

@@ -1,0 +1,77 @@
+{
+  "title": "Malignant Versus Benign Tumors of the Sinonasal Cavity: A Case-Control Study on Occupational Etiology",
+  "abstract": "",
+  "year": "2018",
+  "doi": "10.3390/ijerph15122887",
+  "url": "https://www.semanticscholar.org/paper/7219d5684759de063b5e4a8dc529af154b576185",
+  "source": "legacy_report",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "",
+  "paper_key": "p_97b0dc4310250fde302989c0",
+  "aliases": [
+    "doi:10.3390/ijerph15122887",
+    "url:https://www.semanticscholar.org/paper/7219d5684759de063b5e4a8dc529af154b576185",
+    "title:malignantversusbenigntumorsofthesinonasalcavityacasecontrolstudyonoccupationaletiology"
+  ],
+  "provenance": [
+    "/mnt/data/final_report(5).json",
+    "/mnt/data/final_report_B.json",
+    "/mnt/data/final_report_C.json",
+    "/mnt/data/final_report_D.json"
+  ],
+  "evidence": [
+    {
+      "evidence_id": "ev_1f851fb0e906da",
+      "record": {
+        "evidence_id": "ev_1f851fb0e906da",
+        "paper_title": "Malignant Versus Benign Tumors of the Sinonasal Cavity: A Case-Control Study on Occupational Etiology",
+        "paper_url": "https://www.semanticscholar.org/paper/7219d5684759de063b5e4a8dc529af154b576185",
+        "paper_doi": "10.3390/ijerph15122887",
+        "paper_year": 2018,
+        "method": "multinomial_logistic_regression",
+        "source_excerpt": "Odds ratios (OR) with 95% confidence intervals (CI) associated with selected occupations were obtained by a multinomial and exact logistic regression.",
+        "modeling_hypothesis": "Multinomial logistic regression was applied to assess the relationship between occupations and multiple tumor types, yielding odds ratios and confidence intervals.",
+        "suggested_operations": [],
+        "limitations": "",
+        "extraction_method": "llm_verified_excerpt",
+        "source_grounded": true
+      },
+      "verified": false,
+      "verification_reason": "no_matching_source_abstract",
+      "first_seen": "2026-11-20T00:32:32+00:00",
+      "provenance": [
+        "/mnt/data/final_report(5).json",
+        "/mnt/data/final_report_B.json",
+        "/mnt/data/final_report_C.json",
+        "/mnt/data/final_report_D.json"
+      ]
+    },
+    {
+      "evidence_id": "ev_12538b00a2f500",
+      "record": {
+        "evidence_id": "ev_12538b00a2f500",
+        "paper_title": "Malignant Versus Benign Tumors of the Sinonasal Cavity: A Case-Control Study on Occupational Etiology",
+        "paper_url": "https://www.semanticscholar.org/paper/7219d5684759de063b5e4a8dc529af154b576185",
+        "paper_doi": "10.3390/ijerph15122887",
+        "paper_year": 2018,
+        "method": "exact_logistic_regression",
+        "source_excerpt": "On the exact logistic regression, the OR associated to the textile industry was 9.32 (95%CI = 1.10–Inf) for ADC, and 7.21 (95%CI = 0.55–Inf) for NAET.",
+        "modeling_hypothesis": "Exact logistic regression was used to analyze the association between textile industry occupation and specific sinonasal tumor types, providing odds ratios with confidence intervals.",
+        "suggested_operations": [],
+        "limitations": "",
+        "extraction_method": "llm_verified_excerpt",
+        "source_grounded": true
+      },
+      "verified": false,
+      "verification_reason": "no_matching_source_abstract",
+      "first_seen": "2026-11-20T00:32:32+00:00",
+      "provenance": [
+        "/mnt/data/final_report(5).json",
+        "/mnt/data/final_report_B.json",
+        "/mnt/data/final_report_C.json",
+        "/mnt/data/final_report_D.json"
+      ]
+    }
+  ]
+}

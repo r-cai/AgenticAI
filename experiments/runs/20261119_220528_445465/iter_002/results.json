@@ -1,0 +1,228 @@
+[
+  {
+    "candidate_id": "iter02_c1",
+    "iteration": 2,
+    "config": {
+      "rationale": "Refine the top-performing Soft Voting ensemble by increasing regularization (decreasing C) in the Logistic Regression branch to test for overfitting reduction, and add a Gradient Boosting classifier to diversify the decision boundaries.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr_reg",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 0.5,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "rf_base",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 200,
+                "max_depth": 10,
+                "min_samples_split": 2,
+                "min_samples_leaf": 1,
+                "max_features": "sqrt",
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "gb_base",
+            "transforms": [],
+            "model": {
+              "name": "gradient_boosting",
+              "hyperparameters": {
+                "n_estimators": 100,
+                "learning_rate": 0.1,
+                "max_depth": 3,
+                "subsample": 0.8,
+                "min_samples_split": 2
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "composition:voting",
+    "mean_cv_score": 0.9692,
+    "std_cv_score": 0.0199,
+    "fold_scores": [
+      0.9646,
+      0.9883,
+      0.9525,
+      0.965,
+      0.9882,
+      0.9646,
+      0.9882,
+      0.9883,
+      0.9393,
+      0.9409,
+      0.9762,
+      0.9765,
+      0.9883,
+      0.9287,
+      0.9882
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.7969,
+    "cv_wall_time_seconds": 13.1529,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0308,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter02_c2",
+    "iteration": 2,
+    "config": {
+      "rationale": "Test the hypothesis that standard scaling combined with a more aggressive Random Forest configuration (fewer estimators, deeper trees) generalizes better than the baseline RF used in previous iterations.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "pipeline",
+        "transforms": [],
+        "branches": [],
+        "model": {
+          "name": "random_forest",
+          "hyperparameters": {
+            "n_estimators": 100,
+            "max_depth": 15,
+            "min_samples_split": 2,
+            "min_samples_leaf": 1,
+            "max_features": "sqrt",
+            "class_weight": "balanced"
+          }
+        },
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "composition:pipeline",
+    "mean_cv_score": 0.9511,
+    "std_cv_score": 0.027,
+    "fold_scores": [
+      0.9525,
+      0.9883,
+      0.9525,
+      0.9536,
+      0.9646,
+      0.9646,
+      0.965,
+      0.9883,
+      0.9266,
+      0.8839,
+      0.9646,
+      0.9525,
+      0.9536,
+      0.9036,
+      0.9525
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.1985,
+    "cv_wall_time_seconds": 3.5317,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0489,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter02_c3",
+    "iteration": 2,
+    "config": {
+      "rationale": "Evaluate if a Support Vector Machine with balanced class weights and a tuned C parameter outperforms the current best ensemble, testing the boundary between linear and non-linear separability.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "pipeline",
+        "transforms": [],
+        "branches": [],
+        "model": {
+          "name": "svc",
+          "hyperparameters": {
+            "C": 5.0,
+            "kernel": "rbf",
+            "gamma": "scale",
+            "class_weight": "balanced"
+          }
+        },
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "composition:pipeline",
+    "mean_cv_score": 0.9764,
+    "std_cv_score": 0.0062,
+    "fold_scores": [
+      0.9641,
+      0.9768,
+      0.9765,
+      0.9765,
+      0.9765,
+      0.9762,
+      0.9882,
+      0.9883,
+      0.9765,
+      0.9762,
+      0.9765,
+      0.9765,
+      0.9765,
+      0.9646,
+      0.9765
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.0119,
+    "cv_wall_time_seconds": 0.4757,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0139,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  }
+]

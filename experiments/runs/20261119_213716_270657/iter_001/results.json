@@ -1,0 +1,169 @@
+[
+  {
+    "candidate_id": "iter01_c1",
+    "iteration": 1,
+    "config": {
+      "rationale": "Test linear separability and strong regularization to mitigate the observed train-CV gap in the baseline RF.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": {
+        "name": "logistic_regression",
+        "hyperparameters": {
+          "C": 0.5,
+          "solver": "lbfgs",
+          "max_iter": 1000,
+          "class_weight": "balanced"
+        }
+      },
+      "composition": null,
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "logistic_regression",
+    "mean_cv_score": 0.7014,
+    "std_cv_score": 0.0235,
+    "fold_scores": [
+      0.7631,
+      0.7091,
+      0.6918,
+      0.6829,
+      0.6878,
+      0.6647,
+      0.7044,
+      0.6927,
+      0.6916,
+      0.7039,
+      0.7149,
+      0.679,
+      0.692,
+      0.7037,
+      0.7398
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.0243,
+    "cv_wall_time_seconds": 0.6469,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0331,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter01_c2",
+    "iteration": 1,
+    "config": {
+      "rationale": "Reduce variance in tree-based ensembles by increasing leaf size constraints and reducing feature usage per split.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "none",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": {
+        "name": "extra_trees",
+        "hyperparameters": {
+          "n_estimators": 200,
+          "max_depth": 8,
+          "min_samples_split": 4,
+          "min_samples_leaf": 3,
+          "max_features": "sqrt"
+        }
+      },
+      "composition": null,
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "extra_trees",
+    "mean_cv_score": 0.721,
+    "std_cv_score": 0.0233,
+    "fold_scores": [
+      0.7448,
+      0.7173,
+      0.7141,
+      0.6959,
+      0.7111,
+      0.7073,
+      0.7098,
+      0.6945,
+      0.7373,
+      0.743,
+      0.7142,
+      0.7073,
+      0.6916,
+      0.7522,
+      0.7751
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.1968,
+    "cv_wall_time_seconds": 3.7523,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0373,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter01_c3",
+    "iteration": 1,
+    "config": {
+      "rationale": "Evaluate Gradient Boosting's ability to capture non-linear interactions with controlled depth to prevent overfitting on small samples.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": {
+        "name": "gradient_boosting",
+        "hyperparameters": {
+          "n_estimators": 150,
+          "learning_rate": 0.05,
+          "max_depth": 3,
+          "subsample": 0.7,
+          "min_samples_split": 2
+        }
+      },
+      "composition": null,
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "gradient_boosting",
+    "mean_cv_score": 0.7109,
+    "std_cv_score": 0.0213,
+    "fold_scores": [
+      0.742,
+      0.7335,
+      0.7063,
+      0.6916,
+      0.6953,
+      0.6653,
+      0.713,
+      0.69,
+      0.7436,
+      0.7188,
+      0.7125,
+      0.6937,
+      0.7191,
+      0.7033,
+      0.7359
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.2158,
+    "cv_wall_time_seconds": 3.4855,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0726,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  }
+]

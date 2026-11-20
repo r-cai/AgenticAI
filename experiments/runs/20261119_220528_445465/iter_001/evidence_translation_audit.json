@@ -1,0 +1,37 @@
+[
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "generator_schema_validation",
+    "batch_round": 1,
+    "attempt": 1,
+    "candidate_index": 0,
+    "error": "ValueError: Candidate references non-retrieved evidence: ['logistic_regression_with_balanced_class_weights_improves_sensitivity_on_imbalanced_binary_classification']"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "generator_schema_validation",
+    "batch_round": 1,
+    "attempt": 1,
+    "candidate_index": 1,
+    "error": "ValueError: Candidate references non-retrieved evidence: ['extra_trees_with_balanced_class_weights_reduces_overfitting_on_medical_datasets']"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "generator_schema_validation",
+    "batch_round": 1,
+    "attempt": 1,
+    "candidate_index": 2,
+    "error": "ValueError: Candidate references non-retrieved evidence: ['stacking_ensemble_combines_tree_and_linear_models_improves_generalization_on_tabular_data']"
+  },
+  {
+    "origin": "batch_budget",
+    "status": "summary",
+    "requested": 3,
+    "proposed_valid": 3,
+    "unfilled": 0,
+    "llm_calls": 1
+  }
+]

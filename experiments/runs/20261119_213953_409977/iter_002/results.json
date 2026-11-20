@@ -1,0 +1,229 @@
+[
+  {
+    "candidate_id": "iter02_c1",
+    "iteration": 2,
+    "config": {
+      "rationale": "Implement soft voting with Logistic Regression (stronger regularization via C=0.1) and Gradient Boosting, following the ensemble structure proven effective in iter01_c1 but tuned for better generalization.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 0.1,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "gb",
+            "transforms": [],
+            "model": {
+              "name": "gradient_boosting",
+              "hyperparameters": {
+                "n_estimators": 80,
+                "learning_rate": 0.05,
+                "max_depth": 2,
+                "subsample": 0.7,
+                "min_samples_split": 3
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [],
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ]
+    },
+    "model_name": "composition:voting",
+    "mean_cv_score": 0.7057,
+    "std_cv_score": 0.0237,
+    "fold_scores": [
+      0.7725,
+      0.7131,
+      0.7098,
+      0.6997,
+      0.692,
+      0.6613,
+      0.7098,
+      0.6954,
+      0.6953,
+      0.6953,
+      0.7068,
+      0.6899,
+      0.7021,
+      0.7037,
+      0.7391
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.2215,
+    "cv_wall_time_seconds": 4.0931,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0342,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter02_c2",
+    "iteration": 2,
+    "config": {
+      "rationale": "Replace standard Gradient Boosting with HistGradientBoosting in the voting ensemble to test if its optimized regularization and tree structure improves performance over the previous iteration (iter01_c2) which used RF and LR.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 0.5,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "hgb",
+            "transforms": [],
+            "model": {
+              "name": "hist_gradient_boosting",
+              "hyperparameters": {
+                "max_iter": 100,
+                "learning_rate": 0.1,
+                "max_depth": 5,
+                "max_leaf_nodes": 31,
+                "l2_regularization": 0.0,
+                "early_stopping": false
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [],
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ]
+    },
+    "model_name": "composition:voting",
+    "mean_cv_score": 0.7021,
+    "std_cv_score": 0.0165,
+    "fold_scores": [
+      0.742,
+      0.7126,
+      0.7188,
+      0.6909,
+      0.6955,
+      0.6731,
+      0.6942,
+      0.6888,
+      0.6787,
+      0.7159,
+      0.7006,
+      0.7055,
+      0.6994,
+      0.708,
+      0.7076
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.1246,
+    "cv_wall_time_seconds": 2.4001,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0627,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter02_c3",
+    "iteration": 2,
+    "config": {
+      "rationale": "Reduce overfitting by increasing tree depth constraints and leaf size requirements in a single Random Forest model, addressing the high train_cv_gap observed in the baseline.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": {
+        "name": "random_forest",
+        "hyperparameters": {
+          "n_estimators": 200,
+          "max_depth": 8,
+          "min_samples_split": 4,
+          "min_samples_leaf": 2,
+          "max_features": "sqrt"
+        }
+      },
+      "composition": null,
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "random_forest",
+    "mean_cv_score": 0.7145,
+    "std_cv_score": 0.0165,
+    "fold_scores": [
+      0.7455,
+      0.7254,
+      0.7089,
+      0.6925,
+      0.7152,
+      0.716,
+      0.6925,
+      0.6835,
+      0.731,
+      0.7216,
+      0.7098,
+      0.7082,
+      0.7066,
+      0.7369,
+      0.7235
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.2567,
+    "cv_wall_time_seconds": 4.6584,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0557,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  }
+]

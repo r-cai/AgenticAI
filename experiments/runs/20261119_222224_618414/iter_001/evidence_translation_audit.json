@@ -1,0 +1,40 @@
+[
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "pipeline_preflight_failed:ValueError:rfe.estimator must be logistic_regression or random_forest",
+    "fingerprint": "63122de4adf4621aa74bebfc5c236cad08961fdfcb82e66d73189458940ce810"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "source_does_not_support_used_operations:ev_67cadb757a26d2",
+    "fingerprint": "356df308d371e1ff4d33f09076e2fde75d4a97b50457a7b6c9f86952aaf86abb"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "pipeline_preflight_failed:ValueError:Unsupported rfe parameters: ['n_iter_no_change']",
+    "fingerprint": "2c73635d5b442b68cc6978a3139a3818750c368a3088e9ff91897d726b2942cf"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "source_does_not_support_used_operations:ev_892146c13f0a85",
+    "fingerprint": "7ba06b94d88353615969318266deecf96f935defa8bf700f61db9dbb4b2e0c44"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "pipeline_preflight_failed:ValueError:Unsupported rfe parameters: ['cv']",
+    "fingerprint": "992c2595695c39c1724635e60ff96b8ff357c7024130035875bc636d8ea4fd73"
+  },
+  {
+    "origin": "batch_budget",
+    "status": "summary",
+    "requested": 3,
+    "proposed_valid": 2,
+    "unfilled": 1,
+    "llm_calls": 5
+  }
+]

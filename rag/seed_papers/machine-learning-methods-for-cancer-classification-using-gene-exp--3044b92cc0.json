@@ -1,0 +1,20 @@
+{
+  "title": "Machine Learning Methods for Cancer Classification Using Gene Expression Data: A Review",
+  "abstract": "Cancer is a term that denotes a group of diseases caused by abnormal growth of cells that can spread in different parts of the body. According to the World Health Organization (WHO), cancer is the second major cause of death after cardiovascular diseases. Gene expression can play a fundamental role in the early detection of cancer, as it is indicative of the biochemical processes in tissue and cells, as well as the genetic characteristics of an organism. Deoxyribonucleic Acid (DNA) microarrays and Ribonucleic Acid (RNA)- sequencing methods for gene expression data allow quantifying the expression levels of genes and produce valuable data for computational analysis. This study reviews recent progress in gene expression analysis for cancer classification using machine learning methods. Both conventional and deep learning-based approaches are reviewed, with an emphasis on the ap-plication of deep learning models due to their comparative advantages for identifying gene patterns that are distinctive for various types of cancers. Relevant works that employ the most commonly used deep neural network architectures are covered, including multi-layer perceptrons, convolutional, recurrent, graph, and transformer networks. This survey also presents an overview of the data collection methods for gene expression analysis and lists important datasets that are commonly used for supervised machine learning for this task. Furthermore, reviewed are pertinent techniques for feature engineering and data preprocessing that are typically used to handle the high dimensionality of gene expression data, caused by a large number of genes present in data samples. The paper concludes with a discussion of future research directions for machine learning-based gene expression analysis for cancer classification.",
+  "year": "2023",
+  "doi": "",
+  "url": "http://arxiv.org/abs/2301.12222v1",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/2301.12222v1",
+  "paper_key": "p_3044b92cc03771d05f5afcab",
+  "aliases": [
+    "arxiv:2301.12222",
+    "title:machinelearningmethodsforcancerclassificationusinggeneexpressiondataareview"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_2287dcd19a001ea2.json"
+  ],
+  "evidence": []
+}

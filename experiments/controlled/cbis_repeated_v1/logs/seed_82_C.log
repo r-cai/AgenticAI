@@ -1,0 +1,38 @@
+[config] Loaded C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\controlled\cbis_repeated_v1\configs\82\C_rag_evidence_compiler.yaml
+Run 20261119_232802_577922
+[output] reports will be saved to C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\runs\20261119_232802_577922
+[data] optional excluded columns not present; skipped: ['id']
+Baseline (random_forest): CV 0.6972
+[rag] reusing frozen research/evidence corpus from C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\controlled\cbis_repeated_v1\frozen_corpus
+Research context: 25 item(s)
+Grounded method records: 12; eligible/diverse: 4
+
+=== Iteration 1 ===
+[generator] attempt=1 prompt_tokens=8071 output_tokens=1244
+  iter01_c1 composition:voting: CV 0.7267 (+/- 0.0253, gap 0.0592)
+  iter01_c2 logistic_regression: CV 0.7154 (+/- 0.0191, gap 0.0297)
+  iter01_c3 composition:voting: CV 0.7234 (+/- 0.0234, gap 0.0700)
+
+=== Iteration 2 ===
+[generator] attempt=1 prompt_tokens=8944 output_tokens=1317
+[generator] attempt=1 prompt_tokens=9003 output_tokens=1733
+  iter02_c1 composition:pipeline: CV 0.6928 (+/- 0.0221, gap 0.0193)
+  iter02_c2 composition:voting: CV 0.7232 (+/- 0.0250, gap 0.0311)
+  iter02_c3 composition:voting: CV 0.7225 (+/- 0.0218, gap 0.0317)
+[controlled] completed 6 successfully evaluated candidates
+
+Selected iter01_c1 (composition:voting), CV 0.7267
+PDF report: experiments\runs\20261119_232802_577922\level2_experiment_report.pdf
+[report] Named latest: C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\reports\final_report_data-cbis-ddsm_C.json
+[report] Run archive:  C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\reports\final_report_data-cbis-ddsm_C_20261119_232802_577922.json
+
+============================================================
+Best: iter01_c1 (composition:voting)
+  CV f1_macro: 0.7267 +/- 0.0253
+  Baseline CV:    0.6972
+  Holdout:        0.6803 (CV-holdout gap +0.0464)
+Stopped: target_evaluated_candidates_reached after 2 iteration(s)
+Full report: experiments/runs/20261119_232802_577922/final_report.json
+Named report: experiments\reports\final_report_data-cbis-ddsm_C.json
+Archived copy: experiments\reports\final_report_data-cbis-ddsm_C_20261119_232802_577922.json
+PDF report:  experiments\runs\20261119_232802_577922\level2_experiment_report.pdf

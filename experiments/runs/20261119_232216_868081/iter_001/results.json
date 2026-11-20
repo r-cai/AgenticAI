@@ -1,0 +1,257 @@
+[
+  {
+    "candidate_id": "iter01_c1",
+    "iteration": 1,
+    "config": {
+      "rationale": "Test ensemble robustness using soft voting with Logistic Regression and Random Forest, leveraging complementary decision boundaries for imbalanced binary classification.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 1.0,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "rf",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 200,
+                "max_depth": 10,
+                "min_samples_split": 2,
+                "min_samples_leaf": 1,
+                "max_features": "sqrt",
+                "class_weight": "balanced"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "http://arxiv.org/abs/2507.04251v1"
+      ],
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ]
+    },
+    "model_name": "composition:voting",
+    "mean_cv_score": 0.7256,
+    "std_cv_score": 0.0214,
+    "fold_scores": [
+      0.6856,
+      0.7237,
+      0.7113,
+      0.7709,
+      0.762,
+      0.7326,
+      0.7348,
+      0.7153,
+      0.7304,
+      0.715,
+      0.7438,
+      0.7275,
+      0.7212,
+      0.6979,
+      0.7115
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.3701,
+    "cv_wall_time_seconds": 6.8254,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.057,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter01_c2",
+    "iteration": 1,
+    "config": {
+      "rationale": "Improve ensemble diversity by combining Random Forest and Gradient Boosting with soft voting, addressing high dimensionality via feature selection.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "rf",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 150,
+                "max_depth": 8,
+                "min_samples_split": 4,
+                "min_samples_leaf": 2,
+                "max_features": "sqrt",
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "gb",
+            "transforms": [],
+            "model": {
+              "name": "gradient_boosting",
+              "hyperparameters": {
+                "n_estimators": 100,
+                "learning_rate": 0.05,
+                "max_depth": 4,
+                "subsample": 0.7,
+                "min_samples_split": 2
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [],
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ]
+    },
+    "model_name": "composition:voting",
+    "mean_cv_score": 0.7189,
+    "std_cv_score": 0.0255,
+    "fold_scores": [
+      0.6942,
+      0.7226,
+      0.6906,
+      0.7766,
+      0.7527,
+      0.7077,
+      0.6956,
+      0.6947,
+      0.7335,
+      0.7101,
+      0.7573,
+      0.6974,
+      0.7283,
+      0.7022,
+      0.7196
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.5358,
+    "cv_wall_time_seconds": 9.2959,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0667,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter01_c3",
+    "iteration": 1,
+    "config": {
+      "rationale": "Apply Recursive Feature Elimination (RFE) to reduce dimensionality and mitigate overfitting, supported by evidence from 'ATwo-Stage Ensemble Feature Selection...' which uses RFE for micro-array data.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "pipeline",
+        "transforms": [
+          {
+            "op": "rfe",
+            "params": {
+              "estimator": "random_forest",
+              "n_features_to_select": 20
+            }
+          },
+          {
+            "op": "standard_scaler",
+            "params": {}
+          }
+        ],
+        "branches": [],
+        "model": {
+          "name": "gradient_boosting",
+          "hyperparameters": {
+            "n_estimators": 150,
+            "learning_rate": 0.05,
+            "max_depth": 4,
+            "min_samples_split": 2,
+            "subsample": 0.8
+          }
+        },
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "http://arxiv.org/abs/2507.04251v1"
+      ],
+      "evidence_ids": [
+        "ev_67cadb757a26d2"
+      ]
+    },
+    "model_name": "composition:pipeline",
+    "mean_cv_score": 0.7036,
+    "std_cv_score": 0.0289,
+    "fold_scores": [
+      0.6942,
+      0.6961,
+      0.6439,
+      0.7424,
+      0.7689,
+      0.7201,
+      0.6912,
+      0.6828,
+      0.7063,
+      0.679,
+      0.7318,
+      0.6951,
+      0.6829,
+      0.6997,
+      0.7196
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 7.3355,
+    "cv_wall_time_seconds": 110.4858,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0889,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  }
+]

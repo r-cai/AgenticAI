@@ -1,0 +1,235 @@
+[
+  {
+    "candidate_id": "iter01_c1",
+    "iteration": 1,
+    "config": {
+      "rationale": "Refine baseline RF with standard scaling to reduce variance and increase estimator count for stability, addressing the train-CV gap.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": {
+        "name": "random_forest",
+        "hyperparameters": {
+          "n_estimators": 300,
+          "max_depth": 15,
+          "min_samples_split": 2,
+          "min_samples_leaf": 2,
+          "max_features": "sqrt",
+          "class_weight": "balanced"
+        }
+      },
+      "composition": null,
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "random_forest",
+    "mean_cv_score": 0.949,
+    "std_cv_score": 0.02,
+    "fold_scores": [
+      0.9416,
+      0.9525,
+      0.9416,
+      0.9765,
+      0.9277,
+      0.9423,
+      0.953,
+      0.9409,
+      0.965,
+      0.9525,
+      0.9765,
+      0.9183,
+      0.9883,
+      0.9183,
+      0.9402
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.832,
+    "cv_wall_time_seconds": 14.0202,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0461,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter01_c2",
+    "iteration": 1,
+    "config": {
+      "rationale": "Construct a soft voting ensemble combining Logistic Regression and Random Forest to leverage complementary decision boundaries, as suggested by literature on ensemble feature selection.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr_branch",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 1.0,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "rf_branch",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 200,
+                "max_depth": 10,
+                "min_samples_split": 2,
+                "min_samples_leaf": 1,
+                "max_features": "sqrt",
+                "class_weight": "balanced"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "http://arxiv.org/abs/2507.04251v1"
+      ],
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ]
+    },
+    "model_name": "composition:voting",
+    "mean_cv_score": 0.9725,
+    "std_cv_score": 0.0153,
+    "fold_scores": [
+      0.9765,
+      0.9646,
+      0.9646,
+      0.9765,
+      0.9882,
+      0.9416,
+      0.9646,
+      0.9762,
+      1.0,
+      0.9762,
+      0.9765,
+      0.9525,
+      1.0,
+      0.9654,
+      0.9646
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.5146,
+    "cv_wall_time_seconds": 9.1504,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.019,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter01_c3",
+    "iteration": 1,
+    "config": {
+      "rationale": "Test complementary decision boundaries using soft voting as suggested in ensemble literature for micro-array data.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 1.0,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "rf",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 150,
+                "max_depth": 10,
+                "min_samples_split": 2,
+                "min_samples_leaf": 1,
+                "max_features": "sqrt",
+                "class_weight": "balanced"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "http://arxiv.org/abs/2507.04251v1"
+      ],
+      "evidence_ids": [
+        "ev_5294c787c1645c"
+      ]
+    },
+    "model_name": "composition:voting",
+    "mean_cv_score": 0.9717,
+    "std_cv_score": 0.0147,
+    "fold_scores": [
+      0.9765,
+      0.9646,
+      0.9646,
+      0.9765,
+      0.9762,
+      0.9416,
+      0.9646,
+      0.9762,
+      1.0,
+      0.9762,
+      0.9765,
+      0.9525,
+      1.0,
+      0.9654,
+      0.9646
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.4156,
+    "cv_wall_time_seconds": 7.4239,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0198,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  }
+]

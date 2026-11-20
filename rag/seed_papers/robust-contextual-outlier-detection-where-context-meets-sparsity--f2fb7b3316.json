@@ -1,0 +1,20 @@
+{
+  "title": "Robust Contextual Outlier Detection: Where Context Meets Sparsity",
+  "abstract": "Outlier detection is a fundamental data science task with applications ranging from data cleaning to network security. Given the fundamental nature of the task, this has been the subject of much research. Recently, a new class of outlier detection algorithms has emerged, called {\\it contextual outlier detection}, and has shown improved performance when studying anomalous behavior in a specific context. However, as we point out in this article, such approaches have limited applicability in situations where the context is sparse (i.e. lacking a suitable frame of reference). Moreover, approaches developed to date do not scale to large datasets. To address these problems, here we propose a novel and robust approach alternative to the state-of-the-art called RObust Contextual Outlier Detection (ROCOD). We utilize a local and global behavioral model based on the relevant contexts, which is then integrated in a natural and robust fashion. We also present several optimizations to improve the scalability of the approach. We run ROCOD on both synthetic and real-world datasets and demonstrate that it outperforms other competitive baselines on the axes of efficacy and efficiency (40X speedup compared to modern contextual outlier detection methods). We also drill down and perform a fine-grained analysis to shed light on the rationale for the performance gains of ROCOD and reveal its effectiveness when handling objects with sparse contexts.",
+  "year": "2016",
+  "doi": "",
+  "url": "http://arxiv.org/abs/1607.08329v3",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/1607.08329v3",
+  "paper_key": "p_f2fb7b3316900519193c05e4",
+  "aliases": [
+    "arxiv:1607.08329",
+    "title:robustcontextualoutlierdetectionwherecontextmeetssparsity"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_2c43c5fd735aa0ab.json"
+  ],
+  "evidence": []
+}

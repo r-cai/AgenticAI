@@ -1,0 +1,226 @@
+[
+  {
+    "candidate_id": "iter01_c1",
+    "iteration": 1,
+    "config": {
+      "rationale": "Construct a soft voting ensemble to combine the linear decision boundary of Logistic Regression with the non-linear capacity of Random Forest, mitigating individual model biases.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 1.0,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "rf",
+            "transforms": [],
+            "model": {
+              "name": "random_forest",
+              "hyperparameters": {
+                "n_estimators": 150,
+                "max_depth": 8,
+                "min_samples_split": 2,
+                "min_samples_leaf": 1,
+                "max_features": "sqrt",
+                "class_weight": "balanced"
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "composition:voting",
+    "mean_cv_score": 0.6972,
+    "std_cv_score": 0.0237,
+    "fold_scores": [
+      0.7083,
+      0.7521,
+      0.6549,
+      0.6642,
+      0.6803,
+      0.7103,
+      0.6838,
+      0.7259,
+      0.6992,
+      0.692,
+      0.6884,
+      0.7037,
+      0.7072,
+      0.7119,
+      0.6754
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.219,
+    "cv_wall_time_seconds": 4.149,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0583,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter01_c2",
+    "iteration": 1,
+    "config": {
+      "rationale": "Test ensemble robustness by combining Logistic Regression and Gradient Boosting via soft voting, leveraging their complementary decision boundaries.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "voting",
+        "transforms": [],
+        "branches": [
+          {
+            "name": "lr_branch",
+            "transforms": [],
+            "model": {
+              "name": "logistic_regression",
+              "hyperparameters": {
+                "C": 1.0,
+                "solver": "lbfgs",
+                "max_iter": 1000,
+                "class_weight": "balanced"
+              }
+            }
+          },
+          {
+            "name": "gb_branch",
+            "transforms": [],
+            "model": {
+              "name": "gradient_boosting",
+              "hyperparameters": {
+                "n_estimators": 100,
+                "learning_rate": 0.1,
+                "max_depth": 3,
+                "subsample": 0.8,
+                "min_samples_split": 2
+              }
+            }
+          }
+        ],
+        "model": null,
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "composition:voting",
+    "mean_cv_score": 0.7058,
+    "std_cv_score": 0.0225,
+    "fold_scores": [
+      0.6955,
+      0.7634,
+      0.6798,
+      0.6807,
+      0.6884,
+      0.7093,
+      0.6882,
+      0.7288,
+      0.6916,
+      0.7108,
+      0.706,
+      0.7179,
+      0.7207,
+      0.7269,
+      0.6797
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.1756,
+    "cv_wall_time_seconds": 3.0196,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0579,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  },
+  {
+    "candidate_id": "iter01_c3",
+    "iteration": 1,
+    "config": {
+      "rationale": "Refine the Random Forest baseline with explicit hyperparameters to ensure stability and avoid empty config errors. Increase n_estimators for convergence.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "standard",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": {
+        "name": "random_forest",
+        "hyperparameters": {
+          "n_estimators": 300,
+          "max_depth": 15,
+          "min_samples_split": 2,
+          "min_samples_leaf": 1,
+          "max_features": "sqrt",
+          "class_weight": "balanced"
+        }
+      },
+      "composition": null,
+      "research_basis": [],
+      "evidence_ids": []
+    },
+    "model_name": "random_forest",
+    "mean_cv_score": 0.6991,
+    "std_cv_score": 0.0271,
+    "fold_scores": [
+      0.669,
+      0.7448,
+      0.692,
+      0.7028,
+      0.641,
+      0.717,
+      0.7093,
+      0.7154,
+      0.6591,
+      0.6838,
+      0.7162,
+      0.698,
+      0.7147,
+      0.7359,
+      0.687
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 0.4748,
+    "cv_wall_time_seconds": 8.481,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.1735,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm",
+    "evidence_mapping": {},
+    "error": null
+  }
+]

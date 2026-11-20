@@ -1,0 +1,20 @@
+{
+  "title": "Causal Attribution of Model Performance Gaps in Medical Imaging Under Distribution Shifts",
+  "abstract": "Deep learning models for medical image segmentation suffer significant performance drops due to distribution shifts, but the causal mechanisms behind these drops remain poorly understood. We extend causal attribution frameworks to high-dimensional segmentation tasks, quantifying how acquisition protocols and annotation variability independently contribute to performance degradation. We model the data-generating process through a causal graph and employ Shapley values to fairly attribute performance changes to individual mechanisms. Our framework addresses unique challenges in medical imaging: high-dimensional outputs, limited samples, and complex mechanism interactions. Validation on multiple sclerosis (MS) lesion segmentation across 4 centers and 7 annotators reveals context-dependent failure modes: annotation protocol shifts dominate when crossing annotators (7.4% $\\pm$ 8.9% DSC attribution), while acquisition shifts dominate when crossing imaging centers (6.5% $\\pm$ 9.1%). This mechanism-specific quantification enables practitioners to prioritize targeted interventions based on deployment context.",
+  "year": "2025",
+  "doi": "",
+  "url": "http://arxiv.org/abs/2512.09094v1",
+  "source": "arxiv",
+  "first_seen": "2026-11-20T00:32:32+00:00",
+  "last_seen": "2026-11-20T00:32:32+00:00",
+  "id": "http://arxiv.org/abs/2512.09094v1",
+  "paper_key": "p_a440837016cea2e5212a80ed",
+  "aliases": [
+    "arxiv:2512.09094",
+    "title:causalattributionofmodelperformancegapsinmedicalimagingunderdistributionshifts"
+  ],
+  "provenance": [
+    "/mnt/data/AgenticResearchPipeline.zip!rag/cache/arxiv_eb1c1fbae050ae58.json"
+  ],
+  "evidence": []
+}

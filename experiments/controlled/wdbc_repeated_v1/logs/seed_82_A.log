@@ -1,0 +1,36 @@
+[config] Loaded C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\controlled\wdbc_repeated_v1\configs\82\A_no_rag.yaml
+Run 20261119_232537_470635
+[output] reports will be saved to C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\runs\20261119_232537_470635
+[data] optional excluded columns not present; skipped: ['id']
+Baseline (random_forest): CV 0.9471
+Research context: 0 item(s)
+Grounded method records: 0; eligible/diverse: 0
+
+=== Iteration 1 ===
+[generator] attempt=1 prompt_tokens=5905 output_tokens=858
+  iter01_c1 logistic_regression: CV 0.9679 (+/- 0.0164, gap 0.0119)
+  iter01_c2 gradient_boosting: CV 0.9456 (+/- 0.0277, gap 0.0544)
+  iter01_c3 composition:stacking: CV 0.9717 (+/- 0.0193, gap 0.0193)
+
+=== Iteration 2 ===
+[generator] attempt=1 prompt_tokens=6658 output_tokens=987
+  iter02_c1 composition:stacking: CV 0.9653 (+/- 0.0226, gap 0.0256)
+  iter02_c2 random_forest: CV 0.9458 (+/- 0.0272, gap 0.0493)
+  iter02_c3 hist_gradient_boosting: CV 0.9481 (+/- 0.0235, gap 0.0519)
+[controlled] completed 6 successfully evaluated candidates
+
+Selected iter01_c3 (composition:stacking), CV 0.9717
+PDF report: experiments\runs\20261119_232537_470635\level2_experiment_report.pdf
+[report] Named latest: C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\reports\final_report_data-3_A.json
+[report] Run archive:  C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\reports\final_report_data-3_A_20261119_232537_470635.json
+
+============================================================
+Best: iter01_c3 (composition:stacking)
+  CV f1_macro: 0.9717 +/- 0.0193
+  Baseline CV:    0.9471
+  Holdout:        0.9812 (CV-holdout gap -0.0095)
+Stopped: target_evaluated_candidates_reached after 2 iteration(s)
+Full report: experiments/runs/20261119_232537_470635/final_report.json
+Named report: experiments\reports\final_report_data-3_A.json
+Archived copy: experiments\reports\final_report_data-3_A_20261119_232537_470635.json
+PDF report:  experiments\runs\20261119_232537_470635\level2_experiment_report.pdf

@@ -1,0 +1,101 @@
+[
+  {
+    "candidate_id": "iter06_c1",
+    "iteration": 6,
+    "config": {
+      "rationale": "Apply Recursive Feature Elimination to reduce dimensionality from 49 features, leveraging the tree-based importance scores for feature selection.",
+      "preprocessing": {
+        "numeric_imputer": "median",
+        "numeric_scaler": "none",
+        "categorical_encoder": "onehot",
+        "drop_columns": []
+      },
+      "model": null,
+      "composition": {
+        "kind": "pipeline",
+        "transforms": [
+          {
+            "op": "standard_scaler",
+            "params": {}
+          },
+          {
+            "op": "rfe",
+            "params": {
+              "estimator": "logistic_regression",
+              "n_features_to_select": 10
+            }
+          }
+        ],
+        "branches": [],
+        "model": {
+          "name": "random_forest",
+          "hyperparameters": {
+            "n_estimators": 150,
+            "max_depth": 8,
+            "min_samples_leaf": 2
+          }
+        },
+        "final_estimator": null,
+        "voting": "soft",
+        "passthrough": false
+      },
+      "research_basis": [
+        "ev_67cadb757a26d2"
+      ],
+      "evidence_ids": [
+        "ev_67cadb757a26d2"
+      ]
+    },
+    "model_name": "composition:pipeline",
+    "mean_cv_score": 0.6935,
+    "std_cv_score": 0.0252,
+    "fold_scores": [
+      0.6567,
+      0.7436,
+      0.6665,
+      0.7046,
+      0.697,
+      0.7084,
+      0.6707,
+      0.7174,
+      0.6757,
+      0.7059,
+      0.6909,
+      0.6866,
+      0.6555,
+      0.732,
+      0.6916
+    ],
+    "scoring": "f1_macro",
+    "cv_fit_time_mean_seconds": 1.0877,
+    "cv_wall_time_seconds": 17.4095,
+    "n_evaluations": 15,
+    "train_cv_gap": 0.0221,
+    "convergence_warning_count": 0,
+    "convergence_warning": null,
+    "origin": "llm_evidence_design",
+    "evidence_mapping": {
+      "method": "llm_evidence_grounded",
+      "evidence_ids": [
+        "ev_67cadb757a26d2"
+      ],
+      "trace": [
+        {
+          "evidence_id": "ev_67cadb757a26d2",
+          "paper_title": "ATwo-Stage Ensemble Feature Selection and Particle Swarm Optimization Approach for Micro-Array Data Classification in Distributed Computing Environments",
+          "source_excerpt": "Recursive Feature Elimination (RFE)",
+          "supported_operations": [
+            "rfe"
+          ],
+          "matched_executable_operations": [
+            "rfe"
+          ],
+          "extraction_warnings": [],
+          "claim_scope": "operations_only_not_hyperparameters_or_whole_architecture"
+        }
+      ],
+      "implementation_choices": "Uncited architecture details and hyperparameters are LLM-proposed hypotheses, not proven settings from the cited papers"
+    },
+    "error": null
+  }
+]

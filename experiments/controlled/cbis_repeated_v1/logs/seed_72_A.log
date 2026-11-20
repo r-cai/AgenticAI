@@ -1,0 +1,45 @@
+[config] Loaded C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\controlled\cbis_repeated_v1\configs\72\A_no_rag.yaml
+Run 20261119_224342_668505
+[output] reports will be saved to C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\runs\20261119_224342_668505
+[data] optional excluded columns not present; skipped: ['id']
+Baseline (random_forest): CV 0.7045
+Research context: 0 item(s)
+Grounded method records: 0; eligible/diverse: 0
+
+=== Iteration 1 ===
+[generator] attempt=1 prompt_tokens=5904 output_tokens=738
+[generator] attempt=1 prompt_tokens=6142 output_tokens=923
+[generator] attempt=1 prompt_tokens=6199 output_tokens=859
+[generator] attempt=1 prompt_tokens=6199 output_tokens=814
+[generator] attempt=1 prompt_tokens=6258 output_tokens=743
+  iter01_c1 logistic_regression: CV 0.7168 (+/- 0.0313, gap 0.0281)
+  iter01_c2 extra_trees: CV 0.7009 (+/- 0.0323, gap 0.0148)
+  iter01_c3 gradient_boosting: CV 0.7224 (+/- 0.0418, gap 0.0757)
+
+=== Iteration 2 ===
+[generator] attempt=1 prompt_tokens=6558 output_tokens=968
+[generator] rejected candidate[0]: ValueError: Candidate references non-retrieved evidence: ['iter01_c1', 'iter01_c3']
+[generator] rejected candidate[1]: ValueError: Candidate references non-retrieved evidence: ['iter01_c1']
+[generator] attempt=2 prompt_tokens=6714 output_tokens=706
+[generator] rejected candidate[0]: ValueError: Candidate references non-retrieved evidence: ['iter01_c3']
+[generator] attempt=1 prompt_tokens=6730 output_tokens=1038
+  iter02_c1 composition:voting: CV 0.7215 (+/- 0.0337, gap 0.0489)
+  iter02_c2 composition:voting: CV 0.7172 (+/- 0.0372, gap 0.0708)
+  iter02_c3 random_forest: CV 0.7056 (+/- 0.0386, gap 0.1659)
+[controlled] completed 6 successfully evaluated candidates
+
+Selected iter01_c3 (gradient_boosting), CV 0.7224
+PDF report: experiments\runs\20261119_224342_668505\level2_experiment_report.pdf
+[report] Named latest: C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\reports\final_report_data-cbis-ddsm_A.json
+[report] Run archive:  C:\Users\charl\anaconda3\AgenticAI\AgenticResearchPipeline_L2_Controlled_ABCD_Repeat_UTF8_Fix\experiments\reports\final_report_data-cbis-ddsm_A_20261119_224342_668505.json
+
+============================================================
+Best: iter01_c3 (gradient_boosting)
+  CV f1_macro: 0.7224 +/- 0.0418
+  Baseline CV:    0.7045
+  Holdout:        0.6816 (CV-holdout gap +0.0408)
+Stopped: target_evaluated_candidates_reached after 2 iteration(s)
+Full report: experiments/runs/20261119_224342_668505/final_report.json
+Named report: experiments\reports\final_report_data-cbis-ddsm_A.json
+Archived copy: experiments\reports\final_report_data-cbis-ddsm_A_20261119_224342_668505.json
+PDF report:  experiments\runs\20261119_224342_668505\level2_experiment_report.pdf

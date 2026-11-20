@@ -1,0 +1,34 @@
+[
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "pipeline_preflight_failed:ValueError:Unsupported rfe parameters: ['cv', 'verbose']",
+    "fingerprint": "fdd89d8e5c50082c1ef09ba6caf5783889e2294666bbf10c660f172ec89a29ab"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "pipeline_preflight_failed:ValueError:Unsupported rfe parameters: ['verbose']",
+    "fingerprint": "a320590a106e86d14df3be9726053f748de7127f9ec42f0d1968863cbdcbb2d0"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "evidence-linked candidate must be an actual Level-2 composition",
+    "fingerprint": "09c5d1d6d0f7c9bafafaf4ab98a3915826bbbf85a0a9343cc8f97d9d518fbbc7"
+  },
+  {
+    "origin": "llm",
+    "status": "rejected",
+    "reason": "evidence-linked candidate must be an actual Level-2 composition",
+    "fingerprint": "09c5d1d6d0f7c9bafafaf4ab98a3915826bbbf85a0a9343cc8f97d9d518fbbc7"
+  },
+  {
+    "origin": "batch_budget",
+    "status": "summary",
+    "requested": 3,
+    "proposed_valid": 3,
+    "unfilled": 0,
+    "llm_calls": 5
+  }
+]
